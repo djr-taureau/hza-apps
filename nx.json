@@ -1,0 +1,22 @@
+{
+  "npmScope": "hza-repo",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "hza-apps": {
+      "tags": []
+    },
+    "hza-apps-e2e": {
+      "tags": [],
+      "implicitDependencies": ["hza-apps"]
+    }
+  }
+}
