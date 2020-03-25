@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hza-repo-root',
+  selector: 'hza-app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

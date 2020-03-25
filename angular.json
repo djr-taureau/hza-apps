@@ -215,6 +215,38 @@
           "styleext": "scss"
         }
       }
+    },
+    "loans": {
+      "projectType": "library",
+      "root": "libs/loans",
+      "sourceRoot": "libs/loans/src",
+      "prefix": "hza-loans",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/loans/tsconfig.lib.json",
+              "libs/loans/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/loans/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/loans/jest.config.js",
+            "tsConfig": "libs/loans/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/loans/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
