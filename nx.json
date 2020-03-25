@@ -27,8 +27,12 @@
     "shared-utils": {
       "tags": ["scope:shared", "type:util"]
     },
+    "shared-environments": {
+      "tags": ["scope:shared", "type:environments"]
+    },
     "loans": {
       "tags": ["scope:shared", "type:feature"]
-    }
+    },
+
   }
 }
