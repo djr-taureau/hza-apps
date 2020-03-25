@@ -17,7 +17,9 @@
         "shared-assets",
         "shared-styles",
         "shared-utils",
-        "loans"
+        "loans",
+        "documents",
+        "tasks"
       ]
     },
     "hza-e2e": {
@@ -46,10 +48,10 @@
       "tags": ["scope:shared", "type:data-access"]
     },
     "documents": {
-      "tags": ["type:feature"]
+      "tags": ["scope:hza","type:feature"]
     },
     "tasks": {
-      "tags": ["type:feature"]
+      "tags": ["scope:hza", "type:feature"]
     }
   }
 }
