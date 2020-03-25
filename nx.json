@@ -1,5 +1,5 @@
 {
-  "npmScope": "hza-repo",
+  "npmScope": "hza",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -11,12 +11,12 @@
     "nx.json": "*"
   },
   "projects": {
-    "hza-apps": {
+    "hza": {
       "tags": []
     },
-    "hza-apps-e2e": {
+    "hza-e2e": {
       "tags": [],
-      "implicitDependencies": ["hza-apps"]
+      "implicitDependencies": ["hza"]
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]

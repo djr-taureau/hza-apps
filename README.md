@@ -1,6 +1,6 @@
 # Fay Enterprise Apps
 
-Monorepo for hza-apps
+Monorepo for hza
 
 ## Local Setup
 
@@ -47,7 +47,7 @@ UI-Components live in `/libs/ui-components/[component-name]`
 
 ### Core Library
 
-The core library houses specific services, interfaces, classes and pipes which are vital to an 'Application` an example of this would be an Authentication service, messaging, events, notifications services,  or HTTP Interceptors. Most pieces of the Core Library are single use.
+The core library houses specific services, interfaces, classes and pipes which are vital to an 'Application` an example of this would be an Authentication service, messaging, events, notifications services, or HTTP Interceptors. Most pieces of the Core Library are single use.
 
 The Core library lives in `/libs/core`
 
@@ -60,13 +60,14 @@ For example a `Pipe` which selects the first item from an array.
 
 ### Feature Library
 
-
 #### account-managers-queue
+
 #### client-approval-requests
+
 #### doc-repo
+
 #### loans
+
 #### msp-queue
+
 #### tasks
-
-
-

@@ -1,28 +1,27 @@
 {
   "version": 1,
   "projects": {
-    "hza-apps": {
+    "hza": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/hza-apps",
-      "sourceRoot": "apps/hza-apps/src",
-      "prefix": "hza-repo",
+      "root": "apps/hza",
+      "sourceRoot": "apps/hza/src",
+      "prefix": "hza",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/hza-apps",
-            "index": "apps/hza-apps/src/index.html",
-            "main": "apps/hza-apps/src/main.ts",
-            "polyfills": "apps/hza-apps/src/polyfills.ts",
-            "tsConfig": "apps/hza-apps/tsconfig.app.json",
+            "outputPath": "dist/apps/hza",
+            "index": "apps/hza/src/index.html",
+            "main": "apps/hza/src/main.ts",
+            "polyfills": "apps/hza/src/polyfills.ts",
+            "tsConfig": "apps/hza/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              {
+            "assets": [{
                 "glob": "favicon.ico",
                 "input": "libs/shared/assets/src",
                 "output": ""
@@ -46,12 +45,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/hza-apps/src/environments/environment.ts",
-                  "with": "apps/hza-apps/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "apps/hza/src/environments/environment.ts",
+                "with": "apps/hza/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -60,8 +57,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -78,64 +74,64 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hza-apps:build"
+            "browserTarget": "hza:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "hza-apps:build:production"
+              "browserTarget": "hza:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hza-apps:build"
+            "browserTarget": "hza:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/hza-apps/tsconfig.app.json",
-              "apps/hza-apps/tsconfig.spec.json"
+              "apps/hza/tsconfig.app.json",
+              "apps/hza/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/hza-apps/**"]
+            "exclude": ["**/node_modules/**", "!apps/hza/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/hza-apps/jest.config.js",
-            "tsConfig": "apps/hza-apps/tsconfig.spec.json",
+            "jestConfig": "apps/hza/jest.config.js",
+            "tsConfig": "apps/hza/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "apps/hza-apps/src/test-setup.ts"
+            "setupFile": "apps/hza/src/test-setup.ts"
           }
         }
       }
     },
-    "hza-apps-e2e": {
-      "root": "apps/hza-apps-e2e",
-      "sourceRoot": "apps/hza-apps-e2e/src",
+    "hza-e2e": {
+      "root": "apps/hza-e2e",
+      "sourceRoot": "apps/hza-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/hza-apps-e2e/cypress.json",
-            "tsConfig": "apps/hza-apps-e2e/tsconfig.e2e.json",
-            "devServerTarget": "hza-apps:serve"
+            "cypressConfig": "apps/hza-e2e/cypress.json",
+            "tsConfig": "apps/hza-e2e/tsconfig.e2e.json",
+            "devServerTarget": "hza:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "hza-apps:serve:production"
+              "devServerTarget": "hza:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/hza-apps-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/hza-apps-e2e/**"]
+            "tsConfig": ["apps/hza-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/hza-e2e/**"]
           }
         }
       }
@@ -144,7 +140,7 @@
       "projectType": "library",
       "root": "libs/shared/assets",
       "sourceRoot": "libs/shared/assets/src",
-      "prefix": "hza-repo",
+      "prefix": "hza",
       "architect": {},
       "schematics": {
         "@nrwl/angular:component": {
@@ -156,7 +152,7 @@
       "projectType": "library",
       "root": "libs/shared/styles",
       "sourceRoot": "libs/shared/styles/src",
-      "prefix": "hza-repo",
+      "prefix": "hza",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -262,5 +258,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "hza-apps"
+  "defaultProject": "hza"
 }

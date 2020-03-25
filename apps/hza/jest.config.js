@@ -1,7 +1,7 @@
 module.exports = {
-  name: 'hza-apps',
+  name: 'hza',
   preset: '../../jest.config.js',
-  coverageDirectory: '../../coverage/apps/hza-apps',
+  coverageDirectory: '../../coverage/apps/hza',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
