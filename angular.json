@@ -99,10 +99,7 @@
               "apps/hza-apps/tsconfig.app.json",
               "apps/hza-apps/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/hza-apps/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/hza-apps/**"]
           }
         },
         "test": {
@@ -137,13 +134,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/hza-apps-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/hza-apps-e2e/**"
-            ]
+            "tsConfig": ["apps/hza-apps-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/hza-apps-e2e/**"]
           }
         }
       }
@@ -173,10 +165,7 @@
               "libs/shared/styles/tsconfig.lib.json",
               "libs/shared/styles/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/styles/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/styles/**"]
           }
         },
         "test": {
@@ -186,6 +175,38 @@
             "tsConfig": "libs/shared/styles/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/shared/styles/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-utils": {
+      "projectType": "library",
+      "root": "libs/shared/utils",
+      "sourceRoot": "libs/shared/utils/src",
+      "prefix": "hza-repo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/utils/tsconfig.lib.json",
+              "libs/shared/utils/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/utils/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/utils/jest.config.js",
+            "tsConfig": "libs/shared/utils/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/utils/src/test-setup.ts"
           }
         }
       },

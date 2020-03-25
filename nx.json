@@ -23,6 +23,9 @@
     },
     "shared-styles": {
       "tags": ["scope:shared", "type:styles"]
+    },
+    "shared-utils": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }
