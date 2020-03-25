@@ -12,7 +12,13 @@
   },
   "projects": {
     "hza": {
-      "tags": []
+      "tags": ["scope:hza", "type:app"],
+      "implicitDependencies": [
+        "shared-assets",
+        "shared-styles",
+        "shared-utils",
+        "loans"
+      ]
     },
     "hza-e2e": {
       "tags": [],
@@ -31,8 +37,19 @@
       "tags": ["scope:shared", "type:environments"]
     },
     "loans": {
-      "tags": ["scope:shared", "type:feature"]
+      "tags": ["scope:hza", "type:feature"]
     },
-
+    "core": {
+      "tags": ["scope:hza"]
+    },
+    "shared-data-access": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "documents": {
+      "tags": ["type:feature"]
+    },
+    "tasks": {
+      "tags": ["type:feature"]
+    }
   }
 }

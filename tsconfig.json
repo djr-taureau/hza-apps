@@ -20,7 +20,11 @@
       "@hza/shared/styles": ["libs/shared/styles/src/index.ts"],
       "@hza/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@hza/shared/environments": ["libs/shared/environments/src/index.ts"],
-      "@hza/loans": ["libs/loans/src/index.ts"]
+      "@hza/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@hza/loans": ["libs/loans/src/index.ts"],
+      "@hza/core": ["libs/core/src/index.ts"],
+      "@hza/documents": ["libs/documents/src/index.ts"],
+      "@hza/tasks": ["libs/tasks/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
