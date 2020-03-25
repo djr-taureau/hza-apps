@@ -17,6 +17,12 @@
     "hza-apps-e2e": {
       "tags": [],
       "implicitDependencies": ["hza-apps"]
+    },
+    "shared-assets": {
+      "tags": ["scope:shared", "type:assets"]
+    },
+    "shared-styles": {
+      "tags": ["scope:shared", "type:styles"]
     }
   }
 }

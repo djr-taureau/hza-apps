@@ -22,10 +22,18 @@
             "tsConfig": "apps/hza-apps/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/hza-apps/src/favicon.ico",
-              "apps/hza-apps/src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "libs/shared/assets/src",
+                "output": ""
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
             ],
-            "styles": ["apps/hza-apps/src/styles.scss"],
+            "styles": ["libs/shared/styles/src/scss/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -121,6 +129,50 @@
             "tsConfig": ["apps/hza-apps-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/hza-apps-e2e/**"]
           }
+        }
+      }
+    },
+    "shared-assets": {
+      "projectType": "library",
+      "root": "libs/shared/assets",
+      "sourceRoot": "libs/shared/assets/src",
+      "prefix": "hza-repo",
+      "architect": {},
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-styles": {
+      "projectType": "library",
+      "root": "libs/shared/styles",
+      "sourceRoot": "libs/shared/styles/src",
+      "prefix": "hza-repo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/styles/tsconfig.lib.json",
+              "libs/shared/styles/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/styles/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/styles/jest.config.js",
+            "tsConfig": "libs/shared/styles/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/styles/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }
