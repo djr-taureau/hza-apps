@@ -1,84 +1,72 @@
-# HzaRepo
+# Fay Enterprise Apps
 
-This project was generated using [Nx](https://nx.dev).
+Monorepo for hza-apps
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## Local Setup
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+Local development environment setup.
 
-## Quick Start & Documentation
+## Tooling Setup
 
-[Nx Documentation](https://nx.dev/angular)
+## Angular Structure
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+### Applications
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+Angular Applications are application that can be run and deployed on their own using
+the various libraries
 
-## Adding capabilities to your workspace
+Angular Applications live in the `/apps`
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+#### hza Applications
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+1. Fay Apps Suite (with mock json server) - `yarn dev-with-server`
+2. Loans App - `yarn start loans-app --port 4201`
 
-Below are some plugins which you can add to your workspace:
+\*if using `npm` instead of `yarn` replace `yarn [command]` with `npm run [command]`
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+## Libraries
 
-## Generate an application
+### UI Components Library
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+UI Components are components that do not rely on
+any business logic or services of any application or library outside of its self.
 
-> You can use any of the plugins above to generate applications as well.
+#### UI-Components are allowed to import the following
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+- Angular Modules
+- 3rd Party Modules
+- @fay/ui-components (soon to be replaced with @hza)
 
-## Generate a library
+use the following command to create a new UI-Component
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+`ng g lib [name] --directory=ui-components` OR
 
-> You can also use any of the plugins above to generate libraries as well.
+Use the built in 'nx console UI' extension for VS Code
 
-Libraries are sharable across libraries and applications. They can be imported from `@hza-repo/mylib`.
+UI-Components live in `/libs/ui-components/[component-name]`
 
-## Development server
+### Core Library
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+The core library houses specific services, interfaces, classes and pipes which are vital to an 'Application` an example of this would be an Authentication service, messaging, events, notifications services,  or HTTP Interceptors. Most pieces of the Core Library are single use.
 
-## Code scaffolding
+The Core library lives in `/libs/core`
 
-Run `ng g component my-component --project=my-app` to generate a new component.
+### Shared Library
 
-## Build
+The shared library houses commonly used
+functions, interfaces, classes, pipes and services which can be used within feature modules outside of the generic ui-components.
 
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+For example a `Pipe` which selects the first item from an array.
 
-## Running unit tests
+### Feature Library
 
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+#### account-managers-queue
+#### client-approval-requests
+#### doc-repo
+#### loans
+#### msp-queue
+#### tasks
 
-## Running end-to-end tests
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
