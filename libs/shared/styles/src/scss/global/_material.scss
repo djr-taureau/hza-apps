@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+@import '../_framework';
+
+@include mat-core();
+
+$fay-green: (
+  50: $color-green,
+  100: $color-green,
+  200: $color-green,
+  300: $color-green,
+  400: $color-green,
+  500: $color-green,
+  600: $color-green,
+  700: $color-green,
+  800: $color-green,
+  900: $color-green,
+  A100: $color-green,
+  A200: $color-green,
+  A400: $color-green,
+  A700: $color-green,
+  contrast: (
+    500: $color-white,
+  ),
+);
+
+$fay-primary: mat-palette($fay-green);
+$fay-accent: mat-palette($mat-pink, A200, A100, A400);
+$fay-warn: mat-palette($mat-red);
+$fay-theme: mat-light-theme($fay-primary, $fay-accent, $fay-warn);
+
+@include angular-material-theme($fay-theme);
+
+$fay-typography: mat-typography-config(
+  $font-family: '#{$font-family-primary}',
+  $headline: mat-typography-level(3.2rem, 4.8rem, 700),
+  $body-1: mat-typography-level(1.6rem, 2.4rem, 500),
+);
+
+@include angular-material-typography($fay-typography);
+
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  height: 0.7rem;
+}

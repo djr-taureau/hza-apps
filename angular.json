@@ -34,6 +34,7 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "libs/shared/styles/src/index.scss",
               "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css"
@@ -99,7 +100,10 @@
               "apps/hza/tsconfig.app.json",
               "apps/hza/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/hza/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/hza/**"
+            ]
           }
         },
         "test": {
@@ -134,8 +138,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/hza-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/hza-e2e/**"]
+            "tsConfig": [
+              "apps/hza-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/hza-e2e/**"
+            ]
           }
         }
       }
@@ -177,7 +186,10 @@
               "libs/shared/utils/tsconfig.lib.json",
               "libs/shared/utils/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/utils/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/utils/**"
+            ]
           }
         },
         "test": {
@@ -209,7 +221,10 @@
               "libs/shared/environments/tsconfig.lib.json",
               "libs/shared/environments/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/environments/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/environments/**"
+            ]
           }
         },
         "test": {
@@ -241,7 +256,10 @@
               "libs/loans/tsconfig.lib.json",
               "libs/loans/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/loans/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/loans/**"
+            ]
           }
         },
         "test": {
@@ -273,7 +291,10 @@
               "libs/core/tsconfig.lib.json",
               "libs/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/core/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/core/**"
+            ]
           }
         },
         "test": {
@@ -305,7 +326,10 @@
               "libs/shared/data-access/tsconfig.lib.json",
               "libs/shared/data-access/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/data-access/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/**"
+            ]
           }
         },
         "test": {
@@ -337,7 +361,10 @@
               "libs/documents/tsconfig.lib.json",
               "libs/documents/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/documents/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/documents/**"
+            ]
           }
         },
         "test": {
@@ -369,7 +396,10 @@
               "libs/tasks/tsconfig.lib.json",
               "libs/tasks/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/tasks/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/tasks/**"
+            ]
           }
         },
         "test": {
@@ -401,7 +431,10 @@
               "libs/ui-components/buttons/tsconfig.lib.json",
               "libs/ui-components/buttons/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/buttons/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/buttons/**"
+            ]
           }
         },
         "test": {
@@ -468,7 +501,10 @@
               "libs/ui-components/overlay/tsconfig.lib.json",
               "libs/ui-components/overlay/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/overlay/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/overlay/**"
+            ]
           }
         },
         "test": {
@@ -500,7 +536,10 @@
               "libs/ui-components/tabs/tsconfig.lib.json",
               "libs/ui-components/tabs/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/tabs/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/tabs/**"
+            ]
           }
         },
         "test": {
@@ -532,7 +571,10 @@
               "libs/ui-components/icons/tsconfig.lib.json",
               "libs/ui-components/icons/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/icons/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/icons/**"
+            ]
           }
         },
         "test": {
@@ -599,7 +641,10 @@
               "libs/ui-components/forms/tsconfig.lib.json",
               "libs/ui-components/forms/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/forms/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/forms/**"
+            ]
           }
         },
         "test": {
@@ -631,7 +676,10 @@
               "libs/ui-components/layouts/tsconfig.lib.json",
               "libs/ui-components/layouts/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/layouts/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/layouts/**"
+            ]
           }
         },
         "test": {
@@ -663,7 +711,10 @@
               "libs/ui-components/core/tsconfig.lib.json",
               "libs/ui-components/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/core/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/core/**"
+            ]
           }
         },
         "test": {
@@ -695,7 +746,10 @@
               "libs/ui-components/widget/tsconfig.lib.json",
               "libs/ui-components/widget/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/widget/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/widget/**"
+            ]
           }
         },
         "test": {

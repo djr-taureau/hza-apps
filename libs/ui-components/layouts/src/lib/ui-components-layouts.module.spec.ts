@@ -4,7 +4,7 @@ import { UiComponentsLayoutsModule } from './ui-components-layouts.module';
 describe('UiComponentsLayoutsModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [UiComponentsLayoutsModule]
+      imports: [UiComponentsLayoutsModule],
     }).compileComponents();
   }));
 

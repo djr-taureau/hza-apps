@@ -1,1 +1,3 @@
-export * from './lib/ui-components-core-table.module';
+export * from './lib/ui-components-table.module';
+export * from './lib/table';
+

@@ -4,7 +4,7 @@ import { UiComponentsIconsModule } from './ui-components-icons.module';
 describe('UiComponentsIconsModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [UiComponentsIconsModule]
+      imports: [UiComponentsIconsModule],
     }).compileComponents();
   }));
 

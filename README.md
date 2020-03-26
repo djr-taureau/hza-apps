@@ -35,7 +35,7 @@ any business logic or services of any application or library outside of its self
 
 - Angular Modules
 - 3rd Party Modules
-- @fay/ui-components (soon to be replaced with @hza)
+- @hza/ui-components (soon to be replaced with @hza)
 
 use the following command to create a new UI-Component
 

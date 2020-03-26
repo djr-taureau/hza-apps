@@ -4,7 +4,7 @@ import { UiComponentsWidgetModule } from './ui-components-widget.module';
 describe('UiComponentsWidgetModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [UiComponentsWidgetModule]
+      imports: [UiComponentsWidgetModule],
     }).compileComponents();
   }));
 

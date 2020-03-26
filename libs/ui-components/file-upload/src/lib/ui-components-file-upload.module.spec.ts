@@ -4,7 +4,7 @@ import { UiComponentsFileUploadModule } from './ui-components-file-upload.module
 describe('UiComponentsFileUploadModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [UiComponentsFileUploadModule]
+      imports: [UiComponentsFileUploadModule],
     }).compileComponents();
   }));
 

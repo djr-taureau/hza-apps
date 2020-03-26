@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { PortalModule } from '@angular/cdk/portal';
+import { TabsTemplateComponent } from './components/tabs-template/tabs-template.component';
+
+const COMPONENTS = [
+   TabsTemplateComponent,
+];
 
 @NgModule({
-  imports: [CommonModule]
+  declarations: COMPONENTS,
+  imports: [
+    PortalModule,
+  ],
+  exports: COMPONENTS
 })
 export class UiComponentsTabsModule {}
