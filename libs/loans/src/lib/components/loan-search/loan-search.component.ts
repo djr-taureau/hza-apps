@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
-  selector: 'fay-loan-search',
+  selector: 'hza-loan-search',
   templateUrl: './loan-search.component.html',
   styleUrls: ['./loan-search.component.scss']
 })

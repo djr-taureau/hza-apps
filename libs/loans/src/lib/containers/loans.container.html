@@ -1,17 +1,2 @@
-<fay-loan-search></fay-loan-search>
-
-
-  <clr-datagrid>
-    <clr-dg-column>Loan Number</clr-dg-column>
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Phone</clr-dg-column>
-
-    <clr-dg-row *ngFor="let loan of loans$ | async">
-      <clr-dg-cell>{{loan.LoanNumber}}</clr-dg-cell>
-      <clr-dg-cell>{{loan.Name}}</clr-dg-cell>
-      <clr-dg-cell>{{loan.Phone}}</clr-dg-cell>
-    </clr-dg-row>
-
-    <clr-dg-footer>{{loans$.length}} loans</clr-dg-footer>
-  </clr-datagrid>
-
+<hza-loan-search></hza-loan-search>
+<hza-loans-list [loans]="loans$ | async"></hza-loans-list>

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoansCoreModule, LoansRoutingModule, LoansServicesModule, LoansStateModule, LoansUiModule } from './+modules';
 import { LoansContainer } from './containers/loans.container';
 import { LoanSearchComponent } from './components/loan-search/loan-search.component';
+import { LoansListComponent } from './components/loan-search/loans-list/loans-list.component';
 
 @NgModule({
 	imports: [
@@ -15,6 +16,6 @@ import { LoanSearchComponent } from './components/loan-search/loan-search.compon
 		LoansStateModule,
 		LoansUiModule
 	],
-	declarations: [LoansContainer, LoanSearchComponent]
+	declarations: [LoansContainer, LoanSearchComponent, LoansListComponent]
 })
 export class LoansModule {}
