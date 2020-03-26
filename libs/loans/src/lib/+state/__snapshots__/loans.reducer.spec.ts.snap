@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoansReducer LOANS_LOAD_SUCCESS should add all loans in the payload when none exist 1`] = `
+Object {
+  "entities": Object {
+    "12": Object {
+      "City": "Dallas",
+      "LoanNumber": "3404040",
+      "Name": "Mary Johnson",
+      "Phone": "2142239999",
+      "SourceID": 1,
+      "id": 12,
+    },
+    "2": Object {
+      "City": "Dallas",
+      "LoanNumber": "3404040",
+      "Name": "Mary Johnson",
+      "Phone": "2142239999",
+      "SourceID": 1,
+      "id": 2,
+    },
+  },
+  "ids": Array [
+    2,
+    12,
+  ],
+  "isLoading": false,
+  "loaded": true,
+  "selectedLoanId": null,
+}
+`;
+
+exports[`LoansReducer SELECT should set the selected loan number on the state 1`] = `
+Object {
+  "entities": Object {
+    "12": Object {
+      "City": "Dallas",
+      "LoanNumber": "3404040",
+      "Name": "Mary Johnson",
+      "Phone": "2142239999",
+      "SourceID": 1,
+      "id": 12,
+    },
+    "2": Object {
+      "City": "Dallas",
+      "LoanNumber": "3404040",
+      "Name": "Mary Johnson",
+      "Phone": "2142239999",
+      "SourceID": 1,
+      "id": 2,
+    },
+  },
+  "ids": Array [
+    2,
+    12,
+  ],
+  "isLoading": false,
+  "loaded": false,
+  "selectedLoanId": 2,
+}
+`;
+
+exports[`LoansReducer Selectors selectId should return the selected id 1`] = `2`;
+
+exports[`LoansReducer undefined action should return the default state 1`] = `
+Object {
+  "entities": Object {},
+  "ids": Array [],
+  "isLoading": false,
+  "loaded": false,
+  "selectedLoanId": null,
+}
+`;
