@@ -12,4 +12,17 @@
 
     <clr-dg-footer>{{loans.length}} loans</clr-dg-footer>
   </clr-datagrid>
+  <button class="btn btn-primary" (click)="openModal()">Search Loans</button>
   </div>
+  
+  
+<clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
+  <h3 class="modal-title">Loan Search</h3>
+  <div class="modal-body">
+    <hza-loan-search></hza-loan-search>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="opened = false">Ok</button>
+  </div>
+</clr-modal>

@@ -8,11 +8,17 @@ import { Loan } from '../../../models/loan.model';
 })
 export class LoansListComponent implements OnInit {
 
+	opened: boolean;
   @Input() loans: Loan[];
   
   constructor() { }
 
   ngOnInit() {
+    this.opened = false;
   }
+  
+  	openModal() {
+		this.opened = !this.opened;
+	}
 
 }
