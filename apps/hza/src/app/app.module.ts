@@ -8,7 +8,7 @@ import { ClarityModule } from '@clr/angular';
 
 const routes: Routes = [
 	{
-		path: 'loans',
+		path: '',
 		loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
 	}
 ];
@@ -16,6 +16,7 @@ const routes: Routes = [
 	declarations: [AppComponent],
 	imports: [BrowserModule, RouterModule.forRoot(routes), CoreModule, ClarityModule, BrowserAnimationsModule],
 	providers: [],
+  exports: [BrowserAnimationsModule],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

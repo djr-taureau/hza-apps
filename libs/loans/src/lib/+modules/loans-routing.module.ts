@@ -7,7 +7,7 @@ import { LoansResolver } from '../services';
 	imports: [
 		RouterModule.forChild([
 			{
-				path: 'more',
+				path: 'loans',
 				component: LoansContainer,
 				resolve: {
 					loans: LoansResolver

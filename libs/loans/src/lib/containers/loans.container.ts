@@ -1,7 +1,5 @@
-import { async } from '@angular/core/testing';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoansFacade } from '../+state/loans.facade';
 import { Loan } from '../models/loan.model';
 import { observeOn, shareReplay } from 'rxjs/operators';
