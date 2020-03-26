@@ -24,7 +24,24 @@
       "@hza/loans": ["libs/loans/src/index.ts"],
       "@hza/core": ["libs/core/src/index.ts"],
       "@hza/documents": ["libs/documents/src/index.ts"],
-      "@hza/tasks": ["libs/tasks/src/index.ts"]
+      "@hza/tasks": ["libs/tasks/src/index.ts"],
+      "@hza/ui-components/buttons": ["libs/ui-components/buttons/src/index.ts"],
+      "@hza/ui-components/core-table": [
+        "libs/ui-components/core-table/src/index.ts"
+      ],
+      "@hza/ui-components/overlay": ["libs/ui-components/overlay/src/index.ts"],
+      "@hza/ui-components/tabs": ["libs/ui-components/tabs/src/index.ts"],
+      "@hza/ui-components/icons": ["libs/ui-components/icons/src/index.ts"],
+      "@hza/ui-components/data-table": [
+        "libs/ui-components/data-table/src/index.ts"
+      ],
+      "@hza/ui-components/forms": ["libs/ui-components/forms/src/index.ts"],
+      "@hza/ui-components/layouts": ["libs/ui-components/layouts/src/index.ts"],
+      "@hza/ui-components/core": ["libs/ui-components/core/src/index.ts"],
+      "@hza/ui-components/widget": ["libs/ui-components/widget/src/index.ts"],
+      "@hza/ui-components/file-upload": [
+        "libs/ui-components/file-upload/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
