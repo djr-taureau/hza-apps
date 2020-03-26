@@ -48,10 +48,43 @@
       "tags": ["scope:shared", "type:data-access"]
     },
     "documents": {
-      "tags": ["scope:hza","type:feature"]
+      "tags": ["scope:hza", "type:feature"]
     },
     "tasks": {
       "tags": ["scope:hza", "type:feature"]
+    },
+    "ui-components-buttons": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-core-table": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-overlay": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-tabs": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-icons": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-data-table": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-forms": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-layouts": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-core": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-widget": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-file-upload": {
+      "tags": ["scope:shared", "type:ui"]
     }
   }
 }
