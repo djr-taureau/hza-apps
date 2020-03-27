@@ -19,8 +19,8 @@ span.pointer {
       background-color: #fff;
       border: 2px solid #37678e;
       border-radius: 5px;
-      box-shadow: #000 5px 5px 10px;
-      color: #000;
+      box-shadow: black 5px 5px 10px;
+      color: black;
       font-family: "Segoe UI",
       Verdana,
       Helvetica,
@@ -35,4 +35,58 @@ span.pointer {
       top: 1.25em;
       width: 90vw;
       z-index: 150099;
+}
+
+.data-table-header {
+    border: 1px solid #37678e;
+    background-color: #89A3BB;
+    border-collapse: collapse;
+
+    color: black;
+
+    font-family: "Segoe UI",
+    Verdana,
+    Helvetica,
+    sans-serif;
+
+    font-size: 12.8px;
+
+    font-weight: 700;
+
+    line-height: 24px;
+
+    padding-left: .5em;
+
+    padding-right: .5em;
+
+    text-align: center;
+}
+
+.data-table-row {
+    border: 1px solid #37678e;
+
+    border-collapse: collapse;
+    background-color: #B0c2D2;
+    color: black;
+
+    cursor: copy;
+
+    font-family: "Segoe UI",
+    Verdana,
+    Helvetica,
+    sans-serif;
+
+    font-size: 12.8px;
+
+    line-height: 24px;
+
+    padding-left: .5em;
+
+    padding-right: .5em;
+
+    text-align: center;
+}
+
+.data-table-cell {
+    border: 1px solid #37678e;
 }

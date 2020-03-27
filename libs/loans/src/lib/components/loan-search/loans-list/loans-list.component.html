@@ -1,10 +1,10 @@
 <div class="container">
-  <clr-datagrid>
-    <clr-dg-column>Loan Number</clr-dg-column>
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Phone</clr-dg-column>
+  <clr-datagrid class="data-grid-border">
+    <clr-dg-column class="data-table-header">Loan Number</clr-dg-column>
+    <clr-dg-column class="data-table-header">Name</clr-dg-column>
+    <clr-dg-column class="data-table-header">Phone</clr-dg-column>
 
-    <clr-dg-row *clrDgItems="let loan of loans">
+    <clr-dg-row class="data-table-row" *clrDgItems="let loan of loans">
       <clr-dg-cell>
         <span
           role="tooltip"
