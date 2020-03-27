@@ -20,3 +20,6 @@ import { LoansResolver } from '../services';
 	]
 })
 export class LoansRoutingModule {}
+
+
+	

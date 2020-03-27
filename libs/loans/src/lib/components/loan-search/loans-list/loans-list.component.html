@@ -1,19 +1,46 @@
-<div class="main-container">
-  <clr-datagrid>
-    <clr-dg-column>Loan Number</clr-dg-column>
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Phone</clr-dg-column>
+<div class="container hza-elevation">
 
-    <clr-dg-row *clrDgItems="let loan of loans">
-      <clr-dg-cell>{{ loan.LoanNumber }}</clr-dg-cell>
-      <clr-dg-cell>{{ loan.Name }}</clr-dg-cell>
-      <clr-dg-cell>{{ loan.Phone | phone }}</clr-dg-cell>
-    </clr-dg-row>
+  <!-- ** this is where the header services will go: Loan Search and IT Admin tool -->
+  <hza-section class="theme-dark-green clr-col-xl-12">
+    <hza-control-bar>
+      <h1 class="title-bar" hzaSectionTitle>Loans</h1>
+      <!-- ** This will come from the loans library -->
+      <mat-form-field
+        appearance="outline"
+        floatLabel="never"
+        hzaControlBarControl
+      >
+        <img src="assets/image/search.svg" class="search" />
+        <input class="input-field" placeholder="search" matInput />
+      </mat-form-field>
+    </hza-control-bar>
+  </hza-section>
+  <div class="container">
+    <clr-datagrid>
+      <clr-dg-column>Loan Number</clr-dg-column>
+      <clr-dg-column>Name</clr-dg-column>
+      <clr-dg-column>Phone</clr-dg-column>
 
-    <clr-dg-footer>{{ loans.length }} loans</clr-dg-footer>
-  </clr-datagrid>
-  <button class="btn btn-primary" (click)="openModal()">Search Loans</button>
+      <clr-dg-row *clrDgItems="let loan of loans">
+        <clr-dg-cell>{{ loan.LoanNumber }}</clr-dg-cell>
+        <clr-dg-cell>{{ loan.Name }}</clr-dg-cell>
+        <clr-dg-cell>{{ loan.Phone | phone }}</clr-dg-cell>
+      </clr-dg-row>
+
+      <clr-dg-footer>{{ loans.length }} loans</clr-dg-footer>
+    </clr-datagrid>
+    <button class="btn btn-primary" (click)="openModal()">Search Loans</button>
+  </div>
+  <button class="btn btn-primary" (click)="openModal()">Open Modal</button>
 </div>
+
+<!-- ** this is where the footer services will go: Events, Notifications, Error Messagess -->
+<hza-section>
+  <hza-control-bar>
+    <!-- ** this is where the footer services will go: Events, Notifications, Error Messagess -->
+    <!-- <fs-paginator fsControlBarControl></fs-paginator> -->
+  </hza-control-bar>
+</hza-section>
 
 <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
   <h3 class="modal-title">Loan Search</h3>

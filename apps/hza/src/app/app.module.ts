@@ -1,16 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { Routes, RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { CoreModule } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule } from '@ngx-formly/core';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-
+import { HeaderContainer, FooterContainer } from './containers';
+import { HeaderComponent, FooterComponent } from './components';
 
 const routes: Routes = [
 	{
@@ -19,11 +15,10 @@ const routes: Routes = [
 	}
 ];
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, HeaderContainer, FooterContainer, HeaderComponent, FooterComponent],
 	imports: [BrowserModule, RouterModule.forRoot(routes), CoreModule, ClarityModule, BrowserAnimationsModule],
 	providers: [],
-  exports: [BrowserAnimationsModule],
+	exports: [BrowserAnimationsModule],
 	bootstrap: [AppComponent]
-
 })
 export class AppModule {}
