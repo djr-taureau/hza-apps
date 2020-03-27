@@ -4,7 +4,7 @@ import { Loan } from '../../../models/loan.model';
 @Component({
   selector: 'hza-loans-list',
   templateUrl: './loans-list.component.html',
-  styleUrls: ['./loans-list.component.css']
+  styleUrls: ['./loans-list.component.scss']
 })
 export class LoansListComponent implements OnInit {
 

@@ -1,0 +1,34 @@
+<div class="container hza-elevation">
+
+  <!-- ** this is where the header services will go: Loan Search and IT Admin tool -->
+  <hza-section class="header-background clr-col-xl-12">
+    <hza-control-bar>
+      <h1 class="title-bar" hzaSectionTitle>Loans</h1>
+      <!-- ** This will come from the loans library -->
+      <mat-form-field
+        appearance="outline"
+        floatLabel="never"
+        hzaControlBarControl
+      >
+        <img src="assets/image/search.svg" class="search" />
+        <input class="input-field" placeholder="search" matInput />
+      </mat-form-field>
+    </hza-control-bar>
+  </hza-section>
+<button class="btn btn-primary" (click)="openModal()">Search Loans</button>
+
+<clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
+  <h3 class="modal-title">Loan Search</h3>
+  <div class="modal-body">
+    <hza-loan-search></hza-loan-search>
+    <hza-loans-list [loans]="loans$ | async"></hza-loans-list>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="opened = false">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="opened = false">
+      Ok
+    </button>
+  </div>
+</clr-modal>

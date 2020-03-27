@@ -6,7 +6,8 @@ import { observeOn, shareReplay } from 'rxjs/operators';
 
 @Component({
 	selector: 'hza-loans-container',
-	template: `<hza-loans-list [loans]="loans$ | async"></hza-loans-list>`,
+	templateUrl: './loans.container.html',
+	styleUrls: ['./loans.container.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoansContainer implements OnInit, OnDestroy, OnChanges {
@@ -16,10 +17,11 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	selectedLoan$: Observable<Loan>;
 
 	unsubscribe$: Subject<void> = new Subject();
-
+	opened: boolean;
 	constructor(private loansFacade: LoansFacade) {}
 
 	ngOnInit() {
+		this.opened = false;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loans$ = this.loansFacade.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.loansTotal$ = this.loansFacade.loanTotal$;
@@ -41,5 +43,9 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	selectLoan(id) {
 		this.loansFacade.selectLoan(id);
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
+	}
+	
+  	openModal() {
+		this.opened = !this.opened;
 	}
 }
