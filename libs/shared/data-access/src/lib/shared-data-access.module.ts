@@ -4,9 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-// import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { environment } from '@hza/shared/environments';
-
 import { metaReducers, reducers } from './reducers';
 
 @NgModule({
@@ -29,7 +27,6 @@ import { metaReducers, reducers } from './reducers';
 			stateKey: 'router',
 			routerState: RouterState.Minimal
 		})
-		// StoreRouterConnectingModule.forRoot()
 	]
 })
 export class SharedDataAccessRootModule {}

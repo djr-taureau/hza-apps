@@ -5,8 +5,8 @@ import { Loan } from '../models/loan.model';
 import { observeOn, shareReplay } from 'rxjs/operators';
 
 @Component({
-	selector: 'fay-loans-container',
-	templateUrl: './loans.container.html',
+	selector: 'hza-loans-container',
+	template: `<hza-loans-list [loans]="loans$ | async"></hza-loans-list>`,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoansContainer implements OnInit, OnDestroy, OnChanges {
