@@ -99,4 +99,63 @@
   loan-search .results {
     overflow-x: auto;
   }
+  
+  button.active {
+      background-color: rgba(59, 103, 142, .7);
+
+      border: 2px solid #3b678e;
+
+      border-radius: 5px;
+
+      color: #fff;
+
+      cursor: pointer;
+
+      display: inline-block;
+
+      font-family: "Segoe UI",
+      Verdana,
+      Helvetica,
+      sans-serif;
+
+      font-size: .8em;
+
+      font-weight: 400;
+
+      line-height: 1em;
+
+      padding: .25em;
+
+      text-align: right;
+  }
+  
+  .radio-test {
+    background-color: rgba(59, 103, 142, .4);
+
+    border: 2px solid #3b678e;
+
+    border-radius: 5px;
+
+    color: #000;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    font-family: "Segoe UI",
+    Verdana,
+    Helvetica,
+    sans-serif;
+
+    font-size: .8em;
+
+    font-weight: 400;
+
+    line-height: 1em;
+
+    padding: .25em;
+
+    text-align: right;
+  }
+
 }
