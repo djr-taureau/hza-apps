@@ -1,0 +1,102 @@
+// @import "../../../src/assets/scss/variables";
+
+:host {
+  .loan-search .links {
+    background-image: none;
+    width: 4.5em;
+    position: relative;
+  }
+
+  .btn-group {
+    padding: 0.25em;
+  }
+
+  .active {
+    background-color: red;
+  }
+
+  button {
+    padding: 0.25em;
+  }
+
+  .btn {
+    background-color: #d3dce0;
+    border: 1px solid #787878;
+    color: black;
+    cursor: pointer;
+  }
+
+  .search input[type='text'] {
+    width: 5em;
+    margin-top: 2em;
+    margin-left: -1.5em;
+    opacity: 0.5;
+  }
+
+  section > div {
+    font-size: 4em;
+    margin-top: -0.6em;
+    margin-left: -0.1em;
+  }
+
+  loan-search .searchbig input[type='text'] {
+    width: 15em;
+  }
+
+  loan-search form.searchbig {
+    position: relative;
+    width: 90vw;
+    top: 1.25em;
+    left: calc(15em - 90vw);
+    padding: 0.25em;
+    background-color: white;
+    border: 2px solid rgba(55, 103, 142, 1);
+    border-radius: 5px;
+    margin: 0.5em 0 0 0.5em;
+    box-shadow: 5px 5px 10px black;
+    z-index: 1000;
+    text-align: right;
+  }
+
+  loan-search .instructions {
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    width: 50%;
+  }
+
+  loan-search table {
+    width: 100%;
+    font-size: 0.8em;
+  }
+
+  loan-search button {
+    font-size: 0.8em;
+    padding: 0.1em;
+    float: none;
+  }
+
+  loan-search .quickbuttons {
+    display: block;
+    padding: 0;
+  }
+
+  loan-search h4 {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.8em;
+  }
+
+  loan-search .multicompany {
+    display: inline-block;
+  }
+
+  loan-search .searchbox {
+    display: inline-block;
+    padding: 0;
+  }
+
+  loan-search .results {
+    overflow-x: auto;
+  }
+}
