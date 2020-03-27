@@ -1,0 +1,70 @@
+@import '../../../../../../styles/_framework';
+
+.hza-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  line-height: 1;
+  min-height: 7.3rem;
+  font-family: $font-family-primary;
+  padding: 0 2.6rem 0 3rem;
+  color: #153c3f;
+  background-color: $color-white;
+  text-transform: uppercase;
+  font-weight: normal;
+
+  border-bottom: 0.1rem solid #d8dddf;
+
+  &.hza-color-orange {
+    color: $color-white;
+    background-color: $color-orange;
+  }
+
+  &.hza-color-green {
+    color: $color-white;
+    background-color: $color-green;
+  }
+
+  &.hza-color-white {
+    color: #153c3f;
+    background-color: $color-white;
+  }
+
+  &.hza-color-blue {
+    color: $color-orange;
+    background-color: $color-blue-bright;
+  }
+
+  .hza-badge {
+    background-color: rgb(207, 207, 207);
+    color: #082f36;
+  }
+
+  .hza-widget-subtitle {
+    margin-left: 12px;
+  }
+
+  .hza-widget-header-text {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// .hza-widget-subtitle:before {
+// 	content: '/';
+// 	display: inline-block;
+// 	color: $color-grey-lighter;
+// 	font-weight: 300;
+// 	margin: 0 0.8em;
+// }
+
+.hza-widget-header-links {
+  display: flex;
+}
+
+.hza-widget-link {
+  font-size: 1.4rem;
+  margin-left: 0.7rem;
+  text-transform: none;
+}
