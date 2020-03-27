@@ -19,7 +19,7 @@ Angular Applications live in the `/apps`
 
 #### hza Applications
 
-1. Fay Apps Suite (with mock json server) - `yarn dev-with-server`
+1. Hza (with mock json server) - `yarn dev-with-server`
 2. Loans App - `yarn start loans-app --port 4201`
 
 \*if using `npm` instead of `yarn` replace `yarn [command]` with `npm run [command]`
@@ -35,7 +35,7 @@ any business logic or services of any application or library outside of its self
 
 - Angular Modules
 - 3rd Party Modules
-- @hza/ui-components (soon to be replaced with @hza)
+- @hza/ui-components
 
 use the following command to create a new UI-Component
 
@@ -60,11 +60,11 @@ For example a `Pipe` which selects the first item from an array.
 
 ### Feature Library
 
-#### account-managers-queue
+#### amq
 
 #### client-approval-requests
 
-#### doc-repo
+#### documents
 
 #### loans
 
