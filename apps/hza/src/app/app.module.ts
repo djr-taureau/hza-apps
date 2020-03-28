@@ -5,8 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
-import { HeaderContainer, FooterContainer } from './containers';
-import { HeaderComponent, FooterComponent } from './components';
 
 const routes: Routes = [
 	{
@@ -19,7 +17,7 @@ const routes: Routes = [
 	}
 ];
 @NgModule({
-	declarations: [AppComponent, HeaderContainer, FooterContainer, HeaderComponent, FooterComponent],
+	declarations: [AppComponent],
 	imports: [BrowserModule, RouterModule.forRoot(routes), CoreModule, ClarityModule, BrowserAnimationsModule],
 	providers: [],
 	exports: [BrowserAnimationsModule],

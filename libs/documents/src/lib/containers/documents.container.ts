@@ -3,6 +3,8 @@ import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../+state/documents/documents.facade';
 import { Document } from '../models/document.model';
+import { OpenFocusDirective } from '@hza/shared/utils';
+
 
 @Component({
 	selector: 'fay-doc-repo',
@@ -24,8 +26,6 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	constructor(private docs: DocsFacade) {}
 
 	ngOnInit() {
-		// TODO: djr - add this to all containers extra performance
-
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.docsTotal$ = this.docs.docTotal$;
 		this.docsLoaded$ = this.docs.docsLoaded$;
@@ -50,4 +50,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	openModal() {
 		this.opened = !this.opened;
 	}
+	
+
+
 }

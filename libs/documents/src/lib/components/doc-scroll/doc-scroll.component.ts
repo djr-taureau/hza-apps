@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Document } from '../../models/document.model';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
 	selector: 'hza-doc-scroll',
@@ -11,7 +12,11 @@ export class DocScrollComponent implements OnInit {
 
 	selectedDoc: Document;
 
-	constructor() {}
+	constructor(private clipboard: Clipboard) {}
 
 	ngOnInit() {}
+
+	copy(value) {
+		return this.clipboard.copy(value);
+	}
 }
