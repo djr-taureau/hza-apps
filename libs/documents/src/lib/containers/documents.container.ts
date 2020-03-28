@@ -1,0 +1,53 @@
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
+import { Observable, Subject, asyncScheduler } from 'rxjs';
+import { observeOn, shareReplay } from 'rxjs/operators';
+import { DocsFacade } from '../+state/documents/documents.facade';
+import { Document } from '../models/document.model';
+
+@Component({
+	selector: 'fay-doc-repo',
+	templateUrl: './documents.container.html',
+	changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
+	private unsubscribe$: Subject<void> = new Subject();
+
+	public docsLoaded$: Observable<Boolean>;
+	public documents$: Observable<Document[]>;
+	public docsTotal$: Observable<number>;
+	public selectedDoc$: Observable<Document>;
+
+	content = 'A simple string content modal overlay';
+
+	opened: boolean;
+
+	constructor(private docs: DocsFacade) {}
+
+	ngOnInit() {
+		// TODO: djr - add this to all containers extra performance
+
+		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
+		this.docsTotal$ = this.docs.docTotal$;
+		this.docsLoaded$ = this.docs.docsLoaded$;
+		this.selectedDoc$ = this.docs.selectedDoc$;
+		this.opened = false;
+	}
+
+	ngOnChanges() {
+		this.selectedDoc$.subscribe((v) => console.log('selected doc', v));
+	}
+
+	ngOnDestroy() {
+		this.unsubscribe$.next();
+		this.unsubscribe$.complete();
+	}
+
+	selectDoc(id) {
+		console.log(id);
+		this.docs.selectDoc(id);
+	}
+
+	openModal() {
+		this.opened = !this.opened;
+	}
+}

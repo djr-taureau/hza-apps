@@ -12,6 +12,10 @@ const routes: Routes = [
 	{
 		path: '',
 		loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
+	},
+	{
+		path: '',
+		loadChildren: () => import('@hza/documents').then((m) => m.DocumentsModule)
 	}
 ];
 @NgModule({
