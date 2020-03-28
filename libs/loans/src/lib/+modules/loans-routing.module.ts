@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoansContainer } from '../containers/loans.container';
 import { LoansResolver } from '../services';
+import { LoanSearchComponent } from '../components/loan-search/loan-search.component';
 
 @NgModule({
 	imports: [
@@ -9,17 +10,13 @@ import { LoansResolver } from '../services';
 			{
 				path: 'loans',
 				component: LoansContainer,
+				// outlet: 'modal',
 				resolve: {
 					loans: LoansResolver
 				}
 			}
 		])
 	],
-	exports: [
-		RouterModule
-	]
+	exports: [RouterModule]
 })
 export class LoansRoutingModule {}
-
-
-	

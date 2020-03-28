@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Loan } from '../../../models/loan.model';
+import { Loan } from '../../models/loan.model';
 
 @Component({
   selector: 'hza-loans-list',
