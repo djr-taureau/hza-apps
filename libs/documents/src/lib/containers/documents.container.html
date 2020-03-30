@@ -1,0 +1,60 @@
+<div class="fs-elevation">
+  <header class="header-background header-12">
+    <div class="branding">
+      <a
+        [routerLink]="['/loans']"
+        routerLinkActive="router-link-active"
+        class="nav-link"
+      >
+        <clr-icon shape="home"></clr-icon>
+        <span class="title">Doc Repository</span>
+      </a>
+    </div>
+    <form class="search">
+      <label for="search_input">
+        <input
+          hzaOpenFocus
+          [navigateTo]="'loans'"
+          id="search_input"
+          type="text"
+          placeholder="Search for loans..."
+        />
+      </label>
+    </form>
+    <div class="header-actions">
+      <a
+        [routerLink]="['/loans']"
+        routerLinkActive="router-link-active"
+        class="nav-link nav-icon"
+        aria-label="settings"
+      >
+        <clr-icon shape="cog"></clr-icon>
+      </a>
+    </div>
+  </header>
+  <hza-doc-scroll [docs]="documents$ | async"></hza-doc-scroll>
+  <footer class="footer row">
+    <div class="footer-inner col-lg-12">
+      <div class="footer-content">
+        <ul class="footer-list">
+          <li class="inline-block">
+            <!-- <address id="address"></address> -->
+            Footer Notifications and Events will display here
+          </li>
+          <li class="inline-block">
+            Phone
+            <a id="phoneNumberLink" href="tel:(888) 888-TODO"
+              >(888) 888 - TODO</a
+            >
+          </li>
+          <li id="copyright" class="inline-block">
+            Copyright &copy; 2019, Inc. All rights reserved
+          </li>
+          <li id="appVersion" class="inline-block">
+            Version: List App Version
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>

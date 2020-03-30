@@ -3,24 +3,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
-  selector: 'hza-loan-search',
-  templateUrl: './loan-search.component.html',
-  styleUrls: ['./loan-search.component.scss']
+	selector: 'hza-loan-search',
+	templateUrl: './loan-search.component.html',
+	styleUrls: ['./loan-search.component.scss']
 })
 export class LoanSearchComponent implements OnInit {
+	myForm: FormGroup;
 
-  myForm: FormGroup;
-  heightChange$;
-  @ViewChild(CdkVirtualScrollViewport, {static: false}) cdkVirtualScrollViewport: CdkVirtualScrollViewport;
-  constructor(private formBuilder: FormBuilder) {}
- 
-  ngOnInit() {
-    this.myForm = this.formBuilder.group({
-      radio: 'Loan'
-    });
-    this.heightChange$.subscribe(() => {
-      this.cdkVirtualScrollViewport.checkViewportSize();
-      console.log(this.cdkVirtualScrollViewport.checkViewportSize());
-    });
-  }
+	heightChange$;
+	@ViewChild(CdkVirtualScrollViewport, { static: false })
+	cdkVirtualScrollViewport: CdkVirtualScrollViewport;
+	constructor(private formBuilder: FormBuilder) {}
+
+	ngOnInit() {
+		this.myForm = this.formBuilder.group({
+			radio: 'Loan'
+		});
+		this.heightChange$.subscribe(() => {
+			this.cdkVirtualScrollViewport.checkViewportSize();
+			console.log(this.cdkVirtualScrollViewport.checkViewportSize());
+		});
+	}
 }
+
+// this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
+
+// [ '/loans', { outlets: { modal: 'modal/loan-search' } } ]

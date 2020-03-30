@@ -1,16 +1,21 @@
 import { Observable, Subject, asyncScheduler } from 'rxjs';
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges , ViewChild, ElementRef} from '@angular/core';
 import { LoansFacade } from '../+state/loans.facade';
 import { Loan } from '../models/loan.model';
 import { observeOn, shareReplay } from 'rxjs/operators';
 
 @Component({
 	selector: 'hza-loans-container',
+		queries: {
+		nameRef: new ViewChild('nameRef')
+	},
 	templateUrl: './loans.container.html',
 	styleUrls: ['./loans.container.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoansContainer implements OnInit, OnDestroy, OnChanges {
+
+   public nameRef!: ElementRef;
 	loansLoaded$: Observable<Boolean>;
 	loans$: Observable<Loan[]>;
 	loansTotal$: Observable<number>;
@@ -18,10 +23,11 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	unsubscribe$: Subject<void> = new Subject();
 	opened: boolean;
-	constructor(private loansFacade: LoansFacade) {}
+	constructor(private loansFacade: LoansFacade) {
+	}
 
 	ngOnInit() {
-		this.opened = false;
+		this.opened = true;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loans$ = this.loansFacade.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.loansTotal$ = this.loansFacade.loanTotal$;
@@ -47,5 +53,24 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	
   	openModal() {
 		this.opened = !this.opened;
+	}
+	  
+	//     	public closeModal() : void {
+
+
+	// }
+
+
+	// I get called once after the view has been initialized.
+	public ngAfterViewInit() : void {
+
+		this.focusInput();
+
+	}
+  
+  	private focusInput() : void {
+
+		this.nameRef.nativeElement.focus();
+
 	}
 }

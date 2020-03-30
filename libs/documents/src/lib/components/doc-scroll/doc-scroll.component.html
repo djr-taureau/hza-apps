@@ -1,0 +1,24 @@
+<div class="container">
+  <clr-datagrid>
+    <clr-dg-column>Doc ID</clr-dg-column>
+    <clr-dg-column [clrDgField]="'DocFileName'">Doc Name</clr-dg-column>
+    <clr-dg-column [clrDgField]="'DocType'">DocType</clr-dg-column>
+    <clr-dg-column [clrDgField]="'CreatedDated'">Created</clr-dg-column>
+    <clr-dg-column [clrDgField]="'CreatedBy'">Created By</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let doc of docs">
+      <clr-dg-cell>{{ doc.id }}</clr-dg-cell>
+      <clr-dg-cell (click)="copy(doc.DocFileName)">{{ doc.DocFileName }}</clr-dg-cell>
+      <clr-dg-cell>{{ doc.DocType }}</clr-dg-cell>
+      <clr-dg-cell>{{ doc.CreatedDated | date }}</clr-dg-cell>
+      <clr-dg-cell>{{ doc.CreatedBy }}</clr-dg-cell>
+      <hza-doc-detail *clrIfExpanded [doc]="doc" ngProjectAs="clr-dg-row-detail"></hza-doc-detail>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="20">
+        <clr-dg-page-size [clrPageSizeOptions]="[10, 20, 50, 100]">Docs per page</clr-dg-page-size>
+        {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of {{ pagination.totalItems }} Docs
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</div>

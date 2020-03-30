@@ -1,8 +1,4 @@
-<div class="container hza-elevation">
-  <!-- ** this is where the header services will go: Loan Search and IT Admin tool -->
-  <button class="btn btn-primary" (click)="openModal()">Search Loans</button>
-
-  <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
+<clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
     <h3 class="modal-title">Loan Search</h3>
     <div class="modal-body">
       <hza-loan-search></hza-loan-search>
@@ -17,4 +13,4 @@
       </button>
     </div>
   </clr-modal>
-</div>
+
