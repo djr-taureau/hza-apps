@@ -21,10 +21,7 @@ const routes: Routes = [
 	imports: [
 		BrowserModule,
 		RouterModule.forRoot(routes, {
-			// Tell the router to use the hash instead of HTML5 pushstate.
 			useHash: true,
-
-			// Enable the Angular 6+ router features for scrolling and anchors.
 			scrollPositionRestoration: 'enabled',
 			anchorScrolling: 'enabled',
 			enableTracing: false
