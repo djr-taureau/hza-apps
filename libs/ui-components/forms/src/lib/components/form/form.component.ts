@@ -1,20 +1,23 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormConfigBuilder, formFields } from '../../config-builders';
 
 @Component({
 	selector: 'hza-ui-form',
 	templateUrl: './form.component.html',
-	styleUrls: [
-		'./form.component.css'
-	]
+	styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit, OnChanges {
-	title = 'Reusable Form Component';
 	form = new FormGroup({});
-
+	options: FormlyFormOptions = {
+		formState: {
+			disabled: true
+		}
+	};
+	@Input() public title: string;
 	@Input() public fields: FormlyFieldConfig[];
+	@Input() public formOptions: FormlyFormOptions;
 
 	@Input() public data: any;
 
@@ -23,7 +26,9 @@ export class FormComponent implements OnInit, OnChanges {
 	constructor() {}
 
 	ngOnInit() {
-		// console.log(formFields(this.data));
+		if (this.formOptions) {
+			console.log(this.formOptions);
+		}
 	}
 
 	ngOnChanges() {

@@ -2,19 +2,32 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 export class FormConfigBuilder {
 	private readonly _formConfig: FormlyFieldConfig;
 
-
 	constructor() {
 		this._formConfig = {
 			key: '',
-			type: 'input',
+			className: '',
+			type: '',
+			// wrappers: ['form-field-horizontal'],
 			templateOptions: {
-				label: ''
+				label: '',
+				attributes: {
+					class: ''
+				}
+			},
+			expressionProperties: {
+				// apply expressionProperty for disabled based on formState
+				'templateOptions.disabled': 'formState.disabled'
 			}
 		};
 	}
 
 	key(key: string): FormConfigBuilder {
 		this._formConfig.key = key;
+		return this;
+	}
+
+	cssSelector(className: string): FormConfigBuilder {
+		this._formConfig.className = className;
 		return this;
 	}
 
@@ -28,8 +41,9 @@ export class FormConfigBuilder {
 		return this;
 	}
 
-	templateOptions(key: string): FormConfigBuilder {
+	templateOptions(key: string, cssClass: string): FormConfigBuilder {
 		this._formConfig.templateOptions.label = key;
+		this._formConfig.templateOptions.attributes.class = cssClass;
 		return this;
 	}
 

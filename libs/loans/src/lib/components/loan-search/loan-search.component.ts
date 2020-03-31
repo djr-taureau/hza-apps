@@ -10,22 +10,12 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 export class LoanSearchComponent implements OnInit {
 	myForm: FormGroup;
 
-	heightChange$;
-	@ViewChild(CdkVirtualScrollViewport, { static: false })
-	cdkVirtualScrollViewport: CdkVirtualScrollViewport;
+
 	constructor(private formBuilder: FormBuilder) {}
 
 	ngOnInit() {
 		this.myForm = this.formBuilder.group({
 			radio: 'Loan'
 		});
-		this.heightChange$.subscribe(() => {
-			this.cdkVirtualScrollViewport.checkViewportSize();
-			console.log(this.cdkVirtualScrollViewport.checkViewportSize());
-		});
 	}
 }
-
-// this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
-
-// [ '/loans', { outlets: { modal: 'modal/loan-search' } } ]

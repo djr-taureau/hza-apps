@@ -14,11 +14,15 @@ import { RepeatSectionComponent } from './types/repeat-section.component';
 // * components
 import { FormComponent } from './components/form/form.component';
 import { config } from './config';
+import { DocDetailInput } from './types/doc-detail-input';
+import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
 
 const COMPONENTS = [
 	PanelWrapperComponent,
 	ErrorWrapperComponent,
 	RepeatSectionComponent,
+	FormlyHorizontalWrapper,
+	DocDetailInput,
 	FormComponent
 ];
 

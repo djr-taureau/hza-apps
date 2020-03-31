@@ -2,7 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { FieldWrapper } from '@ngx-formly/core';
 
 @Component({
-  selector: 'fay-form-wrapper-panel',
+  selector: 'hza-form-wrapper-panel',
   template: `
     <div class="card mb2">
       <h3 class="card-header">{{ to.label }}</h3>

@@ -1,8 +1,6 @@
 <div class="container">
-  <h1>{{ title }}</h1>
-  <p>Form Example</p>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-    <button type="submit" mat-raised-button color="primary" class="button--submit">Submit</button>
+  <h1 *ngIf="title">{{ title }}</h1>
+  <form [formGroup]="form">
+    <formly-form [form]="form" [options]="options" [fields]="fields" [model]="model"></formly-form>
   </form>
 </div>

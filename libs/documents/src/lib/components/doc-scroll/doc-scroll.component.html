@@ -1,5 +1,5 @@
 <div class="container">
-  <clr-datagrid>
+  <clr-datagrid class="datagrid-compact">
     <clr-dg-column>Doc ID</clr-dg-column>
     <clr-dg-column [clrDgField]="'DocFileName'">Doc Name</clr-dg-column>
     <clr-dg-column [clrDgField]="'DocType'">DocType</clr-dg-column>
@@ -10,7 +10,7 @@
       <clr-dg-cell>{{ doc.id }}</clr-dg-cell>
       <clr-dg-cell (click)="copy(doc.DocFileName)">{{ doc.DocFileName }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.DocType }}</clr-dg-cell>
-      <clr-dg-cell>{{ doc.CreatedDated | date }}</clr-dg-cell>
+      <clr-dg-cell>{{ doc.CreatedDated | date: 'MM/d/y H:mm:ss' }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.CreatedBy }}</clr-dg-cell>
       <hza-doc-detail *clrIfExpanded [doc]="doc" ngProjectAs="clr-dg-row-detail"></hza-doc-detail>
     </clr-dg-row>

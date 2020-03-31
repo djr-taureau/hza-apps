@@ -1,13 +1,13 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
-import { FormlyFieldConfig } from '@ngx-formly/core';
-import { formFields, formFieldConfig } from '@hza/ui-components/forms';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { formFields, formFieldConfig, formFieldDefaults } from '@hza/ui-components/forms';
 import * as _ from 'lodash';
 import { Document } from '../../models/document.model';
 @Component({
 	selector: 'hza-doc-detail',
-	template: `<hza-ui-form [data]="doc" [fields]="fields" [model]="model"></hza-ui-form>`,
-	styleUrls: ['./doc-detail.component.css']
+	template: `<hza-ui-form [formOptions]="options" [data]="doc" [fields]="fields" [model]="model"></hza-ui-form>`,
+	styleUrls: ['./doc-detail.component.scss']
 })
 export class DocDetailComponent implements OnInit, OnChanges {
 	@Input() public doc: Document;
@@ -17,9 +17,13 @@ export class DocDetailComponent implements OnInit, OnChanges {
 	fieldNames: string[];
 	requestFieldNames: string[];
 	fields: FormlyFieldConfig[] = [];
+	options: FormlyFormOptions = {
+		formState: {
+			disabled: true
+		}
+	};
 
 	constructor() {}
-
 
 	ngOnInit() {
 		if (this.doc) {
@@ -33,8 +37,8 @@ export class DocDetailComponent implements OnInit, OnChanges {
 	}
 
 	buildDocForm(doc: Document) {
-		this.fieldNames = formFields(this.doc);
-		this.fields = formFieldConfig(this.fieldNames);
+		this.fieldNames = formFieldDefaults(doc, ['DocFileType', 'DocFileName', 'CreatedDated' , 'CreatedBy']);
+		this.fields = formFieldConfig(this.fieldNames, 'input');
 		const getObject = _.pick(this.doc, this.fieldNames);
 		this.model = getObject;
 	}

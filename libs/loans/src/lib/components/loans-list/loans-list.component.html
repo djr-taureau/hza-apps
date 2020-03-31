@@ -5,18 +5,9 @@
     <clr-dg-column class="data-table-header">Phone</clr-dg-column>
 
     <clr-dg-row class="data-table-row" *clrDgItems="let loan of loans">
-      <clr-dg-cell>
-        <span
-          role="tooltip"
-          aria-haspopup="true"
-          class="tooltip tooltip-xs"
-        >
-        <clr-icon class="clicker" shape="cursor-hand-click"></clr-icon>
-          <span class="tooltip-content pointer">Click to Copy</span>
-          {{ loan.LoanNumber }}</span>
-      </clr-dg-cell>
+      <clr-dg-cell (click)=copy(loan.LoanNumber)>{{ loan.LoanNumber }}</clr-dg-cell>
       <clr-dg-cell>{{ loan.Name }}</clr-dg-cell>
-      <clr-dg-cell>{{ loan.Phone | phone }}</clr-dg-cell>
+      <clr-dg-cell (click)=copy(loan.Phone)>{{ loan.Phone | phone }}</clr-dg-cell>
     </clr-dg-row>
 
     <clr-dg-footer>{{ loans.length }} loans</clr-dg-footer>

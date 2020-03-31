@@ -4,15 +4,12 @@ import { FieldType, FormlyConfig } from '@ngx-formly/core';
 @Component({
 	selector: 'formly-field-custom-input',
 	template: `
- <!--Generic-->
-
     <formly-field>
       [model]="field.model"
       [form]="form"
       [field]="field"
       [options]="options">
     </formly-field>
-
   `
 })
 export class CustomInputComponent extends FieldType implements OnInit {

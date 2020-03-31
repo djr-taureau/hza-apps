@@ -7,13 +7,10 @@ import {
 import { maximumMoneyValidation } from './helpers/validators';
 import { PanelWrapperComponent } from './wrappers/panel-wrapper.component';
 import { RepeatSectionComponent } from './types/repeat-section.component';
-// import { FormlyFieldInputMoney } from './types/money.component';
-// import { FormlyFieldInputPercentage } from './types/percentage.component';
+import { DocDetailInput } from './types/doc-detail-input';
 import { ErrorWrapperComponent } from './wrappers/error.component';
 import { ConfigOption } from '@ngx-formly/core';
-
-// import { FormlyFieldInputPhone } from './types/phone.component';
-// import { FormlyFieldInputDate } from './types/date.component';
+import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
 
 export const config: ConfigOption = {
 	validationMessages: [
@@ -26,14 +23,12 @@ export const config: ConfigOption = {
 	],
 	wrappers: [
 		{ name: 'panel', component: PanelWrapperComponent },
+		{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper },
 		{ name: 'error-on-top', component: ErrorWrapperComponent }
 	],
 	types: [
-		{ name: 'repeat', component: RepeatSectionComponent }
-		// { name: 'money', component: FormlyFieldInputMoney },
-		// { name: 'percentage', component: FormlyFieldInputPercentage },
-		// { name: 'phone', component: FormlyFieldInputPhone },
-		// { name: 'date', component: FormlyFieldInputDate }
+		{ name: 'repeat', component: RepeatSectionComponent },
+		{ name: 'detail-disabled', component: DocDetailInput },
 	],
 	validators: [{ name: 'maximumMoneyValidation', validation: maximumMoneyValidation }]
 };

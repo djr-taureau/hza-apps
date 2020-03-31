@@ -12,10 +12,15 @@ export const formFieldDefaults = (fields, props: string[]) => {
 	return _.keys(defaultFields);
 };
 
-export const formFieldConfig = (formFields) => {
+export const formFieldConfig = (formFields, type) => {
 	let formConfigs: FormlyFieldConfig[] = [];
 	formFields.map((v) => {
-		const formConfig = new FormConfigBuilder().key(v).templateOptions(v).build();
+		const formConfig = new FormConfigBuilder()
+			.cssSelector('col-lg-2 col-form-label')
+			.key(v)
+			.type(type)
+			.templateOptions(v, 'col-lg-10')
+			.build();
 		formConfigs.push(formConfig);
 	});
 	return formConfigs;
