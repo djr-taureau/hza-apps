@@ -6,10 +6,13 @@ import { SharedDataAccessModule } from '@hza/shared/data-access';
 
 import { ApiEndpointService } from './services/api-endpoint.service';
 import { ApiService } from './services/api.service';
+import { LazyLoaderService } from './lazy-components/lazy-loader.service';
+import { LAZY_WIDGETS } from './lazy-components/tokens';
+import { lazyArrayToObj } from './lazy-components/lazy-widgets';
 
 @NgModule({
 	imports: [CommonModule, SharedUtilsModule, SharedDataAccessModule.forRoot()],
-	providers: [ApiEndpointService, ApiService]
+	providers: [ApiEndpointService, ApiService, LazyLoaderService, { provide: LAZY_WIDGETS, useFactory: lazyArrayToObj }]
 })
 export class CoreModule {
 	constructor(

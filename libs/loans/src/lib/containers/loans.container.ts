@@ -54,23 +54,12 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
   	openModal() {
 		this.opened = !this.opened;
 	}
-	  
-	//     	public closeModal() : void {
 
-
-	// }
-
-
-	// I get called once after the view has been initialized.
 	public ngAfterViewInit() : void {
-
 		this.focusInput();
-
 	}
   
   	private focusInput() : void {
-
 		this.nameRef.nativeElement.focus();
-
 	}
 }
