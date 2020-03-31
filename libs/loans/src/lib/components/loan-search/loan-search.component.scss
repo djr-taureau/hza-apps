@@ -1,14 +1,23 @@
 // @import "../../../src/assets/scss/variables";
 
 :host {
+    --pull-right: 0 0 0 auto;
+    --first-color: #488cff;
+    --second-color: #ffff8c;
   .loan-search .links {
     background-image: none;
     width: 4.5em;
     position: relative;
   }
 
+  .form-group {
+  
+     margin: 0 0 0 auto;
+  }
+  
   .btn-group {
     padding: 0.25em;
+    align-self: right;
   }
 
   .active {
@@ -164,4 +173,14 @@
     border-width: 4rem;
   }
 
+}
+
+
+.foo {
+  background-color: var(--first-color);
+  color: var(--second-color);
+}
+
+form.margin {
+  margin: var(--pull-right);
 }
