@@ -1,10 +1,19 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	ChangeDetectionStrategy,
+	OnDestroy,
+	OnChanges,
+	ViewChild,
+	ViewContainerRef
+} from '@angular/core';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../+state/documents/documents.facade';
 import { Document } from '../models/document.model';
 import { OpenFocusDirective } from '@hza/shared/utils';
-
+import { LazyLoaderService } from '@hza/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'fay-doc-repo',
@@ -23,7 +32,10 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 
 	opened: boolean;
 
-	constructor(private docs: DocsFacade) {}
+	@ViewChild('loanSearch', { read: ViewContainerRef, static: false })
+	loanSearch: ViewContainerRef;
+
+	constructor(private docs: DocsFacade, private lazyLoader: LazyLoaderService, private router: Router) {}
 
 	ngOnInit() {
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
@@ -47,10 +59,8 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.docs.selectDoc(id);
 	}
 
-	openModal() {
-		this.opened = !this.opened;
+	openModal($event) {
+		console.log($event);
+		this.router.navigate([$event])
 	}
-	
-
-
 }

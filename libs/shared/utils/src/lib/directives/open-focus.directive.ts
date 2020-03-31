@@ -1,29 +1,18 @@
-import { HostListener, Directive } from '@angular/core';
-import { Router } from '@angular/router';
+import { HostListener, Directive, ViewChild, ViewContainerRef, EventEmitter } from '@angular/core';
+import { LazyLoaderService } from '@hza/core';
 
 @Directive({
 	selector: 'input[hzaOpenFocus]',
-	inputs: ['feature', 'navigateTo']
+	inputs: ['feature', 'navigateTo'],
+	outputs: ['featureString']
 })
 export class OpenFocusDirective {
 	feature: string;
-	navigateTo: string;
-	constructor(private router: Router) {}
+	featureString: EventEmitter<string> = new EventEmitter<string>();
+	constructor(private lazyLoader: LazyLoaderService) {}
 
 	@HostListener('focus', ['$event.target'])
 	onFocus(formField) {
-		this.router.navigate([
-			{
-				outlets: {
-					modal: ['loans']
-				}
-			}
-		]);
+	 this.featureString.emit(this.feature);
 	}
 }
-
-// this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
-
-['/docs', { outlets: { modal: 'loans' } }];
-// { outlets: { primary: ['products'],sidebar: ['products'] } }
-// this.router.navigate([{ outlets: { modal: [`${this.navigateTo}`] }}]);
