@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 @Component({
 	selector: 'fay-doc-repo',
 	templateUrl: './documents.container.html',
+	styleUrls: ['./documents.container.css'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {

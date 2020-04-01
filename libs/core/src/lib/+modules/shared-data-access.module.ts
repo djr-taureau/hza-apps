@@ -5,7 +5,7 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from '@hza/shared/environments';
-import { metaReducers, reducers } from './reducers';
+import { metaReducers, reducers } from './../+state/reducers';
 
 @NgModule({
 	imports: [
