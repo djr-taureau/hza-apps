@@ -1,7 +1,0 @@
-:host {
-    --header-background: hsl(198, 100%, 15%)
-}
-
-.header-background {
-  background-color: var(--header-background);
-}

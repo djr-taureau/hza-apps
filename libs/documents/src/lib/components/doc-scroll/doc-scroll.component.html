@@ -11,10 +11,10 @@
       <clr-dg-cell (click)="copy(doc.DocFileName)">{{ doc.DocFileName }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.DocType }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.CreatedDated | date: 'MM/d/y H:mm:ss' }}</clr-dg-cell>
-      <clr-dg-cell>{{ doc.CreatedBy }}</clr-dg-cell>
+      <clr-dg-cell><span class="color-square" [style.backgroundColor]="blue">{{ doc.CreatedBy }}</span></clr-dg-cell>
       <hza-doc-detail *clrIfExpanded [doc]="doc" ngProjectAs="clr-dg-row-detail"></hza-doc-detail>
             <clr-dg-action-overflow>
-            <button class="action-item" (click)="onDelete(doc)">Delete</button>
+            <button hzaButton class="action-item" (click)="onDelete(doc)">Delete</button>
             <button class="action-item" (click)="onHardDelete(doc)">Hard Delete</button>
         </clr-dg-action-overflow>
     </clr-dg-row>

@@ -34,7 +34,8 @@
       </a>
     </div>
   </header>
-  <hza-doc-scroll [docs]="documents$ | async"></hza-doc-scroll>
+  <clr-spinner *ngIf="fetchingData">Loading data</clr-spinner>
+  <hza-doc-scroll *ngIf="!fetchingData" [docs]="documents$ | async"></hza-doc-scroll>
   <!-- ** This will separated out into a component -->
   <footer class="footer row">
     <div class="footer-inner col-lg-12">
@@ -59,5 +60,10 @@
         </ul>
       </div>
     </div>
+            <select clrSelect [(ngModel)]="theme" name="currentTheme" (change)="changeTheme($event.target.value)">
+                  <option value="default">Default</option>
+                  <option value="blue">Blue</option>
+                  <option value="orange">Orange</option>
+                </select>
   </footer>
 </div>
