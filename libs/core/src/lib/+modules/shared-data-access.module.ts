@@ -9,7 +9,8 @@ import { metaReducers, reducers } from './../+state/reducers';
 
 @NgModule({
 	imports: [
-		StoreModule.forRoot(reducers, {
+		StoreModule.forRoot(
+			reducers, {
 			metaReducers,
 			runtimeChecks: {
 				strictStateImmutability: true,
