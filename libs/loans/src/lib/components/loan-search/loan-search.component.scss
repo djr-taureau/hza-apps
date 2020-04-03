@@ -4,97 +4,94 @@
     --pull-right: 0 0 0 auto;
     --first-color: #488cff;
     --second-color: #ffff8c;
-  .loan-search .links {
-    background-image: none;
-    width: 4.5em;
-    position: relative;
-  }
+    .loan-search .links {
+      background-image: none;
+      width: 4.5em;
+      position: relative;
+    }
 
-  .form-group {
+    .form-group {
+      margin: 0 0 0 auto;
+    }
   
-     margin: 0 0 0 auto;
-  }
-  
-  .btn-group {
-    padding: 0.25em;
-    align-self: right;
-  }
+    // .btn-group {
+    //   align-self: right;
+    // }
 
-  .active {
-    background-color: red;
-  }
+    // .active {
+    //   background-color: red;
+    // }
 
-  button {
-    padding: 0.25em;
-  }
+    button {
+      padding: 0.25em;
+    }
+    
+    .float-right {
+      text-align: right;
+      width: 100%;
+      padding: 0;
+      float: right;
+    }
 
-  .btn {
-    background-color: #d3dce0;
-    border: 1px solid #787878;
-    color: black;
-    cursor: pointer;
-  }
+    .btn {
+      background-color: #d3dce0;
+      border: 1px solid #787878;
+      color: black;
+      cursor: pointer;
+    }
+    
+    .clickable {
+      cursor: pointer;
+    }
 
-  .search input[type='text'] {
-    width: 5em;
-    margin-top: 2em;
-    margin-left: -1.5em;
-    opacity: 0.5;
-  }
+    input.search {
+      width: 5em;
+      opacity: 0.5;
+    }
 
-  section > div {
-    font-size: 4em;
-    margin-top: -0.6em;
-    margin-left: -0.1em;
-  }
+    input.search-big {
+      width: 15em;
+    }
 
-  loan-search .searchbig input[type='text'] {
-    width: 15em;
-  }
+    .search-big {
+      position: relative;
+      width: 90vw;
+      top: 1.25em;
+      left: calc(15em - 90vw);
+      padding: 0.25em;
+      background-color: white;
+      border: 2px solid rgba(55, 103, 142, 1);
+      border-radius: 5px;
+      margin: 0.5em 0 0 0.5em;
+      box-shadow: 5px 5px 10px black;
+      z-index: 1000;
+      text-align: right;
+    }
 
-  loan-search form.searchbig {
-    position: relative;
-    width: 90vw;
-    top: 1.25em;
-    left: calc(15em - 90vw);
-    padding: 0.25em;
-    background-color: white;
-    border: 2px solid rgba(55, 103, 142, 1);
-    border-radius: 5px;
-    margin: 0.5em 0 0 0.5em;
-    box-shadow: 5px 5px 10px black;
-    z-index: 1000;
-    text-align: right;
-  }
+    .loan-search-instructions {
+        float: left;
+        text-align: left;
+        font-weight: bold;
+        width: 50%;
+      }
 
-  loan-search .instructions {
-    float: left;
-    text-align: left;
-    font-weight: bold;
-    width: 50%;
-  }
+      loan-search table {
+        width: 100%;
+        font-size: 0.8em;
+      }
 
-  loan-search table {
-    width: 100%;
-    font-size: 0.8em;
-  }
+      loan-search button {
+        font-size: 0.8em;
+        padding: 0.1em;
+        float: none;
+      }
 
-  loan-search button {
-    font-size: 0.8em;
-    padding: 0.1em;
-    float: none;
-  }
 
-  loan-search .quickbuttons {
-    display: block;
-    padding: 0;
-  }
-
-  loan-search h4 {
-    font-style: italic;
-    font-weight: bold;
-    font-size: 0.8em;
-  }
+    h4.loan-search {
+      font-style: italic;
+      font-weight: bold;
+      font-size: 0.8em;
+    }
 
   loan-search .multicompany {
     display: inline-block;
@@ -109,63 +106,71 @@
     overflow-x: auto;
   }
   
-  button.active {
-      background-color: rgba(59, 103, 142, .7);
-
-      border: 2px solid #3b678e;
-
-      border-radius: 5px;
-
-      color: #fff;
-
-      cursor: pointer;
-
-      display: inline-block;
-
-      font-family: "Segoe UI",
-      Verdana,
-      Helvetica,
-      sans-serif;
-
-      font-size: .8em;
-
-      font-weight: 400;
-
-      line-height: 1em;
-
-      padding: .25em;
-
-      text-align: right;
+  
+  .right-align-buttons input[type="submit"],
+  .right-align-buttons input[type="button"],
+  .right-align-buttons button {
+    margin-right: 0;
+    margin-left: 0.25em;
   }
   
-  .radio-test {
-    background-color: rgba(59, 103, 142, .4);
+  // button.active {
+  //     background-color: rgba(59, 103, 142, .7);
 
-    border: 2px solid #3b678e;
+  //     border: 2px solid #3b678e;
 
-    border-radius: 5px;
+  //     border-radius: 5px;
 
-    color: #000;
+  //     color: #fff;
 
-    cursor: pointer;
+  //     cursor: pointer;
 
-    display: inline-block;
+  //     display: inline-block;
 
-    font-family: "Segoe UI",
-    Verdana,
-    Helvetica,
-    sans-serif;
+  //     font-family: "Segoe UI",
+  //     Verdana,
+  //     Helvetica,
+  //     sans-serif;
 
-    font-size: .8em;
+  //     font-size: .8em;
 
-    font-weight: 400;
+  //     font-weight: 400;
 
-    line-height: 1em;
+  //     line-height: 1em;
 
-    padding: .25em;
+  //     padding: .25em;
 
-    text-align: right;
-  }
+  //     text-align: right;
+  // }
+  
+    .quick-buttons {
+      padding: 0.25em;
+    }
+    .btn-group {
+      background-color: white;
+    }
+    div.quick-buttons {
+      background-color: white;
+      border: none;
+    }
+    label.quick-buttons {
+      display: inline-block;
+      padding: 0.25em;
+      background: rgba(59, 103, 142, .4);
+      border: 2px solid rgba(59, 103, 142, 1);
+      border-radius: 5px;
+      cursor: pointer;
+      line-height: 1em;
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+    
+    label.quick-buttons:checked {
+         background-color: rgba(59, 103, 142, .7);
+         color: white;
+    }
+    
+
   
   .data-grid-border {
     border-color: #37678E;
@@ -175,12 +180,3 @@
 
 }
 
-
-.foo {
-  background-color: var(--first-color);
-  color: var(--second-color);
-}
-
-form.margin {
-  margin: var(--pull-right);
-}

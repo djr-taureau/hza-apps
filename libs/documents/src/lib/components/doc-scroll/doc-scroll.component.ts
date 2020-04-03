@@ -5,7 +5,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 @Component({
 	selector: 'hza-doc-scroll',
 	templateUrl: './doc-scroll.component.html',
-	styleUrls: ['./doc-scroll.component.css']
+	styleUrls: ['./doc-scroll.component.scss']
 })
 export class DocScrollComponent implements OnInit {
 	@Input() docs: Document[];

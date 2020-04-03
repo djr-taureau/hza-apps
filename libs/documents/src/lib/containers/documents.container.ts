@@ -5,17 +5,24 @@ import {
 	OnDestroy,
 	OnChanges,
 	ViewChild,
-	ViewContainerRef
+	ViewContainerRef,
+	HostListener,
+	TemplateRef
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { ComponentType } from '@angular/cdk/portal';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortalDirective, ComponentPortal } from '@angular/cdk/portal';
 import { runCssVarsPolyfill } from '@clr/core';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../+state/documents/documents.facade';
 import { Document } from '../models/document.model';
-import { OpenFocusDirective } from '@hza/shared/utils';
 import { LazyLoaderService } from '@hza/core';
-import { Router } from '@angular/router';
+import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
 import { themes } from './themes';
+import { LoansContainer } from '@hza/loans';
+import { Directive } from '@angular/core';
 
 @Component({
 	selector: 'fay-doc-repo',
@@ -34,13 +41,18 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	content = 'A simple string content modal overlay';
 	theme = 'default';
   	collapsed = false;
+	  
 	opened: boolean;
+	loansContainer = LoansContainer;
+
+	loansContainerResponse = null;
+
 	fetchingData: boolean;
 
 	@ViewChild('loanSearch', { read: ViewContainerRef, static: false })
 	loanSearch: ViewContainerRef;
 
-	constructor(private docs: DocsFacade, private lazyLoader: LazyLoaderService, private router: Router) {}
+	constructor(private docs: DocsFacade, private lazyLoader: LazyLoaderService, private router: Router, private overlayService: OverlayService) {}
 
 	ngOnInit() {
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
@@ -67,66 +79,23 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	}
 
 	openModal($event) {
+		// this.opened = !this.opened;
 		console.log($event);
-		this.router.navigate([$event]);
+		this.router.navigate([{ outlets: { modal: [$event] } }]);
+		// [{ outlets: { primary: ['docs'], modal: [$event] } }]
+	}
+	
+	open(content: TemplateRef<any> | ComponentType<any> | string) {
+		const ref = this.overlayService.open(content, null);
+
+		ref.afterClosed$.subscribe((res) => {
+			if (typeof content === 'string') {
+			} else if (content === this.loansContainer) {
+				this.loansContainerResponse = res.data;
+			} else {
+				console.log(res.data);
+			}
+		});
 	}
 
-	changeTheme(theme: any) {
-		switchTheme(theme);
-	}
-}
-
-const themePrefix = 'custom-theme_';
-
-function toggleExistingThemes(themeToEnable: string) {
-	const themeToEnableId = themePrefix + themeToEnable;
-	const themeIds = [];
-
-	for (const theme in themes) {
-		if (themes.hasOwnProperty(theme)) {
-			themeIds.push(themePrefix + theme);
-		}
-	}
-
-	themeIds.filter((t) => t !== themeToEnableId).forEach((t) => {
-		const themeNode = document.getElementById(t);
-		if (themeNode !== null) {
-			(themeNode as any).sheet.disabled = true;
-		}
-	});
-
-	if (document.getElementById(themeToEnableId) !== null) {
-		(document.getElementById(themeToEnableId) as any).sheet.disabled = false;
-		return true;
-	}
-
-	return false;
-}
-
-function switchTheme(toTheme: string) {
-	if (toggleExistingThemes(toTheme)) {
-		return;
-	}
-
-	const newStyle = document.createElement('style');
-	const theme = themes[toTheme];
-
-	document.head.appendChild(newStyle);
-	newStyle.id = themePrefix + toTheme;
-
-	const myStyles = [':root { '];
-	for (const item in theme) {
-		if (theme.hasOwnProperty(item)) {
-			myStyles.push(item);
-			myStyles.push(': ');
-			myStyles.push(theme[item]);
-			myStyles.push('; ');
-		}
-	}
-	myStyles.push('}');
-	newStyle.innerHTML = myStyles.join('');
-
-	runCssVarsPolyfill();
-
-	return toTheme;
 }
