@@ -63,7 +63,7 @@ export class ApiEndpointService {
      * Map of API endpoints.
      */
 	public static ENDPOINT = {
-		CONFIG: `assets/data/config.json`,
+		CONFIG: `assets/config/configuration.local.json`,
 		LOGIN: `auth/login/`,
 		REGISTER: `auth/register`,
 		EXAMPLE_DETAILS: 'example/{id}/details/{id}',

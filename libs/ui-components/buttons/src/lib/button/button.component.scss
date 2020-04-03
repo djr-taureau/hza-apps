@@ -1,24 +1,18 @@
 @import '../../../../../shared/styles/src/index.scss';
 
-.hza-icon-button {
-  cursor: pointer;
-  background: none;
-  padding: 0;
-  min-width: 0;
-  flex-shrink: 0;
-  border: none;
+:host {
+  --button-background: hsl(198, 100%, 15%);
+  --clr-global-app-background: deeppink;
+  --clr-datagrid-row-hover: hsl(201, 31%, 23%);
+  --clr-btn-inverse-hover-color: hsl(0, 0%, 100%);
+  background-color: var(--button-background);
+  font-size: .10em;
+  padding: .5em;
+  
+  .hza-button {
+    background-color: var(--button-background);
+  }
 }
 
-.hza-text-button {
-  cursor: pointer;
-  -webkit-appearance: none;
-  background: none;
-  outline: none;
-  box-shadow: none;
-  border: none;
-  text-decoration: underline;
-  color: $color-orange;
-  font-weight: $font-weight-regular;
-  font-size: 1.4rem;
-  padding: 0;
-}
+
+

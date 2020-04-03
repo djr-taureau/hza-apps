@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
-import { Config, defaultConfig } from "../models/config.model";
+import { Config, defaultConfig } from "./config/config.model";
 import { catchError, map } from "rxjs/operators";
 import { ApiEndpointService } from "./api-endpoint.service";
 import { Logger } from "@hza/shared/utils";

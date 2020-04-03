@@ -1,20 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
+import { LoansContainer } from '@hza/loans';
 
 const routes: Routes = [
-	{
-		path: '',
-		loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
-	},
+	  {
+    path: '',
+    component: AppComponent,
+    children: [
+      // aux route with named outlet, **DOES NTO WORK :(**
+      {
+        path: 'loans',
+        component: LoansContainer,
+        outlet: 'modal'
+      },
 	{
 		path: '',
 		loadChildren: () => import('@hza/documents').then((m) => m.DocumentsModule)
 	}
+    ]
+  }
+
 ];
 @NgModule({
 	declarations: [AppComponent],

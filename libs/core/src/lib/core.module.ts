@@ -1,17 +1,15 @@
 // core.module.ts
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CoreCoreModule, SharedDataAccessModule  } from './+modules';
 import { SharedUtilsModule } from '@hza/shared/utils';
-import { SharedDataAccessModule } from '@hza/shared/data-access';
 import { httpInterceptorProviders } from './http-interceptors';
-import { AppInitializerModule } from './init/app-initializer.module';
 import { ApiService, ApiEndpointService, EventBusService, NotificationService, CacheMapService } from './services';
 import { LazyLoaderService } from './lazy-components/lazy-loader.service';
 import { LAZY_WIDGETS } from './lazy-components/tokens';
 import { lazyArrayToObj } from './lazy-components/lazy-widgets';
 
 @NgModule({
-	imports: [CommonModule, AppInitializerModule, SharedUtilsModule, SharedDataAccessModule.forRoot()],
+	imports: [CoreCoreModule, SharedUtilsModule, SharedDataAccessModule.forRoot()],
 	providers: [
 		ApiEndpointService,
 		ApiService,

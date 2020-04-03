@@ -1,0 +1,77 @@
+:host {
+  width: 100%;
+  --header-background: hsl(198, 100%, 15%);
+  --clr-global-app-background: rgba(255, 0, 0, 0.1);
+  // --clr-datagrid-row-hover: hsl(201, 31%, 23%);
+  --clr-btn-inverse-hover-color: hsl(0, 0%, 100%);
+
+  .content-container {
+    z-index: -1000000;
+    background-color: whitesmoke;
+
+    .content-area {
+      z-index: 1000000;
+      background-color: white;
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  background-color: white;
+  box-shadow: 5px 5px 10px black;
+  padding-left: 0.25em;
+  height: 4.5em;
+}
+
+.logo {
+  background-image: url('/assets/images/fay.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 0;
+  margin-top: 0.5em;
+  padding-top: 3.5em !important;
+}
+
+.app-title {
+  float: left;
+  text-align: center;
+  padding: .100em;
+  margin-left: .25em;
+  margin-top: .25em;
+}
+
+.loan-search {
+  font-size: 4rem;
+  margin-top: -0.6rem;
+  margin-left: -0.1rem;
+}
+
+input.search {
+  width: 5rem;
+  // border-color: darkslateblue;
+  margin-top: 1rem;
+  margin-bottom: .05rem;
+  margin-left: -1.5rem;
+  opacity: 0;
+}
+
+.loan-search-instructions {
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  width: 50%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clear: both;
+  background-color: #e2e2e2;
+  height: 1.5rem;
+  z-index: 999999;
+  border-top: 1px solid black;
+}

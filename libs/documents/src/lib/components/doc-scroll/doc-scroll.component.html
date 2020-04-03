@@ -5,21 +5,23 @@
     <clr-dg-column [clrDgField]="'DocType'">DocType</clr-dg-column>
     <clr-dg-column [clrDgField]="'CreatedDated'">Created</clr-dg-column>
     <clr-dg-column [clrDgField]="'CreatedBy'">Created By</clr-dg-column>
-
+    <clr-dg-column [clrDgField]="''">Actions</clr-dg-column>
     <clr-dg-row *clrDgItems="let doc of docs">
       <clr-dg-cell>{{ doc.id }}</clr-dg-cell>
       <clr-dg-cell (click)="copy(doc.DocFileName)">{{ doc.DocFileName }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.DocType }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.CreatedDated | date: 'MM/d/y H:mm:ss' }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.CreatedBy }}</clr-dg-cell>
+      <clr-dg-cell>
+        <span class="buttons">
+          <button hzaButton hza-button>Delete</button>
+          <button hzaButton>Hard Delete</button>
+        </span>
+      </clr-dg-cell>
       <hza-doc-detail *clrIfExpanded [doc]="doc" ngProjectAs="clr-dg-row-detail"></hza-doc-detail>
-            <clr-dg-action-overflow>
-            <button class="action-item" (click)="onDelete(doc)">Delete</button>
-            <button class="action-item" (click)="onHardDelete(doc)">Hard Delete</button>
-        </clr-dg-action-overflow>
     </clr-dg-row>
     <clr-dg-footer>
-      <clr-dg-pagination #pagination [clrDgPageSize]="20">
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
         <clr-dg-page-size [clrPageSizeOptions]="[10, 20, 50, 100]">Docs per page</clr-dg-page-size>
         {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of {{ pagination.totalItems }} Docs
       </clr-dg-pagination>

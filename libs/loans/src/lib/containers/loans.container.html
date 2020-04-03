@@ -1,15 +1,14 @@
-<clr-modal #loanSearch [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
-    <div class="modal-body">
-      <hza-loan-search></hza-loan-search>
-      <hza-loans-list [loans]="loans$ | async"></hza-loans-list>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="opened = false">
-        Cancel
-      </button>
-      <button type="button" class="btn btn-primary" (click)="opened = false">
-        Ok
-      </button>
-    </div>
-  </clr-modal>
 
+<ng-template #loanSearch let-close="close">
+  <div class="modal-card">
+    <section class="modal-card-body">
+      <hza-loan-search></hza-loan-search>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons is-right">
+        <button (click)="close('yes')" type="button" class="button is-success">Yes</button>
+        <button (click)="close('no')" type="button" class="button is-danger">No</button>
+      </div>
+    </footer>
+  </div>
+</ng-template>
