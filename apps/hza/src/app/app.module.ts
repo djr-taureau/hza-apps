@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     component: AppComponent,
     children: [
-      // aux route with named outlet, **DOES NTO WORK :(**
+     
 	{
 		path: '',
 		loadChildren: () => import('@hza/documents').then((m) => m.DocumentsModule)

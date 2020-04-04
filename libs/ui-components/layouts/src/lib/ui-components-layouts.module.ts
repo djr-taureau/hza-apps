@@ -13,6 +13,7 @@ import { ControlBarComponent, ControlBarControlDirective } from './control-bar/c
 import { PaginatorComponent } from './paginator/paginator.component';
 import { BadgeComponent } from './badge/badge.component';
 
+
 const COMPONENTS = [
   SectionTitleComponent,
   SectionSubtitleDirective,

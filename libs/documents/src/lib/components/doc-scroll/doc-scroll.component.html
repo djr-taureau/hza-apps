@@ -9,7 +9,7 @@
     <clr-dg-row *clrDgItems="let doc of docs">
       <clr-dg-cell>{{ doc.id }}</clr-dg-cell>
       <clr-dg-cell (click)="copy(doc.DocFileName)">{{ doc.DocFileName }}</clr-dg-cell>
-      <clr-dg-cell>{{ doc.DocType }}</clr-dg-cell>
+      <clr-dg-cell class="say-waht">{{ doc.DocType }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.CreatedDated | date: 'MM/d/y H:mm:ss' }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.CreatedBy }}</clr-dg-cell>
       <clr-dg-cell>
