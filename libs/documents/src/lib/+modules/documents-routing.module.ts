@@ -9,14 +9,10 @@ import { DocumentsGuard } from '../services/documents.guard';
 			{
 				path: 'docs',
 				component: DocumentsContainer,
-				canActivate: [
-					DocumentsGuard
-				]
+				canActivate: [DocumentsGuard]
 			}
 		])
 	],
-	exports: [
-		RouterModule
-	]
+	exports: [RouterModule]
 })
 export class DocumentsRoutingModule {}

@@ -10,10 +10,7 @@ import { LoanSearchComponent } from '../components/loan-search/loan-search.compo
 			{
 				path: 'loans',
 				component: LoansContainer,
-				// outlet: 'modal',
-				resolve: {
-					loans: LoansResolver
-				}
+				outlet: 'modal'
 			}
 		])
 	],

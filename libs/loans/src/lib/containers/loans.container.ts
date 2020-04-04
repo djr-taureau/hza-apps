@@ -1,4 +1,4 @@
-import { Observable, Subject, asyncScheduler } from 'rxjs';
+import { Observable, Subject, asyncScheduler, Subscription } from 'rxjs';
 import {
   Component,
   OnInit,
@@ -13,6 +13,7 @@ import {
 } from '@angular/core';
 import { RouterOutlet, Router, ActivationStart } from '@angular/router';
 import { ComponentType } from '@angular/cdk/portal';
+import { EventBusService, Events } from '@hza/core';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortalDirective, ComponentPortal } from '@angular/cdk/portal';
 import { LoansFacade } from '../+state/loans.facade';
@@ -21,38 +22,33 @@ import { observeOn, shareReplay } from 'rxjs/operators';
 import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
 @Component({
   selector: 'hza-loans-container',
-  queries: {
-    nameRef: new ViewChild('nameRef'),
-  },
+  // queries: {
+  //   nameRef: new ViewChild('nameRef'),
+  // },
   templateUrl: './loans.container.html',
   styleUrls: ['./loans.container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoansContainer implements OnInit, OnDestroy, OnChanges {
   //   @ViewChild(RouterOutlet) outlet: RouterOutlet;
-  public nameRef!: ElementRef;
+  // public nameRef!: ElementRef;
   loansLoaded$: Observable<Boolean>;
+  eventbusSub: Subscription;
   loans$: Observable<Loan[]>;
   loansTotal$: Observable<number>;
   selectedLoan$: Observable<Loan>;
-  loansContainer = null;
+  // loansContainer = null;
   unsubscribe$: Subject<void> = new Subject();
   opened: boolean;
 
-  loanSearch;
-
   constructor(
     private router: Router,
+    private eventBus: EventBusService,
     private loansFacade: LoansFacade,
-    private overlayService: OverlayService
   ) {}
 
   ngOnInit() {
-    // this.router.events.subscribe(e => {
-    // 	if (e instanceof ActivationStart && e.snapshot.outlet === 'modal')
-    // 		this.outlet.deactivate();
-    // });
-    this.opened = false;
+    this.opened = true;
     this.loansLoaded$ = this.loansFacade.loansLoaded$;
     this.loans$ = this.loansFacade.loans$.pipe(
       observeOn(asyncScheduler),
@@ -62,6 +58,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
     this.selectedLoan$ = this.loansFacade.selectedLoan$;
     this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
     this.loans$.subscribe((v) => console.log('loans', v));
+    this.eventbusSub = this.eventBus.on(Events.OpenModal, (event => console.log(event)));
   }
 
   ngOnChanges() {
@@ -72,6 +69,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.eventbusSub.unsubscribe();
   }
 
   selectLoan(id) {
@@ -79,25 +77,4 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
     this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
   }
 
-  openModal() {
-    this.opened = !this.opened;
-    this.open(this.loanSearch);
-  }
-
-  public ngAfterViewInit(): void {
-    this.focusInput();
-  }
-
-  private focusInput(): void {
-    this.nameRef.nativeElement.focus();
-  }
-
-  open(content: TemplateRef<any> | ComponentType<any> | string) {
-    const ref = this.overlayService.open(content, null);
-
-    ref.afterClosed$.subscribe((res) => {
-      this.loansContainer = res.data;
-      console.log(res.data);
-    });
-  }
 }

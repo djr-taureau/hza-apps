@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
-import { LoansContainer } from '@hza/loans';
+
 
 const routes: Routes = [
 	  {
@@ -13,14 +13,13 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       // aux route with named outlet, **DOES NTO WORK :(**
-      {
-        path: 'loans',
-        component: LoansContainer,
-        outlet: 'modal'
-      },
 	{
 		path: '',
 		loadChildren: () => import('@hza/documents').then((m) => m.DocumentsModule)
+	},
+	 	{
+		path: '',
+		loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
 	}
     ]
   }

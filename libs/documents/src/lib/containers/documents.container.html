@@ -8,14 +8,15 @@
         class="logo nav-link"
       >
       </a>
-        <h1 class="app-title">Doc Repository</h1>
+      <h1 class="app-title">Doc Repository</h1>
     </div>
     <form class="search-big">
       <label for="search_input">
-        <input class="search"
+        <input
+          class="search"
           hzaOpenFocus
           [feature]="'loans'"
-          (featureString)="openModal($event)"
+          (featureString)="openLoans($event)"
           id="search_input"
           type="text"
           placeholder="Search for loans..."
@@ -36,11 +37,14 @@
   <div class="content-background">
     <div class="content-area">
       <clr-spinner *ngIf="fetchingData">Loading data</clr-spinner>
-      <hza-doc-scroll *ngIf="!fetchingData" [docs]="documents$ | async"></hza-doc-scroll>
+      <hza-doc-scroll
+        *ngIf="!fetchingData"
+        [docs]="documents$ | async"
+      ></hza-doc-scroll>
     </div>
   </div>
-  </div>
-  <div class="content-container">
+</div>
+<div class="content-container">
   <!-- ** This will separated out into a component -->
   <footer class="footer row">
     <div class="footer-inner col-lg-12">

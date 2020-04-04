@@ -26,7 +26,7 @@ import { metaReducers, reducers } from './../+state/reducers';
 		}),
 		StoreRouterConnectingModule.forRoot({
 			stateKey: 'router',
-			routerState: RouterState.Minimal
+			routerState: RouterState.Full
 		})
 	]
 })

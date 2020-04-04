@@ -18,10 +18,9 @@ import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../+state/documents/documents.facade';
 import { Document } from '../models/document.model';
-import { LazyLoaderService } from '@hza/core';
+import { EventBusService, Events, EmitEvent } from '@hza/core';
 import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
 import { themes } from './themes';
-import { LoansContainer } from '@hza/loans';
 import { Directive } from '@angular/core';
 
 @Component({
@@ -40,19 +39,20 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 
 	content = 'A simple string content modal overlay';
 	theme = 'default';
-  	collapsed = false;
-	  
+	collapsed = false;
 	opened: boolean;
-	loansContainer = LoansContainer;
-
-	loansContainerResponse = null;
 
 	fetchingData: boolean;
 
 	@ViewChild('loanSearch', { read: ViewContainerRef, static: false })
 	loanSearch: ViewContainerRef;
 
-	constructor(private docs: DocsFacade, private lazyLoader: LazyLoaderService, private router: Router, private overlayService: OverlayService) {}
+	constructor(
+		private docs: DocsFacade,
+		private eventBus: EventBusService,
+		private router: Router,
+		private overlayService: OverlayService
+	) {}
 
 	ngOnInit() {
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
@@ -78,24 +78,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.docs.selectDoc(id);
 	}
 
-	openModal($event) {
-		// this.opened = !this.opened;
-		console.log($event);
-		this.router.navigate([{ outlets: { modal: [$event] } }]);
-		// [{ outlets: { primary: ['docs'], modal: [$event] } }]
+	openLoans(event) {
+		this.eventBus.emit(new EmitEvent(Events.OpenModal, event));
 	}
-	
-	open(content: TemplateRef<any> | ComponentType<any> | string) {
-		const ref = this.overlayService.open(content, null);
-
-		ref.afterClosed$.subscribe((res) => {
-			if (typeof content === 'string') {
-			} else if (content === this.loansContainer) {
-				this.loansContainerResponse = res.data;
-			} else {
-				console.log(res.data);
-			}
-		});
-	}
-
 }
