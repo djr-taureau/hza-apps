@@ -7,7 +7,7 @@ import { DocumentsGuard } from '../services/documents.guard';
 	imports: [
 		RouterModule.forChild([
 			{
-				path: 'docs',
+				path: '',
 				component: DocumentsContainer,
 				canActivate: [
 					DocumentsGuard

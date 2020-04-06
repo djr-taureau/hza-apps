@@ -16,11 +16,15 @@ import {
 import { DocumentsContainer } from './containers/documents.container';
 import { DocDetailComponent } from './components/doc-detail/doc-detail.component';
 import { DocScrollComponent } from './components/doc-scroll/doc-scroll.component';
+import { DocListComponent } from './components/doc-list/doc-list.component';
+import { DocTableComponent } from './components/doc-table/doc-table.component';
 
 const COMPONENTS = [
 	DocumentsContainer,
 	DocDetailComponent,
-	DocScrollComponent
+	DocScrollComponent,
+	DocListComponent,
+	DocTableComponent
 ];
 
 @NgModule({

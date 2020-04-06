@@ -12,15 +12,14 @@ const routes: Routes = [
     path: '',
     component: AppComponent,
     children: [
-      // aux route with named outlet, **DOES NTO WORK :(**
-      {
-        path: 'loans',
-        component: LoansContainer,
-        outlet: 'modal'
-      },
+    { path: '', redirectTo: '/docs', pathMatch: 'full' },
 	{
-		path: '',
+		path: 'docs',
 		loadChildren: () => import('@hza/documents').then((m) => m.DocumentsModule)
+	},
+	 	{
+		path: 'loans',
+		loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
 	}
     ]
   }
