@@ -41,6 +41,9 @@
       "@hza/ui-components/widget": ["libs/ui-components/widget/src/index.ts"],
       "@hza/ui-components/file-upload": [
         "libs/ui-components/file-upload/src/index.ts"
+      ],
+      "@hza/ui-components/data-list": [
+        "libs/ui-components/data-list/src/index.ts"
       ]
     }
   },
