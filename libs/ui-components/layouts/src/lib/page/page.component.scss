@@ -1,10 +1,11 @@
 .page-header {
   width: 100%;
   background-color: white;
+  // margin: 0 0 1em 0;
   box-shadow: 5px 5px 10px black;
   padding-left: 0.25em;
   height: 4.5em;
-  
+
   .hza-section {
     min-height: 11.9rem;
   }
@@ -17,6 +18,8 @@
 .feature-container-area {
   z-index: -1000000;
   background-color: rgba(255, 0, 0, 0.1);
+  // grid-template-columns: 4fr;
+  grid-template-rows: 4fr;
 
 }
 

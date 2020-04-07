@@ -22,6 +22,7 @@ import { DocTableComponent } from './components/doc-table/doc-table.component';
 import { DocHeaderComponent } from './components/doc-header/doc-header.component';
 import { DocFooterComponent } from './components/doc-footer/doc-footer.component';
 import { LoanDetailComponent } from './components/loan-detail/loan-detail.component';
+import { FooComponent } from './components/foo/foo.component';
 
 
 const COMPONENTS = [
@@ -34,6 +35,7 @@ const COMPONENTS = [
 	DocListComponent,
 	DocTableComponent,
 	LoanDetailComponent,
+	FooComponent
 ];
 
 @NgModule({
