@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { filter } from 'rxjs/operators';
 
-export type PageLayout = 'full' | 'almost-full' | 'fullWithLeftSidebar' | 'detaihzaithLeftSidebar' | null | '';
+export type PageLayout = 'full' | 'almost-full' | 'fullWithLeftSidebar' | 'detailWithLeftSidebar' | null | '';
 
 const ROUTE_DATA_PAGE_LAYOUT = 'pageLayout';
 const isEndOfNavigation = is(NavigationEnd);
@@ -38,9 +38,9 @@ export class PageComponent implements OnDestroy {
     return this.pageLayout === 'almostfullWithLeftSidebar';
   }
 
-  @HostBinding('class.detaihzaithLeftSidebar')
-  get detaihzaithLeftSidebar() {
-    return this.pageLayout === 'detaihzaithLeftSidebar';
+  @HostBinding('class.detailWithLeftSidebar')
+  get detailWithLeftSidebar() {
+    return this.pageLayout === 'detailWithLeftSidebar';
   }
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {

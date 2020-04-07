@@ -1,0 +1,18 @@
+:host {
+  width: 100%;
+  
+  .main-container {
+    z-index: -1000000;
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+  .content-container {
+    z-index: -1000000;
+    background-color: #FFE5EF
+  }
+  .content-area {
+    z-index: 1000000;
+    background-color: #FFE5EF;
+  }
+  
+}
+

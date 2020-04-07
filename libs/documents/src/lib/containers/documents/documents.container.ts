@@ -16,11 +16,11 @@ import { TemplatePortalDirective, ComponentPortal } from '@angular/cdk/portal';
 import { runCssVarsPolyfill } from '@clr/core';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
-import { DocsFacade } from '../+state/documents/documents.facade';
-import { Document } from '../models/document.model';
+import { DocsFacade } from '../../+state/documents/documents.facade';
+import { Document } from '../../models/document.model';
 import { LazyLoaderService } from '@hza/core';
 import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
-import { themes } from './themes';
+import { themes } from '../themes';
 import { LoansContainer } from '@hza/loans';
 import { Directive } from '@angular/core';
 

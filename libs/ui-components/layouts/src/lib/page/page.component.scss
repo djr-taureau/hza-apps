@@ -1,4 +1,10 @@
 .page-header {
+  width: 100%;
+  background-color: white;
+  box-shadow: 5px 5px 10px black;
+  padding-left: 0.25em;
+  height: 4.5em;
+  
   .hza-section {
     min-height: 11.9rem;
   }
@@ -6,6 +12,23 @@
   .hza-section-title {
     font-size: 2.8rem;
   }
+}
+
+.feature-container-area {
+  z-index: -1000000;
+  background-color: rgba(255, 0, 0, 0.1);
+
+}
+
+.feature-container {
+    z-index: 1000000;
+    background-color: #FFE5EF;
+    background-color: rgba(255, 255, 255, .7);
+    border: 2px solid rgba(55, 103, 142, 1);
+    border-radius: 5px;
+    margin: 0.5em 0 0 0.5em;
+    box-shadow: 5px 5px 10px black;
+    float: left;
 }
 
 .hza-page {
@@ -21,7 +44,7 @@
 
 .full-page {
   .page-content {
-    grid: 1fr/1fr;
+    grid: 1fr/1fr/1fr;
     grid-gap: 6rem;
     display: grid;
   }
@@ -43,7 +66,7 @@
   }
 }
 
-.detaihzaithLeftSidebar {
+.detailWithLeftSidebar {
   .hza-page {
     display: grid;
     margin: 0 auto;
@@ -57,4 +80,4 @@
   }
 }
 
-// 1800000
+
