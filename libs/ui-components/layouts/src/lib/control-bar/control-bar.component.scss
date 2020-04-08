@@ -1,5 +1,10 @@
 .theme-grey {
   .hza-control-bar {
+    padding: 0;
+    .hza-section-title {
+      text-align: left;
+      margin: 0px 0;
+    }
     .mat-select-value {
       color: #fff;
     }

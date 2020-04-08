@@ -24,10 +24,10 @@ import { DocumentsMainContainer } from '../containers/documents-main/documents-m
 						children: [
 							{ path: '', outlet: 'page-header', component: DocHeaderComponent },
 							{ path: '', component: DocumentsMainContainer },
-							{ path: '', outlet: 'feature-container', children: [
-								{ path: '', component: LoanDetailComponent},
-								{ path: '', component: DocumentsContainer, canActivate: [DocumentsGuard] }
-							]},
+							
+								{ path: '', outlet: 'feature-one', component: LoanDetailComponent},
+								{ path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
+							
 							{ path: '', outlet: 'page-footer', component: DocFooterComponent }
 						]
 					}

@@ -15,10 +15,19 @@
   }
 }
 
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+}
+
 .feature-container-area {
   z-index: -1000000;
   background-color: rgba(255, 0, 0, 0.1);
   // grid-template-columns: 4fr;
+  padding: .3rem;
   grid-template-rows: 4fr;
 
 }
@@ -29,7 +38,7 @@
     background-color: rgba(255, 255, 255, .7);
     border: 2px solid rgba(55, 103, 142, 1);
     border-radius: 5px;
-    margin: 0.5em 0 0 0.5em;
+    margin: 0.5em 0.5em 0.5em 0.5em;
     box-shadow: 5px 5px 10px black;
     float: left;
 }
