@@ -1,0 +1,63 @@
+:host {
+    background-color: rgba(255, 255, 255, .7);
+    border: 2px solid rgba(55, 103, 142, 1);
+    border-radius: 5px;
+    margin: 0.5rem 0 0 0.5rem;
+    box-shadow: 5px 5px 10px black;
+    float: left;
+    z-index: 12000;
+    
+    .doc-item .ui-md-3 {
+      text-align: center;
+    }
+
+    .this-cell {
+      border-color: green;
+    }
+
+    .doc-item .ui-g-10 {
+      font-weight: bold;
+    }
+
+    .empty-doc-item-index {
+      background-color: #f1f1f1;
+      width: 60px;
+      height: 60px;
+      margin: 36px auto 0 auto;
+      animation: pulse 1s infinite ease-in-out;
+    }
+
+    .empty-doc-item-image {
+      background-color: #f1f1f1;
+      width: 120px;
+      height: 120px;
+      animation: pulse 1s infinite ease-in-out;
+    }
+
+    .empty-doc-item-text {
+      background-color: #f1f1f1;
+      height: 18px;
+      animation: pulse 1s infinite ease-in-out;
+    }
+
+    .title-container {
+      padding: 1rem;
+      text-align: right;
+    }
+
+    .sort-container {
+      text-align: left;
+    }
+    .action-buttons {
+      text-align: center;
+    }
+    .action-button {
+      	font-size: .10rem;
+      	padding: 4px;
+      	margin-right: 4px;
+    }
+}
+
+
+
+

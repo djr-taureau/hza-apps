@@ -1,0 +1,168 @@
+{
+  "npmScope": "hza",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "hza": {
+      "tags": [
+        "scope:hza",
+        "type:app"
+      ],
+      "implicitDependencies": [
+        "shared-assets",
+        "shared-styles",
+        "shared-utils",
+        "loans",
+        "documents",
+        "tasks"
+      ]
+    },
+    "hza-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "hza"
+      ]
+    },
+    "shared-assets": {
+      "tags": [
+        "scope:shared",
+        "type:assets"
+      ]
+    },
+    "shared-styles": {
+      "tags": [
+        "scope:shared",
+        "type:styles"
+      ]
+    },
+    "shared-utils": {
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "shared-environments": {
+      "tags": [
+        "scope:shared",
+        "type:environments"
+      ]
+    },
+    "loans": {
+      "tags": [
+        "scope:hza",
+        "type:feature"
+      ]
+    },
+    "core": {
+      "tags": [
+        "scope:hza"
+      ]
+    },
+    "shared-data-access": {
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "documents": {
+      "tags": [
+        "scope:hza",
+        "type:feature"
+      ]
+    },
+    "tasks": {
+      "tags": [
+        "scope:hza",
+        "type:feature"
+      ]
+    },
+    "ui-components-buttons": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-core-table": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-overlay": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-tabs": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-icons": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-data-table": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-forms": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-layouts": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-core": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-widget": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "ui-components-file-upload": {
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "Mjk4MjdiYjEtNjgwNi00YTUwLWE5NDAtYWM4MWNkOTVkNGJmfHJlYWQ=",
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ]
+      }
+    }
+  }
+}

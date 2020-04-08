@@ -1,0 +1,208 @@
+<div class="container">
+  <form [formGroup]="myForm" class="form-inline">
+    <div class="clr-row">
+      <div class="clr-col float-right">
+        <div class="form-group">
+          <div class="btn-group">
+            <div class="quick-buttons radio btn btn-sm">
+              <input
+                type="radio"
+                name="btn-group-company-radios"
+                id="btn-company-radio-1"
+              />
+              <label
+                class="quick-buttons radio btn btn-sm"
+                for="btn-company-radio-1"
+                >Any</label
+              >
+            </div>
+            <div class="quick-buttons radio btn btn-sm">
+              <input
+                type="radio"
+                name="btn-group-company-radios"
+                id="btn-company-radio-2"
+                selected
+              />
+              <label
+                class="quick-buttons radio btn btn-sm"
+                for="btn-company-radio-2"
+                >Fay</label
+              >
+            </div>
+            <div class="quick-buttons radio btn btn-sm">
+              <input
+                type="radio"
+                name="btn-group-company-radios"
+                id="btn-company-radio-3"
+              />
+              <label
+                class="quick-buttons radio btn btn-sm"
+                for="btn-company-radio-3"
+                >Flagstar</label
+              >
+            </div>
+          </div>
+          <input class="search" type="text" placeholder="Search" />
+          <button class="search">Search</button>
+          <clr-icon shape="times-circle"></clr-icon>
+        </div>
+      </div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col">
+        Row 2 column 1
+        <div class="btn-group">
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-1"
+              selected
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-1"
+              >Loan</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-2"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-2"
+              >Borrower</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-3"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-3"
+              >Co-Borrower</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-4"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-4"
+              >SSN</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-5"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-5"
+              >Email</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-6"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-6"
+              >Phone</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-7"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-7"
+              >Address</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-8"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-8"
+              >City</label
+            >
+          </div>
+          <div class="quick-buttons radio btn btn-sm">
+            <input
+              class="quick-buttons radio btn btn-sm"
+              type="radio"
+              name="btn-group-borrow-radios"
+              id="btn-demo-radio-borrow-9"
+            />
+            <label
+              class="quick-buttons radio btn btn-sm"
+              for="btn-demo-radio-borrow-9"
+              >Zip</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col">Row 3 column 1</div>
+      <div class="clr-col">Row 3 col 2</div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col">Row 4 col 1</div>
+      <div class="loan-search-instructions clr-col">
+        Search Toggle Message
+      </div>
+    </div>
+  </form>
+  <div class="clr-row">
+    <div class="clr-col">
+      <span>1/3</span>
+    </div>
+    <div class="clr-col">
+      <span>1/3</span>
+    </div>
+    <div class="clr-col">
+      <span>1/3</span>
+    </div>
+  </div>
+  <div class="clr-row">
+    <div class="clr-col">
+      <span>Search Results</span>
+    </div>
+  </div>
+</div>
+
+<hza-section class="theme-grey">
+<hza-control-bar>
+  <h1 class="title-bar" hzaSectionTitle>Search</h1>
+    <mat-form-field appearance="outline" floatLabel="never" hzaControlBarControl>
+      <span matPrefix>
+        <mat-icon>search</mat-icon>
+      </span>
+      <input matInput placeholder="Search">
+    </mat-form-field>
+  <button flat-button hzaControlBarControl>Search</button>
+</hza-control-bar>
+</hza-section>

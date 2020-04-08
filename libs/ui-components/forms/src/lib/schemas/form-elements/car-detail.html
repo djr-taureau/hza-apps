@@ -1,0 +1,126 @@
+<section ng-if="showCarDetail">
+  <header>
+    <h2>
+      <span> {{detail.LoanNumber}} </span>
+      <span> {{requestTypeString}} </span>
+    </h2>
+    <h5>{{detail.Requester}}</h5>
+  </header>
+  <div class="cardetail">
+    <form name="detail.criteria" novalidate>
+      <div class="detailLoan" ng-show="detail.ID==0">
+        <span ng-show="showLoan">
+          <label-value
+            label="Loan Number"
+            model="detail.LoanNumber"
+            ng-class="loanclass"
+            title="{{loantitle}}"
+            fdisabled="loanExists || isrequestdisabled"
+            change="loanValidate('loanNumber', detail.LoanNumber, 'Loan Number', 500)"
+            required
+          ></label-value>
+        </span>
+        <label-value label="Request Type" inputclass="hide" class="asterick">
+          <select ng-model="detail.RequestType" class="xwide" ng-disabled="isrequestdisabled">
+            <option
+              ng-repeat="c in carcodes | filter: {CodeTable: 'RequestType'} | orderBy: 'DisplayName'"
+              value="{{c.Code}}"
+              required
+              >{{c.DisplayName}}</option
+            >
+          </select>
+        </label-value>
+      </div>
+      <div class="detailRequest">
+        <label-value
+          ng-if="!newrequest"
+          label="Start Date"
+          format="date: 'MM/dd/yyyy hh:mm a'"
+          model="detail.Created"
+          fdisabled="true"
+        ></label-value>
+        <label-value
+          ng-if="!newrequest"
+          label="Last Updated Date"
+          format="date: 'MM/dd/yyyy hh:mm a'"
+          model="detail.LastUpdated"
+          fdisabled="true"
+        ></label-value>
+        <label-value
+          ng-if="!newrequest"
+          label="Current Status"
+          model="detail.statusString"
+          fdisabled="true"
+        ></label-value>
+        <label-value
+          label="Original Request Comment"
+          model="detail.OriginalComment"
+          multiline
+          fdisabled="origCommentDisabled"
+          inputclass="xxwide xtall requestcomment"
+          required
+        ></label-value>
+        <!--  TODO: djr BP would be to use enums and not magic numbers, BP for TypeScript and Angular is to is ===  -->
+        <!-- TODO: djr Figure out how we can use the same reusable component for this.No  -->
+        <z-car-reo ng-if="detail.RequestType == 1"></z-car-reo>
+        <z-car-hhf ng-if="detail.RequestType == 2"></z-car-hhf>
+        <z-car-listprice ng-if="detail.RequestType == 3"></z-car-listprice>
+        <z-car-highriskescalation ng-if="detail.RequestType == 4"></z-car-highriskescalation>
+        <z-car-shortpayoff ng-if="detail.RequestType == 5"></z-car-shortpayoff>
+        <z-car-deedinlieu ng-if="detail.RequestType == 6"></z-car-deedinlieu>
+        <z-car-forbearance ng-if="detail.RequestType == 7"></z-car-forbearance>
+        <z-car-propertypreservation ng-if="detail.RequestType == 8"></z-car-propertypreservation>
+        <z-car-shortsale ng-if="detail.RequestType == 9"></z-car-shortsale>
+        <z-car-foreclosure ng-if="detail.RequestType == 10"></z-car-foreclosure>
+        <z-car-repurchase ng-if="detail.RequestType == 11"></z-car-repurchase>
+        <z-car-modification ng-if="detail.RequestType == 12"></z-car-modification>
+        <z-car-lienpayoff ng-if="detail.RequestType == 13"></z-car-lienpayoff>
+        <z-car-notesale ng-if="detail.RequestType == 14"></z-car-notesale>
+        <z-car-foreclosuresale ng-if="detail.RequestType == 15"></z-car-foreclosuresale>
+      </div>
+      <div class="detailStatus">
+        <button
+          ng-if="detail.Status != 11 || detail.Status != 10"
+          ng-click="save(c.Code);"
+          ng-repeat="c in NextSteps | orderBy: 'DisplayName2'"
+          value="{{c.Code}}"
+          ng-disabled="updatingstatus || $root.CAR.view == 'RO'"
+          type="button"
+        >
+          {{c.DisplayName2}}
+        </button>
+        <button
+          ng-if="isSaveAllowed()"
+          ng-click="save()"
+          ng-disabled="validateSaveCriteria() || $root.CAR.view == 'RO'"
+          type="button"
+        >
+          {{saveButton}}
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="detailComments" ng-if="!newrequest">
+    <label-value
+      label="Response Comment"
+      model="detail.Comment"
+      multiline
+      inputclass="xxwide xtall requestcomment"
+      fdisabled="responseCommentDisabled"
+    ></label-value>
+    <label>History of Response Comments</label>
+    <div class="history">
+      <p
+        ng-repeat="x in detail.Comments track by $index"
+        class="{{ x.isExternal ? 'commentExternal' : 'commentInternal'}}"
+        ng-disabled="true"
+      >
+        <span class="created">{{x.created | date:"MM/dd/yyyy hh:mm a" }}</span>
+        <span class="createdby" title="{{x.createdbyUserid}}">{{x.createdby}}</span>
+        <span class="status">{{x.commentStatus}}</span>
+        <span class="isExternal">{{x.isExternal}}</span>
+        <span class="commentData">{{x.comment}}</span>
+      </p>
+    </div>
+  </div>
+</section>

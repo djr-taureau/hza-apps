@@ -1,0 +1,133 @@
+  :host {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 1.75em;
+      background-color: rgba(59, 103, 142, 1);
+      color: white;
+      padding: 0.25em;
+    }
+  }
+
+  .mat-table {
+    flex: 1;
+  }
+
+  .mat-sort-header-arrow {
+    color: #f26623;
+  }
+
+  th.mat-header-cell {
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #8f9fb5;
+    padding-left: 2.4rem;
+    font-size: 0.02rem;
+    font-weight: 600;
+
+    font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
+    letter-spacing: 0.03em;
+    line-height: 0.02rem;
+    text-align: center;
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba(55, 103, 142, 1);
+    }
+
+    color: black;
+    font-size: 0.8rem;
+    letter-spacing: 0.015rem;
+  }
+
+  td.mat-cell {
+    padding-left: 2.4rem;
+    font-size: 0.6rem;
+    border: 1px solid rgba(55, 103, 142, 1);
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba(55, 103, 142, 1);
+    }
+
+    border-bottom: none;
+  }
+
+  tr.mat-row:nth-child(even) {
+    font-size: 0.6rem;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #FDF5F7;
+  }
+
+  tr.mat-row:nth-child(odd) {
+    font-size: 0.6rem;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #b1bfce;
+  }
+
+  td.mat-cell:first-child,
+  td.mat-footer-cell:first-child,
+  th.mat-header-cell:first-child {
+    padding-left: 3.8rem;
+  }
+
+  .mat-column-select {
+    border-right: none !important;
+    width: 2rem !important;
+
+    :host ::ng-deep .mat-checkbox-frame {
+      border: none !important;
+      // background: #fff;
+      // border-color: #E5E3E3 !important;
+    }
+
+    :host ::ng-deep .mat-checkbox-checkmark-path,
+    :host ::ng-deep .mat-checkbox-mixedmark {
+      background-color: #f26623;
+      stroke: #f26623 !important;
+    }
+
+    :host ::ng-deep .mat-checkbox-inner-container {
+      background-color: #fff;
+      border-radius: 3px;
+      border: solid 1px #e5e3e5;
+    }
+
+    :host ::ng-deep .mat-checkbox-background {
+      background-color: #fff;
+    }
+  }
+
+  .mat-column-name {
+    padding-left: 1.8rem !important;
+  }
+
+  .element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+
+  .element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+
+  .element-doc {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+
+  tr.detail-row {
+    height: 0;
+  }
+
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }

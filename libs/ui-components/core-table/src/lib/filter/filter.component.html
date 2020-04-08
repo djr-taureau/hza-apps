@@ -1,0 +1,13 @@
+<ng-content></ng-content>
+
+<span class="trigger">
+  <button #filterButton (click)="open(filterInput)">
+    <mat-icon>filter_list</mat-icon>
+  </button>
+</span>
+
+<ng-template #filterInput let-close="close">
+  <mat-form-field>
+    <input matInput [formControl]="filter" />
+  </mat-form-field>
+</ng-template>

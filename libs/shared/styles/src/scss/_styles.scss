@@ -1,0 +1,29 @@
+/* Add application styles & imports to this file! */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form-flex {
+  width: 100%;
+
+  input:not([clrDate]),
+  textarea {
+    width: 100% !important;
+  }
+
+  ::ng-deep .clr-input-group {
+    width: 100%;
+  }
+
+  ::ng-deep .clr-input-wrapper {
+    width: 100%;
+  }
+
+  ::ng-deep .clr-input-group-icon-action {
+    float: right;
+  }
+    ::ng-deep .clr-dg-cell {
+      border-color: red;
+    }
+}

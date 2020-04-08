@@ -1,0 +1,30 @@
+<div class="container">
+  <clr-datagrid class="data-grid-border">
+    <clr-dg-column class="data-table-header">Loan Number</clr-dg-column>
+    <clr-dg-column class="data-table-header">Name</clr-dg-column>
+    <clr-dg-column class="data-table-header">Phone</clr-dg-column>
+
+    <clr-dg-row class="data-table-row" *clrDgItems="let loan of loans">
+      <clr-dg-cell (click)=copy(loan.LoanNumber)>{{ loan.LoanNumber }}</clr-dg-cell>
+      <clr-dg-cell>{{ loan.Name }}</clr-dg-cell>
+      <clr-dg-cell (click)=copy(loan.Phone)>{{ loan.Phone | phone }}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{ loans.length }} loans</clr-dg-footer>
+  </clr-datagrid>
+</div>
+
+<clr-modal class="loan-search" [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
+  <h3 class="modal-title">Loan Search</h3>
+  <div class="modal-body">
+    <hza-loan-search></hza-loan-search>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="opened = false">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="opened = false">
+      Ok
+    </button>
+  </div>
+</clr-modal>

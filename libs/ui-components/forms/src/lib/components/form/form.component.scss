@@ -1,0 +1,73 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto
+}
+
+input.field {
+  font-weight: bold;
+  color: red;
+}
+formly-form {
+  display: block;
+  border: 1px solid #e2e2e2;
+  border-collapse: collapse;
+  color: #333;
+  cursor: default;
+  float: none;
+  font-family: Arial;
+  font-size: 9.6px;
+  font-weight: 700;
+  margin: 0;
+  max-width: 28em;
+  min-width: 20em;
+  padding: 0 .25em;
+  width: 20em;
+  margin-bottom: 2rem;
+
+  
+}
+
+.label {
+  background-color: green;
+}
+
+  .form-fields {
+    background-color: #add8e6;
+    border: 1px solid #e2e2e2;
+    border-collapse: collapse;
+    color: #333;
+    cursor: default;
+    float: none;
+    font-family: Arial;
+    font-size: 9.6px;
+    font-weight: 700;
+    margin: 0;
+    max-width: 28em;
+    min-width: 20em;
+    padding: 0 .25em;
+    width: 20em;
+  }
+
+   .default-form {
+
+     border: 1px solid #37678e;
+
+     border-collapse: collapse;
+
+     color: pink;
+
+     cursor: pointer;
+
+     font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+
+     font-size: .8em;
+
+     line-height: 18px;
+
+     padding-left: .5em;
+
+     padding-right: .5em;
+
+     text-align: right;
+
+   }

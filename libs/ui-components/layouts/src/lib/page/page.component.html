@@ -1,0 +1,27 @@
+<section class="page-header">
+  <router-outlet name="page-header"></router-outlet>
+</section>
+<!-- TODO:: djr - look into using the cdk dashboard module for containing the features -->
+<div class="clear-fix"></div>
+<section class="feature-container-area">
+  <section class="feature-container">
+    <router-outlet name="feature-one"></router-outlet>
+  </section>
+</section>
+<div class="clear-fix"></div>
+<section class="feature-container-area">
+  <section class="feature-container">
+    <router-outlet name="feature-two"></router-outlet>
+  </section>
+</section>
+<div class="clear-fix"></div>
+<section class="feature-container-area">
+  <section class="feature-container">
+    <router-outlet name="feature-three"></router-outlet>
+  </section>
+</section>
+<!-- TODO:: djr Fix this with a better solution -->
+<div class="clear-fix"></div>
+<section class="page-footer">
+  <router-outlet name="page-footer"></router-outlet>
+</section>
