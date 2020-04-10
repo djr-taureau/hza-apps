@@ -21,6 +21,7 @@ Angular Applications live in the `/apps`
 
 1. Hza (with mock json server) - `yarn dev-with-server`
 2. Loans App - `yarn start loans-app --port 4201`
+3. Doc Repo
 
 \*if using `npm` instead of `yarn` replace `yarn [command]` with `npm run [command]`
 
@@ -60,7 +61,6 @@ For example a `Pipe` which selects the first item from an array.
 
 ### Feature Library
 
-#### amq
 
 #### client-approval-requests
 
@@ -68,6 +68,5 @@ For example a `Pipe` which selects the first item from an array.
 
 #### loans
 
-#### msp-queue
 
 #### tasks

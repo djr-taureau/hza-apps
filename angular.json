@@ -100,10 +100,7 @@
               "apps/hza/tsconfig.app.json",
               "apps/hza/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/hza/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/hza/**"]
           }
         },
         "test": {
@@ -138,13 +135,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/hza-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/hza-e2e/**"
-            ]
+            "tsConfig": ["apps/hza-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/hza-e2e/**"]
           }
         }
       }
@@ -186,10 +178,7 @@
               "libs/shared/utils/tsconfig.lib.json",
               "libs/shared/utils/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/utils/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/utils/**"]
           }
         },
         "test": {
@@ -221,10 +210,7 @@
               "libs/shared/environments/tsconfig.lib.json",
               "libs/shared/environments/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/environments/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/environments/**"]
           }
         },
         "test": {
@@ -256,10 +242,7 @@
               "libs/loans/tsconfig.lib.json",
               "libs/loans/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/loans/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/loans/**"]
           }
         },
         "test": {
@@ -291,10 +274,7 @@
               "libs/core/tsconfig.lib.json",
               "libs/core/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/core/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/core/**"]
           }
         },
         "test": {
@@ -326,10 +306,7 @@
               "libs/shared/data-access/tsconfig.lib.json",
               "libs/shared/data-access/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/data-access/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/data-access/**"]
           }
         },
         "test": {
@@ -361,10 +338,7 @@
               "libs/documents/tsconfig.lib.json",
               "libs/documents/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/documents/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/documents/**"]
           }
         },
         "test": {
@@ -396,10 +370,7 @@
               "libs/tasks/tsconfig.lib.json",
               "libs/tasks/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/tasks/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/tasks/**"]
           }
         },
         "test": {
@@ -431,10 +402,7 @@
               "libs/ui-components/buttons/tsconfig.lib.json",
               "libs/ui-components/buttons/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/buttons/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/buttons/**"]
           }
         },
         "test": {
@@ -501,10 +469,7 @@
               "libs/ui-components/overlay/tsconfig.lib.json",
               "libs/ui-components/overlay/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/overlay/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/overlay/**"]
           }
         },
         "test": {
@@ -536,10 +501,7 @@
               "libs/ui-components/tabs/tsconfig.lib.json",
               "libs/ui-components/tabs/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/tabs/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/tabs/**"]
           }
         },
         "test": {
@@ -571,10 +533,7 @@
               "libs/ui-components/icons/tsconfig.lib.json",
               "libs/ui-components/icons/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/icons/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/icons/**"]
           }
         },
         "test": {
@@ -641,10 +600,7 @@
               "libs/ui-components/forms/tsconfig.lib.json",
               "libs/ui-components/forms/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/forms/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/forms/**"]
           }
         },
         "test": {
@@ -676,10 +632,7 @@
               "libs/ui-components/layouts/tsconfig.lib.json",
               "libs/ui-components/layouts/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/layouts/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/layouts/**"]
           }
         },
         "test": {
@@ -711,10 +664,7 @@
               "libs/ui-components/core/tsconfig.lib.json",
               "libs/ui-components/core/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/core/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/core/**"]
           }
         },
         "test": {
@@ -746,10 +696,7 @@
               "libs/ui-components/widget/tsconfig.lib.json",
               "libs/ui-components/widget/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/widget/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-components/widget/**"]
           }
         },
         "test": {
@@ -800,6 +747,129 @@
       "schematics": {
         "@nrwl/angular:component": {
           "styleext": "scss"
+        }
+      }
+    },
+    "doc-repo": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/doc-repo",
+      "sourceRoot": "apps/doc-repo/src",
+      "prefix": "hza",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/doc-repo",
+            "index": "apps/doc-repo/src/index.html",
+            "main": "apps/doc-repo/src/main.ts",
+            "polyfills": "apps/doc-repo/src/polyfills.ts",
+            "tsConfig": "apps/doc-repo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/doc-repo/src/favicon.ico",
+              "apps/doc-repo/src/assets"
+            ],
+            "styles": ["apps/doc-repo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/doc-repo/src/environments/environment.ts",
+                  "with": "apps/doc-repo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "doc-repo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "doc-repo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "doc-repo:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/doc-repo/tsconfig.app.json",
+              "apps/doc-repo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/doc-repo/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/doc-repo/jest.config.js",
+            "tsConfig": "apps/doc-repo/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/doc-repo/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "doc-repo-e2e": {
+      "root": "apps/doc-repo-e2e",
+      "sourceRoot": "apps/doc-repo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/doc-repo-e2e/cypress.json",
+            "tsConfig": "apps/doc-repo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "doc-repo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "doc-repo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/doc-repo-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/doc-repo-e2e/**"]
+          }
         }
       }
     }
