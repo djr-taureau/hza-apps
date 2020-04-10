@@ -1,4 +1,4 @@
-import { ApiService, ApiEndpointService } from '@hza/core';
+import { ApiService, ApiEndpointService, ConfigService } from '@hza/core';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -7,10 +7,11 @@ import { Loan } from '../models/loan.model';
 
 @Injectable()
 export class LoansService {
-	constructor(private apiService: ApiService, private apiEndpoint: ApiEndpointService) {}
+	constructor(private apiService: ApiService, private apiEndpoint: ApiEndpointService, private config: ConfigService) {}
 
 	getLoans(): Observable<Loan[]> {
-		const url = this.apiEndpoint.getEndpoint(ApiEndpointService.ENDPOINT.LOANS);
-		return this.apiService.get<Loan[]>('/loans');
+    const baseUrl = this.config.getCommonApiUri();
+		const url = this.apiEndpoint.getEndpoint(baseUrl.toString(), ApiEndpointService.ENDPOINT.LOANS);
+		return this.apiService.get<Loan[]>(`${url}`);
 	}
 }

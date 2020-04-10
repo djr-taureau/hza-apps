@@ -7,5 +7,6 @@ export * from './cache';
 export * from './cache/models';
 export * from './events';
 export * from './notifications';
+export * from './config';
 // end:ng42.barrel
 
