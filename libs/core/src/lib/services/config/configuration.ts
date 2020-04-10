@@ -1,11 +1,19 @@
 export interface Configuration {
 	apis: {
-		hza: string;
+		docs: string;
+		common: string;
+		amq: string;
+		cars: string;
+		tasks: string;
 	};
 }
 
 export const defaultConfig: Configuration = {
   apis: {
-		hza: ''
+		docs: '',
+		common: '',
+		amq: '',
+		cars: '',
+		tasks: ''
 	}
 };

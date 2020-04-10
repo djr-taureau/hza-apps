@@ -16,10 +16,8 @@ export class ApiEndpointService {
      */
 	public static BASE_URL = {
 		LOCAL: 'http://localhost:3000/',
-		// ** for versioning of APIs
-		V5: '',
 		REMOTE: '',
-		FROM_CONFIG: 'http://localhost:3000/'
+		FROM_CONFIG: 'POPULATED_BY_CONFIG.JSON'
 	};
 
 	/**
@@ -48,47 +46,39 @@ export class ApiEndpointService {
      */
 	// ** do not use for testing mocks
 	public static CONTEXT = 'api';
-
 	/**
      * Map of contexts for API endpoints.
      */
-	public static AUTH_CONTEXT = 'auth/';
-
+	public static AUTH_CONTEXT = 'users/';
 	/**
      * Mock API context.
      */
 	public static MOCK_CONTEXT = 'assets/data/';
-
+	public static SESSIONS_CONTEXT = 'sessions';
 	/**
      * Map of API endpoints.
      */
 	public static ENDPOINT = {
 		CONFIG: `assets/config/configuration.local.json`,
 		LOGIN: `auth/login/`,
-		REGISTER: `auth/register`,
-		EXAMPLE_DETAILS: 'example/{id}/details/{id}',
-		LOANS: 'loans',
+		DOWNTIME: `downtime/{applications}`,
+		DOWNTIME_EXTERNAL: `downtime/{application}/{external:bool}`,
+		ERROR: `error/{application}/{user?}/{shortmessage?}/{detail?}/{errorlevel?}`,
+		LOANS: `loans/search/{source:int}/{search}`,
+		LOAN: `loan/search/{source}/{search}/{value}`,
+		LOAN_COMMENTS: `loan/comment/{source:int}/{loan}/{workstation?}/{filtertype?}/{filter?}`,
 		CARS: 'cars',
 		DOCUMENTS: 'documents',
-		COMPANY_INITIATIVES: `assets/data/mock-initiatives.json`,
-		LOAN_DOCUMENTS: 'companies/{id}/documents',
-		COMPANY_CASH: 'companies/{id}/cash',
-		TEAMS: 'companies/{id}/team-members',
-		TEAM_MEMBER: 'companies/{id}/team-members/{member_id}',
-		VALUATION: 'companies/{id}/valuation',
-		REVENUE: 'companies/{id}/revenue',
-		EBIDTA: 'companies/{id}/ebitda',
-		KPI: 'companies/{id}/kpis'
 	};
 
 	/**
      * List of secure API endpoints.
      */
 	public static secureEndpoints = [
-		ApiEndpointService.ENDPOINT.LOAN_DOCUMENTS,
-		ApiEndpointService.ENDPOINT.TEAMS,
-		ApiEndpointService.ENDPOINT.TEAM_MEMBER,
-		ApiEndpointService.ENDPOINT.REVENUE
+		ApiEndpointService.ENDPOINT.LOANS,
+		ApiEndpointService.ENDPOINT.LOAN,
+		ApiEndpointService.ENDPOINT.LOAN_COMMENTS,
+		ApiEndpointService.ENDPOINT.DOWNTIME
 	];
 
 	/**
@@ -151,41 +141,6 @@ export class ApiEndpointService {
 		);
 		return check;
 	}
-
-	/**
-     * Determines if the current route is a mock for UX testing.
-     * @param {string} url
-     * @returns {boolean}
-     */
-	public isMockRoute(url: string = ''): boolean {
-		return url.toLowerCase().indexOf('mock') > -1;
-	}
-
-	/**
-     * Determines if the API should use mock API endpoints.
-     */
-	public useMockEndpoint(): boolean {
-		return !!UrlUtil.getQueryStringParamValue('mocks', UrlUtil.STRING_TYPE);
-	}
-
-	/**
-     * Determines if the API should use mock API endpoints.
-     */
-	public getMockEndpoint(endpoint: string): string {
-		const mocks: string = UrlUtil.getQueryStringParamValue('mocks', UrlUtil.STRING_TYPE) as string;
-		const baseMockUrl = 'assets/data/';
-
-		if (endpoint === ApiEndpointService.ENDPOINT.REVENUE) {
-			if (mocks.indexOf('revenue') !== -1) {
-				return `${baseMockUrl}db.json`;
-			} else {
-				return '';
-			}
-		} else {
-			return '';
-		}
-	}
-
 	/**
      * Adds query string params to a URL.
      * @param template
@@ -203,10 +158,8 @@ export class ApiEndpointService {
 			result += k + '=' + v;
 			i++;
 		});
-
 		return result;
 	}
-
 	/**
      * Adds a `noCache` parameter to the query string object.
      * @param query
