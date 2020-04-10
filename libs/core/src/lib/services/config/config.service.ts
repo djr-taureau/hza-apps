@@ -17,7 +17,6 @@ export const CONFIG_URL = new InjectionToken('CONFIG_URL');
 })
 export class ConfigService {
 	config: Configuration;
-	private config$: BehaviorSubject<Configuration> = new BehaviorSubject(defaultConfig);
 
 	constructor(@Inject(CONFIG_URL) private configUrl: string, private http: HttpClient) {}
 
@@ -29,40 +28,30 @@ export class ConfigService {
 			.catch(() => {
 				throw getConfigError(this.configUrl);
 			});
-		this.updateApiEndpoint(this.config);
-		this.config$.next(this.config);
 	}
 
-	getHzApiUri() {
+	getDocsApiUri() {
 		if (isNotUseable(this.config)) throw getInvalidConfigError();
 
-		return path(['apis', 'hza'], this.config);
+		return path(
+			[
+				'apis',
+				'docs'
+			],
+			this.config
+		);
 	}
 
-	public getConfig(): BehaviorSubject<Configuration> {
-		return this.config$;
-	}
+	getCommonApiUri() {
+		if (isNotUseable(this.config)) throw getInvalidConfigError();
 
-	/**
-     * Accessor for the private member config value.
-     */
-	public getConfigValue(): Configuration {
-		return this.getConfig().value;
-	}
-
-	/**
-     * Accessor for the config's API endpoint.
-     */
-	public getConfigApiEndpoint(): string {
-		return this.getConfigValue().apis.hza;
-	}
-
-	/**
-     * Update the API endpoint with data from the loaded config.
-     * @param config
-     */
-	private updateApiEndpoint(config: Configuration): void {
-		ApiEndpointService.BASE_URL.FROM_CONFIG = config.apis.hza;
+		return path(
+			[
+				'apis',
+				'common'
+			],
+			this.config
+		);
 	}
 }
 
