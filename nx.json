@@ -12,10 +12,7 @@
   },
   "projects": {
     "hza": {
-      "tags": [
-        "scope:hza",
-        "type:app"
-      ],
+      "tags": ["scope:hza", "type:app"],
       "implicitDependencies": [
         "shared-assets",
         "shared-styles",
@@ -27,128 +24,74 @@
     },
     "hza-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "hza"
-      ]
+      "implicitDependencies": ["hza"]
     },
     "shared-assets": {
-      "tags": [
-        "scope:shared",
-        "type:assets"
-      ]
+      "tags": ["scope:shared", "type:assets"]
     },
     "shared-styles": {
-      "tags": [
-        "scope:shared",
-        "type:styles"
-      ]
+      "tags": ["scope:shared", "type:styles"]
     },
     "shared-utils": {
-      "tags": [
-        "scope:shared",
-        "type:util"
-      ]
+      "tags": ["scope:shared", "type:util"]
     },
     "shared-environments": {
-      "tags": [
-        "scope:shared",
-        "type:environments"
-      ]
+      "tags": ["scope:shared", "type:environments"]
     },
     "loans": {
-      "tags": [
-        "scope:hza",
-        "type:feature"
-      ]
+      "tags": ["scope:hza", "type:feature"]
     },
     "core": {
-      "tags": [
-        "scope:hza"
-      ]
+      "tags": ["scope:hza"]
     },
     "shared-data-access": {
-      "tags": [
-        "scope:shared",
-        "type:data-access"
-      ]
+      "tags": ["scope:shared", "type:data-access"]
     },
     "documents": {
-      "tags": [
-        "scope:hza",
-        "type:feature"
-      ]
+      "tags": ["scope:hza", "type:feature"]
     },
     "tasks": {
-      "tags": [
-        "scope:hza",
-        "type:feature"
-      ]
+      "tags": ["scope:hza", "type:feature"]
     },
     "ui-components-buttons": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-core-table": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-overlay": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-tabs": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-icons": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-data-table": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-forms": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-layouts": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-core": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-widget": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-file-upload": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "doc-repo": {
+      "tags": []
+    },
+    "doc-repo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["doc-repo"]
     }
   },
   "tasksRunnerOptions": {
@@ -156,12 +99,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "Mjk4MjdiYjEtNjgwNi00YTUwLWE5NDAtYWM4MWNkOTVkNGJmfHJlYWQ=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "test", "lint", "e2e"]
       }
     }
   }
