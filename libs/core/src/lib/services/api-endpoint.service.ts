@@ -141,31 +141,6 @@ export class ApiEndpointService {
 		);
 		return check;
 	}
-
-	/**
-     * Determines if the current route is a mock for UX testing.
-     * @param {string} url
-     * @returns {boolean}
-     */
-	public isMockRoute(url: string = ''): boolean {
-		return url.toLowerCase().indexOf('mock') > -1;
-	}
-
-	/**
-     * Determines if the API should use mock API endpoints.
-     */
-	public useMockEndpoint(): boolean {
-		return !!UrlUtil.getQueryStringParamValue('mocks', UrlUtil.STRING_TYPE);
-	}
-
-	/**
-     * Determines if the API should use mock API endpoints.
-     */
-	public getMockEndpoint(endpoint: string): string {
-		const mocks: string = UrlUtil.getQueryStringParamValue('mocks', UrlUtil.STRING_TYPE) as string;
-		const baseMockUrl = 'assets/data/';
-	}
-
 	/**
      * Adds query string params to a URL.
      * @param template
@@ -183,10 +158,8 @@ export class ApiEndpointService {
 			result += k + '=' + v;
 			i++;
 		});
-
 		return result;
 	}
-
 	/**
      * Adds a `noCache` parameter to the query string object.
      * @param query
