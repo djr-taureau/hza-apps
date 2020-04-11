@@ -1,3 +1,5 @@
+@import '../../../../../shared/styles/src/index.scss';
+
 .hza-section-title {
   font-size: 2.4rem;
   font-weight: normal;
@@ -15,4 +17,8 @@
   letter-spacing: 0.013rem;
   line-height: 2.8rem;
   margin: 0px;
+}
+
+.hza-app-header {
+  font-weight: $font-weight-black
 }
