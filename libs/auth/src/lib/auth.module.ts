@@ -10,4 +10,4 @@ export function tokenGetter() {
   imports: [CommonModule]
 
 })
-export class AuthModule {}  
+export class AuthModule {}
