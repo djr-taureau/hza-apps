@@ -31,14 +31,6 @@ export class ConfigService {
 				.pipe(
 					map((response: Configuration) => {
 						const config: Configuration = response;
-
-						// Order matters here...
-						// 1) Update the ADAL auth config with data from loaded config.
-						// 2) Set a flag that ADAL auth is good to go.
-						// 3) Update the API Endpoint service with the value from config.
-						// 4) Set the latest config on the service's observable config.
-						// this.updateAdalAuthConfig(config);
-						// this.updateApiEndpoint(config);
 						this.config$.next(config);
 						return config;
 					}),
@@ -85,18 +77,6 @@ export class ConfigService {
 	public getCommonApiEndpoint(): string {
 		return this.getConfigValue().apis.common;
 	}
-
-	// getDocsApiUri() {
-	// 	if (isNotUseable(this.config)) throw getInvalidConfigError();
-
-	// 	return path(['apis', 'documents'], this.config);
-	// }
-
-	// getCommonApiUri() {
-	// 	if (isNotUseable(this.config)) throw getInvalidConfigError();
-
-	// 	return path(['apis', 'common'], this.config);
-	// }
 }
 
 export const appInitializer = (appConfig: ConfigService) => () => appConfig.load();
