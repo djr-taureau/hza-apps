@@ -1,6 +1,6 @@
 {
   "apis": {
-    "docs": "https://localhost:3000",
+    "documents": "https://localhost:3000",
     "common": "https://localhost:3000",
     "amq": "https://localhost:3000",
     "cars": "https://localhost:3000",

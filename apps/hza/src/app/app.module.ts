@@ -4,9 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CoreModule, ConfigService, appInitializer, CONFIG_URL } from '@hza/core';
+import { CoreModule, ConfigService, CONFIG_URL } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
 import { environment } from '@hza/shared/environments';
+
+export const appInitializer = (configService: ConfigService) => {
+	return () => configService.load();
+};
 
 const routes: Routes = [
 	{
@@ -25,12 +29,10 @@ const routes: Routes = [
 	}
 ];
 @NgModule({
-	declarations: [
-		AppComponent
-	],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
-    HttpClientModule,
+		HttpClientModule,
 		RouterModule.forRoot(routes, {
 			useHash: true,
 			scrollPositionRestoration: 'enabled',
@@ -44,20 +46,14 @@ const routes: Routes = [
 	providers: [
 		ConfigService,
 		{
-			useFactory: appInitializer,
 			provide: APP_INITIALIZER,
+			useFactory: appInitializer,
 			multi: true,
-			deps: [
-				ConfigService
-			]
+			deps: [ConfigService]
 		},
-    { provide: CONFIG_URL, useValue: environment.configUrl },
+		{ provide: CONFIG_URL, useValue: environment.configUrl },
 	],
-	exports: [
-		BrowserAnimationsModule
-	],
-	bootstrap: [
-		AppComponent
-	]
+	exports: [BrowserAnimationsModule],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}

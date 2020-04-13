@@ -5,7 +5,7 @@
 
 export const environment = {
 	production: false,
-	configUrl: '/config/config.local.json',
+	configUrl: '/config',
 	apis: {
 		docs: 'https://localhost:3000',
 		common: 'https://localhost:3000',
