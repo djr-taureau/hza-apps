@@ -1,10 +1,11 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CoreModule, ConfigService, CONFIG_URL, appInitializer } from '@hza/core';
+import { CoreModule, ConfigService, appInitializer, OnDemandPreloadStrategy } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
 import { environment } from '@hza/shared/environments';
 
@@ -38,7 +39,8 @@ const routes: Routes = [
 			useHash: true,
 			scrollPositionRestoration: 'enabled',
 			anchorScrolling: 'enabled',
-			enableTracing: false
+			enableTracing: true,
+			preloadingStrategy: OnDemandPreloadStrategy
 		}),
 		ClarityModule,
 		BrowserAnimationsModule

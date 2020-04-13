@@ -1,36 +1,27 @@
 import { Injectable } from '@angular/core';
-import {
-	HttpErrorResponse,
-	HttpEvent,
-	HttpHandler,
-	HttpInterceptor,
-	HttpRequest,
-	HttpResponse
-} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { CounterService } from '../services/counter.service';
+import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { BusyService } from '../services/busy.service';
+import { finalize } from 'rxjs/operators';
+import { prefixReq, prefixRes } from './http-config';
 
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable()
 export class BusyInterceptor implements HttpInterceptor {
-	constructor(private counter: CounterService) {}
+  constructor(private busyService: BusyService) {}
 
-	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		this.counter.increment();
-		return next.handle(req).pipe(
-			tap((evt) => {
-				if (evt instanceof HttpResponse) {
-					this.counter.decrement();
-				}
-			}),
-			catchError((err) => {
-				if (err instanceof HttpErrorResponse) {
-					this.counter.decrement();
-				}
-				return throwError(err);
-			})
-		);
-	}
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const msg = req.method === 'GET' ? 'Loading ...' : 'Saving ...';
+    console.groupCollapsed(`${prefixReq} Busy Spinner`);
+    console.log(msg);
+    console.groupEnd();
+    this.busyService.increment(msg);
+    return next.handle(req).pipe(
+      finalize(() => {
+        this.busyService.decrement();
+        console.groupCollapsed(`${prefixRes} Busy Spinner`);
+        console.log('Decrementing');
+        console.groupEnd();
+      })
+    );
+  }
 }
