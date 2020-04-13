@@ -10,7 +10,7 @@ import { Document } from '../models/document.model';
 export class DocumentsService {
 	docsUrl: string;
 	constructor(private apiService: ApiService, private apiEndpoint: ApiEndpointService, private configService: ConfigService) {
-		const baseUrl = configService.getDocsApiUri();
+		const baseUrl = configService.getDocsApiEndpoint();
 		this.docsUrl = `${baseUrl}/documents`;
 	}
 

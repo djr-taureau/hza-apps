@@ -1,9 +1,7 @@
 {
-  "apis": {
-    "docs": "https://docrepo-dev.fayservicing.com/",
+    "documents": "https://docrepo-dev.fayservicing.com/",
     "common": "https://commonservice-dev.fayservicing.com/",
     "amq": "https://amq-dev.fayservicing.com/",
     "cars": "https://car-dev.fayservicing.com/",
     "tasks": "https://tasks-dev.fayservicing.com/"
-  }
 }

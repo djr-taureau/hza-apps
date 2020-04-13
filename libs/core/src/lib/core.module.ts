@@ -1,7 +1,6 @@
 // core.module.ts
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CoreCoreModule, SharedDataAccessModule } from './+modules';
-
 import { httpInterceptorProviders } from './http-interceptors';
 import { ApiService, ApiEndpointService, EventBusService, NotificationService, CacheMapService } from './services';
 import { LazyLoaderService } from './lazy-components/lazy-loader.service';

@@ -7,11 +7,13 @@ import { Loan } from '../models/loan.model';
 
 @Injectable()
 export class LoansService {
-	constructor(private apiService: ApiService, private apiEndpoint: ApiEndpointService, private config: ConfigService) {}
+	loansUrl: string;
+	constructor(private apiService: ApiService, private apiEndpoint: ApiEndpointService, private configService: ConfigService) {
+		const baseUrl = configService.getCommonApiEndpoint();
+		this.loansUrl = `${baseUrl}/loans`;
+	}
 
 	getLoans(): Observable<Loan[]> {
-    const baseUrl = this.config.getCommonApiUri();
-		const url = this.apiEndpoint.getEndpoint(baseUrl.toString(), ApiEndpointService.ENDPOINT.LOANS);
-		return this.apiService.get<Loan[]>(`${url}`);
+		return this.apiService.get<Loan[]>(this.loansUrl);
 	}
 }

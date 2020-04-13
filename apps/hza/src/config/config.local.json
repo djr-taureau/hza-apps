@@ -1,6 +1,4 @@
 {
-  "apis": {
     "documents": "http://localhost:3000",
     "common": "http://localhost:3000"
-  }
 }
