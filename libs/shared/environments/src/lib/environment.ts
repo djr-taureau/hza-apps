@@ -5,5 +5,12 @@
 
 export const environment = {
 	production: false,
-	configUrl: '/config'
+	configUrl: '/config/config.local.json',
+	apis: {
+		docs: 'https://localhost:3000',
+		common: 'https://localhost:3000',
+		amq: 'https://localhost:3000',
+		cars: 'https://localhost:3000',
+		tasks: 'https://localhost:3000'
+	}
 };

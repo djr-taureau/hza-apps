@@ -11,7 +11,7 @@ export class DocumentsService {
 	constructor(private apiService: ApiService, private apiEndpoint: ApiEndpointService) {}
 
 	getDocuments(): Observable<Document[]> {
-		const url = this.apiEndpoint.getEndpoint(ApiEndpointService.ENDPOINT.DOCUMENTS);
+		// const url = this.apiEndpoint.getEndpoint(ApiEndpointService.ENDPOINT.DOCUMENTS);
 		return this.apiService.get<Document[]>('/documents');
 	}
 }

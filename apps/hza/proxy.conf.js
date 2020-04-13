@@ -1,8 +1,8 @@
 const CONFIG_PROXY = {
   context: ['/config'],
-  target: 'https://localhost:4200',
+  target: 'http://localhost:3000',
   pathRewrite: {
-    '^/config': 'assets/config/configuration.dev.json'
+    '^/config': '/config/config.local.json'
   },
   changeOrigin: true,
   logLevel: 'debug',
