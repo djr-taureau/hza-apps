@@ -12,12 +12,12 @@ import { metaReducers, reducers } from './../+state/reducers';
 		StoreModule.forRoot(
 			reducers, {
 			metaReducers,
-			runtimeChecks: {
-				strictStateImmutability: true,
-				strictActionImmutability: true,
-				strictActionSerializability: true,
-				strictStateSerializability: true
-			}
+			// runtimeChecks: {
+			// 	strictStateImmutability: true,
+			// 	strictActionImmutability: true,
+			// 	strictActionSerializability: true,
+			// 	strictStateSerializability: true
+			// }
 		}),
 		EffectsModule.forRoot([]),
 		StoreDevtoolsModule.instrument({
