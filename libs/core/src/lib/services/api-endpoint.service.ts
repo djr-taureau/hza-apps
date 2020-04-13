@@ -25,7 +25,7 @@ export class ApiEndpointService {
      * Map of API endpoints.
      */
 	public static ENDPOINT = {
-		CONFIG: `config/config.local.json`,
+		CONFIG: `assets/config/configuration.local.json`,
 		LOGIN: `auth/login/`,
 		DOWNTIME: `downtime/{applications}`,
 		DOWNTIME_EXTERNAL: `downtime/{application}/{external:bool}`,

@@ -1,15 +1,11 @@
-import { Injectable, InjectionToken, Inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpBackend } from '@angular/common/http';
-import { path } from 'ramda';
-
-import { Configuration, defaultConfig } from './configuration';
-import { getConfigError, getInvalidConfigError } from './config-errors';
-import { isNotUseable } from '@hza/shared/utils';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable, InjectionToken } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiEndpointService } from '../api-endpoint.service';
-import { Logger } from '@hza/shared/utils';
-import { BehaviorSubject } from 'rxjs';
+import { Configuration, defaultConfig } from './configuration';
 import { HttpBackendClient } from './http-backend-client';
+
 
 export const CONFIG_URL = new InjectionToken('CONFIG_URL');
 
@@ -31,7 +27,7 @@ export class ConfigService {
 		const url = this.apiEndpointService.getEndpoint(ApiEndpointService.ENDPOINT.CONFIG, null, null, true);
 		return (
 			this.http
-				.get(`http://localhost:4200/config/config.local.json`)
+				.get(`assets/config/configuration.local.json`)
 				.pipe(
 					map((response: Configuration) => {
 						const config: Configuration = response;
@@ -83,7 +79,7 @@ export class ConfigService {
      * Accessor for the config's API endpoint.
      */
 	public getDocsApiEndpoint(): string {
-		return this.getConfigValue().apis.docs;
+		return this.getConfigValue().apis.documents;
 	}
 
 	public getCommonApiEndpoint(): string {
