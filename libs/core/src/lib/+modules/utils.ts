@@ -1,3 +1,5 @@
+import { curry } from 'ramda';
+
 export const queryParamsToObject = (search) => {
   return search ? JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
     function (key, value) {
@@ -17,3 +19,12 @@ export const isRoute = (url, route) => {
   if (!url || !url[0] || !url[0].path) return null
   return url[0].path === route
 }
+
+
+
+
+export const saveToStorage = curry((key: string, value: string) => localStorage.setItem(key, value));
+
+export const retrieveFromStorage = (key: string) => localStorage.getItem(key);
+
+export const removeFromStorage = (key: string) => localStorage.removeItem(key);
