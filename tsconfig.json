@@ -41,7 +41,8 @@
       "@hza/ui-components/widget": ["libs/ui-components/widget/src/index.ts"],
       "@hza/ui-components/file-upload": [
         "libs/ui-components/file-upload/src/index.ts"
-      ]
+      ],
+      "@hza/auth": ["libs/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

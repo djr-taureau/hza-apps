@@ -1,6 +1,6 @@
 export interface Configuration {
 	apis: {
-		docs: string;
+		documents: string;
 		common: string;
 		amq: string;
 		cars: string;
@@ -10,7 +10,7 @@ export interface Configuration {
 
 export const defaultConfig: Configuration = {
   apis: {
-		docs: '',
+		documents: '',
 		common: '',
 		amq: '',
 		cars: '',

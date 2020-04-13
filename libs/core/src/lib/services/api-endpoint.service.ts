@@ -7,53 +7,25 @@ import * as _ from 'lodash';
 	providedIn: 'root'
 })
 export class ApiEndpointService {
-	/**
-     * Map of possible base url values.
-     *
-     * Local: Uses the local Node API URL.
-     * Remote: Uses the remote AWS API URL.
-     * Build: Uses the compile time provided API URL.
-     */
 	public static BASE_URL = {
 		LOCAL: 'http://localhost:3000/',
-		REMOTE: '',
 		FROM_CONFIG: 'POPULATED_BY_CONFIG.JSON'
 	};
 
-	/**
-     * Map of possible base url values.
-     *
-     * Local: Uses the local Node API URL.
-     * Remote: Uses the remote AWS API URL.
-     * Build: Uses the compile time provided API URL.
-     */
 	public static API_CONTEXT = {
 		LOCAL: 'local',
 		REMOTE: 'remote',
 		BUILD: 'build'
 	};
-
-	/**
-     * Map of protocols for API endpoints.
-     */
-	public static PROTOCOL = {
-		HTTP: 'http://',
-		HTTPS: 'https://'
-	};
-
 	/**
      * Map of contexts for API endpoints.
      */
-	// ** do not use for testing mocks
 	public static CONTEXT = 'api';
 	/**
      * Map of contexts for API endpoints.
      */
 	public static AUTH_CONTEXT = 'users/';
-	/**
-     * Mock API context.
-     */
-	public static MOCK_CONTEXT = 'assets/data/';
+
 	public static SESSIONS_CONTEXT = 'sessions';
 	/**
      * Map of API endpoints.
@@ -68,13 +40,13 @@ export class ApiEndpointService {
 		LOAN: `loan/search/{source}/{search}/{value}`,
 		LOAN_COMMENTS: `loan/comment/{source:int}/{loan}/{workstation?}/{filtertype?}/{filter?}`,
 		CARS: 'cars',
-		DOCUMENTS: 'documents',
+		DOCUMENTS: 'documents'
 	};
 
 	/**
      * List of secure API endpoints.
      */
-	public static secureEndpoints = [
+	public static endpoints = [
 		ApiEndpointService.ENDPOINT.LOANS,
 		ApiEndpointService.ENDPOINT.LOAN,
 		ApiEndpointService.ENDPOINT.LOAN_COMMENTS,
@@ -86,17 +58,8 @@ export class ApiEndpointService {
      */
 	constructor() {}
 
-	/**
-     * Constructs an API endpoint.
-     *
-     * NOTE: In the future this could construct API endpoints using environmental configs provided
-     * at build time or at runtime via (for example) query string params...but for now we'll
-     * keep this dumb simple.
-     */
-
-	public getEndpoint(endpoint: string, params?: {}, query?: {}, noCache: boolean = false): string {
-		const isConfig = ApiEndpointService.ENDPOINT.CONFIG === endpoint;
-		const baseUrl = `${this.getBaseUrl()}${endpoint}`;
+	public getEndpoint(url: string, endpoint: string, params?: {}, query?: {}, noCache: boolean = false): string {
+		const baseUrl = `${url}${endpoint}`;
 		const urlWithParams: string = StringUtil.replaceTokens(baseUrl, params);
 
 		if (noCache) {
@@ -105,47 +68,6 @@ export class ApiEndpointService {
 		return this.addQueryParams(urlWithParams, query);
 	}
 
-	/**
-     * Getter for the base URL for the API.
-     */
-	public getBaseUrl(): string {
-		return `${ApiEndpointService.BASE_URL.LOCAL}`;
-	}
-
-	/**
-     * Determines if the requested URL is an authentication API endpoint.
-     * @param {string} url
-     * @returns {boolean}
-     */
-	public isAuthEndpoint(url: string = ''): boolean {
-		return url.toLowerCase().indexOf(ApiEndpointService.AUTH_CONTEXT) > -1;
-	}
-
-	/**
-     * Determines if the requested URL is an API endpoint.
-     * @param {string} url
-     * @returns {boolean}
-     */
-	public isApiEndpoint(url: string = ''): boolean {
-		return url.toLowerCase().indexOf(ApiEndpointService.CONTEXT) > -1;
-	}
-
-	/**
-     * Determines if the requested URL is a secure API endpoint.
-     * @param {string} requestedUrl
-     * @returns {boolean}
-     */
-	public isSecureEndpoint(requestedUrl: string = ''): boolean {
-		const check = ApiEndpointService.secureEndpoints.some(
-			(url: string) => requestedUrl.toLowerCase().indexOf(url) > -1
-		);
-		return check;
-	}
-	/**
-     * Adds query string params to a URL.
-     * @param template
-     * @param params
-     */
 	public addQueryParams(template, params): string {
 		let result = template;
 
@@ -158,8 +80,10 @@ export class ApiEndpointService {
 			result += k + '=' + v;
 			i++;
 		});
+
 		return result;
 	}
+
 	/**
      * Adds a `noCache` parameter to the query string object.
      * @param query

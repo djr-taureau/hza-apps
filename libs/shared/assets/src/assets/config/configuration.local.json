@@ -1,5 +1,9 @@
 {
   "apis": {
-    "hza": "https://localhost:3000"
+    "documents": "http://localhost:3000",
+    "common": "http://localhost:3000",
+    "amq": "http://localhost:3000",
+    "cars": "http://localhost:3000",
+    "tasks": "http://localhost:3000"
   }
 }
