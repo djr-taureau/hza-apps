@@ -1,5 +1,5 @@
 import { Injectable, InjectionToken, Inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpBackend } from '@angular/common/http';
 import { path } from 'ramda';
 
 import { Configuration, defaultConfig } from './configuration';
@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 import { ApiEndpointService } from '../api-endpoint.service';
 import { Logger } from '@hza/shared/utils';
 import { BehaviorSubject } from 'rxjs';
-
+import { HttpBackendClient } from './http-backend-client';
 
 export const CONFIG_URL = new InjectionToken('CONFIG_URL');
 
@@ -17,12 +17,13 @@ export const CONFIG_URL = new InjectionToken('CONFIG_URL');
 	providedIn: 'root'
 })
 export class ConfigService {
+
 	private config$: BehaviorSubject<Configuration> = new BehaviorSubject(defaultConfig);
 	config: Configuration;
 
 	constructor(
 		// @Inject(CONFIG_URL) private configUrl: string,
-		private http: HttpClient,
+		private http: HttpBackendClient,
 		private apiEndpointService: ApiEndpointService
 	) {}
 
@@ -70,25 +71,24 @@ export class ConfigService {
 	public getConfig(): BehaviorSubject<Configuration> {
 		return this.config$;
 	}
-	
-	    /**
+
+	/**
      * Accessor for the private member config value.
      */
-    public getConfigValue(): Configuration {
-        return this.getConfig().value;
-    }
-	
-	    /**
+	public getConfigValue(): Configuration {
+		return this.getConfig().value;
+	}
+
+	/**
      * Accessor for the config's API endpoint.
      */
-    public getDocsApiEndpoint(): string {
-        return this.getConfigValue().apis.docs;
-    }
+	public getDocsApiEndpoint(): string {
+		return this.getConfigValue().apis.docs;
+	}
 
 	public getCommonApiEndpoint(): string {
-        return this.getConfigValue().apis.common;
-    }
-
+		return this.getConfigValue().apis.common;
+	}
 
 	// getDocsApiUri() {
 	// 	if (isNotUseable(this.config)) throw getInvalidConfigError();
