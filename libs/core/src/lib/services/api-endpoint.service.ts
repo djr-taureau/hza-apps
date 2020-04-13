@@ -11,6 +11,12 @@ export class ApiEndpointService {
 		LOCAL: 'http://localhost:3000/',
 		FROM_CONFIG: 'POPULATED_BY_CONFIG.JSON'
 	};
+
+	public static API_CONTEXT = {
+		LOCAL: 'local',
+		REMOTE: 'remote',
+		BUILD: 'build'
+	};
 	/**
      * Map of contexts for API endpoints.
      */
