@@ -32,7 +32,7 @@ export class ApiEndpointService {
      */
 	public static ENDPOINT = {
 		CONFIG: `assets/config/configuration.local.json`,
-		LOGIN: `auth/login/`,
+		LOGIN: `users/`,
 		DOWNTIME: `downtime/{applications}`,
 		DOWNTIME_EXTERNAL: `downtime/{application}/{external:bool}`,
 		ERROR: `error/{application}/{user?}/{shortmessage?}/{detail?}/{errorlevel?}`,
