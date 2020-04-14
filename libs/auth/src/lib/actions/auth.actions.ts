@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { User } from '../models/user.model'
 
 export const initializeAuth = createAction('[Auth] Initialize auth');
 
@@ -16,7 +17,7 @@ export const handleRedirectSuccess = createAction(
 export const loadUser = createAction('[Auth] Load user');
 export const loadUserSuccess = createAction(
   '[Auth] Load user success',
-  props<{ user: any }>()
+  props<{ user: User }>()
 );
 
 export const checkAuth = createAction('[Auth] Check auth');
