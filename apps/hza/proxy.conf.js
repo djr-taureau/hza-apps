@@ -1,13 +1,14 @@
-// const CONFIG_PROXY = {
-//   context: ['/config'],
-//   target: 'http://localhost:4200',
-//   pathRewrite: {
-//     '^/config': '/config/config.local.json'
-//   },
-//   changeOrigin: true,
-//   logLevel: 'debug',
-//   secure: false
-// };
+const CONFIG_PROXY = {
+  context: ['/config'],
+  target: 'http://localhost:4200',
+  pathRewrite: {
+    '^/config': 'assets/config/configuration.local.json'
+  },
+  changeOrigin: true,
+  logLevel: 'debug',
+  secure: true
+  // secure: true
+};
 
 // const API_PROXY = {
 //   context: ['/api'],
@@ -20,7 +21,6 @@
 // };
 
 
-// module.exports = [
-//   CONFIG_PROXY,
-//   API_PROXY
-// ];
+module.exports = [
+  CONFIG_PROXY
+];

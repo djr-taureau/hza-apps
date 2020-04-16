@@ -1,31 +1,27 @@
-  <header class="header header-12">
-    <div class="branding">
-      <a
-        [routerLink]="['/docs']"
-        routerLinkActive="router-link-active"
-        class="logo nav-link"
-      >
-      </a>
-      <h1 class="app-title">Doc Repository</h1>
-    </div>
-    <form>
-      <label for="search_input">
-        <input
-          class="search"
-          hzaOpenFocus
-          id="search_input"
-          type="text"
-        />
-      </label>
-    </form>
-    <div class="header-actions">
-      <a
-        [routerLink]="['/docs']"
-        routerLinkActive="router-link-active"
-        class="nav-link nav-icon"
-        aria-label="settings"
-      >
-        <clr-icon shape="cog"></clr-icon>
-      </a>
-    </div>
-  </header>
+<header class="header header-12">
+  <div class="branding">
+    <a
+      [routerLink]="['/docs']"
+      routerLinkActive="router-link-active"
+      class="logo nav-link"
+    >
+    </a>
+    <h1 class="app-title">Doc Repository</h1>
+  </div>
+  <form class="search-form">
+    <label for="search_input">
+      <div class="looking-glass">🔍</div>
+      <clr-icon class="clearable" size="18" shape="times"></clr-icon>
+      <input class="search" hzaOpenFocus id="search_input" type="text" />
+    </label>
+  </form>
+  <div class="login">
+    <a
+      [routerLink]="['/docs']"
+      routerLinkActive="router-link-active"
+      class="nav-link nav-icon"
+      aria-label="settings"
+    >
+    </a>
+  </div>
+</header>

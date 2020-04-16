@@ -1,6 +1,9 @@
 {
   "apis": {
-    "docs": "api"
+    "documents": "api",
+    "common": "api",
+    "amq": "api",
+    "cars": "api",
+    "tasks": "api"
   }
 }
-

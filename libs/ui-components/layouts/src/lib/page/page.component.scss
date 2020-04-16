@@ -26,7 +26,7 @@
 .feature-container-area {
   z-index: -1000000;
   background-color: rgba(255, 0, 0, 0.1);
-  // grid-template-columns: 4fr;
+  grid-template-columns: 4fr;
   padding: .3rem;
   grid-template-rows: 4fr;
 
@@ -34,6 +34,8 @@
 
 .feature-container {
     z-index: 1000000;
+    display: grid;
+    grid-template-columns: 4fr;
     background-color: #FFE5EF;
     background-color: rgba(255, 255, 255, .7);
     border: 2px solid rgba(55, 103, 142, 1);
@@ -45,10 +47,10 @@
 
 .hza-page {
   display: grid;
-  grid: auto auto 1fr / 1fr;
+  grid: 4fr;
 
   .page-content {
-    grid: 1fr/1fr auto;
+    grid: 4fr;
     grid-gap: 6rem;
     display: grid;
   }
@@ -56,7 +58,7 @@
 
 .full-page {
   .page-content {
-    grid: 1fr/1fr/1fr;
+    grid: 4fr;
     grid-gap: 6rem;
     display: grid;
   }
