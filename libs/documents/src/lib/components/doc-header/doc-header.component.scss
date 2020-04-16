@@ -67,20 +67,40 @@
     //   font-size: 3rem;
     // }
   }
-  
-    div.login {
+
+  div.login {
     grid-column-start: 6;
     grid-column-end: 8;
     width: auto;
-    margin-right: 0.25em;
-    padding: 0.25em;
+    height: 4rem;
+    margin-top: 0.25rem;
+    margin-right: 0.25rem;
+    padding: 0.25rem;
     float: right;
     text-align: left;
     /* min-width is used so that loan-search in expanded mode doesn't go off the screen to the right */
-    min-width: 14em;
+    min-width: 10rem;
     position: relative;
-    border: 1px solid black;
+    border: 0.1rem solid black;
+
+    h3 {
+      margin-right: 3rem;
+      line-height: 3rem;
+      text-align: center;
+    }
+
+    .userpic {
+      position: absolute;
+      right: 0.5rem;
+      height: 3rem;
+      width: 3rem;
+      margin-top: 0.25rem;
+      margin-right: 0.25rem;
+      display: inline-block;
+      background-image: url('/assets/images/person.png');
+      background-size: 3rem;
+      border: 1px solid rgba(59, 103, 142, 1);
+      border-radius: 50%;
+    }
   }
-
-
 }
