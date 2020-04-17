@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CoreModule, ConfigService, appInitializer, OnDemandPreloadStrategy } from '@hza/core';
+import { CoreModule, ConfigService, appInitializer, OnDemandPreloadStrategy, CONFIG_URL } from '@hza/core';
 import { ClarityModule } from '@clr/angular';
 import { environment } from '@hza/shared/environments';
 
@@ -53,7 +53,7 @@ const routes: Routes = [
 			multi: true,
 			deps: [ConfigService]
 		},
-		// { provide: CONFIG_URL, useValue: environment.configUrl },
+		{ provide: CONFIG_URL, useValue: environment.configUrl },
 	],
 	exports: [BrowserAnimationsModule],
 	bootstrap: [AppComponent]

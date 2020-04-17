@@ -79,7 +79,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hza:build"
+            "browserTarget": "hza:build",
+            "proxyConfig": "apps/hza/proxy.conf.js"
           },
           "configurations": {
             "production": {

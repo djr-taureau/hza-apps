@@ -23,7 +23,7 @@ import { DocumentsMainContainer } from '../containers/documents-main/documents-m
 						pathMatch: 'full',
 						children: [
 							{ path: '', outlet: 'page-header', component: DocHeaderComponent },
-							{ path: '', component: DocumentsMainContainer },
+							// { path: '', component: DocumentsMainContainer },
 							
 								{ path: '', outlet: 'feature-one', component: LoanDetailComponent},
 								{ path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },

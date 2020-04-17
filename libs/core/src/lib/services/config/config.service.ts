@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable, InjectionToken, Inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiEndpointService } from '../api-endpoint.service';
@@ -18,7 +18,7 @@ export class ConfigService {
 	config: Configuration;
 
 	constructor(
-		// @Inject(CONFIG_URL) private configUrl: string,
+		@Inject(CONFIG_URL) private configUrl: string,
 		private http: HttpBackendClient,
 		private apiEndpointService: ApiEndpointService
 	) {}
@@ -27,7 +27,7 @@ export class ConfigService {
 		const url = this.apiEndpointService.getEndpoint(ApiEndpointService.ENDPOINT.CONFIG, null, null, true);
 		return (
 			this.http
-				.get(`assets/config/configuration.local.json`)
+				.get(this.configUrl)
 				.pipe(
 					map((response: Configuration) => {
 						const config: Configuration = response;
