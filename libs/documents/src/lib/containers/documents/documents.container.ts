@@ -21,7 +21,7 @@ import { Document } from '../../models/document.model';
 import { LazyLoaderService } from '@hza/core';
 import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
 import { themes } from '../themes';
-import { LoansContainer } from '@hza/loans';
+import { SharedLoansContainer } from '@hza/shared/loans';
 import { Directive } from '@angular/core';
 
 @Component({
@@ -43,7 +43,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
   	collapsed = false;
 	  
 	opened: boolean;
-	loansContainer = LoansContainer;
+	loansContainer = SharedLoansContainer;
 
 	loansContainerResponse = null;
 

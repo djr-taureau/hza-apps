@@ -21,7 +21,6 @@
       "@hza/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@hza/shared/environments": ["libs/shared/environments/src/index.ts"],
       "@hza/shared/data-access": ["libs/shared/data-access/src/index.ts"],
-      "@hza/loans": ["libs/loans/src/index.ts"],
       "@hza/core": ["libs/core/src/index.ts"],
       "@hza/documents": ["libs/documents/src/index.ts"],
       "@hza/tasks": ["libs/tasks/src/index.ts"],
@@ -42,7 +41,19 @@
       "@hza/ui-components/file-upload": [
         "libs/ui-components/file-upload/src/index.ts"
       ],
-      "@hza/auth": ["libs/auth/src/index.ts"]
+      "@hza/auth": ["libs/auth/src/index.ts"],
+      "@hza/shared/loans": ["libs/shared/loans/src/index.ts"],
+      "@hza/shared/loans/feature-loan-detail": [
+        "libs/shared/loans/feature-loan-detail/src/index.ts"
+      ],
+      "@hza/shared/loans/data-access/data": [
+        "libs/shared/loans/data-access/data/src/index.ts"
+      ],
+      "@hza/shared/loans/data-access/state": [
+        "libs/shared/loans/data-access/state/src/index.ts"
+      ],
+      "@hza/shared/loans/models": ["libs/shared/loans/models/src/index.ts"],
+      "@hza/shared/loans/shell": ["libs/shared/loans/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

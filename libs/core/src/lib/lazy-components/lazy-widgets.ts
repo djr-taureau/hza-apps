@@ -3,7 +3,7 @@ import { NgModuleFactory, Type } from '@angular/core';
 export const lazyWidgets: { path: string, loadChildren: () => Promise<NgModuleFactory<any> | Type<any>> }[] = [
   {
     path: 'loans',
-    loadChildren: () => import('@hza/loans').then(m => m.LoansModule)
+    loadChildren: () => import('@hza/shared/loans').then(m => m.SharedLoansModule)
   }
 ];
 

@@ -1,0 +1,48 @@
+.container {
+  width: 1600px;
+  display: grid;
+  grid-row: 2 / 4;
+  grid-column: 1 / 8;
+  padding: 0;
+  margin: 0;
+  border: 2px solid rgba(55, 103, 142, 1);
+}
+
+div.padded.float-left {
+  color: #000000;
+  display: block;
+  float: left;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0 0 0 0.5em;
+  padding: 0.5em;
+
+  label {
+    color: #000000;
+    cursor: default;
+    display: block;
+    min-width: 20em;
+    max-width: 35em;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1.7em;
+    overflow: hidden;
+  }
+  .right {
+    text-align: right;
+  }
+}
+
+textarea {
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  height: 5em;
+  resize: none;
+  overflow-y: auto;
+}
+
+.xwide {
+  width: 20em;
+  min-width: 20em;
+}

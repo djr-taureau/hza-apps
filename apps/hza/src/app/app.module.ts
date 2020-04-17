@@ -24,7 +24,7 @@ const routes: Routes = [
 			},
 			{
 				path: '',
-				loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
+				loadChildren: () => import('@hza/shared/loans').then((m) => m.SharedLoansModule)
 			}
 		]
 	}

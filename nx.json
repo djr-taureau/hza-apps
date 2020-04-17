@@ -38,9 +38,6 @@
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
     },
-    "loans": {
-      "tags": ["scope:hza", "type:feature"]
-    },
     "core": {
       "tags": ["scope:hza"]
     },
@@ -94,6 +91,24 @@
       "implicitDependencies": ["doc-repo"]
     },
     "auth": {
+      "tags": []
+    },
+    "shared-loans": {
+      "tags": ["scope:hza", "type:feature"]
+    },
+    "shared-loans-loans-detail": {
+      "tags": []
+    },
+    "shared-loans-data-access-data": {
+      "tags": []
+    },
+    "shared-loans-data-access-state": {
+      "tags": []
+    },
+    "shared-loans-models": {
+      "tags": []
+    },
+    "shared-loans-shell": {
       "tags": []
     }
   },
