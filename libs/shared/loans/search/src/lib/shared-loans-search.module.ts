@@ -14,7 +14,7 @@ import { LoansResolver } from '@hza/shared/loans/data-access/data';
 		CommonModule,
 		RouterModule.forChild([
 			{
-				path: 'loans',
+				path: 'loans-list',
 				component: LoansContainer,
 				// outlet: 'modal',
 				resolve: {
