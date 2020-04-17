@@ -23,14 +23,14 @@
     visibility: hidden;
 }
 
-.feature-container-area {
-  z-index: -1000000;
-  background-color: rgba(255, 0, 0, 0.1);
-  grid-template-columns: 4fr;
-  padding: .3rem;
-  grid-template-rows: 4fr;
+// .feature-container-area {
+//   z-index: -1000000;
+//   background-color: rgba(255, 0, 0, 0.1);
+//   grid-template-columns: 4fr;
+//   padding: .3rem;
+//   grid-template-rows: 4fr;
 
-}
+// }
 
 .feature-container {
     z-index: 1000000;
