@@ -2,7 +2,7 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as LoanActions from './loans.actions';
-import { Loan } from '../../../../../feature-loan-search/src/lib/models/loan.model';
+import { Loan } from '@hza/shared/loans/models';
 
 export const loansFeatureKey = 'loans';
 

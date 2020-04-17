@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { Loan } from '../../models/loan.model';
+import { Loan } from '@hza/shared/loans/models';
 
 @Component({
 	selector: 'hza-loans-list',

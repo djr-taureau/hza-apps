@@ -93,23 +93,26 @@
     "auth": {
       "tags": []
     },
-    "shared-loans": {
+    "shared-loan-search": {
       "tags": ["scope:hza", "type:feature"]
     },
-    "shared-loans-loans-detail": {
+    "shared-loan-detail": {
       "tags": []
     },
     "shared-loans-data-access-data": {
-      "tags": []
+      "tags": ["scope:hza", "type:feature"]
     },
     "shared-loans-data-access-state": {
-      "tags": []
+      "tags": ["scope:hza", "type:feature"]
     },
     "shared-loans-models": {
       "tags": []
     },
     "shared-loans-shell": {
       "tags": []
+    },
+    "shared-loans-search": {
+      "tags": ["scope:hza", "type:feature"]
     }
   },
   "tasksRunnerOptions": {

@@ -1,7 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import { Loan } from '../../../../../feature-loan-search/src/lib/models/loan.model';
-
+import { Loan } from '@hza/shared/loans/models';
 export const loadLoans = createAction('[loans] LOAD_LOANS');
 export const loadLoan = createAction('[loans] Load LOAN', props<{ loan: Loan }>());
 export const selectLoan = createAction('[loans] Select LOAN', props<{ id: number }>());

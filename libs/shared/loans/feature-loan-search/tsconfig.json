@@ -1,7 +1,0 @@
-{
-  "extends": "../../../tsconfig.json",
-  "compilerOptions": {
-    "types": ["node", "jest"]
-  },
-  "include": ["**/*.ts", "../shell/loans-routing.module.ts", "../data-access/data/loans-services.module.ts", "../data-access/loans-state.module.ts"]
-}

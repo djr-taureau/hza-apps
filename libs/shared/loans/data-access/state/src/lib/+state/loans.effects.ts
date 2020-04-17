@@ -3,7 +3,7 @@ import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import * as LoanActions from './loans.actions';
-import { LoansService } from '../../../../../feature-loan-search/src/lib/services/loans.service';
+import { LoansService } from '@hza/shared/loans/data-access/data';
 import { LoansFacade } from './loans.facade';
 
 @Injectable()

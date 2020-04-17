@@ -15,8 +15,8 @@ import { RouterOutlet, Router, ActivationStart } from '@angular/router';
 import { ComponentType } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortalDirective, ComponentPortal } from '@angular/cdk/portal';
-import { LoansFacade } from '../+state/loans.facade';
-import { Loan } from '../models/loan.model';
+import { LoansFacade } from '@hza/shared/loans/data-access/state';
+import { Loan } from '@hza/shared/loans/models';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
 @Component({

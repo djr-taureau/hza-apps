@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 
 import { filter, first, map, tap } from 'rxjs/operators';
-import { LoansFacade } from '../+state/loans.facade';
+import { LoansFacade } from '@hza/shared/loans/data-access/state';
 
 @Injectable()
 export class LoansResolver implements Resolve<boolean> {
