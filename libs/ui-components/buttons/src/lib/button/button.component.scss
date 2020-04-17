@@ -1,14 +1,14 @@
 @import '../../../../../shared/styles/src/index.scss';
 
 .hza-button {
-    font-weight: $font-weight-regular;
-    font-size: 1.4rem;
-    background-color: $color-grey-button;
-    border: 1px solid $color-grey-button-border;
+  font-weight: $font-weight-regular;
+  font-size: 1.4rem;
+  background-color: $color-grey-button;
+  border: 1px solid $color-grey-button-border;
 }
 
 .hza-button:disabled {
-  background-color: $color-light-grey;
+  background-color: $color-blue-medium;
 }
 
 input[type='button'],

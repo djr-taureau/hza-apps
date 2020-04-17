@@ -9,10 +9,6 @@ import { CoreModule, ConfigService, appInitializer, OnDemandPreloadStrategy, CON
 import { ClarityModule } from '@clr/angular';
 import { environment } from '@hza/shared/environments';
 
-// export const appInitializer = (configService: ConfigService) => {
-// 	return () => configService.load();
-// };
-
 const routes: Routes = [
 	{
 		path: '',
@@ -24,7 +20,7 @@ const routes: Routes = [
 			},
 			{
 				path: '',
-				loadChildren: () => import('@hza/loans').then((m) => m.LoansModule)
+				loadChildren: () => import('@hza/shared/loans/shell').then((m) => m.SharedLoansShellModule)
 			}
 		]
 	}
