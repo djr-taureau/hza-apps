@@ -38,9 +38,6 @@
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
     },
-    "loans": {
-      "tags": ["scope:hza", "type:feature"]
-    },
     "core": {
       "tags": ["scope:hza"]
     },
@@ -95,6 +92,27 @@
     },
     "auth": {
       "tags": []
+    },
+    "shared-loan-search": {
+      "tags": ["scope:hza", "type:feature"]
+    },
+    "shared-loan-detail": {
+      "tags": []
+    },
+    "shared-loans-data-access-data": {
+      "tags": ["scope:hza", "type:feature"]
+    },
+    "shared-loans-data-access-state": {
+      "tags": ["scope:hza", "type:feature"]
+    },
+    "shared-loans-models": {
+      "tags": []
+    },
+    "shared-loans-shell": {
+      "tags": []
+    },
+    "shared-loans-search": {
+      "tags": ["scope:hza", "type:feature"]
     }
   },
   "tasksRunnerOptions": {
