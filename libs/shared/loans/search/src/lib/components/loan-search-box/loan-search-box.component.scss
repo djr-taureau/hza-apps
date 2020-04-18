@@ -1,3 +1,19 @@
 :host {
-    border-color: red;
+    
+    input.search {
+      background-image: url('/assets/images/search-128.png');
+      background-repeat: no-repeat;
+      background-size: 50px 50px;
+      background-position: 99% 100%;
+      box-sizing: border-box;
+    }
+    .clearable {
+        color: black;
+        font-weight: 700;
+        align-self: right;
+    }
+    .looking-glass {
+        font-size: 34px;
+        align-self: right;
+    }
 }
