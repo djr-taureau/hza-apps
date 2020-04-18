@@ -113,6 +113,9 @@
     },
     "shared-loans-search": {
       "tags": ["scope:hza", "type:feature"]
+    },
+    "shared-loans-ui": {
+      "tags": []
     }
   },
   "tasksRunnerOptions": {

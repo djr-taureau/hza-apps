@@ -1,18 +1,26 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { UiComponentsLayoutsModule } from '@hza/ui-components/layouts';
-import { UiComponentsButtonsModule } from '@hza/ui-components/buttons';
-import { UiComponentsFormsModule } from '@hza/ui-components/forms';
-import { UiComponentsOverlayModule } from '@hza/ui-components/overlay';
+
+import { SharedUtilsModule } from '@hza/shared/utils';
+import { SharedLoansUiModule } from '@hza/shared/loans/ui';
+
 import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/state';
 import { LoansContainer } from './containers/loans.container';
 import { LoansResolver } from '@hza/shared/loans/data-access/data';
+import { LoanSearchBoxComponent } from './components/loan-search-box/loan-search-box.component';
+import { LoanSearchComponent } from './components/loan-search';
+
+
 
 @NgModule({
 	imports: [
 		CommonModule,
+		SharedUtilsModule,
+		SharedLoansUiModule,
+		SharedLoansDataAccessStateModule,
 		RouterModule.forChild([
+			{ path: 'search', component: LoanSearchBoxComponent},
 			{
 				path: 'loans-list',
 				component: LoansContainer,
@@ -22,11 +30,9 @@ import { LoansResolver } from '@hza/shared/loans/data-access/data';
 				}
 			}
 		]),
-		UiComponentsLayoutsModule,
-		UiComponentsButtonsModule,
-		UiComponentsFormsModule,
-		UiComponentsOverlayModule,
-    SharedLoansDataAccessStateModule
-	]
+	],
+	declarations: [LoanSearchBoxComponent, LoanSearchComponent, LoansContainer],
+	exports: [LoanSearchBoxComponent, LoansContainer],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedLoansSearchModule {}
