@@ -13,7 +13,8 @@ import { DocumentsGuard } from '../services/documents.guard';
 				path: 'docs',
 				component: PageComponent,
 				data: {
-					title: 'Doc Repository'
+					title: 'Doc Repository',
+					pageLayout: 'full-page',
 				},
 				children: [
 					{
