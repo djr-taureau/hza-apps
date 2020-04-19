@@ -25,7 +25,7 @@ import { DocumentsGuard } from '../services/documents.guard';
 							// { path: '', component: DocumentsMainContainer },
 
 							// { path: '', outlet: 'feature-one', component: LoanDetailComponent},
-							// { path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
+							{ path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
 
 							{ path: '', outlet: 'page-footer', component: DocFooterComponent }
 						]

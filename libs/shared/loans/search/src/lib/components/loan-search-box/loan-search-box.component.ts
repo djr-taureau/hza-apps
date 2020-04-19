@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faTimes, faSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'hza-loan-search-box',
