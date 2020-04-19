@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { PopoverRef } from '@hza/ui-components/overlay';
 
 @Component({
 	selector: 'hza-loan-search',
@@ -8,14 +9,19 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 	styleUrls: ['./loan-search.component.scss']
 })
 export class LoanSearchComponent implements OnInit {
-	myForm: FormGroup;
+	 skills;
 
 
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private popoverRef: PopoverRef) {
+		this.skills = this.popoverRef.data.skills;
+	}
 
 	ngOnInit() {
-		this.myForm = this.formBuilder.group({
-			radio: 'Loan'
-		});
+	
 	}
+	
+	
+  close() {
+    this.popoverRef.close({ id: 1 });
+  }
 }

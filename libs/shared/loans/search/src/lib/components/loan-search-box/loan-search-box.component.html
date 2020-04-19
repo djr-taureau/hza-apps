@@ -1,9 +1,9 @@
 <!-- <hza-control-bar class="theme-search">
   <div class="controls-container"> -->
-     <form #searchBox class="search-box">
+     <form #origin class="search-box">
         <label for="search_input">
-            <input name="loanSearch" style="cursor:pointer" type="text">
-            <a style="cursor:pointer" (click)="open(loanSearchComponent)"><clr-icon class="icon" shape="search" size="32"></clr-icon></a>
+            <input (mouseenter)="op2.show($event)" name="loanSearch" style="cursor:pointer" type="text">
+            <a style="cursor:pointer" (click)="show(tpl, origin)" #origin><clr-icon class="icon" shape="search" size="32"></clr-icon></a>
             <a style="cursor:pointer" (click)="dispatch($event)"><clr-icon class="icon" shape="times" size="32"></clr-icon></a>
         </label>
     </form>
@@ -12,3 +12,13 @@
     <span class="looking-glass"><img class="looking-glass" src="/assets/images/search-128.png"></span> -->
   <!-- </div>
 </hza-control-bar> -->
+<ng-template #tpl let-close="close">
+  <hza-loan-search></hza-loan-search>
+		<a class="button is-danger is-small" (click)="close({id: 2})">Close</a>
+</ng-template>
+
+    <p-overlayPanel #op2>
+        <ng-template pTemplate>
+            <p>kdjhgkjahg;ar</p>
+        </ng-template>
+    </p-overlayPanel>
