@@ -8,6 +8,9 @@ import { faTimes, faSquare } from '@fortawesome/free-solid-svg-icons';
 })
 export class LoanSearchBoxComponent implements OnInit {
 
+  faTimes = faTimes;
+  faSquare = faSquare;
+  
   constructor() { }
 
   ngOnInit() {
