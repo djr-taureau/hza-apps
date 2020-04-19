@@ -30,7 +30,6 @@ export class LoanSearchBoxComponent implements OnInit {
 		ref.afterClosed$.subscribe((res) => {
 			if (content === this.loanSearchComponent) {
 				this.loanSearchComponentResponse = res.data;
-        ref.elementRef
 			}
 		});
 	}

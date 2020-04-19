@@ -1,182 +1,196 @@
-// @import "../../../src/assets/scss/variables";
+// // @import "../../../src/assets/scss/variables";
 
-:host {
-    --pull-right: 0 0 0 auto;
-    --first-color: #488cff;
-    --second-color: #ffff8c;
-    .loan-search .links {
-      background-image: none;
-      width: 4.5em;
-      position: relative;
-    }
+// :host {
+//     --pull-right: 0 0 0 auto;
+//     --first-color: #488cff;
+//     --second-color: #ffff8c;
+//     .loan-search .links {
+//       background-image: none;
+//       width: 4.5em;
+//       position: relative;
+//     }
 
-    .form-group {
-      margin: 0 0 0 auto;
-    }
+//     .form-group {
+//       margin: 0 0 0 auto;
+//     }
   
-    // .btn-group {
-    //   align-self: right;
-    // }
+//     // .btn-group {
+//     //   align-self: right;
+//     // }
 
-    // .active {
-    //   background-color: red;
-    // }
+//     // .active {
+//     //   background-color: red;
+//     // }
 
-    button {
-      padding: 0.25em;
-    }
+//     button {
+//       padding: 0.25em;
+//     }
     
-    .float-right {
-      text-align: right;
-      width: 100%;
-      padding: 0;
-      float: right;
-    }
+//     .float-right {
+//       text-align: right;
+//       width: 100%;
+//       padding: 0;
+//       float: right;
+//     }
 
-    .btn {
-      background-color: #d3dce0;
-      border: 1px solid #787878;
-      color: black;
-      cursor: pointer;
-    }
+//     .btn {
+//       background-color: #d3dce0;
+//       border: 1px solid #787878;
+//       color: black;
+//       cursor: pointer;
+//     }
     
-    .clickable {
-      cursor: pointer;
-    }
+//     .clickable {
+//       cursor: pointer;
+//     }
 
-    input.search {
-      width: 5em;
-      opacity: 0.5;
-    }
+//     input.search {
+//       width: 5em;
+//       opacity: 0.5;
+//     }
 
-    input.search-big {
-      width: 15em;
-    }
+//     input.search-big {
+//       width: 15em;
+//     }
 
-    .search-big {
-      position: relative;
-      width: 90vw;
-      top: 1.25em;
-      left: calc(15em - 90vw);
-      padding: 0.25em;
-      background-color: white;
-      border: 2px solid rgba(55, 103, 142, 1);
-      border-radius: 5px;
-      margin: 0.5em 0 0 0.5em;
-      box-shadow: 5px 5px 10px black;
-      z-index: 1000;
-      text-align: right;
-    }
+//     .search-big {
+//       position: relative;
+//       width: 90vw;
+//       top: 1.25em;
+//       left: calc(15em - 90vw);
+//       padding: 0.25em;
+//       background-color: white;
+//       border: 2px solid rgba(55, 103, 142, 1);
+//       border-radius: 5px;
+//       margin: 0.5em 0 0 0.5em;
+//       box-shadow: 5px 5px 10px black;
+//       z-index: 1000;
+//       text-align: right;
+//     }
 
-    .loan-search-instructions {
-        float: left;
-        text-align: left;
-        font-weight: bold;
-        width: 50%;
-      }
+//     .loan-search-instructions {
+//         float: left;
+//         text-align: left;
+//         font-weight: bold;
+//         width: 50%;
+//       }
 
-      loan-search table {
-        width: 100%;
-        font-size: 0.8em;
-      }
+//       loan-search table {
+//         width: 100%;
+//         font-size: 0.8em;
+//       }
 
-      loan-search button {
-        font-size: 0.8em;
-        padding: 0.1em;
-        float: none;
-      }
+//       loan-search button {
+//         font-size: 0.8em;
+//         padding: 0.1em;
+//         float: none;
+//       }
 
 
-    h4.loan-search {
-      font-style: italic;
-      font-weight: bold;
-      font-size: 0.8em;
-    }
+//     h4.loan-search {
+//       font-style: italic;
+//       font-weight: bold;
+//       font-size: 0.8em;
+//     }
 
-  loan-search .multicompany {
-    display: inline-block;
-  }
+//   loan-search .multicompany {
+//     display: inline-block;
+//   }
 
-  loan-search .searchbox {
-    display: inline-block;
-    padding: 0;
-  }
+//   loan-search .searchbox {
+//     display: inline-block;
+//     padding: 0;
+//   }
 
-  loan-search .results {
-    overflow-x: auto;
-  }
+//   loan-search .results {
+//     overflow-x: auto;
+//   }
   
   
-  .right-align-buttons input[type="submit"],
-  .right-align-buttons input[type="button"],
-  .right-align-buttons button {
-    margin-right: 0;
-    margin-left: 0.25em;
-  }
+//   .right-align-buttons input[type="submit"],
+//   .right-align-buttons input[type="button"],
+//   .right-align-buttons button {
+//     margin-right: 0;
+//     margin-left: 0.25em;
+//   }
   
-  // button.active {
-  //     background-color: rgba(59, 103, 142, .7);
+//   // button.active {
+//   //     background-color: rgba(59, 103, 142, .7);
 
-  //     border: 2px solid #3b678e;
+//   //     border: 2px solid #3b678e;
 
-  //     border-radius: 5px;
+//   //     border-radius: 5px;
 
-  //     color: #fff;
+//   //     color: #fff;
 
-  //     cursor: pointer;
+//   //     cursor: pointer;
 
-  //     display: inline-block;
+//   //     display: inline-block;
 
-  //     font-family: "Segoe UI",
-  //     Verdana,
-  //     Helvetica,
-  //     sans-serif;
+//   //     font-family: "Segoe UI",
+//   //     Verdana,
+//   //     Helvetica,
+//   //     sans-serif;
 
-  //     font-size: .8em;
+//   //     font-size: .8em;
 
-  //     font-weight: 400;
+//   //     font-weight: 400;
 
-  //     line-height: 1em;
+//   //     line-height: 1em;
 
-  //     padding: .25em;
+//   //     padding: .25em;
 
-  //     text-align: right;
-  // }
+//   //     text-align: right;
+//   // }
   
-    .quick-buttons {
-      padding: 0.25em;
-    }
-    .btn-group {
-      background-color: white;
-    }
-    div.quick-buttons {
-      background-color: white;
-      border: none;
-    }
-    label.quick-buttons {
-      display: inline-block;
-      padding: 0.25em;
-      background: rgba(59, 103, 142, .4);
-      border: 2px solid rgba(59, 103, 142, 1);
-      border-radius: 5px;
-      cursor: pointer;
-      line-height: 1em;
-      font-size: 0.8em;
-      font-weight: normal;
-    }
+//     .quick-buttons {
+//       padding: 0.25em;
+//     }
+//     .btn-group {
+//       background-color: white;
+//     }
+//     div.quick-buttons {
+//       background-color: white;
+//       border: none;
+//     }
+//     label.quick-buttons {
+//       display: inline-block;
+//       padding: 0.25em;
+//       background: rgba(59, 103, 142, .4);
+//       border: 2px solid rgba(59, 103, 142, 1);
+//       border-radius: 5px;
+//       cursor: pointer;
+//       line-height: 1em;
+//       font-size: 0.8em;
+//       font-weight: normal;
+//     }
     
-    label.quick-buttons:checked {
-         background-color: rgba(59, 103, 142, .7);
-         color: white;
-    }
+//     label.quick-buttons:checked {
+//          background-color: rgba(59, 103, 142, .7);
+//          color: white;
+//     }
     
 
   
-  .data-grid-border {
-    border-color: #37678E;
-    border-style: double;
-    border-width: 4rem;
-  }
+//   .data-grid-border {
+//     border-color: #37678E;
+//     border-style: double;
+//     border-width: 4rem;
+//   }
 
+// }
+
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 7px;
 }
+
+.div1 { grid-area: 1 / 4 / 2 / 6; }
+.div2 { grid-area: 2 / 4 / 3 / 6; }
+.div3 { grid-area: 3 / 4 / 4 / 6; }
+.div4 { grid-area: 4 / 1 / 5 / 6; }
+.div5 { grid-area: 5 / 1 / 6 / 6; }
 
