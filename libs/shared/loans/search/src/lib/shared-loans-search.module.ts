@@ -20,7 +20,7 @@ import { LoanSearchComponent } from './components/loan-search';
 		SharedLoansUiModule,
 		SharedLoansDataAccessStateModule,
 		RouterModule.forChild([
-			{ path: 'search', component: LoanSearchBoxComponent},
+			// { path: 'loan-search', component: LoanSearchComponent},
 			{
 				path: 'loans-list',
 				component: LoansContainer,
