@@ -31,6 +31,7 @@ import { LoanSearchComponent } from './components/loan-search';
 		]),
 	],
 	declarations: [LoanSearchBoxComponent, LoanSearchComponent, LoansContainer],
+	entryComponents: [LoanSearchComponent],
 	exports: [LoanSearchBoxComponent, LoansContainer],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
