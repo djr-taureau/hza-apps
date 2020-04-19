@@ -2,17 +2,7 @@ import { Subject } from 'rxjs';
 
 import { OverlayRef } from '@angular/cdk/overlay';
 
-import { TemplateRef, Type, ElementRef } from '@angular/core';
-
-export type OverlayContent = TemplateRef<any> | Type<any> | string;
-
-export type OverlayParams<T> = {
- origin: HTMLElement;
- content: OverlayContent;
- data?: T;
- width?: string | number;
- height: string | number;
-}
+import { TemplateRef, Type } from '@angular/core';
 
 export interface OverlayCloseEvent<R> {
   type: 'backdropClick' | 'close';
@@ -20,29 +10,28 @@ export interface OverlayCloseEvent<R> {
 }
 
 // R = Response Data Type, T = Data passed to Modal Type
-export class MyOverlayRef<T = any> {
-  private afterClosed = new Subject<OverlayCloseEvent<T>>();
-   afterClosed$ = this.afterClosed.asObservable();
+export class MyOverlayRef<R = any, T = any> {
+  afterClosed$ = new Subject<OverlayCloseEvent<R>>();
 
   constructor(
     public overlay: OverlayRef,
-    public content: OverlayContent,
-    public data: T, // pass data to modal i.e. FormData
+    public content: string | TemplateRef<any> | Type<any>,
+    public data: T // pass data to modal i.e. FormData
   ) {
-    overlay.backdropClick().subscribe(() => this._close('backdropClick', data));
+    overlay.backdropClick().subscribe(() => this._close('backdropClick', null));
   }
 
-  close(data?: T) {
+  close(data?: R) {
     this._close('close', data);
   }
 
-  private _close(type: 'backdropClick' | 'close', data: T) {
+  private _close(type: 'backdropClick' | 'close', data: R) {
     this.overlay.dispose();
-    this.afterClosed.next({
+    this.afterClosed$.next({
       type,
       data
     });
 
-    this.afterClosed.complete();
+    this.afterClosed$.complete();
   }
 }

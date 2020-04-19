@@ -1,7 +1,8 @@
-import { Component, OnInit, TemplateRef, Type } from '@angular/core';
-import { PopoverRef, PopoverContent } from './popover-ref';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { PopoverContent, PopoverRef } from './popover-ref';
 
 @Component({
+  selector: 'hza-popover',
   templateUrl: './popover.component.html',
   styleUrls: ['./popover.component.scss']
 })
