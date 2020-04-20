@@ -57,14 +57,14 @@ export class CoreTableFilterComponent implements AfterViewInit {
 		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 	}
 
-	open(content: TemplateRef<any>) {
+	// open(content: TemplateRef<any>) {
 	
-		const ref = this.overlayService.open(content, null, this.filterButton);
+	// 	const ref = this.overlayService.open(content, null, this.filterButton);
 		
-		ref.afterClosed$.subscribe((res) => {
-			console.log(res);
-		});
-	}
+	// 	ref.afterClosed$.subscribe((res) => {
+	// 		console.log(res);
+	// 	});
+	// }
 }
 
 const contains = (a: string, b: string): boolean => a.includes(b);
