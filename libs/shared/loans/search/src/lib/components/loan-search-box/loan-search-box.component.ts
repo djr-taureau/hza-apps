@@ -4,7 +4,7 @@ import { Overlay, ConnectionPositionPair, PositionStrategy, OverlayConfig } from
 import { TemplatePortal, PortalInjector } from '@angular/cdk/portal';
 import { PopoverService } from '@hza/ui-components/overlay';
 import { LoanSearchComponent } from '../loan-search/loan-search.component';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { OverlayService } from '@hza/ui-components/overlay';
 import { ComponentType } from '@angular/cdk/portal';
 import { Router } from '@angular/router';
@@ -18,10 +18,16 @@ export class LoanSearchBoxComponent implements OnInit {
 	loanSearchComponent = LoanSearchComponent;
 	loanSearchComponentResponse = null;
 	@ViewChild('searchBox') searchBox: ElementRef;
+  myForm: FormGroup;
+	constructor(private formBuilder: FormBuilder, private popover: PopoverService, private overlayService: OverlayService, private router: Router) {}
 
-	constructor(private popover: PopoverService, private overlayService: OverlayService, private router: Router) {}
-
-	ngOnInit() {}
+	 ngOnInit() {
+    this.myForm = this.formBuilder.group({
+      left: false,
+      middle: true,
+      right: false
+    });
+  }
 
 	dispatch($event) {
 		console.log($event);
@@ -41,7 +47,10 @@ export class LoanSearchBoxComponent implements OnInit {
     })
 
     }
-    
+   
+   selected(value) {
+     console.log(value)
+   } 
     
   open(content: TemplateRef<any> | ComponentType<any> | string) {
     const ref = this.overlayService.open(content, null);

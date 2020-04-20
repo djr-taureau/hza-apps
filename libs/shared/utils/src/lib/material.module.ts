@@ -25,61 +25,39 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PortalModule } from '@angular/cdk/portal';
+import { MatRadioModule } from '@angular/material/radio';
+
+const MODULES = [
+	CommonModule,
+	MatButtonModule,
+	MatSelectModule,
+	MatTabsModule,
+	MatInputModule,
+	MatProgressSpinnerModule,
+	MatChipsModule,
+	MatCardModule,
+	MatCheckboxModule,
+	MatListModule,
+	MatMenuModule,
+	MatIconModule,
+	MatSnackBarModule,
+	MatSlideToggleModule,
+	MatDividerModule,
+	ClipboardModule,
+	OverlayModule,
+	ScrollingModule,
+	MatProgressBarModule,
+	MatMenuModule,
+	MatAutocompleteModule,
+	MatFormFieldModule,
+	MatTooltipModule,
+	PortalModule,
+	MatRadioModule
+];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		MatButtonModule,
-		MatSelectModule,
-		MatTabsModule,
-		MatInputModule,
-		MatProgressSpinnerModule,
-		MatChipsModule,
-		MatCardModule,
-		MatCheckboxModule,
-		MatListModule,
-		MatMenuModule,
-		MatIconModule,
-		MatSnackBarModule,
-		MatSlideToggleModule,
-		MatDividerModule,
-		ClipboardModule,
-		OverlayModule,
-		ScrollingModule,
-		MatProgressBarModule,
-		MatMenuModule,
-		MatAutocompleteModule,
-		MatFormFieldModule,
-		MatTooltipModule,
-		PortalModule
-	],
+	imports: MODULES,
 	declarations: [],
-	exports: [
-		CommonModule,
-		MatButtonModule,
-		MatMenuModule,
-		MatTabsModule,
-		MatChipsModule,
-		MatInputModule,
-		MatProgressSpinnerModule,
-		MatCheckboxModule,
-		MatCardModule,
-		MatListModule,
-		MatSelectModule,
-		MatIconModule,
-		MatSnackBarModule,
-		MatSlideToggleModule,
-		MatDividerModule,
-		MatSliderModule,
-		MatDatepickerModule,
-		MatNativeDateModule,
-		ScrollingModule,
-		MatProgressBarModule,
-		MatMenuModule,
-		MatAutocompleteModule,
-		MatFormFieldModule,
-		MatTooltipModule,
-		PortalModule
-	]
+	exports: MODULES
 })
 export class MaterialModule {}

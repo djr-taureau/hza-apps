@@ -15,13 +15,59 @@
   </label>
 </form>
 
-
 <ng-template class="search-modal" #tpl let-close="close">
-  <div class="grid-container">
-    <div class="buttons-1">Search Buttons</div>
-    <div class="buttons-2">More Buttons</div>
-    <div class="message">Message</div>
-    <div class="results">Results</div>
-  </div>
-  <a class="button is-danger is-small" (click)="close({ id: 2 })">Close</a>
+  <form class>
+    <div class="grid-container">
+      <div class="buttons-1">
+        <div class="quick-buttons multi-company">
+          <input type="radio" id="10" name="10" value="0" checked />
+          <label for="10">Any</label>
+          <input type="radio" id="12" name="12" value="1" />
+          <label for="12">Fay</label>
+          <input type="radio" id="14" name="14" value="2" />
+          <label for="14">Flagstar</label>
+        </div>
+        <input type="text" name="loanSearch" />
+        <button mat-flat-button>Search</button>
+      </div>
+      <div class="buttons-2">
+        <mat-radio-group
+          aria-labelledby="loan-radio-group-label"
+          class="loan-radio-group"
+        >
+          <button mat-radio-button class="loan-radio-button">
+            Loan
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            Borrower
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            Co-Borrower
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            SSN
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            Email
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            Phone
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            Address
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            City
+          </button>
+          <button mat-radio-button class="loan-radio-button">
+            Zip
+          </button>
+        </mat-radio-group>
+        <button mat-flat-button>X</button>
+      </div>
+      <div class="message">Message</div>
+      <div class="results">Results</div>
+      <a class="button is-danger is-small" (click)="close({ id: 2 })">Close</a>
+    </div>
+  </form>
 </ng-template>

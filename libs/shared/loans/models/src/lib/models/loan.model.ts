@@ -2,18 +2,32 @@ export interface Loan {
   id: number;
   LoanNumber: string;
   SourceID: number;
-  Name: string;
-  Phone: string;
-  City: string;
+  borrower: string;
+  coBorrower: string;
+  borrowerPrimarySSN: string;
+  borrowerSecondarySSN: string;
+  borrowerPrimaryEmailAddress: string;
+  borrowPrimaryPhone: string;
+  borrowerSecondaryPhoneNumber: string;
+  propertyAddress1: string;
+  propertyCity: string;
 }
 
 export function generateMockLoan(): Loan {
   return {
     id: 2,
-    LoanNumber: '3404040',
+    LoanNumber: '0000014049',
     SourceID: 1,
-    Name: 'Mary Johnson',
-    Phone: '2142239999',
-    City: 'Dallas',
+    borrower: 'BRETT STALLARD',
+    coBorrower: null,
+    borrowerPrimarySSN: 'xxx-xx-0095',
+    borrowerSecondarySSN: '',
+    borrowerPrimaryEmailAddress: 'bsstallar@yahoo.com',
+    borrowPrimaryPhone: '9726793244',
+    borrowerSecondaryPhoneNumber: null,
+    propertyAddress1: '6058  KENWOOD AVE',
+    propertyCity: 'Dallas',
   };
 }
+
+
