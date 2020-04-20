@@ -13,7 +13,7 @@
 //     .form-group {
 //       margin: 0 0 0 auto;
 //     }
-  
+
 //     // .btn-group {
 //     //   align-self: right;
 //     // }
@@ -25,7 +25,7 @@
 //     button {
 //       padding: 0.25em;
 //     }
-    
+
 //     .float-right {
 //       text-align: right;
 //       width: 100%;
@@ -39,7 +39,7 @@
 //       color: black;
 //       cursor: pointer;
 //     }
-    
+
 //     .clickable {
 //       cursor: pointer;
 //     }
@@ -86,7 +86,6 @@
 //         float: none;
 //       }
 
-
 //     h4.loan-search {
 //       font-style: italic;
 //       font-weight: bold;
@@ -105,15 +104,14 @@
 //   loan-search .results {
 //     overflow-x: auto;
 //   }
-  
-  
+
 //   .right-align-buttons input[type="submit"],
 //   .right-align-buttons input[type="button"],
 //   .right-align-buttons button {
 //     margin-right: 0;
 //     margin-left: 0.25em;
 //   }
-  
+
 //   // button.active {
 //   //     background-color: rgba(59, 103, 142, .7);
 
@@ -142,7 +140,7 @@
 
 //   //     text-align: right;
 //   // }
-  
+
 //     .quick-buttons {
 //       padding: 0.25em;
 //     }
@@ -164,14 +162,12 @@
 //       font-size: 0.8em;
 //       font-weight: normal;
 //     }
-    
+
 //     label.quick-buttons:checked {
 //          background-color: rgba(59, 103, 142, .7);
 //          color: white;
 //     }
-    
 
-  
 //   .data-grid-border {
 //     border-color: #37678E;
 //     border-style: double;
@@ -181,16 +177,37 @@
 // }
 
 .parent {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-grid-template-rows: repeat(5, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 7px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  border: 2px solid rgba(55, 103, 142, 1);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+  z-index: 12000;
+  align-content: center;
+  justify-content: center;
+  width: 90vw;
 }
 
-.div1 { grid-area: 1 / 4 / 2 / 6; }
-.div2 { grid-area: 2 / 4 / 3 / 6; }
-.div3 { grid-area: 3 / 4 / 4 / 6; }
-.div4 { grid-area: 4 / 1 / 5 / 6; }
-.div5 { grid-area: 5 / 1 / 6 / 6; }
-
+.div1 {
+  grid-area: 1 / 4 / 1 / 6;
+  justify-self: end;
+  align-self: end;
+}
+.div2 {
+  grid-area: 2 / 4 / 2 / 6;
+  justify-self: end;
+  align-self: end;
+}
+.div3 {
+  grid-area: 3 / 4 / 3 / 6;
+  justify-self: end;
+  align-self: end;
+}
+.div4 {
+  grid-area: 4 / 1 / 4 / 6;
+  justify-self: center;
+  align-self: end;
+}

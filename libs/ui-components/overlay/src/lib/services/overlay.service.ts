@@ -8,16 +8,29 @@ import { OverlayComponent } from '../components/overlay/overlay.component';
 	providedIn: 'root'
 })
 export class OverlayService {
+	
+	overlayConfig: OverlayConfig;
 	constructor(private overlay: Overlay, private injector: Injector) {}
 
 	open<R = any, T = any>(content: string | TemplateRef<any> | Type<any>, data: T): MyOverlayRef<R> {
-		const configs = new OverlayConfig({
-			hasBackdrop: true,
-			panelClass: ['modal', 'is-active'],
-			backdropClass: 'modal-background'
-		});
+		
+		const positionStrategy = this.overlay
+			.position()
+			.global()
+			.width('1200px')
+			.height('100px')
+			.centerHorizontally()
+			.centerVertically();
 
-		const overlayRef = this.overlay.create(configs);
+		this.overlayConfig = new OverlayConfig({
+			positionStrategy
+		});
+		
+		this.overlayConfig.hasBackdrop = true;
+		this.overlayConfig.panelClass = ['modal', 'is-active'];
+		this.overlayConfig.backdropClass = 'modal-background';
+
+		const overlayRef = this.overlay.create(this.overlayConfig);
 
 		const myOverlayRef = new MyOverlayRef<R, T>(overlayRef, content, data);
 
