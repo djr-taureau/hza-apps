@@ -12,6 +12,7 @@ import {
 	DocumentsServicesModule,
 	DocumentsUiModule
 } from './+modules';
+import { SharedLoansSearchModule } from '@hza/shared/loans/search';
 // ** RESOURCES FROM THIS MODULE
 import { DocumentsMainContainer } from './containers/documents-main/documents-main.container';
 import { DocumentsContainer } from './containers/documents/documents.container';
@@ -23,6 +24,7 @@ import { DocHeaderComponent } from './components/doc-header/doc-header.component
 import { DocFooterComponent } from './components/doc-footer/doc-footer.component';
 import { LoanDetailComponent } from './components/loan-detail/loan-detail.component';
 import { FooComponent } from './components/foo/foo.component';
+
 
 
 const COMPONENTS = [
@@ -43,6 +45,7 @@ const COMPONENTS = [
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule,
+		SharedLoansSearchModule,
 		DocumentsCoreModule,
 		DocumentsUiModule,
 		DocumentsRoutingModule,
