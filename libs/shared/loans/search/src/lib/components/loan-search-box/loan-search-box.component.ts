@@ -30,10 +30,7 @@ export class LoanSearchBoxComponent implements OnInit {
 	  show(content: TemplateRef<any>, origin) {
     const ref = this.popover.open<{ skills: number[] }>({
       content,
-      //  content: 'Hello world!',
-      // content: InsidePopoverComponent,
       origin,
-      width: '200px',
       data: {
         skills: [1, 2, 3]
       }
@@ -43,6 +40,15 @@ export class LoanSearchBoxComponent implements OnInit {
         console.log(res);
     })
 
+    }
+    
+    
+  open(content: TemplateRef<any> | ComponentType<any> | string) {
+    const ref = this.overlayService.open(content, null);
+
+    ref.afterClosed$.subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

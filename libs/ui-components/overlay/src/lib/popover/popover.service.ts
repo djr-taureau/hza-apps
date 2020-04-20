@@ -1,7 +1,7 @@
+import { ConnectionPositionPair, Overlay, OverlayConfig, PositionStrategy } from '@angular/cdk/overlay';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { Injectable, Injector } from '@angular/core';
-import { Overlay, ConnectionPositionPair, PositionStrategy, OverlayConfig } from '@angular/cdk/overlay';
-import { PortalInjector, ComponentPortal } from '@angular/cdk/portal';
-import { PopoverRef, PopoverContent } from './popover-ref';
+import { PopoverContent, PopoverRef } from './popover-ref';
 import { PopoverComponent } from './popover.component';
 
 export type PopoverParams<T> = {
@@ -31,8 +31,8 @@ export class PopoverService {
   private getOverlayConfig({ origin, width, height }): OverlayConfig {
     return new OverlayConfig({
       hasBackdrop: true,
-      width,
-      height,
+      width: '1600px',
+      height: '300px',
       backdropClass: 'popover-backdrop',
       positionStrategy: this.getOverlayPosition(origin),
       scrollStrategy: this.overlay.scrollStrategies.reposition()
