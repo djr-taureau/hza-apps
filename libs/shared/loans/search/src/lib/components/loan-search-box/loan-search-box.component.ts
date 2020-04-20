@@ -27,7 +27,7 @@ export class LoanSearchBoxComponent implements OnInit {
 		console.log($event);
 	}
 	
-	  show(content: TemplateRef<any>, origin) {
+	  show(content: ComponentType<LoanSearchComponent>, origin) {
     const ref = this.popover.open<{ skills: number[] }>({
       content,
       origin,
