@@ -19,9 +19,11 @@ import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
 import { LazyLoaderService } from '@hza/core';
+import { LoanSearchBoxComponent } from '@hza/shared/loans/search';
 import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
 import { themes } from '../themes';
 import { Directive } from '@angular/core';
+
 
 @Component({
 	selector: 'fay-doc-repo',
@@ -39,8 +41,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 
 	content = 'A simple string content modal overlay';
 	theme = 'default';
-  	collapsed = false;
-	  
+	collapsed = false;
 	opened: boolean;
 
 	fetchingData: boolean;
@@ -48,7 +49,12 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	@ViewChild('loanSearch', { read: ViewContainerRef, static: false })
 	loanSearch: ViewContainerRef;
 
-	constructor(private docs: DocsFacade, private lazyLoader: LazyLoaderService, private router: Router, private overlayService: OverlayService) {}
+	constructor(
+		private docs: DocsFacade,
+		private lazyLoader: LazyLoaderService,
+		private router: Router,
+		private overlayService: OverlayService
+	) {}
 
 	ngOnInit() {
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
@@ -80,7 +86,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.router.navigate([{ outlets: { modal: [$event] } }]);
 		// [{ outlets: { primary: ['docs'], modal: [$event] } }]
 	}
-	
+
 	// open(content: TemplateRef<any> | ComponentType<any> | string) {
 	// 	const ref = this.overlayService.open(content, null);
 
@@ -93,5 +99,4 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	// 		}
 	// 	});
 	// }
-
 }

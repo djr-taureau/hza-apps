@@ -33,74 +33,48 @@
     font-weight: 900;
   }
 
-  form.search-form {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    width: 10rem;
-    margin-top: 0.05rem;
-    margin-bottom: 0.05rem;
-    margin-right: 7rem;
-    opacity: 1;
 
-    input {
-      width: 5rem;
-      height: 1rem;
-      margin-top: 1rem;
-      margin-bottom: 0.05rem;
-      // margin-left: -1.5rem;
-      opacity: 1;
-      background-color: lightblue;
-    }
-
-    .clearable {
-      color: black;
-      font-weight: 700;
-    }
-
-    .loan-search-instructions {
-      float: left;
-      text-align: left;
-      font-weight: bold;
-      width: 50%;
-    }
-    // .looking-glass {
-    //   font-size: 3rem;
-    // }
-  }
 
   div.login {
-    grid-column-start: 6;
+    grid-column-start: 7;
     grid-column-end: 8;
-    width: auto;
-    height: 4rem;
+    width: 10rem;
+    height: 2.8rem;
     margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     margin-right: 0.25rem;
-    padding: 0.25rem;
-    float: right;
-    text-align: left;
+    place-self: end;
     /* min-width is used so that loan-search in expanded mode doesn't go off the screen to the right */
-    min-width: 10rem;
+    // min-width: 10rem;
     position: relative;
     border: 0.1rem solid black;
 
     h3 {
       margin-right: 3rem;
-      line-height: 3rem;
+      line-height: 2rem;
       text-align: center;
+      align-self: center;
     }
 
     .userpic {
       position: absolute;
       right: 0.5rem;
-      height: 3rem;
-      width: 3rem;
-      margin-top: 0.25rem;
+      height: 2.3rem;
+      width: 2.3rem;
+      text-align: center;
+      margin-top: 0.35rem;
       margin-right: 0.25rem;
       display: inline-block;
       background-image: url('/assets/images/person.png');
-      background-size: 3rem;
+      background-size: 2.3rem;
       border: 1px solid rgba(59, 103, 142, 1);
       border-radius: 50%;
     }
   }
 }
+
+  div.search-box {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    place-self: end;
+  }

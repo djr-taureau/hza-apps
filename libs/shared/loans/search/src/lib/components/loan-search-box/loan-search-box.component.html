@@ -1,0 +1,27 @@
+<form #origin class="search-box">
+  <label for="search_input">
+    <input
+      (mouseenter)="show(tpl, origin)"
+      name="loanSearch"
+      style="cursor: pointer;"
+      type="text"
+    />
+    <a style="cursor: pointer;" (click)="open(tpl)"
+      ><clr-icon class="icon" shape="search" size="34"></clr-icon
+    ></a>
+    <a style="cursor: pointer;" (click)="dispatch($event)"
+      ><clr-icon class="icon" shape="times" size="28"></clr-icon
+    ></a>
+  </label>
+</form>
+
+
+<ng-template class="search-modal" #tpl let-close="close">
+  <div class="grid-container">
+    <div class="buttons-1">Search Buttons</div>
+    <div class="buttons-2">More Buttons</div>
+    <div class="message">Message</div>
+    <div class="results">Results</div>
+  </div>
+  <a class="button is-danger is-small" (click)="close({ id: 2 })">Close</a>
+</ng-template>

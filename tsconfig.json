@@ -56,7 +56,8 @@
         "libs/ui-components/file-upload/src/index.ts"
       ],
       "@hza/auth": ["libs/auth/src/index.ts"],
-      "@hza/shared/loans/search": ["libs/shared/loans/search/src/index.ts"]
+      "@hza/shared/loans/search": ["libs/shared/loans/search/src/index.ts"],
+      "@hza/shared/loans/ui": ["libs/shared/loans/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

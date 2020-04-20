@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, Type } from '@angular/core';
 import { MyOverlayRef } from './my-overlay.ref';
 
 @Component({
-  selector: 'fay-overlay',
+  selector: 'hza-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss']
 })
