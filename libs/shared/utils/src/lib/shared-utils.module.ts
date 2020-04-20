@@ -5,6 +5,8 @@ import { ReplacePipe, AddressPipe, PhonePipe } from './text';
 import { MaterialModule } from './material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
 
 import { OpenFocusDirective } from './directives/open-focus.directive';
 import { CopyableDirective } from './directives/copyable.directive';
@@ -13,8 +15,8 @@ const COMPONENTS = [
 	NiceDatePipe, ReplacePipe, AddressPipe, PhonePipe, OpenFocusDirective, CopyableDirective
 ];
 @NgModule({
-	imports: [CommonModule, MaterialModule, FontAwesomeModule],
+	imports: [CommonModule, MaterialModule, FontAwesomeModule, OverlayPanelModule],
 	declarations: COMPONENTS,
-	exports: [MaterialModule, COMPONENTS, FontAwesomeModule]
+	exports: [MaterialModule, COMPONENTS, FontAwesomeModule, OverlayPanelModule]
 })
 export class SharedUtilsModule {}
