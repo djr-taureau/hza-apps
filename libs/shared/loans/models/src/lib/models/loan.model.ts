@@ -1,7 +1,8 @@
 export interface Loan {
   id: number;
-  LoanNumber: string;
-  SourceID: number;
+  loanNumber: string;
+  sourceID: number;
+  source: string;
   borrower: string;
   coBorrower: string;
   borrowerPrimarySSN: string;
@@ -16,8 +17,9 @@ export interface Loan {
 export function generateMockLoan(): Loan {
   return {
     id: 2,
-    LoanNumber: '0000014049',
-    SourceID: 1,
+    loanNumber: '0000014049',
+    sourceID: 1,
+    source: 'Fay',
     borrower: 'BRETT STALLARD',
     coBorrower: null,
     borrowerPrimarySSN: 'xxx-xx-0095',

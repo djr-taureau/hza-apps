@@ -1,30 +1,76 @@
-<div class="container">
-  <clr-datagrid class="data-grid-border">
-    <clr-dg-column class="data-table-header">Loan Number</clr-dg-column>
-    <clr-dg-column class="data-table-header">Name</clr-dg-column>
-    <clr-dg-column class="data-table-header">Phone</clr-dg-column>
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let row"></td>
+  </ng-container>
 
-    <clr-dg-row class="data-table-row" *clrDgItems="let loan of loans">
-      <clr-dg-cell (click)=copy(loan.LoanNumber)>{{ loan.LoanNumber }}</clr-dg-cell>
-      <clr-dg-cell>{{ loan.Name }}</clr-dg-cell>
-      <clr-dg-cell (click)=copy(loan.Phone)>{{ loan.Phone | phone }}</clr-dg-cell>
-    </clr-dg-row>
+  <ng-container matColumnDef="source">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+    <td mat-cell *matCellDef="let element" tooltip="Click to Copy" (click)="copy(element.source)">
+    <!-- TODO:: add company PIPE HERE -->
+      {{ element.source }}
+    </td>
+  </ng-container>
 
-    <clr-dg-footer>{{ loans.length }} loans</clr-dg-footer>
-  </clr-datagrid>
-</div>
+  <ng-container matColumnDef="loanNumber">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Loan</th>
+    <td mat-cell hzaTooltip="Click to Copy" (click)="copy(element.loanNumber)" *matCellDef="let element">
+      {{ element.loanNumber }}
+    </td>
+  </ng-container>
 
-<clr-modal class="loan-search" [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
-  <h3 class="modal-title">Loan Search</h3>
-  <div class="modal-body">
-    <!-- <hza-loan-search></hza-loan-search> -->
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="opened = false">
-      Cancel
-    </button>
-    <button type="button" class="btn btn-primary" (click)="opened = false">
-      Ok
-    </button>
-  </div>
-</clr-modal>
+  <ng-container matColumnDef="borrower">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower</th>
+    <td mat-cell *matCellDef="let element">{{ element.borrower }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrowerPrimarySSN">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower SSN</th>
+    <td mat-cell *matCellDef="let element">{{ element.borrowerPrimarySSN }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrowerPrimaryPhone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower Phone</th>
+    <!-- TODO:: Add Formatting Pipe here too -->
+    <td mat-cell *matCellDef="let element">{{ <element class="borrowerPrimaryPhone"></element> }}</td>
+  </ng-container>
+  
+    <ng-container matColumnDef="coBorrower">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Co-Borrower</th>
+    <td mat-cell *matCellDef="let element">
+    <!-- TODO:: add company PIPE HERE -->
+      {{ element.coBorrower }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrowerSecondarySSN">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Co-Borrower SSN</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.borrowerSecondarySSN }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrowerSecondaryPhone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Co-Borrower Phone</th>
+    <td mat-cell *matCellDef="let element">{{ element.borrowerSecondaryPhone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="propertyAddress">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Property Address</th>
+    <td mat-cell *matCellDef="let element">{{ element.propertyAddress }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="propertyCity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Property City</th>
+    <!-- TODO:: Add Formatting Pipe here too -->
+    <td mat-cell *matCellDef="let element">{{ element.propertyCity }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: columns"
+    [class.expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element"
+  ></tr>
+</table>
