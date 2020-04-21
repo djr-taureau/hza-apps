@@ -3,7 +3,7 @@ import {
 	maxValidationMessage,
 	minlengthValidationMessage,
 	minValidationMessage
-} from './helpers/validations-messages';	
+} from './helpers/validations-messages';
 import { maximumMoneyValidation } from './helpers/validators';
 import { PanelWrapperComponent } from './wrappers/panel-wrapper.component';
 import { RepeatSectionComponent } from './types/repeat-section.component';

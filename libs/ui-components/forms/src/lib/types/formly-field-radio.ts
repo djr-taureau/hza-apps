@@ -1,10 +1,17 @@
-// import { Component } from '@angular/core';
-// import { FieldType } from '@ngx-formly/core';
+import { Component } from '@angular/core';
+import { FieldType } from '@ngx-formly/core';
 
-// @Component({
-//  selector: 'hza-search-button',
-//  template: `
-//    <input type="radio" [formControl]="formControl" [formlyAttributes]="field">
-//  `,
-// })
-// export class FormlyFieldRadio extends FieldType {}
+@Component({
+ selector: 'formly-field-radio',
+ template: `
+  <div *ngFor="let option of to.options">
+    <input type="radio" 
+           [name]="to.name"
+           [formControl]="formControl" 
+           [formlyAttributes]="field"
+           [value]="option.key">
+    {{ option.value }}
+  </div>
+ `,
+})
+export class FormlyFieldRadio extends FieldType {}

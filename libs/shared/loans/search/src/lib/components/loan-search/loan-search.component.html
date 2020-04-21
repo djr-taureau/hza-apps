@@ -1,26 +1,23 @@
 <form #origin class="search-box">
   <label for="search_input">
     <input
+      (click)="open(tpl, origin)"
       (mouseenter)="show(tpl, origin)"
       name="loanSearch"
       style="cursor: pointer;"
       type="text"
     />
-    <a style="cursor: pointer;" (click)="open(tpl)"
+    <!-- <a style="cursor: pointer;" (click)="open(tpl)"
       ><clr-icon class="icon" shape="search" size="34"></clr-icon
-    ></a>
-    <a style="cursor: pointer;" (click)="dispatch($event)"
+    ></a> -->
+    <!-- <a style="cursor: pointer;" (click)="dispatch($event)"
       ><clr-icon class="icon" shape="times" size="28"></clr-icon
-    ></a>
+    ></a> -->
   </label>
 </form>
 
 <ng-template class="search-modal" #tpl let-close="close">
-  <form [formGroup]="form" (ngSubmit)="submit(model)">
-    <formly-form [model]="model" [fields]="fields">
-      <button type="submit" class="btn btn-default">Search</button>
-    </formly-form>
-  </form>
+<hza-ui-form [fields]="fields" [model]="model"></hza-ui-form>
   <div class="results">
     <ng-container *ngIf="loansLoaded">
         <hza-loans-List></hza-loans-List>

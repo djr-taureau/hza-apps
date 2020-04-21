@@ -12,17 +12,29 @@ export const formFieldDefaults = (fields, props: string[]) => {
 	return _.keys(defaultFields);
 };
 
+// ** used this for CAR and Doc detail
 export const formFieldConfig = (formFields, type) => {
 	let formConfigs: FormlyFieldConfig[] = [];
 	formFields.map((v) => {
 		const formConfig = new FormConfigBuilder()
-			.cssSelector('col-lg-2 col-form-label')
+			.cssSelector('')
 			.key(v)
 			.type(type)
-			.templateOptions(v, 'col-lg-10')
+			.templateOptions(v, '')
 			.build();
 		formConfigs.push(formConfig);
 	});
 	return formConfigs;
+};
+
+// ** for individual controls
+export const formFieldConfigBuilder = (key, type, label, options, cssClass) => {
+		const formConfig = new FormConfigBuilder()
+			.cssSelector(cssClass)
+			.key(key)
+			.type(type)
+			.templateOptions(label, cssClass, options)
+			.build();
+	return formConfig;
 };
 

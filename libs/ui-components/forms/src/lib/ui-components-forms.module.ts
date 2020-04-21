@@ -11,16 +11,19 @@ import { PanelWrapperComponent } from './wrappers/panel-wrapper.component';
 import { ErrorWrapperComponent } from './wrappers/error.component';
 // * types
 import { RepeatSectionComponent } from './types/repeat-section.component';
+// import { FormlyFieldRadio } from './types/formly-field-radio';
 // * components
 import { FormComponent } from './components/form/form.component';
 import { config } from './config';
 import { DocDetailInput } from './types/doc-detail-input';
 import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
 
+
 const COMPONENTS = [
 	PanelWrapperComponent,
 	ErrorWrapperComponent,
 	RepeatSectionComponent,
+	// FormlyFieldRadio,
 	FormlyHorizontalWrapper,
 	DocDetailInput,
 	FormComponent
