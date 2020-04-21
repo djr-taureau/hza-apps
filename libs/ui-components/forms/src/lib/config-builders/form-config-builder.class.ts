@@ -12,7 +12,8 @@ export class FormConfigBuilder {
 				label: '',
 				attributes: {
 					class: ''
-				}
+				},
+				options: []
 			},
 			expressionProperties: {
 				// apply expressionProperty for disabled based on formState
@@ -41,7 +42,7 @@ export class FormConfigBuilder {
 		return this;
 	}
 
-	templateOptions(key: string, cssClass: string): FormConfigBuilder {
+	templateOptions(key: string, cssClass?: string, options?: any[]): FormConfigBuilder {
 		this._formConfig.templateOptions.label = key;
 		this._formConfig.templateOptions.attributes.class = cssClass;
 		return this;

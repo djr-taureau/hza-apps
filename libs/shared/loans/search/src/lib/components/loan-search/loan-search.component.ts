@@ -4,42 +4,44 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
 
-
+import { formFields, formFieldDefaults, formFieldConfigBuilder, FormConfigBuilder } from '@hza/ui-components/forms';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import * as _ from 'lodash';
+import { searchOptions, searchFields } from './search-type.model';
 @Component({
 	selector: 'hza-loan-search',
 	templateUrl: './loan-search.component.html',
 	styleUrls: ['./loan-search.component.scss']
 })
 export class LoanSearchComponent implements OnInit {
-	loanSearchComponent = LoanSearchComponent;
-	loanSearchComponentResponse = null;
-	
-	@Input() loansLoaded: boolean;
-	@Input() loans: Loan[];
-	@Output() query = new EventEmitter<String>();
-	myForm: FormGroup;
-	loadLoans: Boolean;
-	constructor(
+	// model = {
+	// 	company: 'any',
+	// 	loan: 'loan',
+	// 	search: ''
+	// };
+
+	form;
+	 options: FormlyFormOptions = {};
+	fieldNames: string[];
+	fields: FormlyFieldConfig[] = [];
+
+	constructor(	
 		private formBuilder: FormBuilder,
 		private popover: PopoverService,
-		private overlayService: OverlayService	) {}
+		private overlayService: OverlayService
+	) {}
 
 	ngOnInit() {
-		this.loadLoans = false;
-		this.myForm = this.formBuilder.group({
-			left: false,
-			middle: true,
-			right: false
-		});
-	}
 
-	dispatch($event) {
-		console.log($event);
-	}
 
-	searchLoans($event) {
-		console.log('loan search', $event);
-		
+		this.fields = searchFields;
+		const searchField = new FormConfigBuilder()
+			.cssSelector('search-input')
+			.key('search')
+			.type('input')
+			.templateOptions(null, null, null)
+			.build();
+		this.fields.push(searchField);
 	}
 
 	show(content: ComponentType<LoanSearchComponent>, origin) {
@@ -56,15 +58,17 @@ export class LoanSearchComponent implements OnInit {
 		});
 	}
 
-	selected(value) {
-		console.log(value);
-	}
-
-	open(content: TemplateRef<any> | ComponentType<any> | string) {
-		const ref = this.overlayService.open(content, null);
+	open(content: ComponentType<LoanSearchComponent>, origin) {
+		const ref = this.popover.open<{ skills: number[] }>({
+			content,
+			origin,
+			data: {
+				skills: [1, 2, 3]
+			}
+		});
 
 		ref.afterClosed$.subscribe((res) => {
-			console.log('open', res);
+			console.log('show', res);
 		});
 	}
 }

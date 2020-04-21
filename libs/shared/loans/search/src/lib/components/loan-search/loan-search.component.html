@@ -1,62 +1,23 @@
 <form #origin class="search-box">
   <label for="search_input">
     <input
+      (click)="open(tpl, origin)"
       (mouseenter)="show(tpl, origin)"
       name="loanSearch"
       style="cursor: pointer;"
       type="text"
     />
-    <a style="cursor: pointer;" (click)="open(tpl)"
+    <!-- <a style="cursor: pointer;" (click)="open(tpl)"
       ><clr-icon class="icon" shape="search" size="34"></clr-icon
-    ></a>
-    <a style="cursor: pointer;" (click)="dispatch($event)"
+    ></a> -->
+    <!-- <a style="cursor: pointer;" (click)="dispatch($event)"
       ><clr-icon class="icon" shape="times" size="28"></clr-icon
-    ></a>
+    ></a> -->
   </label>
 </form>
 
 <ng-template class="search-modal" #tpl let-close="close">
-  <form class>
-    <div class="grid-container">
-      <div class="buttons-1">
-        <div class="quick-buttons multi-company">
-          <input type="radio" id="10" name="10" value="0" checked />
-          <label for="10">Any</label>
-          <input type="radio" id="12" name="12" value="1" />
-          <label for="12">Fay</label>
-          <input type="radio" id="14" name="14" value="2" />
-          <label for="14">Flagstar</label>
-        </div>
-        <input type="text" name="loanSearch" />
-        <button mat-flat-button (click)="query.emit('FUCK')">Search</button>
-      </div>
-      <div class="buttons-2">
-      <div class="quick-buttons loan">
-          <input type="radio" id="16" name="16" value="0" checked />
-          <label for="16">Loan</label>
-          <input type="radio" id="18" name="18" value="1" />
-          <label for="18">Borrower</label>
-          <input type="radio" id="20" name="20" value="2" />
-          <label for="20">Co-Borrower</label>
-                <input type="radio" id="22" name="22" value="0" checked />
-          <label for="22">SSN</label>
-          <input type="radio" id="24" name="24" value="1" />
-          <label for="24">Email</label>
-          <input type="radio" id="26" name="26" value="2" />
-          <label for="26">Phone</label>
-              <input type="radio" id="28" name="28" value="1" />
-          <label for="28">Address</label>
-          <input type="radio" id="30" name="30" value="2" />
-          <label for="30">City</label>
-          <input type="radio" id="32" name="32" value="2" />
-          <label for="32">Zip</label>
-           <button mat-flat-button>X</button>
-        </div>
-      </div>
-      <div class="message">Message</div>
-      <a class="button is-danger is-small" (click)="close({ id: 2 })">Close</a>
-    </div>
-  </form>
+<hza-ui-form [fields]="fields" [model]="model"></hza-ui-form>
   <div class="results">
     <ng-container *ngIf="loansLoaded">
         <hza-loans-List></hza-loans-List>

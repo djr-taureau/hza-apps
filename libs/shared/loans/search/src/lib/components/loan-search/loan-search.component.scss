@@ -75,6 +75,7 @@
  .quick-buttons label {
     padding: 0.15rem;
     margin: 0.15rem;
+    display: inline-block;
     background: rgba(59, 103, 142, .4);
     border: 2px solid rgba(59, 103, 142, 1);
     border-radius: 5px;
@@ -102,9 +103,17 @@
     font-weight: normal;
 }
 
-.quick-buttons input[type=radio]:checked+label {
+.quick-buttons input[type=radio]:checked + label {
     background-color: rgba(59, 103, 142, .7);
     color: white;
+}
+
+.quick-buttons input[type="radio"]:focus + label {
+    border: 2px dashed #444;
+}
+
+.quick-buttons label:hover {
+  background-color: #dfd;
 }
 
  h4 {
@@ -113,7 +122,7 @@
     font-size: 0.8em;
 }
 
- .multi-company {
+ .multi-company, .loan {
     display: inline-block;
 }
 
