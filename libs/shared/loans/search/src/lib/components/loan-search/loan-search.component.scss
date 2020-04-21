@@ -1,213 +1,141 @@
-// // @import "../../../src/assets/scss/variables";
+.search-box {
+  //   background-image: url('/assets/images/search-128.png');
+  //   background-repeat: no-repeat;
+  //   background-size: 50px 50px;
+  //   background-position: 99% 100%;
+  box-sizing: border-box;
+  background-color: lightblue;
+  height: 20px;
+  border-color: black;
+}
+.clearable {
+  color: black;
+  font-weight: 900;
+  align-self: right;
+}
+.looking-glass {
+  height: 2rem;
+  align-self: right;
+}
+.icon {
+  color: black;
+  font-weight: 800;
+}
 
-// :host {
-//     --pull-right: 0 0 0 auto;
-//     --first-color: #488cff;f
-//     --second-color: #ffff8c;
-//     .loan-search .links {
-//       background-image: none;
-//       width: 4.5em;
-//       position: relative;
-//     }
 
-//     .form-group {
-//       margin: 0 0 0 auto;
-//     }
-
-//     // .btn-group {
-//     //   align-self: right;
-//     // }
-
-//     // .active {
-//     //   background-color: red;
-//     // }
-
-//     button {
-//       padding: 0.25em;
-//     }
-
-//     .float-right {
-//       text-align: right;
-//       width: 100%;
-//       padding: 0;
-//       float: right;
-//     }
-
-//     .btn {
-//       background-color: #d3dce0;
-//       border: 1px solid #787878;
-//       color: black;
-//       cursor: pointer;
-//     }
-
-//     .clickable {
-//       cursor: pointer;
-//     }
-
-//     input.search {
-//       width: 5em;
-//       opacity: 0.5;
-//     }
-
-//     input.search-big {
-//       width: 15em;
-//     }
-
-//     .search-big {
-//       position: relative;
-//       width: 90vw;
-//       top: 1.25em;
-//       left: calc(15em - 90vw);
-//       padding: 0.25em;
-//       background-color: white;
-//       border: 2px solid rgba(55, 103, 142, 1);
-//       border-radius: 5px;
-//       margin: 0.5em 0 0 0.5em;
-//       box-shadow: 5px 5px 10px black;
-//       z-index: 1000;
-//       text-align: right;
-//     }
-
-//     .loan-search-instructions {
-//         float: left;
-//         text-align: left;
-//         font-weight: bold;
-//         width: 50%;
-//       }
-
-//       loan-search table {
-//         width: 100%;
-//         font-size: 0.8em;
-//       }
-
-//       loan-search button {
-//         font-size: 0.8em;
-//         padding: 0.1em;
-//         float: none;
-//       }
-
-//     h4.loan-search {
-//       font-style: italic;
-//       font-weight: bold;
-//       font-size: 0.8em;
-//     }
-
-//   loan-search .multicompany {
-//     display: inline-block;
-//   }
-
-//   loan-search .searchbox {
-//     display: inline-block;
-//     padding: 0;
-//   }
-
-//   loan-search .results {
-//     overflow-x: auto;
-//   }
-
-//   .right-align-buttons input[type="submit"],
-//   .right-align-buttons input[type="button"],
-//   .right-align-buttons button {
-//     margin-right: 0;
-//     margin-left: 0.25em;
-//   }
-
-//   // button.active {
-//   //     background-color: rgba(59, 103, 142, .7);
-
-//   //     border: 2px solid #3b678e;
-
-//   //     border-radius: 5px;
-
-//   //     color: #fff;
-
-//   //     cursor: pointer;
-
-//   //     display: inline-block;
-
-//   //     font-family: "Segoe UI",
-//   //     Verdana,
-//   //     Helvetica,
-//   //     sans-serif;
-
-//   //     font-size: .8em;
-
-//   //     font-weight: 400;
-
-//   //     line-height: 1em;
-
-//   //     padding: .25em;
-
-//   //     text-align: right;
-//   // }
-
-//     .quick-buttons {
-//       padding: 0.25em;
-//     }
-//     .btn-group {
-//       background-color: white;
-//     }
-//     div.quick-buttons {
-//       background-color: white;
-//       border: none;
-//     }
-//     label.quick-buttons {
-//       display: inline-block;
-//       padding: 0.25em;
-//       background: rgba(59, 103, 142, .4);
-//       border: 2px solid rgba(59, 103, 142, 1);
-//       border-radius: 5px;
-//       cursor: pointer;
-//       line-height: 1em;
-//       font-size: 0.8em;
-//       font-weight: normal;
-//     }
-
-//     label.quick-buttons:checked {
-//          background-color: rgba(59, 103, 142, .7);
-//          color: white;
-//     }
-
-//   .data-grid-border {
-//     border-color: #37678E;
-//     border-style: double;
-//     border-width: 4rem;
-//   }
-
-// }
-
-.parent {
+.grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  background-color: white;
   border: 2px solid rgba(55, 103, 142, 1);
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
   z-index: 12000;
-  align-content: center;
-  justify-content: center;
+  // justify-self: center;
+  // align-content: center;
+  // justify-content: center;
   width: 90vw;
 }
 
-.div1 {
-  grid-area: 1 / 4 / 1 / 6;
+.buttons-1 {
+  grid-area: 1 / 3 / 2 / 6;
   justify-self: end;
   align-self: end;
 }
-.div2 {
-  grid-area: 2 / 4 / 2 / 6;
+.buttons-2 {
+  grid-area: 2 / 3 / 2 / 6;
   justify-self: end;
   align-self: end;
 }
-.div3 {
+.message {
   grid-area: 3 / 4 / 3 / 6;
   justify-self: end;
-  align-self: end;
+  align-self: start;
 }
-.div4 {
+.results {
   grid-area: 4 / 1 / 4 / 6;
   justify-self: center;
   align-self: end;
+}
+
+.quick-buttons input[type=radio] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.btn {
+  margin: 5px;
+  border-radius: 4px
+}
+
+ .quick-buttons label {
+    padding: 0.15rem;
+    margin: 0.15rem;
+    background: rgba(59, 103, 142, .4);
+    border: 2px solid rgba(59, 103, 142, 1);
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1em;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+ 
+ .quick-buttons:selected {
+    padding: 0.25em;
+    background-color: rgba(59, 103, 142, .7);
+    color: white;
+}
+
+.quick-buttons label {
+    display: inline-block;
+    padding: 0.25em;
+    background: rgba(59, 103, 142, .4);
+    border: 2px solid rgba(59, 103, 142, 1);
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1em;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.quick-buttons input[type=radio]:checked+label {
+    background-color: rgba(59, 103, 142, .7);
+    color: white;
+}
+
+ h4 {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+ .multi-company {
+    display: inline-block;
+}
+
+ .search-box {
+    display: inline-block;
+    padding: 0;
+}
+
+form.search-big {
+    position: relative;
+    width: 90vw;
+    top: 1.25em;
+    left: calc(15em - 90vw);
+    padding: 0.25em;
+    background-color: white;
+    border: 2px solid rgba(55, 103, 142, 1);
+    border-radius: 5px;
+    margin: 0.5em 0 0 0.5em;
+    box-shadow: 5px 5px 10px black;
+    z-index: 1000;
+    text-align: right;
+}
+.search-big input[type=text] {
+    width: 15em;
 }

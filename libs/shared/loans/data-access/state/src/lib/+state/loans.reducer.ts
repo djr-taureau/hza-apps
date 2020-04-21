@@ -13,7 +13,7 @@ export interface LoansState extends EntityState<Loan> {
 }
 
 export const adapter: EntityAdapter<Loan> = createEntityAdapter<Loan>({
-  selectId: (loan: Loan) => loan.id,
+  selectId: (loan: Loan) => loan.loanNumber,
   sortComparer: false,
 });
 
@@ -32,18 +32,17 @@ export const reducer = createReducer(
     isLoading: true,
   })),
   on(LoanActions.loadLoansSuccess, (state, { loans }) => adapter.addMany(loans, state)),
-  // ** When the ClientApprovalRequests have loaded successfully, isLoaded toggled off again
-  // ** loaded set to TRUE
+
   on(LoanActions.loadLoansSuccess, state => ({
     ...state,
     isLoading: false,
     loaded: true,
   })),
-  // ** Select an individual ClientApprovalRequest for docment detail
+ 
   on(LoanActions.loadLoan, (state, { loan }) => adapter.addOne(loan, state)),
-  on(LoanActions.selectLoan, (state, { id }) => ({
+  on(LoanActions.selectLoan, (state, { loanNumber }) => ({
     ...state,
-    selectedLoanId: id,
+    selectedLoanId: loanNumber,
   })),
 );
 
