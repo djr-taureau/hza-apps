@@ -8,7 +8,6 @@ import { SharedLoansUiModule } from '@hza/shared/loans/ui';
 import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/state';
 import { LoansContainer } from './containers/loans.container';
 import { LoansResolver } from '@hza/shared/loans/data-access/data';
-import { LoanSearchBoxComponent } from './components/loan-search-box/loan-search-box.component';
 import { LoanSearchComponent } from './components/loan-search';
 
 
@@ -21,18 +20,17 @@ import { LoanSearchComponent } from './components/loan-search';
 		SharedLoansDataAccessStateModule,
 		RouterModule.forChild([
 			{
-				path: 'loans-list',
+				path: '',
 				component: LoansContainer,
-				// outlet: 'modal',
-				resolve: {
-					loans: LoansResolver
-				}
+				// resolve: {
+				// 	loans: LoansResolver
+				// }
 			}
 		]),
 	],
-	declarations: [LoanSearchBoxComponent, LoanSearchComponent, LoansContainer],
+	declarations: [LoanSearchComponent, LoansContainer],
 	entryComponents: [LoanSearchComponent],
-	exports: [LoanSearchBoxComponent, LoansContainer],
+	exports: [LoanSearchComponent, LoansContainer],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedLoansSearchModule {}

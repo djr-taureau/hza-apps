@@ -5,28 +5,19 @@ import {
 	OnDestroy,
 	OnChanges,
 	ViewChild,
-	ViewContainerRef,
-	HostListener,
-	TemplateRef
-} from '@angular/core';
+	ViewContainerRef} from '@angular/core';
 import { Router } from '@angular/router';
-import { ComponentType } from '@angular/cdk/portal';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortalDirective, ComponentPortal } from '@angular/cdk/portal';
 import { runCssVarsPolyfill } from '@clr/core';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
 import { LazyLoaderService } from '@hza/core';
-import { LoanSearchBoxComponent } from '@hza/shared/loans/search';
-import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
-import { themes } from '../themes';
-import { Directive } from '@angular/core';
+import { OverlayService } from '@hza/ui-components/overlay';
 
 
 @Component({
-	selector: 'fay-doc-repo',
+	selector: 'hza-doc-repo',
 	templateUrl: './documents.container.html',
 	styleUrls: ['./documents.container.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -50,11 +41,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	loanSearch: ViewContainerRef;
 
 	constructor(
-		private docs: DocsFacade,
-		private lazyLoader: LazyLoaderService,
-		private router: Router,
-		private overlayService: OverlayService
-	) {}
+		private docs: DocsFacade	) {}
 
 	ngOnInit() {
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
@@ -80,23 +67,4 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.docs.selectDoc(id);
 	}
 
-	openModal($event) {
-		// this.opened = !this.opened;
-		console.log($event);
-		this.router.navigate([{ outlets: { modal: [$event] } }]);
-		// [{ outlets: { primary: ['docs'], modal: [$event] } }]
-	}
-
-	// open(content: TemplateRef<any> | ComponentType<any> | string) {
-	// 	const ref = this.overlayService.open(content, null);
-
-	// 	ref.afterClosed$.subscribe((res) => {
-	// 		if (typeof content === 'string') {
-	// 		} else if (content === this.loansContainer) {
-	// 			this.loansContainerResponse = res.data;
-	// 		} else {
-	// 			console.log(res.data);
-	// 		}
-	// 	});
-	// }
 }
