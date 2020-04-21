@@ -1,9 +1,11 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
-
+import { formly } from '@hza/ui-components/forms';
+import { companySearchTypes, loanSearchTypes, SearchType } from './search-type.model';
 
 @Component({
 	selector: 'hza-loan-search',
@@ -13,24 +15,44 @@ import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
 export class LoanSearchComponent implements OnInit {
 	loanSearchComponent = LoanSearchComponent;
 	loanSearchComponentResponse = null;
-	
+
+	companySearchTypesArr: SearchType[];
+	loanSearchTypesArr: SearchType[];
+	form = new FormGroup({});
+	fields: FormlyFieldConfig[];
 	@Input() loansLoaded: boolean;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<String>();
 	myForm: FormGroup;
 	loadLoans: Boolean;
+
+	model = {
+		search: '',
+		multiCompany: 'Any',
+		loan: 'loan'
+	};
+
 	constructor(
 		private formBuilder: FormBuilder,
 		private popover: PopoverService,
-		private overlayService: OverlayService	) {}
+		private overlayService: OverlayService
+	) {}
 
 	ngOnInit() {
 		this.loadLoans = false;
-		this.myForm = this.formBuilder.group({
-			left: false,
-			middle: true,
-			right: false
-		});
+		this.companySearchTypesArr = companySearchTypes;
+		this.loanSearchTypesArr = loanSearchTypes;
+		this.fields = [
+			formly.text('search', 'Search'),
+			formly.radio('multiCompany', 'Company', [
+        { key: "m", label: "male" },
+        { key: "f", label: "female" }
+      ]),
+			formly.radio('loan', 'Loan', [
+        { key: "m", label: "male" },
+        { key: "f", label: "female" }
+      ])
+		];
 	}
 
 	dispatch($event) {
@@ -39,7 +61,6 @@ export class LoanSearchComponent implements OnInit {
 
 	searchLoans($event) {
 		console.log('loan search', $event);
-		
 	}
 
 	show(content: ComponentType<LoanSearchComponent>, origin) {

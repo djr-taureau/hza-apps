@@ -21,8 +21,7 @@
             "polyfills": "apps/hza/src/polyfills.ts",
             "tsConfig": "apps/hza/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              {
+            "assets": [{
                 "glob": "favicon.ico",
                 "input": "libs/shared/assets/src",
                 "output": ""
@@ -47,12 +46,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "libs/shared/environments/src/lib/environment.ts",
-                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "libs/shared/environments/src/lib/environment.ts",
+                "with": "libs/shared/environments/src/lib/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -61,8 +58,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -748,12 +744,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/doc-repo/src/environments/environment.ts",
-                  "with": "apps/doc-repo/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "apps/doc-repo/src/environments/environment.ts",
+                "with": "apps/doc-repo/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -762,8 +756,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
