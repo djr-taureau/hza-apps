@@ -5,7 +5,6 @@ import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
 import { loanSearchTypes } from './loanSearchTypes';
 
-
 @Component({
 	selector: 'hza-loan-search',
 	templateUrl: './loan-search.component.html',
@@ -14,28 +13,29 @@ import { loanSearchTypes } from './loanSearchTypes';
 export class LoanSearchComponent implements OnInit, OnChanges {
 	loanSearchComponent = LoanSearchComponent;
 	loanSearchComponentResponse = null;
+	form: FormGroup;
 	
+	loanSearchBox = new FormControl('');
 	@Input() loansLoaded: boolean;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<String>();
-	form = new FormGroup({
-    	loan: new FormControl('loan'),
-		company: new FormControl('any'),
-		loanSearch: new FormControl('')
-  	});
+
 	loadLoans: Boolean;
-	
-	constructor(
-		private formBuilder: FormBuilder,
-		private popover: PopoverService,
-		private overlayService: OverlayService	) {}
+
+	constructor(private fb: FormBuilder, private popover: PopoverService, private overlayService: OverlayService) {}
 
 	ngOnInit() {
 		this.loadLoans = false;
+		this.form = this.fb.group({
+			company: '0',
+			loan: 'loan',
+			loanSearch: ''
+		});
+		this.form.valueChanges.subscribe(console.log);
 	}
-	
+
 	ngOnChanges() {
-		console.log(this.form.value)
+		// console.log(this.form.value)
 	}
 
 	dispatch($event) {
@@ -44,7 +44,6 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 	searchLoans($event) {
 		console.log('loan search', $event);
-		
 	}
 
 	show(content: ComponentType<LoanSearchComponent>, origin) {
@@ -58,7 +57,14 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 		ref.afterClosed$.subscribe((res) => {
 			console.log('show', res);
+			this.updateSearchBox();
+			console.log(this.form.get('loanSearch').value);
+			this.form.get('loan').message
 		});
+	}
+
+	updateSearchBox() {
+		this.loanSearchBox.setValue(this.form.get('loanSearch').value);
 	}
 
 	selected(value) {
@@ -70,6 +76,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 		ref.afterClosed$.subscribe((res) => {
 			console.log('open', res);
+			console.log(this.form.get('loanSearch').value);
 		});
 	}
 }

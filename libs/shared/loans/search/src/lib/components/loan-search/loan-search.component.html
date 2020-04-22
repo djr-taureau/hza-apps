@@ -1,8 +1,8 @@
-<form [formGroup]="form" #origin class="search-box">
-  <label for="search_input">
+<div #origin>
+<form class="search-box">
     <input
       (mouseenter)="show(tpl, origin)"
-      formControlName="loanSearch"
+      [formControl]="loanSearchBox"
       style="cursor: pointer;"
       type="text"
     />
@@ -12,8 +12,8 @@
     <a style="cursor: pointer;" (click)="dispatch($event)"
       ><clr-icon class="icon" shape="times" size="28"></clr-icon
     ></a>
-  </label>
 </form>
+</div>
 
 <ng-template class="search-modal" #tpl let-close="close">
   <form [formGroup]="form">
