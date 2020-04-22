@@ -8,11 +8,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
-import { OpenFocusDirective } from './directives/open-focus.directive';
+
 import { CopyableDirective } from './directives/copyable.directive';
 
 const COMPONENTS = [
-	NiceDatePipe, ReplacePipe, AddressPipe, PhonePipe, OpenFocusDirective, CopyableDirective
+	NiceDatePipe, ReplacePipe, AddressPipe, PhonePipe, CopyableDirective
 ];
 @NgModule({
 	imports: [CommonModule, MaterialModule, FontAwesomeModule, OverlayPanelModule, ButtonsModule],

@@ -1,8 +1,8 @@
-<form #origin class="search-box">
+<form [formGroup]="form" #origin class="search-box">
   <label for="search_input">
     <input
       (mouseenter)="show(tpl, origin)"
-      name="loanSearch"
+      formControlName="loanSearch"
       style="cursor: pointer;"
       type="text"
     />
@@ -16,41 +16,41 @@
 </form>
 
 <ng-template class="search-modal" #tpl let-close="close">
-  <form class>
+  <form [formGroup]="form">
     <div class="grid-container">
       <div class="buttons-1">
         <div class="quick-buttons multi-company">
-          <input type="radio" id="10" name="10" value="0" checked />
+          <input type="radio" id="10" formControlName="company" value="0" checked />
           <label for="10">Any</label>
-          <input type="radio" id="12" name="12" value="1" />
+          <input type="radio" id="12" formControlName="company" value="1" />
           <label for="12">Fay</label>
-          <input type="radio" id="14" name="14" value="2" />
+          <input type="radio" id="14" formControlName="company" value="2" />
           <label for="14">Flagstar</label>
         </div>
-        <input type="text" name="loanSearch" />
-        <button mat-flat-button (click)="query.emit('FUCK')">Search</button>
+        <input type="text" formControlName="loanSearch" />
+        <button mat-flat-button (click)="query.emit('now')">Search</button>
       </div>
       <div class="buttons-2">
       <div class="quick-buttons loan">
-          <input type="radio" id="16" name="16" value="0" checked />
+          <input type="radio" id="16" formControlName="loan" value="loan" message="Full loan number must be provided (leading zeros are optional)" checked />
           <label for="16">Loan</label>
-          <input type="radio" id="18" name="18" value="1" />
+          <input type="radio" id="18" formControlName="loan" value="borrower" message="Search by the first few letters of first and/or last name" />
           <label for="18">Borrower</label>
-          <input type="radio" id="20" name="20" value="2" />
+          <input type="radio" id="20" formControlName="loan" value="coborrower" message="Search by the first few letters of first and/or last name" />
           <label for="20">Co-Borrower</label>
-                <input type="radio" id="22" name="22" value="0" checked />
+          <input type="radio" id="22" formControlName="loan" value="ssn" message="Search by the last four  (or more) digits of the SSN" />
           <label for="22">SSN</label>
-          <input type="radio" id="24" name="24" value="1" />
+          <input type="radio" id="24" formControlName="loan" value="email" message="Search by the first few characters of email address" />
           <label for="24">Email</label>
-          <input type="radio" id="26" name="26" value="2" />
+          <input type="radio" id="26" formControlName="loan" value="phone" message="Search by the last four or more digits of phone number" />
           <label for="26">Phone</label>
-              <input type="radio" id="28" name="28" value="1" />
+          <input type="radio" id="28" formControlName="loan" value="address" message="Search by the first few numbers or letters of addesss" />
           <label for="28">Address</label>
-          <input type="radio" id="30" name="30" value="2" />
+          <input type="radio" id="30" formControlName="loan" value="city" message="Search by the first few letters of city" />
           <label for="30">City</label>
-          <input type="radio" id="32" name="32" value="2" />
+          <input type="radio" id="32" formControlName="loan" value="zip" message="Full five digits of zip code must be provided" />
           <label for="32">Zip</label>
-           <button mat-flat-button>X</button>
+          <button mat-flat-button>X</button>
         </div>
       </div>
       <div class="message">Message</div>

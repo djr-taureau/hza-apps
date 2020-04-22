@@ -1,8 +1,9 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, OnChanges } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
+import { loanSearchTypes } from './loanSearchTypes';
 
 
 @Component({
@@ -10,15 +11,20 @@ import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
 	templateUrl: './loan-search.component.html',
 	styleUrls: ['./loan-search.component.scss']
 })
-export class LoanSearchComponent implements OnInit {
+export class LoanSearchComponent implements OnInit, OnChanges {
 	loanSearchComponent = LoanSearchComponent;
 	loanSearchComponentResponse = null;
 	
 	@Input() loansLoaded: boolean;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<String>();
-	myForm: FormGroup;
+	form = new FormGroup({
+    	loan: new FormControl('loan'),
+		company: new FormControl('any'),
+		loanSearch: new FormControl('')
+  	});
 	loadLoans: Boolean;
+	
 	constructor(
 		private formBuilder: FormBuilder,
 		private popover: PopoverService,
@@ -26,11 +32,10 @@ export class LoanSearchComponent implements OnInit {
 
 	ngOnInit() {
 		this.loadLoans = false;
-		this.myForm = this.formBuilder.group({
-			left: false,
-			middle: true,
-			right: false
-		});
+	}
+	
+	ngOnChanges() {
+		console.log(this.form.value)
 	}
 
 	dispatch($event) {

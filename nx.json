@@ -17,7 +17,8 @@
         "shared-assets",
         "shared-styles",
         "shared-utils",
-        "loans",
+        "shared-loans-search",
+        "shared-loan-detail",
         "documents",
         "tasks"
       ]
@@ -94,25 +95,25 @@
       "tags": []
     },
     "shared-loan-detail": {
-      "tags": []
+      "tags": ["scope:shared", "type:feature"]
     },
     "shared-loans-data-access-data": {
-      "tags": []
+      "tags": ["scope:shared", "type:data-access"]
     },
     "shared-loans-data-access-state": {
-      "tags": []
+      "tags": ["scope:shared", "type:data-access"]
     },
     "shared-loans-models": {
-      "tags": []
+      "tags": ["scope:shared"]
     },
     "shared-loans-shell": {
-      "tags": []
+      "tags": ["scope:shared", "type:feature"]
     },
     "shared-loans-search": {
-      "tags": []
+      "tags": ["scope:shared", "type:feature"]
     },
     "shared-loans-ui": {
-      "tags": []
+      "tags": ["scope:shared", "type:ui"]
     }
   },
   "tasksRunnerOptions": {
