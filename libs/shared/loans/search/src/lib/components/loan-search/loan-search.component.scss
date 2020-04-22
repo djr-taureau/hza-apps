@@ -10,9 +10,10 @@
   border-color: black;
 }
 .clearable {
-  color: black;
-  font-weight: 900;
-  align-self: right;
+  position: absolute;
+}
+.clear {
+  margin-right: 2rem;
 }
 .looking-glass {
   height: 2rem;
@@ -22,6 +23,26 @@
   color: black;
   font-weight: 800;
 }
+
+.wrapper {
+    position: relative;
+    height: auto;
+    width: 260px;
+    border: 2px solid red;
+    padding-left: .1rem;
+    padding-right: .1rem;
+}
+input {
+    border-width: 0;
+    background-color: transparent;
+    width: 230px;
+}
+a {
+    text-decoration: none;
+}
+
+
+
 
 .grid-container {
   display: grid;
@@ -43,6 +64,7 @@
   justify-self: end;
   align-self: end;
   margin-top: .6rem;
+  margin-right: .4rem;
 }
 .buttons-2 {
   grid-area: 2 / 3 / 2 / 9;
@@ -123,6 +145,35 @@ input.loan-search {
   padding: 0 .25em;
   width: 15em;
 }
+
+.mat-flat-button {
+  background-color: #d3dce0;
+  border: 1px solid #787878;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  float: none;
+  font-family: Arial;
+  font-size: .8em;
+  font-weight: 700;
+  padding: .1rem;
+  text-align: center;
+  width: .6rem;
+  line-height: 1em;
+  font-weight: normal;
+  margin: 0.15rem;
+  padding: 0.15rem;
+}
+
+  // padding: 0.15rem;
+  // margin: 0.15rem;
+  // background: rgba(59, 103, 142, 0.4);
+  // border: 2px solid rgba(59, 103, 142, 1);
+  // border-radius: 5px;
+  // cursor: pointer;
+  // line-height: 1em;
+  // font-size: 0.8em;
+  // font-weight: normal;
 
 input.loan-search {
   border: 1px solid #add8e6;
