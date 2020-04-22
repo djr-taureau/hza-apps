@@ -6,10 +6,10 @@
       style="cursor: pointer;"
       type="text"
     />
-    <a style="cursor: pointer;" (click)="open(tpl)"
+    <a style="cursor: pointer;" (click)="show(tpl, origin)"
       ><clr-icon class="icon" shape="search" size="34"></clr-icon
     ></a>
-    <a style="cursor: pointer;" (click)="dispatch($event)"
+    <a style="cursor: pointer;" (click)="clear()"
       ><clr-icon class="icon" shape="times" size="28"></clr-icon
     ></a>
 </form>
@@ -27,8 +27,9 @@
           <input type="radio" id="14" formControlName="company" value="2" />
           <label for="14">Flagstar</label>
         </div>
-        <input type="text" formControlName="loanSearch" />
+        <input type="text" class="loan-search" formControlName="loanSearch" />
         <button mat-flat-button (click)="query.emit('now')">Search</button>
+        <button mat-flat-button (click)="close()">X</button>
       </div>
       <div class="buttons-2">
       <div class="quick-buttons loan">
@@ -50,11 +51,10 @@
           <label for="30">City</label>
           <input type="radio" id="32" formControlName="loan" value="zip" message="Full five digits of zip code must be provided" />
           <label for="32">Zip</label>
-          <button mat-flat-button>X</button>
+          <button mat-flat-button (click)="clear()">X</button>
         </div>
       </div>
       <div class="message">Message</div>
-      <a class="button is-danger is-small" (click)="close({ id: 2 })">Close</a>
     </div>
   </form>
   <div class="results">

@@ -1,9 +1,8 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, TemplateRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
-import { loanSearchTypes } from './loanSearchTypes';
 
 @Component({
 	selector: 'hza-loan-search',
@@ -14,7 +13,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	loanSearchComponent = LoanSearchComponent;
 	loanSearchComponentResponse = null;
 	form: FormGroup;
-	
+
 	loanSearchBox = new FormControl('');
 	@Input() loansLoaded: boolean;
 	@Input() loans: Loan[];
@@ -59,12 +58,19 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 			console.log('show', res);
 			this.updateSearchBox();
 			console.log(this.form.get('loanSearch').value);
-			this.form.get('loan').message
+			
 		});
 	}
 
 	updateSearchBox() {
 		this.loanSearchBox.setValue(this.form.get('loanSearch').value);
+	}
+
+	clear() {
+		this.loanSearchBox.setValue('');
+		this.form.patchValue({
+			loanSearch: ''
+		});
 	}
 
 	selected(value) {
