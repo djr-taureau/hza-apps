@@ -83,8 +83,9 @@ a {
   grid-area: 4 / 1 / 4 / 8;
   overflow-y: auto;
   // grid-auto-rows: auto;
-  justify-self: center;
-  align-self: center;
+  // justify-self: center;
+  align-self: end;
+  margin-left: 2rem;
 }
 
 .quick-buttons input[type='radio'] {
