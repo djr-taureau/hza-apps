@@ -1,3 +1,5 @@
-<p>
-  test works!
-</p>
+<ng-containter *ngIf="testLoans$">
+<ol *ngFor="let loan of testLoans$ | async">
+<li>{{loan.source}}</li>
+</ol>
+</ng-containter>

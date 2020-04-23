@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FormBuilder, AbstractControl } from '@angular/forms';
@@ -19,19 +19,29 @@ import { loansArr } from './loansArr';
 			transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
 		])
 	],
-	styleUrls: ['./loans-list.component.scss']
+	styleUrls: ['./loans-list.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoansListComponent implements OnInit, OnChanges {
 	opened: boolean;
-	loans = loansArr;
+	// loans = loansArr;
 	readonly formControl: AbstractControl;
-	// @Input() loans: Loan[];
+	
+    @Input()
+    public set loans(value: Loan[]) {
+        if (value) {
+			this.dataSource = new MatTableDataSource(value);
+			this.dataSource.sort = this.sort;
+        }
+    }
+    public get loans(): Loan[] {
+        return this._loans;
+    }
 	@ViewChild(MatSort) sort: MatSort;
 	@Output() selectedLoan = new EventEmitter<number>();
 	public trackByFn = ngUtilTrackBy;
 	columns: string[] = [
 		'select',
-		'sourceId',
 		'source',
 		'loanNumber',
 		'borrower',
@@ -52,6 +62,7 @@ export class LoansListComponent implements OnInit, OnChanges {
 
 	constructor(private clipboard: Clipboard) {}
 
+	private _loans: Loan[];
 	ngOnInit() {
 		this.opened = false;
 	}

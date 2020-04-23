@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'loan-detail',
     loadChildren: () =>
       import('@hza/shared/loans/loan-detail').then(
         m => m.SharedLoanDetailModule

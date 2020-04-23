@@ -1,5 +1,5 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,9 @@ import { searchMessages, LoanQuery } from '@hza/shared/loans/models';
 @Component({
 	selector: 'hza-loan-search',
 	templateUrl: './loan-search.component.html',
-	styleUrls: ['./loan-search.component.scss']
+	styleUrls: ['./loan-search.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
+	
 })
 export class LoanSearchComponent implements OnInit, OnChanges {
 	loanSearchComponent = LoanSearchComponent;
@@ -24,7 +26,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 	loanSearchBox = new FormControl('');
 	@Input() loansLoaded: boolean;
-	@Input() loans$: Observable<Loan[]>;
+	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<LoanQuery>();
 
 	loadLoans: Boolean;
@@ -52,7 +54,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 	ngOnChanges() {
 		
-		console.log('search', this.loans$)
+		console.log('search', this.loans)
 		console.log('search', this.loansLoaded)
 
 		// this.form.get('loan').valueChanges.subscribe((v) => {
