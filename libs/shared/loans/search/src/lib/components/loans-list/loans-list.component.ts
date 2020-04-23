@@ -5,9 +5,10 @@ import { FormBuilder, AbstractControl } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Loan } from '@hza/shared/loans/models';
 import { trackByFn as ngUtilTrackBy } from '@hza/shared/utils';
-
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { loansArr } from './loansArr';
+
 @Component({
 	selector: 'hza-loans-list',
 	templateUrl: './loans-list.component.html',
@@ -22,9 +23,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class LoansListComponent implements OnInit, OnChanges {
 	opened: boolean;
-
+	loans = loansArr;
 	readonly formControl: AbstractControl;
-	@Input() loans: Loan[];
+	// @Input() loans: Loan[];
 	@ViewChild(MatSort) sort: MatSort;
 	@Output() selectedLoan = new EventEmitter<number>();
 	public trackByFn = ngUtilTrackBy;
