@@ -9,6 +9,7 @@ import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/
 import { LoansContainer } from './containers/loans.container';
 import { LoansResolver } from '@hza/shared/loans/data-access/data';
 import { LoanSearchComponent } from './components/loan-search';
+import { TestComponent } from './components/test/test.component';
 
 
 
@@ -28,9 +29,9 @@ import { LoanSearchComponent } from './components/loan-search';
 			}
 		]),
 	],
-	declarations: [LoanSearchComponent, LoansContainer],
+	declarations: [LoanSearchComponent, LoansContainer, TestComponent],
 	entryComponents: [LoanSearchComponent],
-	exports: [LoanSearchComponent, LoansContainer],
+	exports: [LoanSearchComponent, LoansContainer, TestComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedLoansSearchModule {}

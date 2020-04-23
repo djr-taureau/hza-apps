@@ -36,11 +36,11 @@ export class LoansListComponent implements OnInit, OnChanges {
 		'loanNumber',
 		'borrower',
 		'borrowerPrimarySSN',
-		'borrowerPrimaryPhone',
+		'borrowerPrimaryPhoneNumber',
 		'borrowerPrimaryEmail',
 		'coBorrower',
 		'borrowerSecondarySSN',
-		'borrowerSecondaryPhone',
+		'borrowerSecondaryPhoneNumber',
 		'propertyAddress',
 		'propertyCity'
 	];

@@ -8,7 +8,7 @@ export interface Loan {
   borrowerPrimarySSN: string;
   borrowerSecondarySSN: string;
   borrowerPrimaryEmailAddress: string;
-  borrowPrimaryPhoneNumber: string;
+  borrowerPrimaryPhoneNumber: string;
   borrowerSecondaryPhoneNumber: string;
   propertyAddress1: string;
   propertyCity: string;
