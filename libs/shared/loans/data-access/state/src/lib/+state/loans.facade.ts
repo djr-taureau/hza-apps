@@ -5,6 +5,7 @@ import { State, loansQuery } from '.';
 import * as LoanActions from './loans.actions';
 import { Observable } from 'rxjs';
 
+import { LoanQuery } from '@hza/shared/loans/models';
 // ** The use of facades is good with managing state
 // ** because it avoids having to inject your store into every container that needs to interact
 // **
@@ -26,5 +27,9 @@ export class LoansFacade {
 
   selectLoan(loanNumber: number) {
     this.store.dispatch(LoanActions.selectLoan({ loanNumber }));
+  }
+  
+  queryLoans(query: LoanQuery) {
+    this.store.dispatch(LoanActions.queryLoans({ query }));
   }
 }

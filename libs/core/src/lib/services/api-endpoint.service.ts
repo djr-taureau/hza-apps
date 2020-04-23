@@ -37,6 +37,7 @@ export class ApiEndpointService {
 		DOWNTIME_EXTERNAL: `downtime/{application}/{external:bool}`,
 		ERROR: `error/{application}/{user?}/{shortmessage?}/{detail?}/{errorlevel?}`,
 		LOANS: `loans/search/{source:int}/{search}`,
+		// MOCK_LOANS: `/posts?title=json-server&author=typicode`,
 		LOAN: `loan/search/{source}/{search}/{value}`,
 		LOAN_COMMENTS: `loan/comment/{source:int}/{loan}/{workstation?}/{filtertype?}/{filter?}`,
 		CARS: 'cars',

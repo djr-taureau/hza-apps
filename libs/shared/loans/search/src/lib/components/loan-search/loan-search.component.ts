@@ -5,8 +5,8 @@ import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
-import { BehaviorSubject } from 'rxjs';
-import { helpMessages, searchMessages } from './loanSearchTypes';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { searchMessages, LoanQuery } from '@hza/shared/loans/models';
 
 @Component({
 	selector: 'hza-loan-search',
@@ -20,12 +20,12 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	faTimes = faTimes;
 	faTimesCircle = faTimesCircle;
 	searchHelpMessage: string;
-	searchTypeSubject$ = new BehaviorSubject<String>(null);
+	searchTypeSubject$ = new BehaviorSubject<string>(null);
 
 	loanSearchBox = new FormControl('');
 	@Input() loansLoaded: boolean;
-	@Input() loans: Loan[];
-	@Output() query = new EventEmitter<String>();
+	@Input() loans$: Observable<Loan[]>;
+	@Output() query = new EventEmitter<LoanQuery>();
 
 	loadLoans: Boolean;
 
@@ -51,6 +51,9 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges() {
+		
+		console.log('search', this.loans$)
+		console.log('search', this.loansLoaded)
 
 		// this.form.get('loan').valueChanges.subscribe((v) => {
 		// 	console.log('changes', v)
@@ -67,7 +70,9 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	}
 
 	searchLoans($event) {
-		console.log('loan search', $event);
+		console.log($event)
+		const loanQuery: LoanQuery = this.form.value;
+		this.query.emit(loanQuery);
 	}
 
 	show(content: ComponentType<LoanSearchComponent>, origin) {

@@ -38,7 +38,7 @@
         <a style="cursor: pointer;" (click)="clear()"
           ><clr-icon class="icon clear" shape="times" size="28"></clr-icon
         ></a>
-        <button mat-flat-button (click)="query.emit('now')">Search</button>
+        <button mat-flat-button (click)="searchLoans($event)">Search</button>
         <button mat-rounded-button (click)="close()">X</button>
       </div>
       <div class="buttons-2">
@@ -122,8 +122,6 @@
     </div>
   </form>
   <div class="results">
-    <ng-container *ngIf="loansLoaded">
-      <hza-loans-List></hza-loans-List>
-    </ng-container>
+      <hza-loans-List [loans]="loans$ | async"></hza-loans-List>
   </div>
 </ng-template>

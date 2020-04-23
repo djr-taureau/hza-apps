@@ -21,6 +21,30 @@ export class LoanEffects {
       ),
     ),
   );
+  
+    queryLoans$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LoanActions.queryLoans),
+      switchMap(({ query }) =>
+        this.loanService.queryLoans(query).pipe(
+          map(loans => LoanActions.loadLoansSuccess({ loans })),
+          catchError(error => of(LoanActions.loadLoansFail(error))),
+        ),
+      ),
+    ),
+  );
+
+  // addBookToCollection$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(SelectedBookPageActions.addBook),
+  //     mergeMap(({ book }) =>
+  //       this.storageService.addToCollection([book]).pipe(
+  //         map(() => CollectionApiActions.addBookSuccess({ book })),
+  //         catchError(() => of(CollectionApiActions.addBookFailure({ book })))
+  //       )
+  //     )
+  //   )
+  // );
 
   constructor(private actions$: Actions, private loanService: LoansService, private facade: LoansFacade) {}
 }

@@ -12,14 +12,17 @@ import { LoansFacade } from '@hza/shared/loans/data-access/state';
 import { Loan } from '@hza/shared/loans/models';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { OverlayService } from '@hza/ui-components/overlay';
+import { BehaviorSubject } from 'rxjs';
+import { LoanQuery } from '@hza/shared/loans/models';
 @Component({
 	selector: 'hza-loans-container',
 	template: `
-    <hza-loans-search 
+    <hza-loan-search 
       [loansLoaded]="loansLoaded$ | async" 
       [loans]="loans$ | async" 
       (query)="loanSearch($event)">
-      </hza-loans-search>
+      </hza-loan-search>
+	 
   `,
 	styleUrls: ['./loans.container.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -62,8 +65,9 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 	}
 
-	loanSearch($event) {
-		console.log('container', $event.value);
+	loanSearch(query: LoanQuery) {
+		console.log('container', query);
+		this.loansFacade.queryLoans(query)
 	}
 
 	openModal() {
