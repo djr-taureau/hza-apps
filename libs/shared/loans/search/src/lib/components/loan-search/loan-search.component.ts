@@ -6,7 +6,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
 import { BehaviorSubject } from 'rxjs';
-import { helpMessages } from './loanSearchTypes';
+import { helpMessages, searchMessages } from './loanSearchTypes';
 
 @Component({
 	selector: 'hza-loan-search',
@@ -20,7 +20,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	faTimes = faTimes;
 	faTimesCircle = faTimesCircle;
 	searchHelpMessage: string;
-	searchTypeSubject$ = new BehaviorSubject<String>('loan');
+	searchTypeSubject$ = new BehaviorSubject<String>(null);
 
 	loanSearchBox = new FormControl('');
 	@Input() loansLoaded: boolean;
@@ -40,38 +40,27 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 		});
 		this.form.valueChanges.subscribe(console.log);
 		// let idx = this.searchType.getValue();
-
+		this.searchTypeSubject$.next(this.form.get('loan').value);
+		// this.searchHelpMessage = searchMessages('loan')
 		this.form.get('loan').valueChanges.subscribe((v) => {
-			console.log('init', v);
-			this.searchTypeSubject$.next(v);
-			const searchTypeIdx = this.searchTypeSubject$.value;
-			console.log('give me the type', searchTypeIdx)
-			this.searchHelpMessage = helpMessages[`${searchTypeIdx}`].message;
+			this.searchTypeSubject$.next(v)
 		});
-		this.searchTypeSubject$.subscribe(v => console.log('give me the tyep sub', v))
+		this.searchTypeSubject$.subscribe(val => {
+			this.searchHelpMessage = searchMessages(val);
+		});
 	}
 
 	ngOnChanges() {
 
-
-		this.form.get('loan').valueChanges.subscribe((v) => {
-			console.log('changes', v)
-			this.searchTypeSubject$.next(v);
-		});
-		this.searchTypeSubject$.subscribe((v) => {
-			this.searchHelpMessage = helpMessages[`${v}`].message;
-		});
+		// this.form.get('loan').valueChanges.subscribe((v) => {
+		// 	console.log('changes', v)
+		// 	this.searchTypeSubject$.next(v);
+		// });
+		// this.searchTypeSubject$.subscribe((v) => {
+		// 	this.searchHelpMessage = helpMessages[`${v}`].message;
+		// });
 	}
 
-	// onValueChanges(): void {
-	// 	const helpMessages = indexByProp('value', loanSearchTypes);
-	// 	this.form.get('loan').valueChanges.subscribe((v) => {
-	// 		this.searchHelpMessage = helpMessages[v].message;
-	// 	});
-	// }
-	// ngOnChanges() {
-	// 	// console.log(this.form.value)
-	// }
 
 	dispatch($event) {
 		console.log($event);
