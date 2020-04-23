@@ -10,6 +10,7 @@ import { LoansContainer } from './containers/loans.container';
 import { LoansResolver } from '@hza/shared/loans/data-access/data';
 import { LoanSearchComponent } from './components/loan-search';
 import { TestComponent } from './components/test/test.component';
+import { LoansTableComponent } from './components/loans-table/loans-table.component';
 
 
 
@@ -29,9 +30,9 @@ import { TestComponent } from './components/test/test.component';
 			}
 		]),
 	],
-	declarations: [LoanSearchComponent, LoansContainer, TestComponent],
+	declarations: [LoanSearchComponent, LoansContainer, TestComponent, LoansTableComponent],
 	entryComponents: [LoanSearchComponent],
-	exports: [LoanSearchComponent, LoansContainer, TestComponent],
+	exports: [LoanSearchComponent, LoansContainer, TestComponent, LoansTableComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedLoansSearchModule {}

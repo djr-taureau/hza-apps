@@ -119,12 +119,37 @@
         </div>
       </div>
       <div class="message">{{ searchHelpMessage }}</div>
-      <div class="results">
-        <hza-test></hza-test>
-        <hza-loans-list></hza-loans-list> 
+      <div *ngIf="loans" class="results">
+        <clr-datagrid>
+          <clr-dg-column>Company</clr-dg-column>
+          <clr-dg-column>Loan</clr-dg-column>
+          <clr-dg-column>Borrower</clr-dg-column>
+          <clr-dg-column>Borrower SSN</clr-dg-column>
+          <clr-dg-column>Borrower Phone</clr-dg-column>
+          <clr-dg-column>Email</clr-dg-column>
+              <clr-dg-column>Co-Borrower</clr-dg-column>
+          <clr-dg-column>Co-Borrower SSN</clr-dg-column>
+          <clr-dg-column>Co-Borrower Phone</clr-dg-column>
+          <clr-dg-column>Property Address</clr-dg-column>
+          <clr-dg-column>Property City</clr-dg-column>
+          <clr-dg-row *ngFor="let loan of loans">
+            <clr-dg-cell>{{ loan.source }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.loanNumber }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.borrower }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.borrowerPrimarySSN }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.borrowerPrimaryPhoneNumber | phone }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.borrowerPrimaryEmail }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.coBorrower }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.borrowerSecondarySSN }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.borrowerSecondaryPhoneNumber | phone }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.propertyAddress }}</clr-dg-cell>
+            <clr-dg-cell>{{ loan.propertyCity }}</clr-dg-cell>
+          </clr-dg-row>
+
+          <clr-dg-footer>{{ loans.length }} loans</clr-dg-footer>
+        </clr-datagrid>
       </div>
       <div class="bottom"></div>
     </div>
   </form>
-
 </ng-template>
