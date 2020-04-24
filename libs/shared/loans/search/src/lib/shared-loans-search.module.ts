@@ -11,6 +11,16 @@ import { LoanSearchComponent } from './components/loan-search';
 import { TestComponent } from './components/test/test.component';
 import { LoansTableComponent } from './components/loans-table/loans-table.component';
 import { LoansListComponent } from './components/loans-list/loans-list.component';
+import { LoanSearchFormComponent } from './components/loan-search-form/loan-search-form.component';
+
+const COMPONENTS = [
+	LoanSearchComponent,
+	LoanSearchFormComponent,
+	LoansContainer,
+	TestComponent,
+	LoansTableComponent,
+	LoansListComponent
+];
 
 @NgModule({
 	imports: [
@@ -22,16 +32,16 @@ import { LoansListComponent } from './components/loans-list/loans-list.component
 		RouterModule.forChild([
 			{
 				path: '',
-				component: LoansContainer,
+				component: LoansContainer
 				// resolve: {
 				// 	loans: LoansResolver
 				// }
 			}
-		]),
+		])
 	],
-	declarations: [LoanSearchComponent, LoansContainer, TestComponent, LoansTableComponent, LoansListComponent],
-	entryComponents: [LoanSearchComponent],
-	exports: [LoanSearchComponent, LoansContainer, TestComponent, LoansTableComponent, LoansListComponent],
+	declarations: COMPONENTS,
+	entryComponents: [LoanSearchFormComponent],
+	exports: COMPONENTS,
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedLoansSearchModule {}

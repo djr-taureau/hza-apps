@@ -1,11 +1,5 @@
 import { Observable, Subject, asyncScheduler } from 'rxjs';
-import {
-	Component,
-	OnInit,
-	ChangeDetectionStrategy,
-	OnDestroy,
-	OnChanges,
-	TemplateRef} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentType } from '@angular/cdk/portal';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
@@ -17,14 +11,12 @@ import { LoanQuery } from '@hza/shared/loans/models';
 @Component({
 	selector: 'hza-loans-container',
 	template: `
-    <hza-loan-search 
-      [loansLoaded]="loansLoaded$ | async" 
-      [loans]="loans$ | async" 
-      (query)="loanSearch($event)">
-      </hza-loan-search>
-	  <hza-loans-list [loans]="loans$ | async"></hza-loans-list>
-	 
-  `,
+    <hza-loan-search
+		[loansLoaded]="loansLoaded$ | async"
+		[loans]="loans$ | async"
+		(query)="loanSearch($event)">
+    </hza-loan-search>
+	`,
 	styleUrls: ['./loans.container.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -36,8 +28,6 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	loansContainer = null;
 	unsubscribe$: Subject<void> = new Subject();
 	opened: boolean;
-
-
 
 	constructor(private loansFacade: LoansFacade, private overlayService: OverlayService) {}
 
@@ -68,7 +58,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	loanSearch(query: LoanQuery) {
 		console.log('container', query);
-		this.loansFacade.queryLoans(query)
+		this.loansFacade.queryLoans(query);
 	}
 
 	openModal() {

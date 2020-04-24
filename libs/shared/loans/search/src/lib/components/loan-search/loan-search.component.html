@@ -1,8 +1,8 @@
 <div #origin>
-  <form class="search-box">
+  <form [formGroup]="searchBox" class="search-box">
     <input
       (mouseenter)="show(tpl, origin)"
-      [formControl]="loanSearchBox"
+      formControlName="loanSearchbox"
       style="cursor: pointer;"
       type="text"
     />
@@ -16,113 +16,18 @@
 </div>
 
 <ng-template class="search-modal" #tpl let-close="close">
-  <form [formGroup]="form">
-    <div class="grid-container">
-      <div class="buttons-1">
-        <div class="quick-buttons multi-company">
-          <input
-            type="radio"
-            id="10"
-            formControlName="company"
-            value="0"
-            checked
-          />
-          <label for="10">Any</label>
-          <input type="radio" id="12" formControlName="company" value="1" />
-          <label for="12">Fay</label>
-          <input type="radio" id="14" formControlName="company" value="2" />
-          <label for="14">Flagstar</label>
-        </div>
-
-        <input type="text" class="loan-search" formControlName="loanSearch" />
-        <a style="cursor: pointer;" (click)="clear()"
-          ><clr-icon class="icon clear" shape="times" size="28"></clr-icon
-        ></a>
-        <button mat-flat-button (click)="searchLoans($event)">Search</button>
-        <button mat-rounded-button (click)="close()">X</button>
-      </div>
-      <div class="buttons-2">
-        <div class="quick-buttons loan">
-          <input
-            type="radio"
-            id="16"
-            formControlName="loan"
-            value="loan"
-            message="Full loan number must be provided (leading zeros are optional)"
-            checked
-          />
-          <label for="16">Loan</label>
-          <input
-            type="radio"
-            id="18"
-            formControlName="loan"
-            value="borrower"
-            message="Search by the first few letters of first and/or last name"
-          />
-          <label for="18">Borrower</label>
-          <input
-            type="radio"
-            id="20"
-            formControlName="loan"
-            value="coborrower"
-            message="Search by the first few letters of first and/or last name"
-          />
-          <label for="20">Co-Borrower</label>
-          <input
-            type="radio"
-            id="22"
-            formControlName="loan"
-            value="ssn"
-            message="Search by the last four  (or more) digits of the SSN"
-          />
-          <label for="22">SSN</label>
-          <input
-            type="radio"
-            id="24"
-            formControlName="loan"
-            value="email"
-            message="Search by the first few characters of email address"
-          />
-          <label for="24">Email</label>
-          <input
-            type="radio"
-            id="26"
-            formControlName="loan"
-            value="phone"
-            message="Search by the last four or more digits of phone number"
-          />
-          <label for="26">Phone</label>
-          <input
-            type="radio"
-            id="28"
-            formControlName="loan"
-            value="address"
-            message="Search by the first few numbers or letters of addesss"
-          />
-          <label for="28">Address</label>
-          <input
-            type="radio"
-            id="30"
-            formControlName="loan"
-            value="city"
-            message="Search by the first few letters of city"
-          />
-          <label for="30">City</label>
-          <input
-            type="radio"
-            id="32"
-            formControlName="loan"
-            value="zip"
-            message="Full five digits of zip code must be provided"
-          />
-          <label for="32">Zip</label>
-        </div>
-      </div>
-      <div class="message">{{ searchHelpMessage }}</div>
-      <div *ngIf="loansLoaded$ | async" class="results">
-        Hi loans
-      </div>
-      <div class="bottom"></div>
+  <div class="grid-container">
+    <div class="loan-search-form item--full">
+      <!-- TODO:: This needs to be separated out into a loan-search-form -->
+      <hza-loan-search-form></hza-loan-search-form>
+      <!-- TODO:: djr this is where the loans list component will be loaded -->
     </div>
-  </form>
+    <div *ngIf="loansLoaded" class="loans-list">
+      <h3>results</h3>
+        <hza-loans-list></hza-loans-list>
+    </div>
+    <div *ngIf="loansLoaded" class="loans-container-bottom">
+      <h3>Bottom</h3>
+    </div>
+  </div>
 </ng-template>

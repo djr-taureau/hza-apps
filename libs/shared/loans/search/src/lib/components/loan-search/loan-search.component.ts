@@ -7,24 +7,17 @@ import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { searchMessages, LoanQuery } from '@hza/shared/loans/models';
+import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.component';
 
 @Component({
 	selector: 'hza-loan-search',
 	templateUrl: './loan-search.component.html',
 	styleUrls: ['./loan-search.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
-	
 })
 export class LoanSearchComponent implements OnInit, OnChanges {
-	loanSearchComponent = LoanSearchComponent;
-	loanSearchComponentResponse = null;
-	form: FormGroup;
-	faTimes = faTimes;
-	faTimesCircle = faTimesCircle;
-	searchHelpMessage: string;
-	searchTypeSubject$ = new BehaviorSubject<string>(null);
-
-	loanSearchBox = new FormControl('');
+	loanSearchFormComponent = LoanSearchFormComponent;
+	searchBox: FormGroup;
 	@Input() loansLoaded: boolean;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<LoanQuery>();
@@ -34,50 +27,34 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	constructor(private fb: FormBuilder, private popover: PopoverService, private overlayService: OverlayService) {}
 
 	ngOnInit() {
-		this.loadLoans = false;
-		this.form = this.fb.group({
-			company: '0',
-			loan: 'loan',
-			loanSearch: ''
-		});
-		this.form.valueChanges.subscribe(console.log);
-		// let idx = this.searchType.getValue();
-		this.searchTypeSubject$.next(this.form.get('loan').value);
-		// this.searchHelpMessage = searchMessages('loan')
-		this.form.get('loan').valueChanges.subscribe((v) => {
-			this.searchTypeSubject$.next(v)
-		});
-		this.searchTypeSubject$.subscribe(val => {
-			this.searchHelpMessage = searchMessages(val);
+		console.log('init loan search');
+			this.searchBox = this.fb.group({
+			loanSearchBox: ''
 		});
 	}
 
 	ngOnChanges() {
-		
-		console.log('search', this.loans)
-		console.log('search', this.loansLoaded)
-
-		// this.form.get('loan').valueChanges.subscribe((v) => {
-		// 	console.log('changes', v)
-		// 	this.searchTypeSubject$.next(v);
-		// });
-		// this.searchTypeSubject$.subscribe((v) => {
-		// 	this.searchHelpMessage = helpMessages[`${v}`].message;
-		// });
+		console.log('search', this.loans);
+		console.log('search', this.loansLoaded);
 	}
-
 
 	dispatch($event) {
 		console.log($event);
 	}
 
-	searchLoans($event) {
-		console.log($event)
-		const loanQuery: LoanQuery = this.form.value;
-		this.query.emit(loanQuery);
+	clear() {
+		this.searchBox.patchValue({
+			loanSearchBox: ''
+		});
 	}
 
-	show(content: ComponentType<LoanSearchComponent>, origin) {
+	searchLoans($event) {
+		console.log($event);
+		// const loanQuery: LoanQuery = this.form.value;
+		// this.query.emit(loanQuery);
+	}
+
+	show(content: ComponentType<LoanSearchFormComponent>, origin) {
 		const ref = this.popover.open<{ skills: number[] }>({
 			content,
 			origin,
@@ -89,31 +66,15 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 		ref.afterClosed$.subscribe((res) => {
 			console.log('show', res);
 			this.updateSearchBox();
-			console.log(this.form.get('loanSearch').value);
+			// console.log(this.form.get('loanSearch').value);
 		});
 	}
 
 	updateSearchBox() {
-		this.loanSearchBox.setValue(this.form.get('loanSearch').value);
-	}
-
-	clear() {
-		this.loanSearchBox.setValue('');
-		this.form.patchValue({
-			loanSearch: ''
-		});
+		// this.searchBox.setValue(this.form.get('loanSearch').value);
 	}
 
 	selected(value) {
 		console.log(value);
 	}
-
-	// open(content: TemplateRef<any> | ComponentType<any> | string) {
-	// 	const ref = this.overlayService.open(content, null);
-
-	// 	ref.afterClosed$.subscribe((res) => {
-	// 		console.log('open', res);
-	// 		console.log(this.form.get('loanSearch').value);
-	// 	});
-	// }
 }
