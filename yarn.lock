@@ -1949,6 +1949,16 @@ acorn@^7.1.0, acorn@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.1.tgz#e35668de0b402f359de515c5482a1ab9f89a69bf"
   integrity sha512-add7dgA5ppRPxCFJoAGfMDi7PIBXq1RtGo7BhbLaxwrXPOmw8gq48Y9ozT01hUKy9byMjlR20EJhu5zlkErEkg==
 
+ag-grid-angular@^23.0.3:
+  version "23.0.3"
+  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.0.3.tgz#d51d8e9a3465eb91ac3167ee12fc6a46e574da60"
+  integrity sha512-mKwVUWpNtuXlkRFs3f6OxsLW6OqQrdWQijJJqYUoih/rDmj7yjSI7AIZCKYy/LZ+XyiqdFbQXqm2qmNtGr7ANA==
+
+ag-grid-community@^23.0.2:
+  version "23.0.2"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-23.0.2.tgz#81fc92ce9e47c75e854337a1e2d8ef950c3a1d51"
+  integrity sha512-UaD4lEVKKVCA2rrgMJJV328sCp5rdR9hgOh6oMUpZRXCke/3m/r2odjGjzvfT7yeLClj6ZdZuCkM4NmEuCZ8KA==
+
 agent-base@6:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-6.0.0.tgz#5d0101f19bbfaed39980b22ae866de153b93f09a"

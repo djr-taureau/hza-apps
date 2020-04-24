@@ -65,6 +65,8 @@
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/shadycss": "^1.9.6",
     "@webcomponents/webcomponentsjs": "^2.4.3",
+    "ag-grid-angular": "^23.0.3",
+    "ag-grid-community": "^23.0.2",
     "bootstrap": "^4.4.1",
     "concurrently": "^5.1.0",
     "core-js": "^2.5.4",

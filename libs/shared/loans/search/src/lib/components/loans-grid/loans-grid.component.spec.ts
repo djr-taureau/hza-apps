@@ -3,20 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { DocListComponent } from './doc-list.component';
+import { DocsGridComponent } from './docs-grid.component';
 
-describe('DocListComponent', () => {
-  let component: DocListComponent;
-  let fixture: ComponentFixture<DocListComponent>;
+describe('DocsGridComponent', () => {
+  let component: DocsGridComponent;
+  let fixture: ComponentFixture<DocsGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DocListComponent],
-    }).compileComponents();
+      declarations: [ DocsGridComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DocListComponent);
+    fixture = TestBed.createComponent(DocsGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

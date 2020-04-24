@@ -22,6 +22,7 @@ import { LoanQuery } from '@hza/shared/loans/models';
       [loans]="loans$ | async" 
       (query)="loanSearch($event)">
       </hza-loan-search>
+	  <hza-loans-list [loans]="loans$ | async"></hza-loans-list>
 	 
   `,
 	styleUrls: ['./loans.container.scss'],

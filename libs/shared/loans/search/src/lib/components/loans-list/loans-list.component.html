@@ -4,17 +4,37 @@
     <td mat-cell *matCellDef="let row"></td>
   </ng-container>
 
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columns.length">
+      <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="element-diagram">
+          <div class="element-doc">{{ element.source }}</div>
+          <div class="element-size">{{ element.loanNumber }}</div>
+          <div class="element-createdBy">{{ element.borrower }}</div>
+          <div class="element-created">{{ element.borrowerPrimarySSN }}</div>
+          <div class="element-size">{{ element.borrowerPrimaryPhoneNumber }}</div>
+          <div class="element-createdBy">{{ element.borrowerPrimaryEmail }}</div>
+          <div class="element-created">{{ element.coBorrower }}</div>
+          <div class="element-created">{{ element.borrowerPrimarySSN }}</div>
+          <div class="element-size">{{ element.borrowerSecondaryPhoneNumber }}</div>
+          <div class="element-createdBy">{{ element.propertyAddress }}</div>
+          <div class="element-createdBy">{{ element.propertyCity }}</div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
   <ng-container matColumnDef="source">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
     <td mat-cell *matCellDef="let element" tooltip="Click to Copy" (click)="copy(element.source)">
-    <!-- TODO:: add company PIPE HERE -->
       {{ element.source }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="loanNumber">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Loan</th>
-    <td mat-cell hzaTooltip="Click to Copy" (click)="copy(element.loanNumber)" *matCellDef="let element">
+    <td mat-cell fayTooltip="Click to Copy" (click)="copy(element.loanNumber)" *matCellDef="let element">
       {{ element.loanNumber }}
     </td>
   </ng-container>
@@ -31,38 +51,36 @@
 
   <ng-container matColumnDef="borrowerPrimaryPhoneNumber">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower Phone</th>
-    <!-- TODO:: Add Formatting Pipe here too -->
-    <td mat-cell *matCellDef="let element">{{ element.borrowerPrimaryPhoneNumber }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.borrowerPrimaryPhoneNumber | phone }}</td>
+  </ng-container>
+  
+   <ng-container matColumnDef="borrowerPrimaryEmail">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Borrower Emaile</th>
+    <td mat-cell *matCellDef="let element">{{ element.borrowerPrimaryEmail }}</td>
   </ng-container>
   
     <ng-container matColumnDef="coBorrower">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Co-Borrower</th>
-    <td mat-cell *matCellDef="let element">
-    <!-- TODO:: add company PIPE HERE -->
-      {{ element.coBorrower }}
-    </td>
+    <td mat-cell *matCellDef="let element">{{ element.coBorrower }}</td>
   </ng-container>
 
   <ng-container matColumnDef="borrowerSecondarySSN">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Co-Borrower SSN</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.borrowerSecondarySSN }}
-    </td>
+    <td mat-cell *matCellDef="let element">{{ element.borrowerSecondarySSN }}</td>
   </ng-container>
 
   <ng-container matColumnDef="borrowerSecondaryPhoneNumber">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Co-Borrower Phone</th>
-    <td mat-cell *matCellDef="let element">{{ element.borrowerSecondaryPhoneNumber }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.borrowerSecondaryPhoneNumber | phone }}</td>
   </ng-container>
-
-  <ng-container matColumnDef="propertyAddress">
+  
+    <ng-container matColumnDef="propertyAddress">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Property Address</th>
     <td mat-cell *matCellDef="let element">{{ element.propertyAddress }}</td>
   </ng-container>
 
   <ng-container matColumnDef="propertyCity">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Property City</th>
-    <!-- TODO:: Add Formatting Pipe here too -->
     <td mat-cell *matCellDef="let element">{{ element.propertyCity }}</td>
   </ng-container>
 
