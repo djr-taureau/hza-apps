@@ -1,4 +1,4 @@
-<!-- <div class="container"> -->
+
   <form [formGroup]="searchForm">
     <div class="search-form-row1">
       <div class="quick-buttons multi-company">
@@ -16,7 +16,7 @@
         <label for="14">Flagstar</label>
       </div>
 
-      <input type="text" class="loan-search" formControlName="loanSearch" />
+      <input type="text" #searchFocus class="loan-search" formControlName="loanSearch" />
       <a style="cursor: pointer;" (click)="clear()"
         ><clr-icon class="icon clear" shape="times" size="28"></clr-icon
       ></a>
@@ -102,4 +102,3 @@
     </div>
     <div class="search-form-row3">{{ searchHelpMessage }}</div>
   </form>
-<!-- </div> -->

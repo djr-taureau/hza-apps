@@ -16,7 +16,6 @@ import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.co
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoanSearchComponent implements OnInit, OnChanges {
-	loanSearchFormComponent = LoanSearchFormComponent;
 	searchBox: FormGroup;
 	@Input() loansLoaded: boolean;
 	@Input() loans: Loan[];
@@ -28,7 +27,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 	ngOnInit() {
 		console.log('init loan search');
-			this.searchBox = this.fb.group({
+		this.searchBox = this.fb.group({
 			loanSearchBox: ''
 		});
 	}
@@ -48,10 +47,10 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 		});
 	}
 
-	searchLoans($event) {
-		console.log($event);
-		// const loanQuery: LoanQuery = this.form.value;
-		// this.query.emit(loanQuery);
+	searchLoans($event: LoanQuery) {
+		console.log('loan search', $event.loanSearch);
+		this.query.emit($event);
+		this.updateSearchBox($event.loanSearch)
 	}
 
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {
@@ -65,13 +64,13 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 		ref.afterClosed$.subscribe((res) => {
 			console.log('show', res);
-			this.updateSearchBox();
-			// console.log(this.form.get('loanSearch').value);
 		});
 	}
 
-	updateSearchBox() {
-		// this.searchBox.setValue(this.form.get('loanSearch').value);
+	updateSearchBox(value: string) {
+		this.searchBox.patchValue({
+			loanSearchBox: value
+		});
 	}
 
 	selected(value) {

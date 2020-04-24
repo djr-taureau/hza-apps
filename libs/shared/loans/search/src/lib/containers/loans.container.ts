@@ -14,7 +14,7 @@ import { LoanQuery } from '@hza/shared/loans/models';
     <hza-loan-search
 		[loansLoaded]="loansLoaded$ | async"
 		[loans]="loans$ | async"
-		(query)="loanSearch($event)">
+		(query)="searchLoans($event)">
     </hza-loan-search>
 	`,
 	styleUrls: ['./loans.container.scss'],
@@ -56,7 +56,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 	}
 
-	loanSearch(query: LoanQuery) {
+	searchLoans(query: LoanQuery) {
 		console.log('container', query);
 		this.loansFacade.queryLoans(query);
 	}
