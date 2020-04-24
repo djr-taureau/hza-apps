@@ -19,9 +19,7 @@
   <div class="grid-container">
     <div class="loan-search-form item--full">
     <button mat-rounded-button (click)="close()">X</button>
-      <!-- TODO:: This needs to be separated out into a loan-search-form -->
       <hza-loan-search-form (query)="searchLoans($event)"></hza-loan-search-form>
-      <!-- TODO:: djr this is where the loans list component will be loaded -->
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
       <h3>results</h3>

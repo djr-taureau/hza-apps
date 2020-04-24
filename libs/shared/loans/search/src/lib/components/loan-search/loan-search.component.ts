@@ -1,12 +1,9 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { searchMessages, LoanQuery } from '@hza/shared/loans/models';
+import { LoanQuery } from '@hza/shared/loans/models';
 import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.component';
 
 @Component({
@@ -23,7 +20,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 	loadLoans: Boolean;
 
-	constructor(private fb: FormBuilder, private popover: PopoverService, private overlayService: OverlayService) {}
+	constructor(private fb: FormBuilder, private popover: PopoverService) {}
 
 	ngOnInit() {
 		console.log('init loan search');
