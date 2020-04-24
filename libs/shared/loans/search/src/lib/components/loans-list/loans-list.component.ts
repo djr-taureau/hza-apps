@@ -5,7 +5,7 @@ import { FormBuilder, AbstractControl } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Loan } from '@hza/shared/loans/models';
 import { trackByFn as ngUtilTrackBy } from '@hza/shared/utils';
-
+import { LoansFacade } from '@hza/shared/loans/data-access/state';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -48,14 +48,15 @@ export class LoansListComponent implements OnInit, OnChanges {
 	// @Input() selectedDocument: Document;
 	@Output() selectedLoan = new EventEmitter<number>();
 
-	constructor(private clipboard: Clipboard, formBuilder: FormBuilder) {}
+	constructor(private loansFacade: LoansFacade, private clipboard: Clipboard, formBuilder: FormBuilder) {}
 
 	ngOnInit() {
 		console.log(this.loans);
+		this.loansFacade.loans$.subscribe(v => console.log('loan list', v));
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		if (changes.documents) {
+		if (changes.loans) {
 			this.dataSource = new MatTableDataSource(this.loans);
 			this.dataSource.sort = this.sort;
 		}
