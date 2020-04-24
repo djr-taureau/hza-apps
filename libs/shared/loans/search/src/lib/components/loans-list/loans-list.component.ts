@@ -1,13 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { SelectionModel } from '@angular/cdk/collections';
-import { FormBuilder, AbstractControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Loan } from '@hza/shared/loans/models';
-import { trackByFn as ngUtilTrackBy } from '@hza/shared/utils';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
 	selector: 'hza-loasn-list',
@@ -21,69 +17,20 @@ import { MatTableDataSource } from '@angular/material/table';
 	],
 	styleUrls: ['./loans-list.component.scss']
 })
-export class LoansListComponent implements OnInit, OnChanges {
-	public trackByFn = ngUtilTrackBy;
-	columns: string[] = [
-		'select',
-		'source',
-		'loanNumber',
-		'borrower',
-		'borrowerPrimarySSN',
-		'borrowerPrimaryPhoneNumber',
-		'borrowerPrimaryEmail',
-		'coBorrower',
-		'borrowerSecondarySSN',
-		'borrowerSecondaryPhoneNumber',
-		'propertyAddress',
-		'propertyCity'
-	];
-
-	@ViewChild(MatSort) sort: MatSort;
-	dataSource: MatTableDataSource<Loan>;
-	selection = new SelectionModel<Loan>(true, []);
-	expandedElement: Loan | null;
-	readonly formControl: AbstractControl;
-	displayData: Loan[];
+export class LoansListComponent implements OnInit {
+	
 	@Input() loans: Loan[];
 	// @Input() selectedDocument: Document;
 	@Output() selectedLoan = new EventEmitter<number>();
 
-	constructor(private loansFacade: LoansFacade, private clipboard: Clipboard, formBuilder: FormBuilder) {}
+	constructor(private loansFacade: LoansFacade) {}
 
 	ngOnInit() {
-		console.log(this.loans);
+		console.log('loan list', this.loans);
 		this.loansFacade.loans$.subscribe(v => console.log('loan list', v));
 	}
 
-	ngOnChanges(changes: SimpleChanges) {
-		if (changes.loans) {
-			this.dataSource = new MatTableDataSource(this.loans);
-			this.dataSource.sort = this.sort;
-		}
-	}
 
-	isAllSelected() {
-		const numSelected = this.selection.selected.length;
-		const numRows = this.dataSource.data.length;
-		return numSelected === numRows;
-	}
 
-	copy(value) {
-		console.log(value);
-		this.clipboard.copy(value);
-	}
-	applyFilter(event: Event) {
-		const filterValue = (event.target as HTMLInputElement).value;
-		this.dataSource.filter = filterValue.trim().toLowerCase();
-	}
 
-	/** Selects all rows if they are not all selected; otherwise clear selection. */
-	masterToggle() {
-		this.isAllSelected()
-			? this.selection.clear()
-			: this.dataSource.data.forEach((row) => this.selection.select(row));
-	}
-	selectLoan(loanNumber) {
-		this.selectedLoan.emit(loanNumber);
-	}
 }

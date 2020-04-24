@@ -139,17 +139,17 @@
         {{ row.borrowerSecondaryPhoneNumber }}
       </td>
     </ng-container>
-    <ng-container matColumnDef="propertyAddress">
+    <ng-container matColumnDef="propertyAddress1">
       <th mat-header-cell *matHeaderCellDef>
         <core-table-filter
           class="filter"
-          (change)="filter('propertyAddress', $event)"
+          (change)="filter('propertyAddress1', $event)"
         >
           <div mat-sort-header>Address</div>
         </core-table-filter>
       </th>
       <td mat-cell *matCellDef="let row">
-        {{ row.propertyAddress }}
+        {{ row.propertyAddress1 }}
       </td>
     </ng-container>
     <ng-container matColumnDef="propertyCity">

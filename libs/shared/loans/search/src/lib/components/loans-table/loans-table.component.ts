@@ -30,7 +30,7 @@ export class LoansTableComponent extends CoreTable<Loan> {
 			'coBorrower',
 			'borrowerSecondarySSN',
 			'borrowerSecondaryPhoneNumber',
-			'propertyAddress',
+			'propertyAddress1',
 			'propertyCity',
 			'actions'
 		]);

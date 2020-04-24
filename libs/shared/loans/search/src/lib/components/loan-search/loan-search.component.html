@@ -119,10 +119,10 @@
         </div>
       </div>
       <div class="message">{{ searchHelpMessage }}</div>
-      <div *ngIf="loans" class="results">
-        <hza-loans-list [loans]="loans"></hza-loans-list>
+      <div *ngIf="loansLoaded$ | async" class="results">
+        Hi loans
       </div>
       <div class="bottom"></div>
-      </div>
+    </div>
   </form>
 </ng-template>

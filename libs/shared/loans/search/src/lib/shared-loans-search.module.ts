@@ -12,9 +12,6 @@ import { TestComponent } from './components/test/test.component';
 import { LoansTableComponent } from './components/loans-table/loans-table.component';
 import { LoansListComponent } from './components/loans-list/loans-list.component';
 
-
-
-
 @NgModule({
 	imports: [
 		CommonModule,
