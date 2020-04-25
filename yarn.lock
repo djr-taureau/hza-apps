@@ -1026,10 +1026,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@clr/angular@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@clr/angular/-/angular-3.0.1.tgz#480bab2368c6ab38f9149b337ce7b514a1470441"
-  integrity sha512-rVTBHitHb9IWW8lKiKzIRYN6hra6SlpbkKaYp+X7LnBbPYdzjZtwVEH2Az+672pcRZFKcql7DG7G1dQiSKO/xA==
+"@clr/angular@^3.1.0":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@clr/angular/-/angular-3.1.1.tgz#3fe078f34c1a9f979b0637419aaa8ef6de04f682"
+  integrity sha512-d+DbUVjls/mqQ81b0jxp16g2D+BK+1bSIDx5qaf67qKfDhc8dTdADl7BwxGb1V7jz9WUHihg8W4W/8jVhOpJrg==
 
 "@clr/city@^1.0.0":
   version "1.1.0"
