@@ -18,7 +18,6 @@ import { LoansFacade } from '@hza/shared/loans/data-access/state';
 	styleUrls: ['./loans-list.component.scss']
 })
 export class LoansListComponent implements OnInit {
-	
 	@Input() loans: Loan[];
 	// @Input() selectedDocument: Document;
 	@Output() selectedLoan = new EventEmitter<number>();
@@ -29,8 +28,4 @@ export class LoansListComponent implements OnInit {
 		console.log('loan list', this.loans);
 		this.loansFacade.loans$.subscribe(v => console.log('loan list', v));
 	}
-
-
-
-
 }

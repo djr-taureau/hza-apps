@@ -1,194 +1,82 @@
-<cdk-virtual-scroll-viewport coreTableVirtualScroll>
-  <table mat-table matSort [dataSource]="dataSource">
-    <ng-container matColumnDef="select">
-      <th mat-header-cell *matHeaderCellDef>
-        <mat-checkbox
-          (change)="$event && toggleAll()"
-          [checked]="selectedAll"
-          [indeterminate]="indeterminate"
-        >
-        </mat-checkbox>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        <mat-checkbox
-          (click)="$event.stopPropagation()"
-          (change)="$event && toggle(row)"
-          [checked]="isSelected(row)"
-        >
-        </mat-checkbox>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="source">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter class="filter" (change)="filter('source', $event)">
-          <div mat-sort-header>Company</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.source }}</td>
-    </ng-container>
-    <ng-container matColumnDef="loanNumber">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('loanNumber', $event)"
-        >
-          <div mat-sort-header>Loan</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.loanNumber }}</td>
-    </ng-container>
-    <ng-container matColumnDef="borrower">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter class="filter" (change)="filter('borrower', $event)">
-          <div mat-sort-header>Borrower Name</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.borrower }}</td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerPrimarySSN">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerPrimarySSN', $event)"
-        >
-          <div mat-sort-header>SSN</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.borrowerPrimarySSN }}</td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerPrimarySSN">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerPrimarySSN', $event)"
-        >
-          <div mat-sort-header>SSN</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.borrowerPrimarySSN }}</td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerPrimaryEmail">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerPrimaryEmail', $event)"
-        >
-          <div mat-sort-header>Email</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.borrowerPrimaryEmail }}</td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerPrimaryPhoneNumber">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerPrimaryPhoneNumber', $event)"
-        >
-          <div mat-sort-header>Phone</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ row.borrowerPrimaryPhoneNumber }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerPrimaryPhoneNumber">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerPrimaryPhoneNumber', $event)"
-        >
-          <div mat-sort-header>Phone</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.coBorrower }}</td>
-    </ng-container>
-    <ng-container matColumnDef="coBororrower">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('coBorrower', $event)"
-        >
-          <div mat-sort-header>Co-Borrower</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">{{ row.coBorrower }}</td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerSecondarySSN">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerSecondarySSN', $event)"
-        >
-          <div mat-sort-header>Co-Borrower SSN</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ row.borrowerSecondaryPhoneNumber }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="borrowerSecondaryPhoneNumber">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('borrowerSecondarPhoneNumber', $event)"
-        >
-          <div mat-sort-header>Co Borrower Phone</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ row.borrowerSecondaryPhoneNumber }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="propertyAddress1">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('propertyAddress1', $event)"
-        >
-          <div mat-sort-header>Address</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ row.propertyAddress1 }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="propertyCity">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-filter
-          class="filter"
-          (change)="filter('propertyCity', $event)"
-        >
-          <div mat-sort-header>City</div>
-        </core-table-filter>
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ row.propertyCity }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>
-        <core-table-menu (clear)="clearFilters()"></core-table-menu>
-      </th>
-      <td mat-cell *matCellDef="let row"></td>
-    </ng-container>
-    <ng-container matColumnDef="progress">
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        [attr.colspan]="displayedColumns.length"
-      >
-        <mat-progress-bar
-          [class.show]="pending"
-          mode="indeterminate"
-        ></mat-progress-bar>
-      </th>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: sticky"></tr>
-    <tr
-      mat-header-row
-      class="progress"
-      *matHeaderRowDef="['progress']; sticky: sticky"
-    ></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-</cdk-virtual-scroll-viewport>
+<table style="width: 100%;" mat-table matSort [dataSource]="dataSource">
+  <ng-container matColumnDef="source">
+    <th mat-header-cell *matHeaderCellDef>
+      Company
+    </th>
+    <td class="source" mat-cell *matCellDef="let row">{{ row.source }}</td>
+  </ng-container>
+  <ng-container matColumnDef="loanNumber">
+    <th mat-header-cell *matHeaderCellDef>
+      Loan
+    </th>
+    <td class="loanNumber" mat-cell *matCellDef="let row" class="copyable" hzaTooltip="Click to Copy" (click)="copy(row.loanNumber)">
+      {{ row.loanNumber }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="borrower">
+    <th mat-header-cell *matHeaderCellDef>
+      Borrower
+    </th>
+    <td mat-cell *matCellDef="let row">{{ row.borrower }}</td>
+  </ng-container>
+  <ng-container matColumnDef="borrowerPrimarySSN">
+    <th mat-header-cell *matHeaderCellDef>
+      SSN
+    </th>
+    <td mat-cell *matCellDef="let row">{{ row.borrowerPrimarySSN }}</td>
+  </ng-container>
+  <ng-container matColumnDef="borrowerPrimaryEmail">
+    <th mat-header-cell *matHeaderCellDef>
+      Email
+    </th>
+    <td mat-cell *matCellDef="let row">{{ row.borrowerPrimaryEmail }}</td>
+  </ng-container>
+  <ng-container matColumnDef="borrowerPrimaryPhoneNumber">
+    <th mat-header-cell *matHeaderCellDef>
+      Borrower Phone
+    </th>
+    <td mat-cell *matCellDef="let row" class="copyable" hzaTooltip="Click to Copy" (click)="copy(row.borrowerPrimaryPhoneNumber)">
+      {{ row.borrowerPrimaryPhoneNumber | phone }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="coBorrower">
+    <th mat-header-cell *matHeaderCellDef>
+      Co-Borrower
+    </th>
+    <td mat-cell *matCellDef="let row">{{ row.coBorrower }}</td>
+  </ng-container>
+  <ng-container matColumnDef="borrowerSecondarySSN">
+    <th mat-header-cell *matHeaderCellDef>
+      Co-Borrower SSN
+    </th>
+    <td mat-cell *matCellDef="let row">
+      {{ row.borrowerSecondarySSN }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="borrowerSecondaryPhoneNumber">
+    <th mat-header-cell *matHeaderCellDef>
+      Co-Borrower Phone
+    </th>
+    <td mat-cell *matCellDef="let row">
+      {{ row.borrowerSecondaryPhoneNumber | phone }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="propertyAddress1">
+    <th mat-header-cell *matHeaderCellDef>
+      Property Address
+    </th>
+    <td mat-cell *matCellDef="let row">
+      {{ row.propertyAddress1 }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="propertyCity">
+    <th mat-header-cell *matHeaderCellDef>
+      City
+    </th>
+    <td mat-cell *matCellDef="let row">
+      {{ row.propertyCity }}
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: sticky"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

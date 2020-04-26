@@ -10,9 +10,10 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
 import { CopyableDirective } from './directives/copyable.directive';
+import { TooltipDirective } from './directives/tooltip/tooltip.directive';
 
 const COMPONENTS = [
-	NiceDatePipe, ReplacePipe, AddressPipe, PhonePipe, CopyableDirective
+	NiceDatePipe, ReplacePipe, AddressPipe, PhonePipe, CopyableDirective, TooltipDirective
 ];
 @NgModule({
 	imports: [CommonModule, MaterialModule, FontAwesomeModule, OverlayPanelModule, ButtonsModule],

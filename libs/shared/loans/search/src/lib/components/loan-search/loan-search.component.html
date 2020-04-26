@@ -22,11 +22,8 @@
       <hza-loan-search-form (query)="searchLoans($event)"></hza-loan-search-form>
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
-      <h3>results</h3>
-        <hza-loans-list></hza-loans-list>
+        <hza-loans-table [loans]="loans"></hza-loans-table>
     </div>
-    <div *ngIf="loansLoaded" class="loans-container-bottom">
-      <h3>Bottom</h3>
-    </div>
+    <div *ngIf="loansLoaded" class="loans-container-bottom"></div>
   </div>
 </ng-template>

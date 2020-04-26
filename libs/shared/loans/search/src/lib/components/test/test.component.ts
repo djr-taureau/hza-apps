@@ -21,6 +21,7 @@ export class TestComponent implements OnInit {
   ngOnInit() {
     this.testLoans$ = this.lf.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
     this.testLoans$.subscribe(v => console.log('from test', v))
+    console.log(this.loans)
   }
 
 }
