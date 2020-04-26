@@ -40,6 +40,11 @@ export const selectCurrentLoanId = createSelector(
   selectLoansState,
   fromLoans.getSelectedLoanId
 );
+export const selectLoanQuery = createSelector(
+  selectLoansState,
+  fromLoans.getLoanQuery
+);
+
 
 export const isLoadingLoans = createSelector(
   selectLoansState,

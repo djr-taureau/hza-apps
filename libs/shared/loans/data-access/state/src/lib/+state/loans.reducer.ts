@@ -2,7 +2,7 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as LoanActions from './loans.actions';
-import { Loan } from '@hza/shared/loans/models';
+import { Loan, LoanQuery } from '@hza/shared/loans/models';
 
 export const loansFeatureKey = 'loans';
 
@@ -10,6 +10,7 @@ export interface LoansState extends EntityState<Loan> {
   selectedLoanId: number | null;
   isLoading: boolean;
   loaded: boolean;
+  loanQuery: LoanQuery;
 }
 
 export const adapter: EntityAdapter<Loan> = createEntityAdapter<Loan>({
@@ -22,6 +23,7 @@ export const loansInitialState: LoansState = adapter.getInitialState({
   selectedLoanId: null,
   isLoading: false,
   loaded: false,
+  loanQuery: null
 });
 
 export const reducer = createReducer(
@@ -44,6 +46,10 @@ export const reducer = createReducer(
     ...state,
     selectedLoanId: loanNumber,
   })),
+    on(LoanActions.queryLoansSuccess, (state, { query }) => ({
+    ...state,
+    loanQuery: query,
+  })),
 );
 
 export function loansReducer(state: LoansState | undefined, action: Action): LoansState {
@@ -54,6 +60,7 @@ export function loansReducer(state: LoansState | undefined, action: Action): Loa
 // **
 
 export const getSelectedLoanId = (state: LoansState) => state.selectedLoanId;
+export const getLoanQuery = (state: LoansState) => state.loanQuery;
 export const isLoading = (state: LoansState) => state.isLoading;
 export const loaded = (state: LoansState) => state.loaded;
 

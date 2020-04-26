@@ -28,7 +28,7 @@ export class LoansTableComponent extends CoreTable<Loan> implements OnInit, Afte
 			'borrower',
 			'borrowerPrimarySSN',
 			'borrowerPrimaryPhoneNumber',
-			'borrowerPrimaryEmail',
+			'borrowerPrimaryEmailAddress',
 			'coBorrower',
 			'borrowerSecondarySSN',
 			'borrowerSecondaryPhoneNumber',
