@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ChangeDetect
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { LoanQuery } from '@hza/shared/loans/models';
 import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.component';
 
@@ -22,6 +22,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	loadLoans: Boolean;
 	
 	faTimes = faTimes;
+	faSearch = faSearch;
 
 	constructor(private fb: FormBuilder, private popover: PopoverService) {}
 

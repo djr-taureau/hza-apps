@@ -24,10 +24,10 @@ export class LoansService {
 	}
 
 	public queryLoans(request: LoanQuery): Observable<Loan[]> {
-		const searchType = `propertyCity_like`;
+		const searchTypeCity = `propertyCity_like`;
 		const sourceID = 1;
 		const searchValue = request.loanSearch;
-		const queryUrl = `${this.loansUrl}?sourceID=${sourceID}&${searchType}=${searchValue}`
+		const queryUrl = `${this.loansUrl}?sourceID=${sourceID}&${searchTypeCity}=${searchValue}`
 		return this.apiService.get<Loan[]>(queryUrl);
 	}
 }

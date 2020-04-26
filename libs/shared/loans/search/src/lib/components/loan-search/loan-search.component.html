@@ -1,5 +1,8 @@
 <div #origin>
   <form [formGroup]="searchBox" class="search-box">
+    <a style="cursor: pointer;" (click)="show(tpl, origin)">
+      <fa-icon size="2x" [icon]="faSearch"></fa-icon>
+    </a>
     <input
       (mouseenter)="show(tpl, origin)"
       formControlName="loanSearchbox"
@@ -7,12 +10,13 @@
       style="cursor: pointer;"
       type="text"
     />
-    <a style="cursor: pointer;" (click)="show(tpl, origin)"
-      ><clr-icon class="icon" shape="search" size="34"></clr-icon
-    ></a>
-    <a style="cursor: pointer;" (click)="clear()"
-      ><clr-icon class="icon" shape="times" size="28"></clr-icon
-    ></a>
+    <!-- <fa-layers>
+        <fa-icon size="3x" [icon]="faSearch"></fa-icon>
+        <fa-icon [icon]="faTimes"></fa-icon>
+    </fa-layers>  -->
+    <a style="cursor: pointer;" (click)="clear()">
+      <fa-icon size="lg" transform="left-2" [icon]="faTimes"></fa-icon>
+    </a>
   </form>
 </div>
 

@@ -9,15 +9,20 @@
       <label for="14">Flagstar</label>
     </div>
 
-    <span class="search-field">
     <input
       type="text"
       #searchFocus
       class="loan-search"
       formControlName="loanSearch"
     />
-    <fa-icon class="icon" size="2x" (click)="clear()" [icon]="faTimes"></fa-icon>
-    </span>
+    <fa-icon
+      class="icon"
+      size="lg"
+      (click)="clear()"
+      [icon]="faTimes"
+      transform="left-15"
+    ></fa-icon>
+
     <button mat-flat-button (click)="searchLoans($event)">Search</button>
   </div>
   <div class="search-form-row2">
