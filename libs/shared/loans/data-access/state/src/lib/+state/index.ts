@@ -72,4 +72,5 @@ export const loansQuery = {
 	isLoadingLoans,
 	loadedLoans,
 	selectCurrentLoan,
+  selectLoanQuery
 };

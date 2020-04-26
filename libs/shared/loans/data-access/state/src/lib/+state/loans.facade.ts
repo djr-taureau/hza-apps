@@ -13,7 +13,7 @@ import { LoanQuery } from '@hza/shared/loans/models';
 export class LoansFacade {
   loans$ = this.store.select(loansQuery.selectAllLoans);
   loansLoaded$ = this.store.select(loansQuery.loadedLoans);
-
+  loanQuery$ = this.store.select(loansQuery.selectLoanQuery);
   loanTotal$ = this.store.select(loansQuery.selectLoanTotal);
   selectedLoan$ = this.store.select(loansQuery.selectCurrentLoan);
 

@@ -18,12 +18,17 @@
 
 <ng-template class="search-modal" #tpl let-close="close">
   <div class="grid-container">
+    <div class="close-button">
+      <fa-icon (click)="close()" [icon]="faTimes"></fa-icon>
+    </div>
+
     <div class="loan-search-form item--full">
-    <button mat-rounded-button (click)="close()">X</button>
-      <hza-loan-search-form (query)="searchLoans($event)"></hza-loan-search-form>
+      <hza-loan-search-form
+        (query)="searchLoans($event)"
+      ></hza-loan-search-form>
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
-        <hza-loans-table [loans]="loans"></hza-loans-table>
+      <hza-loans-table [loans]="loans"></hza-loans-table>
     </div>
     <div *ngIf="loansLoaded" class="loans-container-bottom"></div>
   </div>

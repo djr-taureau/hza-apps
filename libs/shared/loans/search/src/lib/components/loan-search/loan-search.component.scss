@@ -29,7 +29,6 @@
     position: relative;
     height: auto;
     width: 260px;
-    border: 2px solid red;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
@@ -42,19 +41,25 @@
     text-decoration: none;
   }
 
+  .close-button {
+    grid-area: close;
+    padding-left: 3rem;
+    margin-bottom: 3rem;
+    margin-right: .3rem;
+    align-self: start;
+    justify-self: end;
+    cursor: pointer;
+    
+  }
 
   .loan-search-form {
     grid-area: form;
-    // grid-column-start: 2;
-    // grid-column-start: 4;
     align-self: start;
     justify-self: end;
   }
   .loans-list {
     grid-area: list;
     overflow-y: auto;
-    // justify-items: stretch;
-    // align-items: stretch;
     align-self: stretch;
     justify-self: stretch;
     margin-top: 2rem;
@@ -69,20 +74,22 @@
 
   .grid-container {
     grid-template-areas:
+      'close close close close'
       'form form form form'
       'list list list list'
       'footer footer footer footer';
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     display: grid;
-    grid-template-rows: 140px auto 10px;
+    grid-template-rows: 15px 140px auto 10px;
     background-color: white;
     border: 2px solid rgba(55, 103, 142, 1);
     border-radius: 5px;
     box-shadow: 5px 5px 5px black;
     z-index: 12000;
+    left: calc(15em - 80vw);
     width: 80vw;
-    justify-content: end;
+
   }
 
 

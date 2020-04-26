@@ -24,6 +24,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	loansLoaded$: Observable<Boolean>;
 	loans$: Observable<Loan[]>;
 	loansTotal$: Observable<number>;
+	loanQuery$: Observable<LoanQuery>;
 	selectedLoan$: Observable<Loan>;
 	loansContainer = null;
 	unsubscribe$: Subject<void> = new Subject();
@@ -34,6 +35,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	ngOnInit() {
 		this.opened = false;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
+		this.loanQuery$ = this.loansFacade.loanQuery$;
 		this.loans$ = this.loansFacade.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.loansTotal$ = this.loansFacade.loanTotal$;
 		this.selectedLoan$ = this.loansFacade.selectedLoan$;
@@ -44,6 +46,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	ngOnChanges() {
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 		this.loans$.subscribe((v) => console.log('loans', v));
+		this.loanQuery$.subscribe((v) => console.log('loan query', v))
 	}
 
 	ngOnDestroy() {
