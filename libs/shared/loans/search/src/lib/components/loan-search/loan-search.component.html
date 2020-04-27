@@ -34,7 +34,7 @@
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
       <ng-container *ngIf="loans.length > 0">
-        <hza-loans-table [loans]="loans"></hza-loans-table>
+        <hza-loans-list [loans]="loans"></hza-loans-list>
       </ng-container>
       <!-- TODO: djr figure out why this isn't working' -->
       <!-- <ng-container *ngIf="loans.length == 0 && loansLoaded">

@@ -87,7 +87,9 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 		});
 
 		ref.afterClosed$.subscribe((res) => {
-			this.updateSearchBox(this.loanQuery.loanSearch)
+			if (this.loanQuery) {
+				this.updateSearchBox(this.loanQuery.loanSearch);
+			}
 		});
 	}
 
