@@ -32,6 +32,11 @@ export class LoansFacade {
     this.store.dispatch(LoanActions.queryLoans({ query: defaultQuery }))
   }
   queryLoans(query: LoanQuery) {
+    this.clearLoans();
     this.store.dispatch(LoanActions.queryLoans({ query }));
+  }
+  
+  clearLoans() {
+    this.store.dispatch(LoanActions.clearLoans());
   }
 }

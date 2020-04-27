@@ -33,7 +33,12 @@
       ></hza-loan-search-form>
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
-      <hza-loans-table [loans]="loans"></hza-loans-table>
+      <ng-container *ngIf="loans.length > 0">
+        <hza-loans-table [loans]="loans"></hza-loans-table>
+      </ng-container>
+      <ng-container *ngIf="loans.length == 0">
+        <p> Sorry got nothing for you</p>
+      </ng-container>
     </div>
     <div *ngIf="loansLoaded" class="loans-container-bottom"></div>
   </div>

@@ -40,7 +40,7 @@ export const reducer = createReducer(
     isLoading: false,
     loaded: true,
   })),
- 
+  on(LoanActions.clearLoans, (state) => adapter.removeAll(state)),
   on(LoanActions.loadLoan, (state, { loan }) => adapter.addOne(loan, state)),
   on(LoanActions.selectLoan, (state, { loanNumber }) => ({
     ...state,
