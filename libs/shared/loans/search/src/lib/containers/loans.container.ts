@@ -13,6 +13,7 @@ import { LoanQuery } from '@hza/shared/loans/models';
 	template: `
     <hza-loan-search
 		[loansLoaded]="loansLoaded$ | async"
+		[loanQuery]="loanQuery$ | async"
 		[loans]="loans$ | async"
 		(query)="searchLoans($event)">
     </hza-loan-search>
@@ -34,6 +35,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	ngOnInit() {
 		this.opened = false;
+		// this.loansFacade.initQuery();
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loanQuery$ = this.loansFacade.loanQuery$;
 		this.loans$ = this.loansFacade.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
@@ -41,12 +43,13 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		this.selectedLoan$ = this.loansFacade.selectedLoan$;
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 		this.loans$.subscribe((v) => console.log('loans', v));
+		this.loanQuery$.subscribe((v) => console.log('loan query', v));
 	}
 
 	ngOnChanges() {
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 		this.loans$.subscribe((v) => console.log('loans', v));
-		this.loanQuery$.subscribe((v) => console.log('loan query', v))
+		this.loanQuery$.subscribe((v) => console.log('loan query', v));
 	}
 
 	ngOnDestroy() {

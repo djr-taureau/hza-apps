@@ -16,11 +16,12 @@ import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.co
 export class LoanSearchComponent implements OnInit, OnChanges {
 	searchBox: FormGroup;
 	@Input() loansLoaded: boolean;
+	@Input() loanQuery: LoanQuery;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<LoanQuery>();
 
 	loadLoans: Boolean;
-	
+
 	faTimes = faTimes;
 	faSearch = faSearch;
 
@@ -36,6 +37,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	ngOnChanges() {
 		console.log('search', this.loans);
 		console.log('search', this.loansLoaded);
+		// console.log('search', this.loanQuery);
 	}
 
 	dispatch($event) {
@@ -51,7 +53,7 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	searchLoans($event: LoanQuery) {
 		console.log('loan search', $event.loanSearch);
 		this.query.emit($event);
-		this.updateSearchBox($event.loanSearch)
+		this.updateSearchBox($event.loanSearch);
 	}
 
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {

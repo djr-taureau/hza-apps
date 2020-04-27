@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import { Loan, LoanQuery } from '@hza/shared/loans/models';
+import { Loan, LoanQuery, defaultQuery } from '@hza/shared/loans/models';
 
 export const loadLoans = createAction('[loans] LOAD_LOANS');
 export const queryLoans = createAction('[loans] Query LOANS', props<{ query: LoanQuery }>());

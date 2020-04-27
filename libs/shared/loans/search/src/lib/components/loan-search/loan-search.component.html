@@ -28,6 +28,7 @@
 
     <div class="loan-search-form item--full">
       <hza-loan-search-form
+        [loanQuery]="loanQuery"
         (query)="searchLoans($event)"
       ></hza-loan-search-form>
     </div>
