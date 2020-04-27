@@ -1,5 +1,14 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnChanges,
+	OnInit,
+	Output,
+	ChangeDetectionStrategy,
+	AfterViewInit
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
 import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
@@ -13,8 +22,7 @@ import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.co
 	styleUrls: ['./loan-search.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoanSearchComponent implements OnInit, OnChanges {
-	searchBox: FormGroup;
+export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	@Input() loansLoaded: boolean;
 	@Input() loanQuery: LoanQuery;
 	@Input() loans: Loan[];
@@ -24,29 +32,46 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 
 	faTimes = faTimes;
 	faSearch = faSearch;
+	searchBox = this.fb.group({
+		loanSearch: ['']
+	});
+
+	controls = {
+		loanSearchBox: this.searchBox.get('loanSearch')
+	};
 
 	constructor(private fb: FormBuilder, private popover: PopoverService) {}
 
 	ngOnInit() {
 		console.log('init loan search');
 		this.searchBox = this.fb.group({
-			loanSearchBox: ''
+			loanSearch: ''
 		});
 	}
 
 	ngOnChanges() {
 		console.log('search', this.loans);
 		console.log('search', this.loansLoaded);
-		// console.log('search', this.loanQuery);
+		if (this.loanQuery) {
+			this.searchBox.patchValue({
+				loanSearch: this.loanQuery.loanSearch
+			});
+			console.log('search', this.loanQuery);
+		}
 	}
 
+	ngAfterViewInit() {
+		if (this.loanQuery) {
+			this.searchBox.setValue(this.loanQuery);
+		}
+	}
 	dispatch($event) {
 		console.log($event);
 	}
 
 	clear() {
 		this.searchBox.patchValue({
-			loanSearchBox: ''
+			loanSearch: ''
 		});
 	}
 
@@ -57,22 +82,23 @@ export class LoanSearchComponent implements OnInit, OnChanges {
 	}
 
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {
-		const ref = this.popover.open<{ skills: number[] }>({
+		const ref = this.popover.open<{ values: string[] }>({
 			content,
 			origin,
 			data: {
-				skills: [1, 2, 3]
+				values: ['1', '2', '3']
 			}
 		});
 
 		ref.afterClosed$.subscribe((res) => {
 			console.log('show', res);
+			this.updateSearchBox(this.loanQuery.loanSearch)
 		});
 	}
 
 	updateSearchBox(value: string) {
 		this.searchBox.patchValue({
-			loanSearchBox: value
+			loanSearch: value
 		});
 	}
 

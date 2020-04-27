@@ -69,7 +69,7 @@ export class LoanSearchFormComponent implements OnInit, OnChanges, AfterViewInit
 	}
 	
 	ngAfterViewInit() {
-				if (this.loanQuery) {
+		if (this.loanQuery) {
 			this.searchForm.setValue(this.loanQuery);
 		}
 	}
