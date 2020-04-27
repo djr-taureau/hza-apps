@@ -6,10 +6,7 @@ import { SharedUtilsModule } from '@hza/shared/utils';
 import { SharedLoansUiModule } from '@hza/shared/loans/ui';
 import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/state';
 import { LoansContainer } from './containers/loans.container';
-import { LoansResolver } from '@hza/shared/loans/data-access/data';
 import { LoanSearchComponent } from './components/loan-search';
-import { TestComponent } from './components/test/test.component';
-import { LoansTableComponent } from './components/loans-table/loans-table.component';
 import { LoansListComponent } from './components/loans-list/loans-list.component';
 import { LoanSearchFormComponent } from './components/loan-search-form/loan-search-form.component';
 
@@ -17,8 +14,6 @@ const COMPONENTS = [
 	LoanSearchComponent,
 	LoanSearchFormComponent,
 	LoansContainer,
-	TestComponent,
-	LoansTableComponent,
 	LoansListComponent
 ];
 
@@ -33,9 +28,6 @@ const COMPONENTS = [
 			{
 				path: '',
 				component: LoansContainer
-				// resolve: {
-				// 	loans: LoansResolver
-				// }
 			}
 		])
 	],

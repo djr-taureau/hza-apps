@@ -7,57 +7,56 @@ import { Loan, LoanQuery } from '@hza/shared/loans/models';
 export const loansFeatureKey = 'loans';
 
 export interface LoansState extends EntityState<Loan> {
-  selectedLoanId: number | null;
-  isLoading: boolean;
-  loaded: boolean;
-  loanQuery: LoanQuery;
+	selectedLoanId: number | null;
+	isLoading: boolean;
+	loaded: boolean;
+	loanQuery: LoanQuery;
 }
 
 export const adapter: EntityAdapter<Loan> = createEntityAdapter<Loan>({
-  selectId: (loan: Loan) => loan.loanNumber,
-  sortComparer: false,
+	selectId: (loan: Loan) => loan.loanNumber,
+	sortComparer: false
 });
 
 export const loansInitialState: LoansState = adapter.getInitialState({
-  ids: [],
-  selectedLoanId: null,
-  isLoading: false,
-  loaded: false,
-  loanQuery: null
+	ids: [],
+	selectedLoanId: null,
+	isLoading: false,
+	loaded: false,
+	loanQuery: null
 });
 
 export const reducer = createReducer(
-  loansInitialState,
-  //  ** when this action is dispatched isLoading set to true
-  on(LoanActions.loadLoans, state => ({
-    ...state,
-    isLoading: true,
-  })),
-  on(LoanActions.loadLoansSuccess, (state, { loans }) => adapter.addMany(loans, state)),
-
-  on(LoanActions.loadLoansSuccess, state => ({
-    ...state,
-    isLoading: false,
-    loaded: true,
-  })),
-  on(LoanActions.clearLoans, (state) => adapter.removeAll(state)),
-  on(LoanActions.loadLoan, (state, { loan }) => adapter.addOne(loan, state)),
-  on(LoanActions.selectLoan, (state, { loanNumber }) => ({
-    ...state,
-    selectedLoanId: loanNumber,
-  })),
-  on(LoanActions.queryLoansSuccess, (state, { query }) => ({
-    ...state,
-    loanQuery: query,
-  })),
-   on(LoanActions.clearQuery, (state) => ({
-    ...state,
-    loanQuery: null,
-  })),
+	loansInitialState,
+	//  ** when this action is dispatched isLoading set to true
+	on(LoanActions.loadLoans, (state) => ({
+		...state,
+		isLoading: true
+	})),
+	on(LoanActions.loadLoansSuccess, (state, { loans }) => adapter.addMany(loans, state)),
+	on(LoanActions.loadLoansSuccess, (state) => ({
+		...state,
+		isLoading: false,
+		loaded: true
+	})),
+	on(LoanActions.clearLoans, (state) => adapter.removeAll(state)),
+	on(LoanActions.loadLoan, (state, { loan }) => adapter.addOne(loan, state)),
+	on(LoanActions.selectLoan, (state, { loanNumber }) => ({
+		...state,
+		selectedLoanId: loanNumber
+	})),
+	on(LoanActions.queryLoansSuccess, (state, { query }) => ({
+		...state,
+		loanQuery: query
+	})),
+	on(LoanActions.clearQuery, (state) => ({
+		...state,
+		loanQuery: null
+	}))
 );
 
 export function loansReducer(state: LoansState | undefined, action: Action): LoansState {
-  return reducer(state, action);
+	return reducer(state, action);
 }
 
 // ** selectors are slices of your state that can be rolled up with other reducers

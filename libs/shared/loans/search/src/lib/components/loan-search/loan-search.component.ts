@@ -9,9 +9,9 @@ import {
 	ChangeDetectionStrategy,
 	AfterViewInit
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
-import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
+import { PopoverService } from '@hza/ui-components/overlay';
 import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { LoanQuery } from '@hza/shared/loans/models';
 import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.component';
@@ -43,20 +43,16 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	constructor(private fb: FormBuilder, private popover: PopoverService) {}
 
 	ngOnInit() {
-		console.log('init loan search');
 		this.searchBox = this.fb.group({
 			loanSearch: ''
 		});
 	}
 
 	ngOnChanges() {
-		console.log('search', this.loans);
-		console.log('search', this.loansLoaded);
 		if (this.loanQuery) {
 			this.searchBox.patchValue({
 				loanSearch: this.loanQuery.loanSearch
 			});
-			console.log('search', this.loanQuery);
 		}
 	}
 
@@ -77,7 +73,6 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	}
 
 	searchLoans($event: LoanQuery) {
-		console.log('loan search', $event.loanSearch);
 		this.query.emit($event);
 		this.updateSearchBox($event.loanSearch);
 	}
@@ -92,7 +87,6 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 		});
 
 		ref.afterClosed$.subscribe((res) => {
-			console.log('show', res);
 			this.updateSearchBox(this.loanQuery.loanSearch)
 		});
 	}
