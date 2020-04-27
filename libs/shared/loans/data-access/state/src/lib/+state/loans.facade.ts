@@ -38,5 +38,7 @@ export class LoansFacade {
   
   clearLoans() {
     this.store.dispatch(LoanActions.clearLoans());
+    this.store.dispatch(LoanActions.clearQuery());
   }
 }
+

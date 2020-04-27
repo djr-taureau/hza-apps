@@ -36,7 +36,7 @@
       <ng-container *ngIf="loans.length > 0">
         <hza-loans-table [loans]="loans"></hza-loans-table>
       </ng-container>
-      <ng-container *ngIf="loans.length == 0">
+      <ng-container *ngIf="loans.length == 0 && loansLoaded">
         <p> Sorry got nothing for you</p>
       </ng-container>
     </div>

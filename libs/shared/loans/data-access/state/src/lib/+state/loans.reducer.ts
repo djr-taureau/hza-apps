@@ -46,9 +46,13 @@ export const reducer = createReducer(
     ...state,
     selectedLoanId: loanNumber,
   })),
-    on(LoanActions.queryLoansSuccess, (state, { query }) => ({
+  on(LoanActions.queryLoansSuccess, (state, { query }) => ({
     ...state,
     loanQuery: query,
+  })),
+   on(LoanActions.clearQuery, (state) => ({
+    ...state,
+    loanQuery: null,
   })),
 );
 

@@ -15,6 +15,7 @@ import { LoanQuery } from '@hza/shared/loans/models';
 		[loansLoaded]="loansLoaded$ | async"
 		[loanQuery]="loanQuery$ | async"
 		[loans]="loans$ | async"
+		(clearQuery)="clearQuery($event)"
 		(query)="searchLoans($event)">
     </hza-loan-search>
 	`,
@@ -65,6 +66,13 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	searchLoans(query: LoanQuery) {
 		console.log('container', query);
 		this.loansFacade.queryLoans(query);
+	}
+
+	clearQuery($event) {
+		console.log('container', $event);
+		if ($event === 'clear') {
+			this.loansFacade.clearLoans();
+		}
 	}
 
 	openModal() {
