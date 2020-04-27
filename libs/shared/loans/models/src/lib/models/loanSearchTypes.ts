@@ -4,6 +4,21 @@ export interface LoanQuery {
 	loanSearch: string;
 }
 
+export const defaultQuery: LoanQuery = {
+	company: '0',
+	loan: 'loan',
+	loanSearch: ''
+};
+
+
+
+export function toFormValue<T extends LoanQuery>(data: T): LoanQuery {
+  return {
+    company: data.company,
+    loan: data.loan,
+    loanSearch: data.loanSearch,
+  }
+}
 
 export function searchMessages(value: string): string {
 	let message: string = '';

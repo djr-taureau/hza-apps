@@ -1,31 +1,52 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { FormBuilder } from '@angular/forms';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CoreTable } from '@hza/ui-components/core-table';
 import { Loan } from '@hza/shared/loans/models';
-import { LoansFacade } from '@hza/shared/loans/data-access/state';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
-	selector: 'hza-loasn-list',
+	selector: 'hza-loans-list',
 	templateUrl: './loans-list.component.html',
-	animations: [
-		trigger('detailExpand', [
-			state('collapsed', style({ height: '0px', minHeight: '0' })),
-			state('expanded', style({ height: '*' })),
-			transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-		])
-	],
 	styleUrls: ['./loans-list.component.scss']
 })
-export class LoansListComponent implements OnInit {
-	@Input() loans: Loan[];
-	// @Input() selectedDocument: Document;
-	@Output() selectedLoan = new EventEmitter<number>();
+export class LoansListComponent extends CoreTable<Loan> implements OnInit, AfterViewInit {
+	
+	placeholderHeight = 0;
+	@Input() set loans(loans: Loan[]) {
+		// sets dataSource on CoreTable
+		if (loans) {
+			this.set(loans);
+		}
+	}
+	@Input() sticky: boolean;
 
-	constructor(private loansFacade: LoansFacade) {}
+	constructor(private clipboard: Clipboard) {
+		// column definitions for CoreTable
+		super([
+			'source',
+			'loanNumber',
+			'borrower',
+			'borrowerPrimarySSN',
+			'borrowerPrimaryPhoneNumber',
+			'borrowerPrimaryEmailAddress',
+			'coBorrower',
+			'borrowerSecondarySSN',
+			'borrowerSecondaryPhoneNumber',
+			'propertyAddress1',
+			'propertyCity',
+		]);
+	}
 
 	ngOnInit() {
-		console.log('loan list', this.loans);
-		this.loansFacade.loans$.subscribe(v => console.log('loan list', v));
+		console.log('whgat to to')
+		// this is how you could recalculate the sticky header position on scrol
+	}
+	ngAfterViewInit() {
+		console.log('whgat to to')
+	}
+	
+	copy(value) {
+		console.log(value);
+		this.clipboard.copy(value);
 	}
 }

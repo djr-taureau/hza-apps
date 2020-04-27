@@ -1,8 +1,17 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnChanges,
+	OnInit,
+	Output,
+	ChangeDetectionStrategy,
+	AfterViewInit
+} from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
-import { OverlayService, PopoverService } from '@hza/ui-components/overlay';
+import { PopoverService } from '@hza/ui-components/overlay';
 import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { LoanQuery } from '@hza/shared/loans/models';
 import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.component';
@@ -13,64 +22,80 @@ import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.co
 	styleUrls: ['./loan-search.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoanSearchComponent implements OnInit, OnChanges {
-	searchBox: FormGroup;
+export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	@Input() loansLoaded: boolean;
+	@Input() loanQuery: LoanQuery;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<LoanQuery>();
-
+	@Output() clearQuery = new EventEmitter<string>();
 	loadLoans: Boolean;
-	
+
 	faTimes = faTimes;
 	faSearch = faSearch;
+	searchBox = this.fb.group({
+		loanSearch: ['']
+	});
+
+	controls = {
+		loanSearchBox: this.searchBox.get('loanSearch')
+	};
 
 	constructor(private fb: FormBuilder, private popover: PopoverService) {}
 
 	ngOnInit() {
-		console.log('init loan search');
 		this.searchBox = this.fb.group({
-			loanSearchBox: ''
+			loanSearch: ''
 		});
 	}
 
 	ngOnChanges() {
-		console.log('search', this.loans);
-		console.log('search', this.loansLoaded);
+		if (this.loanQuery) {
+			this.searchBox.patchValue({
+				loanSearch: this.loanQuery.loanSearch
+			});
+		}
 	}
 
+	ngAfterViewInit() {
+		if (this.loanQuery) {
+			this.searchBox.setValue(this.loanQuery);
+		}
+	}
 	dispatch($event) {
 		console.log($event);
 	}
 
 	clear() {
 		this.searchBox.patchValue({
-			loanSearchBox: ''
+			loanSearch: ''
 		});
+		this.clearQuery.emit('clear');
 	}
 
 	searchLoans($event: LoanQuery) {
-		console.log('loan search', $event.loanSearch);
 		this.query.emit($event);
-		this.updateSearchBox($event.loanSearch)
+		this.updateSearchBox($event.loanSearch);
 	}
 
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {
-		const ref = this.popover.open<{ skills: number[] }>({
+		const ref = this.popover.open<{ values: string[] }>({
 			content,
 			origin,
 			data: {
-				skills: [1, 2, 3]
+				values: ['1', '2', '3']
 			}
 		});
 
 		ref.afterClosed$.subscribe((res) => {
-			console.log('show', res);
+			if (this.loanQuery) {
+				this.updateSearchBox(this.loanQuery.loanSearch);
+			}
 		});
 	}
 
 	updateSearchBox(value: string) {
 		this.searchBox.patchValue({
-			loanSearchBox: value
+			loanSearch: value
 		});
 	}
 

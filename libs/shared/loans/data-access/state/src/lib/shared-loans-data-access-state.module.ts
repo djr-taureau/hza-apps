@@ -3,14 +3,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedLoansDataAccessDataModule } from '@hza/shared/loans/data-access/data';
 import { LoanEffects } from './+state/loans.effects';
-import { LoansFacade } from './+state/loans.facade'
+import { LoansFacade } from './+state/loans.facade';
 import * as fromLoans from './+state/loans.reducer';
 
-
-
 @NgModule({
-  imports: [SharedLoansDataAccessDataModule, StoreModule.forFeature(fromLoans.loansFeatureKey, fromLoans.loansReducer), EffectsModule.forFeature([LoanEffects])],
-  providers: [LoanEffects, LoansFacade],
+	imports: [
+		SharedLoansDataAccessDataModule,
+		StoreModule.forFeature(fromLoans.loansFeatureKey, fromLoans.loansReducer, {initialState: fromLoans.loansInitialState}),
+		EffectsModule.forFeature([LoanEffects])
+	],
+	providers: [LoanEffects, LoansFacade]
 })
-
 export class SharedLoansDataAccessStateModule {}

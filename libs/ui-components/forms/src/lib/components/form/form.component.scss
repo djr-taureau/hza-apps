@@ -1,6 +1,6 @@
 .container {
   max-width: 700px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 input.field {
@@ -11,7 +11,7 @@ formly-form {
   display: block;
   border: 1px solid #e2e2e2;
   border-collapse: collapse;
-  color: #333;
+  color: #333333;
   cursor: default;
   float: none;
   font-family: Arial;
@@ -20,54 +20,50 @@ formly-form {
   margin: 0;
   max-width: 28em;
   min-width: 20em;
-  padding: 0 .25em;
+  padding: 0 0.25em;
   width: 20em;
   margin-bottom: 2rem;
-
-  
 }
 
 .label {
   background-color: green;
 }
 
-  .form-fields {
-    background-color: #add8e6;
-    border: 1px solid #e2e2e2;
-    border-collapse: collapse;
-    color: #333;
-    cursor: default;
-    float: none;
-    font-family: Arial;
-    font-size: 9.6px;
-    font-weight: 700;
-    margin: 0;
-    max-width: 28em;
-    min-width: 20em;
-    padding: 0 .25em;
-    width: 20em;
-  }
+.form-fields {
+  background-color: #add8e6;
+  border: 1px solid #e2e2e2;
+  border-collapse: collapse;
+  color: #333333;
+  cursor: default;
+  float: none;
+  font-family: Arial;
+  font-size: 9.6px;
+  font-weight: 700;
+  margin: 0;
+  max-width: 28em;
+  min-width: 20em;
+  padding: 0 0.25em;
+  width: 20em;
+}
 
-   .default-form {
+.default-form {
+  border: 1px solid #37678e;
 
-     border: 1px solid #37678e;
+  border-collapse: collapse;
 
-     border-collapse: collapse;
+  color: pink;
 
-     color: pink;
+  cursor: pointer;
 
-     cursor: pointer;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 
-     font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+  font-size: 0.8em;
 
-     font-size: .8em;
+  line-height: 18px;
 
-     line-height: 18px;
+  padding-left: 0.5em;
 
-     padding-left: .5em;
+  padding-right: 0.5em;
 
-     padding-right: .5em;
-
-     text-align: right;
-
-   }
+  text-align: right;
+}

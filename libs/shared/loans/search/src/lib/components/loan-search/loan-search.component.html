@@ -5,7 +5,7 @@
     </a>
     <input
       (mouseenter)="show(tpl, origin)"
-      formControlName="loanSearchbox"
+      formControlName="loanSearch"
       class="loan-search"
       style="cursor: pointer;"
       type="text"
@@ -28,11 +28,18 @@
 
     <div class="loan-search-form item--full">
       <hza-loan-search-form
+        [loanQuery]="loanQuery"
         (query)="searchLoans($event)"
       ></hza-loan-search-form>
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
-      <hza-loans-table [loans]="loans"></hza-loans-table>
+      <ng-container *ngIf="loans.length > 0">
+        <hza-loans-list [loans]="loans"></hza-loans-list>
+      </ng-container>
+      <!-- TODO: djr figure out why this isn't working' -->
+      <!-- <ng-container *ngIf="loans.length == 0 && loansLoaded">
+        <p> Sorry got nothing for you</p>
+      </ng-container> -->
     </div>
     <div *ngIf="loansLoaded" class="loans-container-bottom"></div>
   </div>

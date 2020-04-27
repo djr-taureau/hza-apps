@@ -7,6 +7,18 @@
       minmax(1em, 1fr) [viewport-end];
     justify-self: stretch;
   }
+  .field-focus {
+    background-color: white;
+    border: 1px solid #add8e6;
+    color: #333333;
+    cursor: text;
+    font-family: Arial;
+    font-size: 1em;
+    margin-left: 15rem;
+    max-width: 28em;
+    padding: 0 0.25em;
+    width: 15em;
+  }
 }
 
 .search-form-row1 {
@@ -99,6 +111,7 @@ a {
   background: rgba(59, 103, 142, 0.4);
   border: 2px solid rgba(59, 103, 142, 1);
   border-radius: 5px;
+  color: black;
   cursor: pointer;
   line-height: 1em;
   font-size: 0.8em;
@@ -114,6 +127,7 @@ a {
 .quick-buttons label {
   display: inline-block;
   padding: 0.25em;
+  color: black;
   background: rgba(59, 103, 142, 0.4);
   border: 2px solid rgba(59, 103, 142, 1);
   border-radius: 5px;
@@ -130,10 +144,11 @@ a {
 
 input.loan-search:focus {
   background-color: #add8e6;
-  color: #333;
+  color: #333333;
   cursor: text;
   font-family: Arial;
   font-size: 1em;
+  margin-left: 15rem;
   margin: 0;
   max-width: 28em;
   padding: 0 0.25em;
@@ -143,12 +158,13 @@ input.loan-search:focus {
 input.loan-search {
   background-color: #add8e6;
   border: 1px solid #e2e2e2;
-  color: #333;
+  color: #333333;
   cursor: text;
   font-family: Arial;
   font-size: 1em;
   margin-left: 15rem;
   max-width: 28em;
+  line-height: 1em;
   padding: 0 0.25em;
   width: 15em;
 }
@@ -161,11 +177,11 @@ input.loan-search {
   cursor: pointer;
   float: none;
   font-family: Arial;
-  font-size: 0.8em;
+  font-size: 0.9rem;
   font-weight: 800;
   text-align: center;
   width: 0.6rem;
-  line-height: 1em;
+  line-height: 1rem;
   font-weight: normal;
   margin: 0.1rem;
   padding: 0.1rem;
@@ -190,7 +206,7 @@ fa-icon.search-field {
 input.loan-search {
   border: 2px solid #add8e6;
   background-color: white;
-  color: #333;
+  color: #333333;
   cursor: text;
   font-family: Arial;
   font-size: 1em;
