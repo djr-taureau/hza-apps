@@ -9,12 +9,12 @@
   }
   .field-focus {
     background-color: white;
-    border: 1px solid #add8e6;
+    border: 3px solid #add8e6;
     color: #333333;
     cursor: text;
     font-family: Arial;
     font-size: 1em;
-    margin-left: 15rem;
+    margin-left: .2rem;
     max-width: 28em;
     padding: 0 0.25em;
     width: 15em;
@@ -27,25 +27,23 @@
   justify-self: end;
   align-self: start;
   margin-top: 0.6rem;
-  margin-right: 0.01rem;
 }
 .search-form-row2 {
   grid-area: buttons2;
   grid-column: container;
-  justify-self: end;
+  justify-self: stretch;
   align-self: start;
-  margin-right: 0.01rem;
+  margin-right: .8rem;
 }
 .search-form-row3 {
   grid-area: message;
   grid-column: container;
-  justify-self: end;
+  justify-items: end;
   align-self: start;
   font-style: italic;
   font-weight: bold;
   color: black;
   font-size: 0.8rem;
-  margin-right: 0.01rem;
 }
 
 .search-box {
@@ -185,6 +183,7 @@ input.loan-search {
   font-weight: normal;
   margin: 0.1rem;
   padding: 0.1rem;
+  justify-self: end;
 }
 
 fa-icon.search-field {
