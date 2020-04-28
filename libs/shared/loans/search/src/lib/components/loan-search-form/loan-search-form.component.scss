@@ -2,14 +2,13 @@
   .container {
     display: grid;
     grid-template-columns:
-      [viewport-start] minmax(1em, 1fr)
-      [container-start] minmax(0, 30em) [container-end]
-      minmax(1em, 1fr) [viewport-end];
+      [viewport-start] minmax(1em, 1fr) [container-start] minmax(0, 30em) [container-end] minmax(1em, 1fr) [viewport-end];
     justify-self: stretch;
   }
+
   .field-focus {
     background-color: white;
-    border: 3px solid #add8e6;
+    border: 1px solid #add8e6;
     color: #333333;
     cursor: text;
     font-family: Arial;
@@ -28,6 +27,7 @@
   align-self: start;
   margin-top: 0.6rem;
 }
+
 .search-form-row2 {
   grid-area: buttons2;
   grid-column: container;
@@ -35,6 +35,7 @@
   align-self: start;
   margin-right: .8rem;
 }
+
 .search-form-row3 {
   grid-area: message;
   grid-column: container;
@@ -135,7 +136,7 @@ a {
   font-weight: normal;
 }
 
-.quick-buttons input[type='radio']:checked + label {
+.quick-buttons input[type='radio']:checked+label {
   background-color: rgba(59, 103, 142, 0.7);
   color: white;
 }
