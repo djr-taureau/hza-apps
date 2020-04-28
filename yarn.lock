@@ -3048,6 +3048,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classlist@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/classlist/-/classlist-2.0.0.tgz#b471a215123ee1cdc2ce11ba3ca8e090af7c9a86"
+  integrity sha512-u8w9pd3kGZsy2M2NkN01lZA/ykQi0AkopSgQN9Un+7gvieggGzyR5G+19ggedCLLQ5D/eIo/FrP+1b8f7lp04Q==
+
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
@@ -11343,6 +11348,11 @@ wcwidth@^1.0.1:
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
+
+web-animations-js@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/web-animations-js/-/web-animations-js-2.3.2.tgz#a51963a359c543f97b47c7d4bc2d811f9fc9e153"
+  integrity sha512-TOMFWtQdxzjWp8qx4DAraTWTsdhxVSiWa6NkPFSaPtZ1diKUxTn4yTix73A1euG1WbSOMMPcY51cnjTIHrGtDA==
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
