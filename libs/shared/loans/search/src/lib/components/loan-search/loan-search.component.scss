@@ -1,9 +1,9 @@
 :host {
   input.loan-search {
-  color: black;
-  font-size: larger;
-  font-weight: 900;
-}
+    color: black;
+    font-size: larger;
+    font-weight: 900;
+  }
 }
 
 
@@ -17,19 +17,24 @@ form.search-box {
 
 input.loan-search {
   color: black;
+  width: 5rem;
   font-size: larger;
   font-weight: 900;
 }
+
 .clearable {
   position: absolute;
 }
+
 .clear {
   margin-right: 2rem;
 }
+
 .looking-glass {
   height: 2rem;
   align-self: right;
 }
+
 .icon {
   color: black;
   font-weight: 800;
@@ -42,11 +47,13 @@ input.loan-search {
   padding-left: 0.1rem;
   padding-right: 0.1rem;
 }
+
 input {
   border-width: 0;
   background-color: transparent;
   width: 230px;
 }
+
 a {
   text-decoration: none;
 }
@@ -66,6 +73,7 @@ a {
   align-self: start;
   justify-self: end;
 }
+
 .loans-list {
   grid-area: list;
   overflow-y: auto;
@@ -75,6 +83,7 @@ a {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+
 .loans-container-bottom {
   grid-area: footer;
   align-self: stretch;
