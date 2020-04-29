@@ -1,14 +1,16 @@
-<form [formGroup]="searchForm">
+<form class="search-big" [formGroup]="searchForm">
   <div class="search-form-row1">
     <div class="quick-buttons multi-company">
+        <fa-layers>
+          <fa-icon class="icon" size="lg" (click)="clear()" [icon]="faTimes" transform="right-280 down-2">Work</fa-icon>
+        </fa-layers>
+
       <input type="radio" id="10" formControlName="company" value="0" checked />
       <label for="10">Any</label>
       <input type="radio" id="12" formControlName="company" value="1" />
       <label for="12">Fay</label>
       <input type="radio" id="14" formControlName="company" value="2" />
       <label for="14">Flagstar</label>
-    </div>
-
     <input
       type="text"
       hzaFocus
@@ -16,16 +18,13 @@
       class="loan-search"
       formControlName="loanSearch"
     />
-    <fa-icon
-      class="icon"
-      size="lg"
-      (click)="clear()"
-      [icon]="faTimes"
-      transform="left-17"
-    ></fa-icon>
+
 
     <button mat-flat-button (click)="searchLoans($event)">Search</button>
-  </div>
+    </div>
+</div>
+
+
   <div class="search-form-row2">
     <div class="quick-buttons loan">
       <input type="radio" id="16" formControlName="loan" value="loan" checked />
@@ -48,5 +47,5 @@
       <label for="32">Zip</label>
     </div>
   </div>
-  <div class="search-form-row3">{{ searchHelpMessage }}</div>
+  <div class="search-form-row3 search-message">{{ searchHelpMessage }}</div>
 </form>

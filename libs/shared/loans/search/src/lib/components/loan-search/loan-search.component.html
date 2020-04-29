@@ -10,11 +10,6 @@
       style="cursor: pointer;"
       type="text"
     />
-    <!-- <fa-layers>
-        <fa-icon size="3x" [icon]="faSearch"></fa-icon>
-        <fa-icon [icon]="faTimes"></fa-icon>
-    </fa-layers>  -->
-
     <a style="cursor: pointer;" (click)="clear()">
       <fa-icon size="lg" transform="left-2" [icon]="faTimes"></fa-icon>
     </a>
@@ -26,7 +21,6 @@
     <div class="close-button">
       <fa-icon (click)="close()" [icon]="faTimes"></fa-icon>
     </div>
-
     <div class="loan-search-form item--full">
       <hza-loan-search-form
         [loanQuery]="loanQuery"
@@ -42,6 +36,6 @@
         <p> Sorry got nothing for you</p>
       </ng-container> -->
     </div>
-    <div *ngIf="loansLoaded" class="loans-container-bottom"></div>
+    <!-- <div *ngIf="loansLoaded" class="loans-container-bottom"></div> -->
   </div>
 </ng-template>

@@ -1,10 +1,34 @@
 :host {
-  .container {
-    display: grid;
-    grid-template-columns:
-      [viewport-start] minmax(1em, 1fr) [container-start] minmax(0, 30em) [container-end] minmax(1em, 1fr) [viewport-end];
-    justify-self: stretch;
+  // .container {
+  //   display: grid;
+  //   grid-template-columns:
+  //     [viewport-start] minmax(1em, 1fr) [container-start] minmax(0, 30em) [container-end] minmax(1em, 1fr) [viewport-end];
+  //   justify-self: stretch;
+  // }
+
+  button {
+    background-color: #d3dce0;
+    border: 1px solid #787878;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    float: none;
+    font-family: Arial;
+    font-size: .8em;
+    font-weight: 600;
+    // margin-right: .25em;
+    padding: .1em;
+    justify-self: end;
+    text-align: center;
+    width: auto;
+
+    :disabled {
+      background-color: #d3d3d3;
+      color: gray;
+      cursor: default;
+    }
   }
+
 
   .field-focus {
     background-color: white;
@@ -14,38 +38,39 @@
     font-family: Arial;
     font-size: 1em;
     margin-left: .2rem;
+    margin-right: .4rem;
     max-width: 28em;
     padding: 0 0.25em;
     width: 15em;
   }
 }
 
-.search-form-row1 {
-  grid-area: buttons1;
-  grid-column: container;
-  justify-self: end;
-  align-self: start;
-  margin-top: 0.6rem;
-}
+// .search-form-row1 {
+//   grid-area: buttons1;
+//   grid-column: container;
+//   justify-self: end;
+//   align-self: start;
+//   margin-top: 0.6rem;
+// }
 
-.search-form-row2 {
-  grid-area: buttons2;
-  grid-column: container;
-  justify-self: stretch;
-  align-self: start;
-  margin-right: .8rem;
-}
+// .search-form-row2 {
+//   grid-area: buttons2;
+//   grid-column: container;
+//   justify-self: stretch;
+//   align-self: start;
+//   margin-right: .8rem;
+// }
 
-.search-form-row3 {
-  grid-area: message;
-  grid-column: container;
-  justify-items: end;
-  align-self: start;
-  font-style: italic;
-  font-weight: bold;
-  color: black;
-  font-size: 0.8rem;
-}
+// .search-form-row3 {
+//   grid-area: message;
+//   grid-column: container;
+//   justify-items: end;
+//   align-self: start;
+//   font-style: italic;
+//   font-weight: bold;
+//   color: black;
+//   font-size: 0.8rem;
+// }
 
 .search-box {
   box-sizing: border-box;
@@ -74,14 +99,14 @@
   cursor: pointer;
 }
 
-.wrapper {
-  position: relative;
-  height: auto;
-  width: 260px;
-  border: 2px solid red;
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
-}
+// .wrapper {
+//   position: relative;
+//   height: auto;
+//   width: 260px;
+//   border: 2px solid red;
+//   padding-left: 0.1rem;
+//   padding-right: 0.1rem;
+// }
 
 input {
   border-width: 0;
@@ -114,9 +139,9 @@ a {
   cursor: pointer;
   line-height: 1em;
   font-size: 0.8em;
-    padding: .25em;
+  padding: .25em;
   font-weight: normal;
-  
+
 }
 
 .quick-buttons:selected {
@@ -150,10 +175,12 @@ input.loan-search:focus {
   font-family: Arial;
   font-size: 1em;
   margin-left: 15rem;
+  margin-right: 15rem;
   margin: 0;
   max-width: 28em;
   padding: 0 0.25em;
   width: 15em;
+  padding-right: 1em;
 }
 
 input.loan-search {
@@ -162,11 +189,13 @@ input.loan-search {
   color: #333333;
   cursor: text;
   font-family: Arial;
-  font-size: 1em;
   margin-left: 15rem;
+  margin-right: 15rem;
+  font-size: 1em;
   max-width: 28em;
   line-height: 1em;
   padding: 0 0.25em;
+  padding-right: 1em;
   width: 15em;
 }
 
@@ -234,20 +263,36 @@ h4 {
   padding: 0;
 }
 
-form.search-big {
-  position: relative;
-  width: 90vw;
-  top: 1.25em;
-  left: calc(15em - 90vw);
-  padding: 0.25em;
-  background-color: white;
-  border: 2px solid rgba(55, 103, 142, 1);
-  border-radius: 5px;
-  margin: 0.5em 0 0 0.5em;
-  box-shadow: 5px 5px 10px black;
-  z-index: 1000;
+.search-message {
+  color: #000;
+  font-family: "Segoe UI",
+    Verdana,
+    Helvetica,
+    sans-serif;
+  font-size: .8em;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-bottom: 0;
   text-align: right;
 }
+
+// form.search-big {
+//   position: relative;
+//   width: 90vw;
+//   top: 1.25em;
+//   left: calc(15em - 90vw);
+//   padding: 0.25em;
+//   background-color: white;
+//   border: 2px solid rgba(55, 103, 142, 1);
+//   border-radius: 5px;
+//   margin: 0.5em 0 0 0.5em;
+//   box-shadow: 5px 5px 10px black;
+//   z-index: 1000;
+//   text-align: right;
+// }
 
 .search-big input[type='text'] {
   width: 15em;
