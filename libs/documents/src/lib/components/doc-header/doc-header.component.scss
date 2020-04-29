@@ -1,11 +1,14 @@
 .header {
   display: grid;
+  grid-template-columns: 8;
   width: 100%;
   background-color: white;
   box-shadow: 5px 5px 10px black;
   padding-left: 0.25em;
   height: 4.5em;
-  grid-template-columns: 8;
+  line-height: 24px;
+  padding-left: .25em;
+
   /* needed for the floated layout */
   clear: both;
 
@@ -24,16 +27,20 @@
   h1.app-title {
     grid-column-start: 3;
     grid-column-end: 4;
-  color: #000;
-  display: inline-block;
-    margin-left: .3em;
-  font-size: 3em;
-  font-weight: 700;
-  line-height: 1.25em;
-  margin-bottom: 0;
-  margin-top: .2em;
-  padding-bottom: 0;
-  vertical-align: bottom;
+    color: #000;
+    display: inline-block;
+    font-family: "Segoe UI",
+      Verdana,
+      Helvetica,
+      sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.25em;
+    margin-bottom: 0;
+    margin-top: .2em;
+    padding-left: .1em;
+    padding-bottom: 0;
+    align-self: end;
   }
 
 
@@ -41,51 +48,56 @@
   div.login {
     grid-column-start: 7;
     grid-column-end: 8;
-    width: 10rem;
-    height: 2.8rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    margin-right: 0.25rem;
-    place-self: end;
-    /* min-width is used so that loan-search in expanded mode doesn't go off the screen to the right */
-    // min-width: 10rem;
-    position: relative;
-    border: 0.1rem solid black;
-
-    h3 {
-   color: #000;
-
-  font-size: 19.2px;
-  font-weight: 700;
-  line-height: 3em;
-  margin-bottom: 0;
-  margin-right: 3em;
-  margin-top: 0;
-  padding-bottom: 0;
-  text-align: right;
-      text-align: center;
-      align-self: center;
-    }
-
-    .userpic {
-      position: absolute;
-      right: 0.5rem;
-      height: 2.3rem;
-      width: 2.3rem;
-      text-align: center;
-      margin-top: 0.35rem;
-      margin-right: 0.25rem;
-      display: inline-block;
-      background-image: url('/assets/images/person.png');
-      background-size: 2.3rem;
-      border: 1px solid rgba(59, 103, 142, 1);
-      border-radius: 50%;
-    }
+    border: 1px solid #000;
+    color: #000;
+    font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+    height: 3.5em;
+    line-height: 24px;
+    padding: .25em;
+    text-align: left;
   }
+
+  h3 {
+    color: #000;
+    font-family: "Segoe UI",
+      Verdana,
+      Helvetica,
+      sans-serif;
+    font-size: 19.2px;
+    font-weight: 700;
+    line-height: 3em;
+    margin-bottom: 0;
+    margin-right: 3em;
+    margin-top: 0;
+    padding-bottom: 0;
+    text-align: right;
+
+    align-self: center;
+  }
+
+  span.userpic {
+    background-image: url('/assets/images/person.png');
+    background-size: 3em;
+    border: 1px solid #3b678e;
+    border-radius: 50%;
+    color: #000;
+    display: inline-block;
+    font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+    height: 3em;
+    line-height: 24px;
+    margin-right: .25em;
+    margin-top: .25em;
+    position: absolute;
+    right: .5em;
+    text-align: left;
+    width: 3em;
+  }
+
 }
 
-  div.search {
-    grid-column-start: 5;
-    grid-column-end: 6;
-    place-self: end;
-  }
+// background-image: url('/assets/images/person.png');
+div.search {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  place-self: end;
+}

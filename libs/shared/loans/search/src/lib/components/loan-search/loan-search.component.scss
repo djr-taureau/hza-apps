@@ -1,8 +1,8 @@
 :host {
   input.loan-search {
     color: black;
-    font-size: larger;
-    font-weight: 900;
+    font-size: 1em;
+    font-weight: 500;
   }
 }
 
@@ -18,8 +18,8 @@ form.search-box {
 input.loan-search {
   color: black;
   width: 5rem;
-  font-size: larger;
-  font-weight: 900;
+  font-size: 1em;
+  font-weight: 500;
 }
 
 .clearable {
@@ -27,7 +27,7 @@ input.loan-search {
 }
 
 .clear {
-  margin-right: 2rem;
+  margin-right: 2em;
 }
 
 .looking-glass {
@@ -72,6 +72,7 @@ a {
   grid-area: form;
   align-self: start;
   justify-self: end;
+  margin-right: .8em;
 }
 
 .loans-list {
@@ -79,32 +80,27 @@ a {
   overflow-y: auto;
   align-self: stretch;
   justify-self: stretch;
-  margin-top: 2rem;
+  margin-top: .6em;
+  margin-bottom: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
-.loans-container-bottom {
-  grid-area: footer;
-  align-self: stretch;
-  justify-self: stretch;
-}
 
 .grid-container {
   grid-template-areas:
     'close close close close'
     'form form form form'
-    'list list list list'
-    'footer footer footer footer';
+    'list list list list';
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   display: grid;
-  grid-template-rows: 15px 140px auto 10px;
+  grid-template-rows: 1.4em auto auto;
   background-color: white;
   border: 2px solid rgba(55, 103, 142, 1);
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
   z-index: 12000;
-  left: calc(15em - 80vw);
-  width: 80vw;
+  left: calc(15em - 75vw);
+  width: 75vw;
 }
