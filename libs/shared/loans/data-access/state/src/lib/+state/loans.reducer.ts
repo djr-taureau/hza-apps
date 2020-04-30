@@ -13,6 +13,10 @@ export interface LoansState extends EntityState<Loan> {
 	loanQuery: LoanQuery;
 }
 
+export interface LoansPartialState {
+	readonly [loansFeatureKey]: LoansState;
+}
+
 export const adapter: EntityAdapter<Loan> = createEntityAdapter<Loan>({
 	selectId: (loan: Loan) => loan.loanNumber,
 	sortComparer: false

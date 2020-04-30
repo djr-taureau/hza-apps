@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
+import { DataPersistence, navigation, optimisticUpdate } from '@nrwl/angular';
+import { LoansPartialState } from './loans.reducer';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import * as LoanActions from './loans.actions';
@@ -23,7 +25,6 @@ export class LoanEffects {
 			)
 		)
 	);
-
 	query$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(LoanActions.queryLoans),
