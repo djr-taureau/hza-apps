@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanDetailComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {

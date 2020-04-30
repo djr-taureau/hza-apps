@@ -1,8 +1,7 @@
-import { Component, Input, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { CoreTable } from '@hza/ui-components/core-table';
 import { Loan } from '@hza/shared/loans/models';
-import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
 	selector: 'hza-loans-list',
@@ -10,7 +9,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 	styleUrls: ['./loans-list.component.scss']
 })
 export class LoansListComponent extends CoreTable<Loan> implements OnInit, AfterViewInit {
-	
+
 	placeholderHeight = 0;
 	@Input() set loans(loans: Loan[]) {
 		// sets dataSource on CoreTable
@@ -19,6 +18,7 @@ export class LoansListComponent extends CoreTable<Loan> implements OnInit, After
 		}
 	}
 	@Input() sticky: boolean;
+	@Output() loanNumber = new  EventEmitter<string>();
 
 	constructor(private clipboard: Clipboard) {
 		// column definitions for CoreTable
@@ -38,13 +38,12 @@ export class LoansListComponent extends CoreTable<Loan> implements OnInit, After
 	}
 
 	ngOnInit() {
-		console.log('whgat to to')
-		// this is how you could recalculate the sticky header position on scrol
+		console.log('loan list init')
+		console.log(this.loanNumber)// this is how you could recalculate the sticky header position on scrol
 	}
 	ngAfterViewInit() {
-		console.log('whgat to to')
+		console.log('loan list after view init')
 	}
-	
 	copy(value) {
 		console.log(value);
 		this.clipboard.copy(value);

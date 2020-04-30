@@ -27,6 +27,7 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	@Input() loanQuery: LoanQuery;
 	@Input() loans: Loan[];
 	@Output() query = new EventEmitter<LoanQuery>();
+	@Output() loanNumber = new EventEmitter<string>();
 	@Output() clearQuery = new EventEmitter<string>();
 	loadLoans: Boolean;
 
@@ -75,6 +76,10 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	searchLoans($event: LoanQuery) {
 		this.query.emit($event);
 		this.updateSearchBox($event.loanSearch);
+	}
+	
+	selectedLoan($event) {
+		this.loanNumber.emit($event);
 	}
 
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {

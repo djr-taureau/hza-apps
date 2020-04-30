@@ -16,7 +16,8 @@ import { LoanQuery } from '@hza/shared/loans/models';
 		[loanQuery]="loanQuery$ | async"
 		[loans]="loans$ | async"
 		(clearQuery)="clearQuery($event)"
-		(query)="searchLoans($event)">
+		(query)="searchLoans($event)"
+		(loanNumber)="selectLoan($event)">
     </hza-loan-search>
 	`,
 	styleUrls: ['./loans.container.scss'],

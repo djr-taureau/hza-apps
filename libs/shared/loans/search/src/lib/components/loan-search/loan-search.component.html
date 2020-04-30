@@ -29,13 +29,8 @@
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
       <ng-container *ngIf="loans.length > 0">
-        <hza-loans-list [loans]="loans"></hza-loans-list>
+        <hza-loans-list [loans]="loans" (loanNumber)="selectedLoan($event)"></hza-loans-list>
       </ng-container>
-      <!-- TODO: djr figure out why this isn't working' -->
-      <!-- <ng-container *ngIf="loans.length == 0 && loansLoaded">
-        <p> Sorry got nothing for you</p>
-      </ng-container> -->
     </div>
-    <!-- <div *ngIf="loansLoaded" class="loans-container-bottom"></div> -->
   </div>
 </ng-template>
