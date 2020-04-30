@@ -1,11 +1,12 @@
 // shared-data-access.module.ts
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterState, StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from '@hza/shared/environments';
 import { metaReducers, reducers } from './../+state/reducers';
+import { FixedRouterSerializer } from '../+state/fixedRouterStateSerializer'
 
 @NgModule({
 	imports: [
@@ -26,9 +27,10 @@ import { metaReducers, reducers } from './../+state/reducers';
 		}),
 		StoreRouterConnectingModule.forRoot({
 			stateKey: 'router',
-			routerState: RouterState.Minimal
+			routerState: RouterState.Full
 		})
-	]
+	],
+	providers: [{ provide: RouterStateSerializer, useClass: FixedRouterSerializer },]
 })
 export class SharedDataAccessRootModule {}
 

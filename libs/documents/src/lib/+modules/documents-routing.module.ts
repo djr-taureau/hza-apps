@@ -24,13 +24,16 @@ import { FooComponent } from '../components/foo/foo.component';
 						pathMatch: 'full',
 						children: [
 							{ path: '', outlet: 'page-header', component: DocHeaderComponent },
-							{ path: '', outlet: 'feature-one', component: LoanDetailComponent },
-							
-							// { path: 'loan-detail', redirectTo: 'docs(feature-one:loan-detail)', pathMatch: 'full' },
-							// { path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
-							{ path: '', outlet: 'feature-two', component: FooComponent },
-							{ path: '', outlet: 'feature-three', component: FooComponent },
 							{ path: '', outlet: 'page-footer', component: DocFooterComponent }
+						]
+					},
+					{
+						path: 'repo',
+						children: [
+							{ path: '', outlet: 'feature-one', component: LoanDetailComponent },
+							// { path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
+							// { path: '', outlet: 'feature-two', component: FooComponent },
+							// { path: '', outlet: 'feature-three', component: FooComponent },
 						]
 					}
 				]

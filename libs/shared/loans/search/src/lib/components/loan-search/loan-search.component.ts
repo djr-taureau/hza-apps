@@ -15,6 +15,8 @@ import { PopoverService } from '@hza/ui-components/overlay';
 import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { LoanQuery } from '@hza/shared/loans/models';
 import { LoanSearchFormComponent } from '../loan-search-form/loan-search-form.component';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { PopoverRef } from '@hza/ui-components/overlay';
 
 @Component({
 	selector: 'hza-loan-search',
@@ -30,7 +32,7 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	@Output() loanNumber = new EventEmitter<string>();
 	@Output() clearQuery = new EventEmitter<string>();
 	loadLoans: Boolean;
-
+	overlayRef: PopoverRef;
 	faTimes = faTimes;
 	faSearch = faSearch;
 	searchBox = this.fb.group({
@@ -80,18 +82,20 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	
 	selectedLoan($event) {
 		this.loanNumber.emit($event);
+		this.overlayRef.close();
 	}
 
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {
-		const ref = this.popover.open<{ values: string[] }>({
+		this.overlayRef = this.popover.open<{ values: string[] }>({
 			content,
 			origin,
 			data: {
 				values: ['1', '2', '3']
 			}
 		});
+		
 
-		ref.afterClosed$.subscribe((res) => {
+		this.overlayRef.afterClosed$.subscribe((res) => {
 			if (this.loanQuery) {
 				this.updateSearchBox(this.loanQuery.loanSearch);
 			}

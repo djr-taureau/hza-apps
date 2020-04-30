@@ -51,7 +51,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 		this.loans$.subscribe((v) => console.log('loans', v));
 		this.loanQuery$.subscribe((v) => console.log('loan query', v));
-		console.log('loanQu', this.getLoan);
+		console.log('loanQu', this.getLoan());
 	}
 
 	ngOnDestroy() {
@@ -61,7 +61,9 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	selectLoan(id) {
 		this.loansFacade.selectLoan(id);
-		// this.router.navigate(['loan-detail']);
+		const foo = this.loansFacade.selectedLoan$.pipe(tap((data) => data), filter((data) => !!data), take(1));
+		foo.subscribe(v => console.log('loan', v));
+		this.router.navigate(['docs/repo']);
 		// this.router.navigate(['../', { id: crisisId, foo: 'foo'}], { relativeTo: this.route });
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 	}
