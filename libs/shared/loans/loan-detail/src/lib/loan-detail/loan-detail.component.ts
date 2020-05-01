@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Loan } from '@hza/shared/loans/models';
+import { Loan, LoanDetail, toLoanFormValue } from '@hza/shared/loans/models';
+import { tap } from 'rxjs/operators';
 
 @Component({
 	selector: 'hza-loan-detail',
@@ -11,29 +12,47 @@ import { Loan } from '@hza/shared/loans/models';
 })
 export class LoanDetailComponent implements OnInit {
 	loan$: Observable<Loan>;
-	loan: Loan;
+	loanDetail: LoanDetail;
   loanNumber: string;
 
-	loanForm: FormGroup;
-	// loanForm = this.fb.group({
-	// 	borrower: [''],
-	// 	borrowerPrimarySSN: [''],
-	//   propertyAddress1: [''],
-	//   propertyCity: [''],
-	// });
+
+	loanForm = this.fb.group({
+		borrower: [''],
+		borrowerPrimarySSN: [''],
+	  propertyAddress1: [''],
+	  propertyCity: [''],
+	});
+  
+  controls = {
+    borrower: this.loanForm.get('borrower'),
+    borrowerPrimarySSN: this.loanForm.get('borrowerPrimarySSN'),
+    propertyAddress1: this.loanForm.get('propertyAddresss1'),
+    propertyCity: this.loanForm.get('propertyCity'),
+  }
 
 	constructor(private loanFacade: LoansFacade, private fb: FormBuilder) {}
 
 	ngOnInit() {
-		this.loanForm = this.fb.group({
-			borrower: [''],
-			borrowerPrimarySSN: [''],
-			propertyAddress1: [''],
-			propertyCity: ['']
-		});
+
 		this.loan$ = this.loanFacade.selectedLoan$;
     this.loan$.subscribe(v => {
       this.loanNumber = v.loanNumber;
-    })
+      this.loanDetail = toLoanFormValue(v);
+      this.loanForm = this.fb.group(this.loanDetail);
+    });
+    // this.loan$.pipe(
+    //   tap(loan => {
+    //     console.log('detail', loan);
+    //     this.loanDetail = toLoanFormValue(loan);
+    //     console.log('detail', this.loanDetail);
+    //     this.loanForm = this.fb.group(this.loanDetail);
+    //   }),
+    // );
+    // console.log(this.loanForm.value);
+    // console.log(this.loanDetail);
+    // this.loan$.subscribe(v => {
+    //   this.loanDetail = toFormValue(v)
+    //   this.loanNumber = v.loanNumber;
+    // })
 	}
 }

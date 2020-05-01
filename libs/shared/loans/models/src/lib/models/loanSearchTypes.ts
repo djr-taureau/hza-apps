@@ -12,7 +12,7 @@ export const defaultQuery: LoanQuery = {
 
 
 
-export function toFormValue<T extends LoanQuery>(data: T): LoanQuery {
+export function toSearchFormValue<T extends LoanQuery>(data: T): LoanQuery {
   return {
     company: data.company,
     loan: data.loan,
