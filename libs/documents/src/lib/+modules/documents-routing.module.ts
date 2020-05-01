@@ -32,7 +32,7 @@ import { FooComponent } from '../components/foo/foo.component';
 						children: [
 							{ path: '', outlet: 'feature-one', component: LoanDetailComponent },
 							// { path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
-							// { path: '', outlet: 'feature-two', component: FooComponent },
+							{ path: '', outlet: 'feature-two', component: FooComponent },
 							// { path: '', outlet: 'feature-three', component: FooComponent },
 						]
 					}

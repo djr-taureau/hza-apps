@@ -1,13 +1,13 @@
 
   <div class="container">
     <!-- TODO:: djr - hza-elevation - Add to elevation in global framework styles -->
-    <hza-section class="theme-grey">
+    <hza-section>
       <hza-control-bar>
         <h2 class="title-bar" hzaSectionTitle>{{ loanNumber }}</h2>
       </hza-control-bar>
     </hza-section>
     <hza-section>
-      <form [formGroup]="loanForm">
+      <form *ngIf="loan$ | async; let loan; else loading" [formGroup]="loanForm">
         <div class="padded float-left">
           <label id="label" for="BorrowerName">Borrower Name</label>
           <input
@@ -46,3 +46,6 @@
     </hza-section>
   </div>
 
+<ng-template #loading>
+  Loading Loan Data...
+</ng-template>

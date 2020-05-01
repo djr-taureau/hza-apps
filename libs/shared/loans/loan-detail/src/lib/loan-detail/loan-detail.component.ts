@@ -13,8 +13,8 @@ import { tap } from 'rxjs/operators';
 export class LoanDetailComponent implements OnInit {
 	loan$: Observable<Loan>;
 	loanDetail: LoanDetail;
-  loanNumber: string;
-
+	loanNumber: string;
+	// loanForm: FormGroup;
 
 	loanForm = this.fb.group({
 		borrower: [''],
@@ -22,37 +22,22 @@ export class LoanDetailComponent implements OnInit {
 	  propertyAddress1: [''],
 	  propertyCity: [''],
 	});
-  
-  controls = {
-    borrower: this.loanForm.get('borrower'),
-    borrowerPrimarySSN: this.loanForm.get('borrowerPrimarySSN'),
-    propertyAddress1: this.loanForm.get('propertyAddresss1'),
-    propertyCity: this.loanForm.get('propertyCity'),
-  }
+
+	controls = {
+		borrower: this.loanForm.get('borrower'),
+		borrowerPrimarySSN: this.loanForm.get('borrowerPrimarySSN'),
+		propertyAddress1: this.loanForm.get('propertyAddresss1'),
+		propertyCity: this.loanForm.get('propertyCity')
+	};
 
 	constructor(private loanFacade: LoansFacade, private fb: FormBuilder) {}
 
 	ngOnInit() {
-
-		this.loan$ = this.loanFacade.selectedLoan$;
-    this.loan$.subscribe(v => {
-      this.loanNumber = v.loanNumber;
-      this.loanDetail = toLoanFormValue(v);
-      this.loanForm = this.fb.group(this.loanDetail);
-    });
-    // this.loan$.pipe(
-    //   tap(loan => {
-    //     console.log('detail', loan);
-    //     this.loanDetail = toLoanFormValue(loan);
-    //     console.log('detail', this.loanDetail);
-    //     this.loanForm = this.fb.group(this.loanDetail);
-    //   }),
-    // );
-    // console.log(this.loanForm.value);
-    // console.log(this.loanDetail);
-    // this.loan$.subscribe(v => {
-    //   this.loanDetail = toFormValue(v)
-    //   this.loanNumber = v.loanNumber;
-    // })
+    this.loan$ = this.loanFacade.selectedLoan$;
+		this.loan$.subscribe((v) => {
+			this.loanNumber = v.loanNumber;
+			this.loanDetail = toLoanFormValue(v);
+			this.loanForm = this.fb.group(this.loanDetail);
+		});
 	}
 }
