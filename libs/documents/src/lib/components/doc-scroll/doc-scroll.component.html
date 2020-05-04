@@ -6,7 +6,7 @@
     <clr-dg-column [clrDgField]="'CreatedDated'">Created</clr-dg-column>
     <clr-dg-column [clrDgField]="'CreatedBy'">Created By</clr-dg-column>
     <clr-dg-column [clrDgField]="''">Actions</clr-dg-column>
-    <clr-dg-row *clrDgItems="let doc of docs">
+    <clr-dg-row *clrDgItems="let doc of documents">
       <clr-dg-cell>{{ doc.id }}</clr-dg-cell>
       <clr-dg-cell (click)="copy(doc.DocFileName)">{{ doc.DocFileName }}</clr-dg-cell>
       <clr-dg-cell>{{ doc.DocType }}</clr-dg-cell>
