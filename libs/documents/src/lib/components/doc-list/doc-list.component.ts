@@ -22,13 +22,13 @@ import { MatTableDataSource } from '@angular/material/table';
 	styleUrls: ['./doc-list.component.scss']
 })
 export class DocListComponent implements OnInit, OnChanges {
-	public trackByFn = ngUtilTrackBy;
+
 	columns: string[] = ['select', 'DocFileName', 'DocType', 'FileSize', 'CreatedBy', 'CreatedDate'];
 
 	@ViewChild(MatSort) sort: MatSort;
 	dataSource: MatTableDataSource<Document>;
 	selection = new SelectionModel<Document>(true, []);
-	expandedElement: Document | null;
+	expandedDetail: Document | null;
 	readonly formControl: AbstractControl;
 	displayData: Document[];
 	@Input() documents: Document[];
