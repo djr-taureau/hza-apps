@@ -20,7 +20,7 @@
 
   <ng-container matColumnDef="DocFileName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>File Name</th>
-    <td mat-cell *matCellDef="let element" tooltip="Click to Copy" (click)="copy(element.DocFileName)">
+    <td mat-cell *matCellDef="let element" class='file-name' tooltip="Click to Copy" (click)="copy(element.DocFileName)">
       {{ element.DocFileName }}
     </td>
   </ng-container>
@@ -42,12 +42,12 @@
     <td mat-cell *matCellDef="let element">{{ element.CreatedBy }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="CreatedDated">
+  <ng-container matColumnDef="CreatedDate">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Created</th>
-    <td mat-cell *matCellDef="let element">{{ element.CreatedDated | date: 'MM/d/y H:mm:ss' }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.CreatedDate | date: 'MM/d/y H:mm:ss' }}</td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
   <tr
     mat-row
     *matRowDef="let row; columns: columns"

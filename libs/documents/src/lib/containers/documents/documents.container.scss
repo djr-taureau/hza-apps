@@ -12,15 +12,56 @@
     font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
     line-height: 24px;
     margin: 0.5em 0 0 0.5em;
+    z-index: 1;
   }
 }
 
 .title-bar {
-    font-size: 1.2rem;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
+hza-control-bar {
+  height: 2em;
+  z-index: 5;
+}
 
+.mat-flat-button {
+  background-color: #d3dce0;
+  border: 1px solid #787878;
+  border-radius: 5px;
+  height: 1.5em;
+  color: #000000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 1em;
+  font-weight: 700;
+  margin-right: 0.25em;
+  padding: 0 0.5em;
+  text-align: center;
+  // vertical-align: middle;
+  width: auto;
+
+  &:disabled {
+    background-color: #d3d3d3;
+    color: #808080;
+    cursor: default;
+  }
+}
 
 .mat-table {
-    flex: 1;
+  flex: 1;
+}
+
+select {
+  background-color: #ADD8E6;
+  color: #333333;
+  cursor: default;
+  font-family: Arial;
+  font-size: 1em;
+  height: 1.75em;
+  margin: .25em;
+  max-width: 28em;
+  padding: 0 .25em;
+  vertical-align: middle;
 }
