@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ScrollDispatcher, ScrollingModule } from '@angular/cdk/scrolling';
 // ** THIRD PARTY MODULES
 
 // ** MODULES FOR THIS FEATURE LIB * CUSTOM MODULES
@@ -45,6 +46,7 @@ const COMPONENTS = [
 	imports: [
 		CommonModule,
 		FormsModule,
+		ScrollingModule,
 		ReactiveFormsModule,
 		SharedLoansSearchModule,
 		SharedLoanDetailModule,
@@ -55,6 +57,6 @@ const COMPONENTS = [
 		DocumentsStateModule
 	],
 	declarations: [COMPONENTS],
-	providers: []
+	providers: [ScrollDispatcher]
 })
 export class DocumentsModule {}
