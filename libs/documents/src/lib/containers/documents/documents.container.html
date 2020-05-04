@@ -1,19 +1,19 @@
 <div class="container">
-  <hza-section class="theme-grey">
+  <hza-section>
     <hza-control-bar>
       <h2 class="title-bar" hzaSectionTitle>Repository</h2>
     </hza-control-bar>
   </hza-section>
   <hza-section>
-    <hza-foo></hza-foo>
+    PLACEHOLDER FOR DOC UPLOAD
   </hza-section>
-  <hza-section class="theme-grey">
+  <hza-section>
     <hza-control-bar>
       <h2 class="title-bar" hzaSectionTitle>Documents</h2>
     </hza-control-bar>
   </hza-section>
   <hza-section>
-    <hza-foo></hza-foo>
+    <hza-doc-list [documents]="documents$ | async"></hza-doc-list>  
   </hza-section>
 </div>
 
