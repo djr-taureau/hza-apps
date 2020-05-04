@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { Constructor } from '@hza/shared';
+import { Constructor } from '@hza/shared/utils';
 
 export interface HasElementRef {
 	_elementRef: ElementRef;

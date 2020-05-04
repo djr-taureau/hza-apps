@@ -1,4 +1,4 @@
-import { toBool, Constructor } from '@hza/shared';
+import { toBool, Constructor } from '@hza/shared/utils';
 
 export interface CanDisable {
 	/** Whether the component is disabled. */

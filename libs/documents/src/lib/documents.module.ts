@@ -24,6 +24,7 @@ import { DocTableComponent } from './components/doc-table/doc-table.component';
 import { DocHeaderComponent } from './components/doc-header/doc-header.component';
 import { DocFooterComponent } from './components/doc-footer/doc-footer.component';
 import { FooComponent } from './components/foo/foo.component';
+import { DocDataListComponent } from './components/doc-data-list/doc-data-list.component';
 
 
 
@@ -36,7 +37,8 @@ const COMPONENTS = [
 	DocScrollComponent,
 	DocListComponent,
 	DocTableComponent,
-	FooComponent
+	FooComponent,
+	DocDataListComponent,
 ];
 
 @NgModule({

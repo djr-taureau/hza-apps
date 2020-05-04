@@ -1,6 +1,6 @@
 import { HasCssModifiers } from '.';
 import { EventEmitter } from '@angular/core';
-import { UIDataItemState, Constructor } from '@hza/shared';
+import { UIDataItemState, Constructor } from '@hza/shared/utils';
 
 export type DataSourceItemAction = 'remove';
 

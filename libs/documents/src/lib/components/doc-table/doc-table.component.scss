@@ -1,5 +1,7 @@
 :host {
   display: flex;
+  align-self: center;
+  justify-self: end;
   flex-direction: column;
   width: 100%;
 }
@@ -7,13 +9,16 @@
 th.mat-header-cell {
   border: 1px solid rgba(55, 103, 142, 1);
   background-color: #8f9fb5;
-  padding-left: 2.4rem;
+  border-collapse: collapse;
+  position: relative;
+  padding-right: 0.25em;
   font-size: 0.02rem;
   font-weight: 600;
   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
   letter-spacing: 0.03em;
-  line-height: 0.02rem;
+  line-height: 24px;
   text-align: center;
+  cursor: pointer;
 
   &:not(:last-child) {
     border-right: 1px solid rgba(55, 103, 142, 1);
@@ -22,7 +27,6 @@ th.mat-header-cell {
   color: black;
   font-size: 0.8rem;
   letter-spacing: 0.015rem;
-
 }
 
 mat-icon.mat-icon {
@@ -30,11 +34,11 @@ mat-icon.mat-icon {
   background-color: #8f9fb5;
   border-collapse: collapse;
   box-sizing: border-box;
-  color: rgba(0, 0, 0, .3);
+  color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   display: inline-block;
   fill: currentcolor;
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-weight: 600;
   font-size: 24px;
   height: 24px;
@@ -51,15 +55,19 @@ tr.mat-row:nth-child(even) {
 }
 
 tr.mat-row:nth-child(odd) {
-  font-size: 0.6rem;
+  font-size: 0.6em;
   border: 1px solid rgba(55, 103, 142, 1);
   background-color: #b1bfce;
 }
 
 td.mat-cell.cdk-cell {
-  padding-left: 2.4rem;
-  font-size: 0.6rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 0.8em;
+  text-align: center;
   border: 1px solid rgba(55, 103, 142, 1);
+
+
 
   &:not(:last-child) {
     border-right: 1px solid rgba(55, 103, 142, 1);
@@ -105,11 +113,25 @@ td.mat-cell.cdk-cell {
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.87);
   font-family: Lato, sans-serif;
-  font-size: 1.6rem;
+  font-size: .8em;
   line-height: 4px;
   padding: 0;
   text-align: center;
 }
+
+  .screen-75 {
+    border: 1px solid #37678e;
+    border-collapse: collapse;
+    color: #000000;
+    cursor: default;
+    display: table-cell;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+    font-size: 0.8em;
+    outline: 1px solid #ff0000;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: center;
+  }
 
 @mixin base {
   table {
@@ -151,4 +173,8 @@ cdk-virtual-scroll-viewport {
 // this makes the <th>s respond to --offset
 th.mat-header-cell {
   transform: translateY(var(--offset));
+}
+
+.clear-filter {
+  z-index: 120000;
 }
