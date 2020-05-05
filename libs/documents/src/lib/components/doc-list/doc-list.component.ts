@@ -1,11 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	Input,
+	Output,
+	EventEmitter,
+	OnChanges,
+	SimpleChanges,
+	ViewChild,
+	ElementRef
+} from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FormBuilder, AbstractControl } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Document } from '../../models/document.model';
-import { trackByFn as ngUtilTrackBy } from '@hza/shared/utils';
+import { trackByFn as ngUtilTrackBy, fileType } from '@hza/shared/utils';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
+import { faEnvelope, faFilePdf, faFileWord, faFileExcel } from '@fortawesome/free-regular-svg-icons';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -22,27 +36,34 @@ import { MatTableDataSource } from '@angular/material/table';
 	styleUrls: ['./doc-list.component.scss']
 })
 export class DocListComponent implements OnInit, OnChanges {
-
 	columns: string[] = ['select', 'Extension', 'DocFileName', 'DocType', 'FileSize', 'CreatedBy', 'CreatedDate'];
-
+	faEnvelope = faEnvelope;
+	faFilePdf = faFilePdf;
+	faFileWord = faFileWord;
+	faFileExcel = faFileExcel;
+	getFileType = fileType;
 	@ViewChild(MatSort) sort: MatSort;
 	dataSource: MatTableDataSource<Document>;
 	selection = new SelectionModel<Document>(true, []);
-	expandedDetail: Document | null;
+	expandedElement: Document | null;
 	readonly formControl: AbstractControl;
 	displayData: Document[];
 	@Input() documents: Document[];
 	// @Input() selectedDocument: Document;
 	@Output() selectedDoc = new EventEmitter<number>();
 
-	constructor(private clipboard: Clipboard, formBuilder: FormBuilder) {
+	constructor(
+		private clipboard: Clipboard,
+		formBuilder: FormBuilder,
+		registry: MatIconRegistry,
+		sanitizer: DomSanitizer
+	) {
 		// this.dataSource.filterPredicate = ((data, filter) => {
 		// 	const a = !filter.docFileName || data.docFileName.toLowerCase().includes(filter.docFileName);
 		// 	const b = !filter.createdBy || data.createdBy.toLowerCase().includes(filter.createdBy);
 		// 	const c = !filter.docType || data.docType.toLowerCase().includes(filter.docType);
 		// 	return a && b && c;
 		// }) as (Document, string) => boolean;
-
 		// this.formControl = formBuilder.group({
 		// 	docFilename: '',
 		// 	createdBy: '',
@@ -57,6 +78,14 @@ export class DocListComponent implements OnInit, OnChanges {
 		// 	} as string;
 		// 	this.dataSource.filter = filter;
 		// });
+		const svgEnvelope = icon(faEnvelope).html.join('');
+		const svgFileWord = icon(faFileWord).html.join('');
+		const svgFilePdf = icon(faFilePdf).html.join('');
+		const svgFileExcel = icon(faFileExcel).html.join('');
+		registry.addSvgIconLiteral('font-awesome', sanitizer.bypassSecurityTrustHtml(svgEnvelope));
+		registry.addSvgIconLiteral('font-awesome', sanitizer.bypassSecurityTrustHtml(svgFileWord));
+		registry.addSvgIconLiteral('font-awesome', sanitizer.bypassSecurityTrustHtml(svgFilePdf));
+		registry.addSvgIconLiteral('font-awesome', sanitizer.bypassSecurityTrustHtml(svgFileExcel));
 	}
 
 	ngOnInit() {
