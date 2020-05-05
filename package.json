@@ -61,6 +61,7 @@
     "@ngx-formly/schematics": "^5.5.14",
     "@nrwl/angular": "9.2.3",
     "@nrwl/nx-cloud": "^9.0.7",
+    "@swimlane/ngx-datatable": "^17.0.0",
     "@types/ramda": "^0.27.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/shadycss": "^1.9.6",

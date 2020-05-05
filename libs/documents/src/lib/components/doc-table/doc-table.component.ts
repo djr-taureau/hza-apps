@@ -24,9 +24,10 @@ export class DocTableComponent extends CoreTable<Document> {
 		// column definitions for CoreTable
 		super([
 			'select',
+			'Extension',
 			'DocFileName',
 			'DocType',
-			'CreatedDated',
+			'CreatedDate',
 			'CreatedBy',
 			'actions'
 		]);
