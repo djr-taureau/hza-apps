@@ -17,6 +17,12 @@
     </td>
   </ng-container>
 
+    <ng-container matColumnDef="Extension">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+    <td mat-cell *matCellDef="let element" class='file-name' tooltip="Click to Copy" (click)="copy(element.DocFileName)">
+      {{ element.Extension }}
+    </td>
+  </ng-container>
   <ng-container matColumnDef="DocFileName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>File Name</th>
     <td mat-cell *matCellDef="let element" class='file-name' tooltip="Click to Copy" (click)="copy(element.DocFileName)">

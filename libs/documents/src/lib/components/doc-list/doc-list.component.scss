@@ -14,7 +14,7 @@
   th.mat-header-cell {
     border: 1px solid rgba(55, 103, 142, 1);
     background-color: #8f9fb5;
-    padding-left: 2.4rem;
+    // padding-left: 2.4rem;
     height: 1em;
     font-size: 0.7em;
     font-weight: 600;
@@ -48,13 +48,96 @@
 
     border-bottom: none;
   }
-  td.mat-column-select.file-name {
-    text-align: left;
-  }
-}
 
-td.mat-column-select.file-name {
-  text-align: left;
+  td.mat-column-select {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 3% !important;
+    width: 3% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+  
+    td.mat-column-Extension {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 3% !important;
+    width: 3% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+  td.mat-column-DocFileName {
+    text-align: left;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 35% !important;
+    width: 35% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+
+  td.mat-column-DocType {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 25% !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+
+  td.mat-column-FileSize {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 8% !important;
+    width: 8% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+
+  td.mat-column-CreatedBy {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+
+  td.mat-column-CreatedDate {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 24% !important;
+    width: 24% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
 }
 
 .mat-table {
@@ -68,7 +151,7 @@ td.mat-column-select.file-name {
 th.mat-header-cell {
   border: 1px solid rgba(55, 103, 142, 1);
   background-color: #8f9fb5;
-  padding-left: 2.4rem;
+  // padding-left: 2.4rem;
   height: 1em;
   font-size: 1em;
   font-weight: 600;
@@ -76,6 +159,10 @@ th.mat-header-cell {
   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
   letter-spacing: 0.04em;
   line-height: 1em;
+  align-self: center;
+  place-items: center;
+  align-content: center;
+  justify-content: center;
   text-align: center;
 
   &:not(:last-child) {
@@ -105,12 +192,14 @@ td.mat-cell {
 
 tr.mat-row:nth-child(even) {
   font-size: 0.8em;
+  height: 1.8em;
   border: 1px solid rgba(55, 103, 142, 1);
   background-color: #fdf5f7;
 }
 
 tr.mat-row:nth-child(odd) {
   font-size: 0.8em;
+  height: 1.8em;
   border: 1px solid rgba(55, 103, 142, 1);
   background-color: #b1bfce;
 }

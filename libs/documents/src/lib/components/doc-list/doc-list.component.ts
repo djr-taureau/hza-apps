@@ -23,7 +23,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DocListComponent implements OnInit, OnChanges {
 
-	columns: string[] = ['select', 'DocFileName', 'DocType', 'FileSize', 'CreatedBy', 'CreatedDate'];
+	columns: string[] = ['select', 'Extension', 'DocFileName', 'DocType', 'FileSize', 'CreatedBy', 'CreatedDate'];
 
 	@ViewChild(MatSort) sort: MatSort;
 	dataSource: MatTableDataSource<Document>;
