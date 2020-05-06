@@ -19,8 +19,9 @@
       <button mat-flat-button hzaControlBarControl>Clear Filters</button>
     </hza-control-bar>
   </hza-section>
-  <hza-doc-list
-    class="doc-list"
+  <hza-doc-table
     [documents]="documents$ | async"
-  ></hza-doc-list>
+    [loaded]="docsLoaded$ | async"
+    [sticky]="sticky"
+  ></hza-doc-table>
 </div>

@@ -28,6 +28,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	theme = 'default';
 	collapsed = false;
 	opened: boolean;
+	sticky: boolean;
 
 	fetchingData: boolean;
 
@@ -35,6 +36,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		private docs: DocsFacade	) {}
 
 	ngOnInit() {
+		this.sticky = false;
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.docsTotal$ = this.docs.docTotal$;
 		this.docsLoaded$ = this.docs.docsLoaded$;

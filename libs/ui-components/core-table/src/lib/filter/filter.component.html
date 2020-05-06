@@ -1,13 +1,56 @@
-<!-- <ng-content></ng-content>
+<ng-content></ng-content>
 
 <span class="trigger">
-  <button #filterButton (click)="open(filterInput)">
+  <button #filterButton (click)="show(template, $event.target)">
     <mat-icon>filter_list</mat-icon>
   </button>
 </span>
 
-<ng-template #filterInput let-close="close">
-  <mat-form-field>
-    <input matInput [formControl]="filter" />
-  </mat-form-field>
-</ng-template> -->
+<ng-template #template let-data let-popover="popover">
+  <div
+    class="container"
+  >
+    <mat-form-field>
+      <mat-select [formControl]="operation">
+        <mat-option *ngFor="let op of operations" [value]="op">
+          {{ op.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [formControl]="filter" />
+    </mat-form-field>
+  </div>
+  <button (click)="popover.close()">Close</button>
+</ng-template>
+
+<!-- 
+<ng-content></ng-content>
+
+<mat-menu #menu="matMenu">
+  <div
+    class="container"
+    (click)="$event.stopPropagation()"
+    (keyup)="$event.stopPropagation()"
+    (keydown)="$event.stopPropagation()"
+  >
+    <mat-form-field>
+      <mat-select [formControl]="operation">
+        <mat-option *ngFor="let op of operations" [value]="op">
+          {{ op.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="needsFilter">
+      <input matInput [formControl]="filter" />
+    </mat-form-field>
+  </div>
+</mat-menu>
+
+<span class="trigger" [matMenuTriggerFor]="menu">
+  <mat-icon>filter_list</mat-icon>
+</span> -->
+
+
+ <!-- <mat-menu #menu="matMenu"></mat-menu>
+      <button [matMenuTriggerFor]="menu"></button>" -->

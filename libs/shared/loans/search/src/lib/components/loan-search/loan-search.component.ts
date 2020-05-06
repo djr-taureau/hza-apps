@@ -7,7 +7,8 @@ import {
 	OnInit,
 	Output,
 	ChangeDetectionStrategy,
-	AfterViewInit
+	AfterViewInit,
+	TemplateRef
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Loan } from '@hza/shared/loans/models';
@@ -85,23 +86,11 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 		this.overlayRef.close();
 	}
 
-	show(content: ComponentType<LoanSearchFormComponent>, origin) {
-		this.overlayRef = this.popover.open<{ values: string[] }>({
-			content,
-			origin,
-			data: {
-				values: ['1', '2', '3']
-			}
-		});
-		
-
-		this.overlayRef.afterClosed$.subscribe((res) => {
-			if (this.loanQuery) {
-				this.updateSearchBox(this.loanQuery.loanSearch);
-			}
-		});
-	}
-
+  show(template: TemplateRef<any>, target: HTMLElement): void {
+    this.popover.open(template, target, {
+      data: 'Woehoe'
+    });
+  }
 	updateSearchBox(value: string) {
 		this.searchBox.patchValue({
 			loanSearch: value

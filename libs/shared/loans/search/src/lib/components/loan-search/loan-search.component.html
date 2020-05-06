@@ -1,10 +1,10 @@
 <div #origin>
   <form [formGroup]="searchBox" class="search-box">
-    <a style="cursor: pointer;" (click)="show(tpl, origin)">
+    <a style="cursor: pointer;" (click)="show(template, $event.target)">
       <fa-icon size="2x" transform="left-2 down-2" [icon]="faSearch"></fa-icon>
     </a>
     <input
-      (mouseenter)="show(tpl, origin)"
+      (mouseenter)="show(template, $event.target)"
       formControlName="loanSearch"
       class="loan-search"
       style="cursor: pointer;"
@@ -16,7 +16,7 @@
   </form>
 </div>
 
-<ng-template class="search-modal" #tpl let-close="close">
+<ng-template class="search-modal" #template let-data let-popover="popover">
   <div class="grid-container">
     <div class="close-button">
       <fa-icon (click)="close()" [icon]="faTimes"></fa-icon>

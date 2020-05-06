@@ -7,16 +7,17 @@ import { YesNoComponent } from './components/yes-no/yes-no.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { OverlayService } from './services/overlay.service';
 import { OpenFocusDirective, OpenModalDirective } from './components/open-focus.directive'
-import { PopoverComponent } from './popover/popover.component';
-import { PopoverService } from './popover/popover.service';
 
-const COMPONENTS = [PopoverComponent, OverlayComponent, YesNoComponent, SubscribeComponent, OpenFocusDirective, OpenModalDirective];
+import { PopoverService } from './popover/popover.service';
+import { PopoverModule } from './popover/popover.module';
+
+const COMPONENTS = [OverlayComponent, YesNoComponent, SubscribeComponent, OpenFocusDirective, OpenModalDirective];
 
 @NgModule({
 	declarations: COMPONENTS,
-	imports: [OverlayModule, ReactiveFormsModule, OverlayCoreModule],
+	imports: [OverlayModule, ReactiveFormsModule, OverlayCoreModule, PopoverModule],
 	exports: COMPONENTS,
   	providers: [PopoverService, OverlayService, {provide: OverlayContainer, useClass: FullscreenOverlayContainer}],
-	entryComponents: [PopoverComponent, OverlayComponent, YesNoComponent, SubscribeComponent]
+	entryComponents: [OverlayComponent, YesNoComponent, SubscribeComponent]
 })
 export class UiComponentsOverlayModule {}

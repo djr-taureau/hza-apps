@@ -120,16 +120,16 @@ export class DocListComponent implements OnInit, OnChanges {
 	}
 	
 	
-	show(content: TemplateRef<any>, origin: HTMLElement) {
-  		const popoverRef = this.popover.open({
-    		content,
-    		origin
-  		});
+	// show(content: TemplateRef<any>, origin: HTMLElement) {
+  	// 	const popoverRef = this.popover.open({
+    // 		content,
+    // 		origin
+  	// 	});
 
-  		popoverRef.afterClosed$.subscribe(res => {
-    		console.log(res);
-  		});
-	}
+  	// 	popoverRef.afterClosed$.subscribe(res => {
+    // 		console.log(res);
+  	// 	});
+	// }
 	// 	show(content: ComponentType<LoanSearchFormComponent>, origin) {
 	// 	this.overlayRef = this.popover.open<{ values: string[] }>({
 	// 		content,
