@@ -1,43 +1,37 @@
-import { OverlayRef, FlexibleConnectedPositionStrategy, ConnectedOverlayPositionChange } from '@angular/cdk/overlay';
-import { Observable, Subject } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { Subject } from 'rxjs';
+import { PopoverParams } from './popover.service';
+import { TemplateRef, Type } from '@angular/core';
 
-import { PopoverConfig } from './popover-config';
+export type PopoverCloseEvent<T = any> = {
+  type: 'backdropClick' | 'close';
+  data: T;
+}
 
-/**
- * Reference to a popover opened via the Popover service.
- */
+export type PopoverContent = TemplateRef<any> | Type<any> | string;
+
 export class PopoverRef<T = any> {
-  private afterClosedSubject = new Subject<T>();
+  private afterClosed = new Subject<PopoverCloseEvent<T>>();
+  afterClosed$ = this.afterClosed.asObservable();
 
-  constructor(private overlayRef: OverlayRef,
-              private positionStrategy: FlexibleConnectedPositionStrategy,
-              public config: PopoverConfig) {
-    if (!config.disableClose) {
-      this.overlayRef.backdropClick().subscribe(() => {
-        this.close();
-      });
-
-      this.overlayRef.keydownEvents().pipe(
-        filter(event => event.key === 'Escape')
-      ).subscribe(() => {
-        this.close();
-      });
-    }
+  constructor(public overlay: OverlayRef,
+    public content: PopoverContent,
+    public data: T) {
+    overlay.backdropClick().subscribe(() => {
+      this._close('backdropClick', null);
+    });
   }
 
-  close(dialogResult?: T): void {
-    this.afterClosedSubject.next(dialogResult);
-    this.afterClosedSubject.complete();
-
-    this.overlayRef.dispose();
+  close(data?: T) {
+    this._close('close', data);
   }
 
-  afterClosed(): Observable<T> {
-    return this.afterClosedSubject.asObservable();
-  }
-
-  positionChanges(): Observable<ConnectedOverlayPositionChange> {
-    return this.positionStrategy.positionChanges;
+  private _close(type: PopoverCloseEvent['type'], data?: T) {
+    this.overlay.dispose();
+    this.afterClosed.next({
+      type,
+      data
+    });
+    this.afterClosed.complete();
   }
 }

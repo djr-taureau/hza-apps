@@ -1,15 +1,13 @@
 <ng-content></ng-content>
 
-<span class="trigger">
-  <button #filterButton (click)="show(template, $event.target)">
+<span class="trigger" #origin>
+  <button #filterButton (click)="show(tpl, origin)">
     <mat-icon>filter_list</mat-icon>
   </button>
 </span>
 
-<ng-template #template let-data let-popover="popover">
-  <div
-    class="container"
-  >
+<ng-template #tpl let-close="close">
+  <div class="container">
     <mat-form-field>
       <mat-select [formControl]="operation">
         <mat-option *ngFor="let op of operations" [value]="op">
@@ -21,7 +19,6 @@
       <input matInput [formControl]="filter" />
     </mat-form-field>
   </div>
-  <button (click)="popover.close()">Close</button>
 </ng-template>
 
 <!-- 
@@ -51,6 +48,5 @@
   <mat-icon>filter_list</mat-icon>
 </span> -->
 
-
- <!-- <mat-menu #menu="matMenu"></mat-menu>
+<!-- <mat-menu #menu="matMenu"></mat-menu>
       <button [matMenuTriggerFor]="menu"></button>" -->

@@ -12,7 +12,7 @@ import { FormControl } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { MatInput } from '@angular/material/input';
-import { PopoverService } from '@hza/ui-components/overlay';
+import { PopoverService, PopoverRef } from '@hza/ui-components/overlay';
 import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
 import { ElementRef } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
@@ -34,6 +34,8 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	filter = new FormControl();
 	operation = new FormControl();
 	operations: any[];
+	
+	overlayRef: PopoverRef;
 
 	// @HostBinding('class.has-value')
 	// get hasValue(): boolean {
@@ -70,12 +72,23 @@ export class CoreTableFilterComponent implements AfterViewInit {
 		// }
 		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 	}
+		show(content: TemplateRef<any>, origin) {
+		this.overlayRef = this.popover.open<{ values: string[] }>({
+			content,
+			origin,
+			data: {
+				values: ['1', '2', '3']
+			}
+		});
+		
 
-    show(template: TemplateRef<any>, target: HTMLElement): void {
-    this.popover.open(template, target, {
-      data: 'Woehoe'
-    });
-  }
+		// this.overlayRef.afterClosed$.subscribe((res) => {
+		// 	if (this.loanQuery) {
+		// 		this.updateSearchBox(this.loanQuery.loanSearch);
+		// 	}
+		// });
+	}
+ 
 }
 
 const contains = (a: string, b: string): boolean => a.includes(b);

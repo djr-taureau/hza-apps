@@ -80,17 +80,26 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 		this.query.emit($event);
 		this.updateSearchBox($event.loanSearch);
 	}
-	
+
 	selectedLoan($event) {
 		this.loanNumber.emit($event);
 		this.overlayRef.close();
 	}
+	show(content: ComponentType<LoanSearchFormComponent>, origin) {
+		this.overlayRef = this.popover.open<{ values: string[] }>({
+			content,
+			origin,
+			data: {
+				values: ['1', '2', '3']
+			}
+		});
 
-  show(template: TemplateRef<any>, target: HTMLElement): void {
-    this.popover.open(template, target, {
-      data: 'Woehoe'
-    });
-  }
+		this.overlayRef.afterClosed$.subscribe((res) => {
+			if (this.loanQuery) {
+				this.updateSearchBox(this.loanQuery.loanSearch);
+			}
+		});
+	}
 	updateSearchBox(value: string) {
 		this.searchBox.patchValue({
 			loanSearch: value
