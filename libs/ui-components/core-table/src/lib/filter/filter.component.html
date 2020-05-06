@@ -1,6 +1,20 @@
 <ng-content></ng-content>
 
-<span class="trigger" #origin>
+<!-- <ng-content></ng-content> -->
+
+ <!-- <span class="trigger">
+  <button #filterButton (click)="open(filterInput)">
+    <mat-icon>filter_list</mat-icon>
+  </button>
+</span>
+
+<ng-template #filterInput let-close="close">
+  <mat-form-field>
+    <input matInput [formControl]="filter" />
+  </mat-form-field>
+</ng-template>  -->
+
+ <span class="trigger" hzaCdkOverlayContainer #origin>
   <button #filterButton (click)="show(tpl, origin)">
     <mat-icon>filter_list</mat-icon>
   </button>
@@ -21,32 +35,30 @@
   </div>
 </ng-template>
 
-<!-- 
-<ng-content></ng-content>
+<!-- <ng-content></ng-content>
 
-<mat-menu #menu="matMenu">
+
+<span hzaCdkOverlayContainer class="trigger" [matMenuTriggerFor]="menu">
+  <mat-icon>filter_list</mat-icon>
+</span>
+<mat-menu class="hza-elevation-15" #menu="matMenu">
   <div
     class="container"
     (click)="$event.stopPropagation()"
     (keyup)="$event.stopPropagation()"
     (keydown)="$event.stopPropagation()"
   >
-    <mat-form-field>
+    <mat-form-field class="hza-elevation-18">
       <mat-select [formControl]="operation">
         <mat-option *ngFor="let op of operations" [value]="op">
           {{ op.text }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="needsFilter">
+    <mat-form-field class="hza-elevation-18">
       <input matInput [formControl]="filter" />
     </mat-form-field>
   </div>
-</mat-menu>
+</mat-menu>  -->
 
-<span class="trigger" [matMenuTriggerFor]="menu">
-  <mat-icon>filter_list</mat-icon>
-</span> -->
 
-<!-- <mat-menu #menu="matMenu"></mat-menu>
-      <button [matMenuTriggerFor]="menu"></button>" -->

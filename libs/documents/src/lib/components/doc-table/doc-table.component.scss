@@ -1,11 +1,17 @@
 @import '../../../../../shared/styles/src/index.scss';
+@import '../../../../../shared/styles/src/scss/global/elevation';
 
 :host {
   display: flex;
   align-self: start;
   flex-direction: column;
-  z-index: 2;
 
+  @extend .hza-elevation
+}
+
+.mat-header-row {
+  position: sticky;
+}
   th.mat-header-cell {
     border: 1px solid rgba(55, 103, 142, 1);
     background-color: #8f9fb5;
@@ -157,7 +163,7 @@
 //   font-size: 0.8rem;
 //   letter-spacing: 0.015rem;
 // }
-}
+
 
 @include base;
 @include progress;

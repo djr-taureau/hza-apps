@@ -17,7 +17,7 @@
 </div>
 
 <ng-template class="search-modal" #tpl let-close="close">
-  <div class="grid-container">
+  <div class="grid-container hza-elevation-24">
     <div class="close-button">
       <fa-icon (click)="close()" [icon]="faTimes"></fa-icon>
     </div>
@@ -29,7 +29,10 @@
     </div>
     <div *ngIf="loansLoaded" class="loans-list">
       <ng-container *ngIf="loans.length > 0">
-        <hza-loans-list [loans]="loans" (loanNumber)="selectedLoan($event)"></hza-loans-list>
+        <hza-loans-list
+          [loans]="loans"
+          (loanNumber)="selectedLoan($event)"
+        ></hza-loans-list>
       </ng-container>
     </div>
   </div>

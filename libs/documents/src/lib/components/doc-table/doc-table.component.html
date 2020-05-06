@@ -1,5 +1,5 @@
 <cdk-virtual-scroll-viewport itemSize="25" style="height:40vh; width:100%" coreTableVirtualScroll>
-  <table mat-table matSort [dataSource]="dataSource">
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="select">
       <th mat-header-cell *matHeaderCellDef>
         <!-- <mat-checkbox (change)="$event && toggleAll()" [checked]="selectedAll" [indeterminate]="indeterminate">
@@ -59,8 +59,8 @@
         <mat-progress-bar [class.show]="pending" mode="indeterminate"></mat-progress-bar>
       </th>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: sticky"></tr>
-    <tr mat-header-row class="progress" *matHeaderRowDef="['progress']; sticky: sticky"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+    <tr mat-header-row class="progress" *matHeaderRowDef="['progress']; sticky: false"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </cdk-virtual-scroll-viewport>
