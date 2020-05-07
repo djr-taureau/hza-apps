@@ -5,12 +5,14 @@
   display: flex;
   align-self: start;
   flex-direction: column;
+  z-index: 15;
 
   @extend .hza-elevation
 }
 
 .mat-header-row {
   position: sticky;
+  // transform: translateY(-190px)
 }
   th.mat-header-cell {
     border: 1px solid rgba(55, 103, 142, 1);

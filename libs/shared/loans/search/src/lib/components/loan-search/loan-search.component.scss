@@ -101,9 +101,10 @@ a {
   background-color: white;
   border: 2px solid rgba(55, 103, 142, 1);
   border-radius: 5px;
-  // box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px black;
   z-index: 50;
-  left: calc(18em - 78vw);
+  // left: calc(1em - 90vw);
+  margin-left: calc(60% - 50vw);
   top: 15em;
-  width: 78vw;
+  width: 90vw;
 }

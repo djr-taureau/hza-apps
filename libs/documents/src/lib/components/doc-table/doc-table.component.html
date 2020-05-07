@@ -59,8 +59,8 @@
         <mat-progress-bar [class.show]="pending" mode="indeterminate"></mat-progress-bar>
       </th>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
-    <tr mat-header-row class="progress" *matHeaderRowDef="['progress']; sticky: false"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-header-row class="progress" *matHeaderRowDef="['progress']; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </cdk-virtual-scroll-viewport>

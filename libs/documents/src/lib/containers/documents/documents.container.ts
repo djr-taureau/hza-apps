@@ -1,14 +1,8 @@
-import {
-	Component,
-	OnInit,
-	ChangeDetectionStrategy,
-	OnDestroy,
-	OnChanges} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
-
 
 @Component({
 	selector: 'hza-doc-repo',
@@ -32,8 +26,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 
 	fetchingData: boolean;
 
-	constructor(
-		private docs: DocsFacade	) {}
+	constructor(private docs: DocsFacade) {}
 
 	ngOnInit() {
 		this.sticky = false;
@@ -58,5 +51,4 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		console.log(id);
 		this.docs.selectDoc(id);
 	}
-
 }

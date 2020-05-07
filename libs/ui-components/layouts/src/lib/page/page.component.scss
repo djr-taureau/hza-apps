@@ -19,7 +19,7 @@
 .feature-container {
     z-index: 5;
     grid-row-end: span 1;
-    float: left;
+    // float: left;
 }
 
 .hza-page {
@@ -32,8 +32,10 @@
 }
 
 .full-page {
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: repeat(5, 1fr);
+  // grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: minmax(auto, 12em) 8fr;
+  grid-template-rows: auto 1fr auto;
 }
 
 

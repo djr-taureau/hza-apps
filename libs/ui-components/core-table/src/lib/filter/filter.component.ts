@@ -37,20 +37,6 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	@ViewChild('filterButton') filterButton: ElementRef;
 	overlayRef: PopoverRef;
 
-	// @HostBinding('class.has-value')
-	// get hasValue(): boolean {
-	// 	return !this.needsFilter || this.filter.value;
-	// }
-
-	// @HostBinding('class.show-trigger')
-	// get showTrigger(): boolean {
-	// 	return this.menu.menuOpen || this.hasValue;
-	// }
-
-	// get needsFilter(): boolean {
-	// 	return this.operation.value.needsFilter;
-	// }
-
 	constructor(
 		private popover: PopoverService,
 		private overlayService: OverlayService,
