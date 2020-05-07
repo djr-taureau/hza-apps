@@ -50,11 +50,15 @@ export class PageComponent implements OnDestroy {
   listenForPageLayout() {
     this.router.events.pipe(takeUntil(this.unsubscribe)).subscribe(event => {
       if (isEndOfNavigation(event)) {
+        console.log('page', event);
         let child = this.activatedRoute.firstChild;
         while (child) {
+          console.log('page', child);
           if (child.firstChild) {
             child = child.firstChild;
+            console.log('page', child);
           } else if (has(ROUTE_DATA_PAGE_LAYOUT, child.snapshot.data)) {
+            console.log('page', child.snapshot.data);
             return prop(ROUTE_DATA_PAGE_LAYOUT, child.snapshot.data);
           } else {
             return null;

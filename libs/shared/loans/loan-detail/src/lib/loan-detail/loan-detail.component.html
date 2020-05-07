@@ -1,63 +1,51 @@
-<div class="container">
-<!-- TODO:: djr - hza-elevation - Add to elevation in global framework styles -->
-  <hza-section class="theme-grey">
-    <hza-control-bar>
-      <h2 class="title-bar" hzaSectionTitle>0000014119</h2>
-    </hza-control-bar>
-  </hza-section>
-  <hza-section>
-    <div class="padded float-left">
-      <label id="label" for="BorrowerName">Borrower Name</label>
-      <input
-        type="text"
-        disabled
-        class="right"
-        name="BorrowerName"
-        value="Michael Shapiro"
-      />
-      <label id="label" for="BorrowerSSN">Borrower SSN</label>
-      <input
-        type="text"
-        name="BorrowerSSN"
-        value="XXX-XX-2322"
-        disabled
-        class="right longdate"
-      />
-    </div>
-    <div class="padded float-left">
-      <label id="label" for="CoBorrowerName">Co-Borrower Name</label>
-      <input
-        type="text"
-        disabled
-        class="right"
-        name="CoBorrowerName"
-        value="Michael Shapiro"
-      />
-      <label id="label" for="CoBorrowerSSN">Co-Borrower SSN</label>
-      <input
-        type="text"
-        name="CoBorrowerSSN"
-        value="XXX-XX-2322"
-        disabled
-        class="right longdate"
-      />
-    </div>
-    <div class="padded float-left">
-      <label id="label" for="Investor">Investor</label>
-      <input
-        type="text"
-        disabled
-        class="right"
-        name="InvestorName"
-        value="Mickey Mouse"
-      />
-    </div>
-    <div class="padded float-left">
-      <label id="label" for="Property">Property</label>
-      <textarea name="Property" class="xwide" disabled>
-        18307  MEANDERING MEADOW LN
-        HOUSTON, TX  77084
-      </textarea>
-    </div>
-  </hza-section>
-</div>
+
+  <div class="container">
+    <!-- TODO:: djr - hza-elevation - Add to elevation in global framework styles -->
+    <hza-section>
+      <hza-control-bar>
+        <h2 class="title-bar" hzaSectionTitle>{{ loanNumber }}</h2>
+      </hza-control-bar>
+    </hza-section>
+    <hza-section>
+      <form *ngIf="loan$ | async; let loan; else loading" [formGroup]="loanForm">
+        <div class="padded float-left">
+          <label id="label" for="BorrowerName">Borrower Name</label>
+          <input
+            id="borrower"
+            type="text"
+            class="right"
+            name="BorrowerName"
+            formControlName="borrower"
+          />
+          <label id="label" for="BorrowerSSN">Borrower SSN</label>
+          <input
+            id="borrowerPrimarySSN"
+            type="text"
+            name="BorrowerSSN"
+            formControlName="borrowerPrimarySSN"
+            class="right longdate"
+          />
+        </div>
+        <div class="padded float-left">
+          <label id="label" for="PropertyCity">Property City</label>
+          <input
+            id="propertyCity"
+            type="text"
+            formControlName="propertyCity"
+            class="right"
+            name="PropertyCity"
+            value=""
+          />
+        </div>
+        <div class="padded float-left">
+          <label id="label" for="PropertyAddress">Property Address</label>
+          <textarea id="propertyAddress1" formControlName="propertyAddress1" name="PropertyAddress" class="xwide">
+        </textarea>
+        </div>
+      </form>
+    </hza-section>
+  </div>
+
+<ng-template #loading>
+  Loading Loan Data...
+</ng-template>

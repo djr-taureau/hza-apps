@@ -24,7 +24,7 @@ export class DocsFacade {
     this.store.dispatch(DocActions.loadDocs());
   }
 
-  selectDoc(id: number) {
-    this.store.dispatch(DocActions.selectDoc({ id }));
+  selectDoc(ID: number) {
+    this.store.dispatch(DocActions.selectDoc({ ID }));
   }
 }

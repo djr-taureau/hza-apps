@@ -1,19 +1,27 @@
-<div class="container">
-  <hza-section class="theme-grey">
+<div class="hza-elevatation-10 container">
+  <hza-section>
     <hza-control-bar>
       <h2 class="title-bar" hzaSectionTitle>Repository</h2>
     </hza-control-bar>
   </hza-section>
+  PLACEHOLDER FOR DOC UPLOAD
   <hza-section>
-    <hza-foo></hza-foo>
-  </hza-section>
-  <hza-section class="theme-grey">
     <hza-control-bar>
       <h2 class="title-bar" hzaSectionTitle>Documents</h2>
+      <select hzaControlBarControl name="showDocs" placeHolder="25 Documents">
+        <option value="25" selected="selected">
+          25 Documents
+        </option>
+        <option value="'all'">
+          All Documents
+        </option>
+      </select>
+      <button mat-flat-button hzaControlBarControl>Clear Filters</button>
     </hza-control-bar>
   </hza-section>
-  <hza-section>
-    <hza-foo></hza-foo>
-  </hza-section>
+  <hza-doc-table
+    [documents]="documents$ | async"
+    [loaded]="docsLoaded$ | async"
+    [sticky]="sticky"
+  ></hza-doc-table>
 </div>
-

@@ -5,6 +5,8 @@ import { DocFooterComponent } from '../components/doc-footer/doc-footer.componen
 import { DocHeaderComponent } from '../components/doc-header/doc-header.component';
 import { DocumentsContainer } from '../containers/documents/documents.container';
 import { DocumentsGuard } from '../services/documents.guard';
+import { LoanDetailComponent } from '@hza/shared/loans/loan-detail';
+import { FooComponent } from '../components/foo/foo.component';
 
 @NgModule({
 	imports: [
@@ -14,7 +16,7 @@ import { DocumentsGuard } from '../services/documents.guard';
 				component: PageComponent,
 				data: {
 					title: 'Doc Repository',
-					pageLayout: 'full-page',
+					pageLayout: 'full-page'
 				},
 				children: [
 					{
@@ -22,12 +24,16 @@ import { DocumentsGuard } from '../services/documents.guard';
 						pathMatch: 'full',
 						children: [
 							{ path: '', outlet: 'page-header', component: DocHeaderComponent },
-							// { path: '', component: DocumentsMainContainer },
-
-							// { path: '', outlet: 'feature-one', component: LoanDetailComponent},
-							// { path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] },
-
 							{ path: '', outlet: 'page-footer', component: DocFooterComponent }
+						]
+					},
+					{
+						path: 'repo',
+						children: [
+							{ path: '', outlet: 'feature-one', component: LoanDetailComponent },
+							{ path: '', outlet: 'feature-two', component: DocumentsContainer, canActivate: [DocumentsGuard] }
+							// { path: '', outlet: 'feature-two', component: DocumentsContainer },
+							// { path: '', outlet: 'feature-three', component: FooComponent },
 						]
 					}
 				]

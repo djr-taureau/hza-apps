@@ -1,13 +1,14 @@
 @import '../../../../../shared/styles/src/index.scss';
 
 .hza-section-title {
-  font-size: 2.4rem;
+  font-size: 1em;
   font-weight: normal;
   letter-spacing: 0.02rem;
   text-align: left;
-  margin: 15px 0;
+  place-items: stretch;
+  margin: 1em 0;
   color: white;
-} 
+}
 
 .hza-section-subtitle {
   color: #153c3f;
@@ -20,5 +21,5 @@
 }
 
 .hza-app-header {
-  font-weight: $font-weight-black
+  font-weight: $font-weight-black;
 }

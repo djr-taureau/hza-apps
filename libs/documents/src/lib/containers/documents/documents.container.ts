@@ -1,20 +1,8 @@
-import {
-	Component,
-	OnInit,
-	ChangeDetectionStrategy,
-	OnDestroy,
-	OnChanges,
-	ViewChild,
-	ViewContainerRef} from '@angular/core';
-import { Router } from '@angular/router';
-import { runCssVarsPolyfill } from '@clr/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
 import { Observable, Subject, asyncScheduler } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
-import { LazyLoaderService } from '@hza/core';
-import { OverlayService } from '@hza/ui-components/overlay';
-
 
 @Component({
 	selector: 'hza-doc-repo',
@@ -34,23 +22,20 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	theme = 'default';
 	collapsed = false;
 	opened: boolean;
+	sticky: boolean;
 
 	fetchingData: boolean;
 
-	@ViewChild('loanSearch', { read: ViewContainerRef, static: false })
-	loanSearch: ViewContainerRef;
-
-	constructor(
-		private docs: DocsFacade	) {}
+	constructor(private docs: DocsFacade) {}
 
 	ngOnInit() {
+		this.sticky = false;
 		this.documents$ = this.docs.documents$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.docsTotal$ = this.docs.docTotal$;
 		this.docsLoaded$ = this.docs.docsLoaded$;
 		this.selectedDoc$ = this.docs.selectedDoc$;
 		this.opened = false;
 		this.fetchingData = false;
-		runCssVarsPolyfill();
 	}
 
 	ngOnChanges() {
@@ -66,5 +51,4 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		console.log(id);
 		this.docs.selectDoc(id);
 	}
-
 }

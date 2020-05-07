@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ScrollDispatcher, ScrollingModule } from '@angular/cdk/scrolling';
 // ** THIRD PARTY MODULES
 
 // ** MODULES FOR THIS FEATURE LIB * CUSTOM MODULES
@@ -13,6 +14,7 @@ import {
 	DocumentsUiModule
 } from './+modules';
 import { SharedLoansSearchModule } from '@hza/shared/loans/search';
+import { SharedLoanDetailModule } from '@hza/shared/loans/loan-detail';
 // ** RESOURCES FROM THIS MODULE
 import { DocumentsMainContainer } from './containers/documents-main/documents-main.container';
 import { DocumentsContainer } from './containers/documents/documents.container';
@@ -22,8 +24,9 @@ import { DocListComponent } from './components/doc-list/doc-list.component';
 import { DocTableComponent } from './components/doc-table/doc-table.component';
 import { DocHeaderComponent } from './components/doc-header/doc-header.component';
 import { DocFooterComponent } from './components/doc-footer/doc-footer.component';
-import { LoanDetailComponent } from './components/loan-detail/loan-detail.component';
 import { FooComponent } from './components/foo/foo.component';
+import { DocDataListComponent } from './components/doc-data-list/doc-data-list.component';
+import { DocDataTableComponent } from './components/doc-data-table/doc-data-table.component';
 
 
 
@@ -36,16 +39,19 @@ const COMPONENTS = [
 	DocScrollComponent,
 	DocListComponent,
 	DocTableComponent,
-	LoanDetailComponent,
-	FooComponent
+	FooComponent,
+	DocDataListComponent,
+	DocDataTableComponent
 ];
 
 @NgModule({
 	imports: [
 		CommonModule,
 		FormsModule,
+		ScrollingModule,
 		ReactiveFormsModule,
 		SharedLoansSearchModule,
+		SharedLoanDetailModule,
 		DocumentsCoreModule,
 		DocumentsUiModule,
 		DocumentsRoutingModule,
@@ -53,6 +59,6 @@ const COMPONENTS = [
 		DocumentsStateModule
 	],
 	declarations: [COMPONENTS],
-	providers: []
+	providers: [ScrollDispatcher]
 })
 export class DocumentsModule {}

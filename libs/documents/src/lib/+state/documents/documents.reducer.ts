@@ -14,7 +14,7 @@ export interface DocsState extends EntityState<Document> {
 }
 
 export const adapter: EntityAdapter<Document> = createEntityAdapter<Document>({
-  selectId: (document: Document) => document.id,
+  selectId: (document: Document) => document.ID,
   sortComparer: false,
 });
 
@@ -56,9 +56,9 @@ export const reducer = createReducer(
    */
   // ** Select an individual document for docment detail
   on(DocActions.loadDoc, (state, { document }) => adapter.addOne(document, state)),
-  on(DocActions.selectDoc, (state, { id }) => ({
+  on(DocActions.selectDoc, (state, { ID }) => ({
     ...state,
-    selectedDocId: id,
+    selectedDocId: ID,
   })),
 );
 

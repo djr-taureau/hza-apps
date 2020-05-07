@@ -1,3 +1,7 @@
+:host {
+  z-index: 4;
+}
+
 .header {
   display: grid;
   grid-template-columns: 8;
@@ -7,7 +11,7 @@
   padding-left: 0.25em;
   height: 4.5em;
   line-height: 24px;
-  padding-left: .25em;
+  // padding-left: .1em;
 
   /* needed for the floated layout */
   clear: both;
@@ -29,12 +33,8 @@
     grid-column-end: 4;
     color: #000;
     display: inline-block;
-    font-family: "Segoe UI",
-      Verdana,
-      Helvetica,
-      sans-serif;
     font-size: 3em;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.25em;
     margin-bottom: 0;
     margin-top: .2em;
@@ -46,23 +46,19 @@
 
 
   div.login {
-    grid-column-start: 7;
-    grid-column-end: 8;
+    // grid-column-start: 7;
+    // grid-column-end: 8;
     border: 1px solid #000;
     color: #000;
-    font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
     height: 3.5em;
     line-height: 24px;
     padding: .25em;
     text-align: left;
+    margin-left: 1em;
   }
 
   h3 {
     color: #000;
-    font-family: "Segoe UI",
-      Verdana,
-      Helvetica,
-      sans-serif;
     font-size: 19.2px;
     font-weight: 700;
     line-height: 3em;
@@ -95,9 +91,11 @@
 
 }
 
-// background-image: url('/assets/images/person.png');
 div.search {
   grid-column-start: 5;
   grid-column-end: 6;
-  place-self: end;
+  align-self: end;
+  justify-self: end;
+  justify-items: end;
+  justify-content: end;
 }

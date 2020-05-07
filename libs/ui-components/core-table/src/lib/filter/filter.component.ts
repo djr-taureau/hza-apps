@@ -2,21 +2,20 @@ import {
 	AfterViewInit,
 	ChangeDetectionStrategy,
 	Component,
-	HostBinding,
 	Output,
 	ViewChild,
 	TemplateRef,
-	HostListener,
-	ViewContainerRef
+	ViewContainerRef,
+	HostBinding
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { MatInput } from '@angular/material/input';
-import { OverlayService, OpenFocusDirective } from '@hza/ui-components/overlay';
+import { PopoverService, PopoverRef, OverlayService } from '@hza/ui-components/overlay';
 import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
 import { ElementRef } from '@angular/core';
-import { PositionStrategy } from '@angular/cdk/overlay';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
 	selector: 'core-table-filter',
@@ -28,15 +27,21 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	@Output() change: Observable<(text: string) => boolean>;
 
 	@ViewChild(MatInput) input: MatInput;
+	@ViewChild(MatMenuTrigger) menu: MatMenuTrigger;
+
 	@ViewChild('overlayTemplate') overlayTemplate: TemplatePortalDirective;
-	@ViewChild('filterButton') filterButton: ElementRef
-	
-	private _portal: TemplatePortal<any>;
+
 	filter = new FormControl();
 	operation = new FormControl();
 	operations: any[];
+	@ViewChild('filterButton') filterButton: ElementRef;
+	overlayRef: PopoverRef;
 
-	constructor(private overlayService: OverlayService, private _viewContainerRef: ViewContainerRef) {
+	constructor(
+		private popover: PopoverService,
+		private overlayService: OverlayService,
+		private _viewContainerRef: ViewContainerRef
+	) {
 		this.operations = operations;
 		this.operation.setValue(operations[0]);
 
@@ -51,20 +56,32 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit() {
+		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// if (this.showTrigger) {
 		// 	console.log('who')
 		// }
 		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 	}
+	show(content: TemplateRef<any>, origin) {
+		this.overlayRef = this.popover.open<{ values: string[] }>({
+			content,
+			origin,
+			data: {
+				values: ['1', '2', '3']
+			}
+		});
+		this.overlayRef.afterClosed$.subscribe((res) => {
+			console.log(res);
+		});
+	}
 
-	// open(content: TemplateRef<any>) {
-	
-	// 	const ref = this.overlayService.open(content, null, this.filterButton);
-		
-	// 	ref.afterClosed$.subscribe((res) => {
-	// 		console.log(res);
-	// 	});
-	// }
+	open(content: TemplateRef<any>) {
+		const ref = this.overlayService.open(content, this.filterButton);
+
+		ref.afterClosed$.subscribe((res) => {
+			console.log(res);
+		});
+	}
 }
 
 const contains = (a: string, b: string): boolean => a.includes(b);

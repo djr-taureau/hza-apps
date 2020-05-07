@@ -1,5 +1,5 @@
 export interface Document {
-  id: number;
+  ID: number;
   Documentid: string;
   MetaDataType: string;
   MetaDataValue: string;
@@ -23,3 +23,6 @@ export interface Document {
   MeridianImport: boolean;
   ScanStatus: string;
 }
+
+
+export type Documents = Document[];

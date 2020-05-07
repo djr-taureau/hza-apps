@@ -1,9 +1,11 @@
+@import '../../../../../../styles/src/scss/global/elevation';
 :host {
   input.loan-search {
     color: black;
     font-size: 1em;
     font-weight: 500;
   }
+   @extend .hza-elevation;
 }
 
 
@@ -100,7 +102,9 @@ a {
   border: 2px solid rgba(55, 103, 142, 1);
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
-  z-index: 12000;
-  left: calc(15em - 75vw);
-  width: 75vw;
+  z-index: 50;
+  // left: calc(1em - 90vw);
+  margin-left: calc(60% - 50vw);
+  top: 15em;
+  width: 90vw;
 }

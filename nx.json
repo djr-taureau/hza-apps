@@ -84,6 +84,18 @@
     "ui-components-file-upload": {
       "tags": ["scope:shared", "type:ui"]
     },
+    "ui-components-text-list": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-value-callout": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-value-list": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-data-list": {
+      "tags": ["scope:shared", "type:ui"]
+    },
     "doc-repo": {
       "tags": []
     },

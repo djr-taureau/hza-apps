@@ -1,3 +1,9 @@
+@import '../../../../../shared/styles/src/scss/global/elevation';
+
+:host {
+  @extend .hza-elevation;
+}
+
 footer {
   grid-column: 1 / -1;
   position: fixed;
@@ -7,7 +13,8 @@ footer {
   clear: both;
   background-color: #e2e2e2;
   height: 1.5rem;
-  z-index: 999999;
   border-top: 1px solid black;
   clear: both;
+  visibility: visible !important;
+  z-index: 24;
 }

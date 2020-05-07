@@ -1,14 +1,21 @@
-.container {
-  width: 1600px;
-  display: grid;
-  grid-row: 2 / 4;
-  grid-column: 1 / 8;
-  padding: 0;
-  margin: 0;
-  border: 2px solid rgba(55, 103, 142, 1);
-}
+:host {
+  .container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #37678e;
+    border-radius: 5px;
+    box-shadow: #000 5px 5px 10px;
+    color: #000;
+    float: left;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+    line-height: 24px;
+    margin: 0.5em 0 0 0.5em;
+    z-index: 1;
+  }
 
-div.padded.float-left {
+  div.padded.float-left {
   color: #000000;
   display: block;
   float: left;
@@ -46,3 +53,6 @@ textarea {
   width: 20em;
   min-width: 20em;
 }
+
+}
+

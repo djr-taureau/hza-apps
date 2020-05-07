@@ -14,6 +14,23 @@ export interface Loan {
   propertyCity: string;
 }
 
+export interface LoanDetail {
+  borrower: string;
+  borrowerPrimarySSN: string;
+  propertyAddress1: string;
+  propertyCity: string;
+}
+
+
+export function toLoanFormValue<T extends LoanDetail>(data: T): LoanDetail {
+  return {
+    borrower: data.borrower,
+    borrowerPrimarySSN: data.borrowerPrimarySSN,
+    propertyAddress1: data.propertyAddress1,
+    propertyCity: data.propertyCity
+  }
+}
+
 // export function generateMockLoan(): Loan {
 //   return {
 

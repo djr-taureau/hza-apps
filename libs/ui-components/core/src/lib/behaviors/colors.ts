@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { Constructor } from '@hza/shared';
+import { Constructor } from '@hza/shared/utils';
 import { HasCssModifiers } from './css-modifiers';
 
 export interface HasColor {

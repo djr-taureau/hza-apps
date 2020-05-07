@@ -1,33 +1,27 @@
-  :host {
-    display: flex;
-    flex-direction: column;
+:host {
+  display: flex;
+  align-self: start;
+  flex-direction: column;
+  z-index: 2;
 
-    h2 {
-      font-size: 1.75em;
-      background-color: rgba(59, 103, 142, 1);
-      color: white;
-      padding: 0.25em;
-    }
-  }
-
-  .mat-table {
-    flex: 1;
-  }
-
-  .mat-sort-header-arrow {
-    color: #f26623;
+  h2 {
+    font-size: 1.75em;
+    background-color: rgba(59, 103, 142, 1);
+    color: white;
+    padding: 0.25em;
   }
 
   th.mat-header-cell {
     border: 1px solid rgba(55, 103, 142, 1);
     background-color: #8f9fb5;
-    padding-left: 2.4rem;
-    font-size: 0.02rem;
+    // padding-left: 2.4rem;
+    line-height: .7em;
+    font-size: 0.7em;
     font-weight: 600;
 
     font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
-    letter-spacing: 0.03em;
-    line-height: 0.02rem;
+    letter-spacing: 0.04em;
+    line-height: 0.07em;
     text-align: center;
 
     &:not(:last-child) {
@@ -40,9 +34,13 @@
   }
 
   td.mat-cell {
-    padding-left: 2.4rem;
-    font-size: 0.6rem;
-    border: 1px solid rgba(55, 103, 142, 1);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+    font-size: 0.8em;
+    line-height: 1em;
+    text-align: center;
+    border: 1px solid rgb(159, 168, 175);
 
     &:not(:last-child) {
       border-right: 1px solid rgba(55, 103, 142, 1);
@@ -51,83 +49,194 @@
     border-bottom: none;
   }
 
-  tr.mat-row:nth-child(even) {
-    font-size: 0.6rem;
-    border: 1px solid rgba(55, 103, 142, 1);
-    background-color: #FDF5F7;
+  td.mat-column-select {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 3% !important;
+    width: 3% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+  
+    td.mat-column-Extension {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.7em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 3% !important;
+    width: 3% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+  td.mat-column-DocFileName {
+    text-align: left;
+    line-height: 1em;
+    font-size: 0.7em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 35% !important;
+    width: 35% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
   }
 
-  tr.mat-row:nth-child(odd) {
-    font-size: 0.6rem;
-    border: 1px solid rgba(55, 103, 142, 1);
-    background-color: #b1bfce;
+  td.mat-column-DocType {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.7em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 25% !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
   }
 
-  td.mat-cell:first-child,
-  td.mat-footer-cell:first-child,
-  th.mat-header-cell:first-child {
-    padding-left: 3.8rem;
+  td.mat-column-FileSize {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.7em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 8% !important;
+    width: 8% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
   }
 
-  .mat-column-select {
-    border-right: none !important;
-    width: 2rem !important;
-
-    :host ::ng-deep .mat-checkbox-frame {
-      border: none !important;
-      // background: #fff;
-      // border-color: #E5E3E3 !important;
-    }
-
-    :host ::ng-deep .mat-checkbox-checkmark-path,
-    :host ::ng-deep .mat-checkbox-mixedmark {
-      background-color: #f26623;
-      stroke: #f26623 !important;
-    }
-
-    :host ::ng-deep .mat-checkbox-inner-container {
-      background-color: #fff;
-      border-radius: 3px;
-      border: solid 1px #e5e3e5;
-    }
-
-    :host ::ng-deep .mat-checkbox-background {
-      background-color: #fff;
-    }
+  td.mat-column-CreatedBy {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.7em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
   }
 
-  .mat-column-name {
-    padding-left: 1.8rem !important;
+  td.mat-column-CreatedDate {
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.7em;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 24% !important;
+    width: 24% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  }
+}
+
+.mat-table {
+  flex: 1;
+}
+
+.mat-sort-header-arrow {
+  color: #f26623;
+}
+
+th.mat-header-cell {
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #8f9fb5;
+  // padding-left: 2.4rem;
+  height: 1em;
+  font-size: 1em;
+  font-weight: 600;
+
+  font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
+  letter-spacing: 0.04em;
+  line-height: 1em;
+  align-self: center;
+  place-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+
+  &:not(:last-child) {
+    border-right: 1px solid rgba(55, 103, 142, 1);
   }
 
-  .element-detail {
-    overflow: hidden;
-    display: flex;
+  color: black;
+  font-size: 0.8rem;
+  letter-spacing: 0.015rem;
+}
+
+td.mat-cell {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  font-size: 0.8em;
+  line-height: 1em;
+  text-align: center;
+  border: 1px solid rgb(159, 168, 175);
+
+  &:not(:last-child) {
+    border-right: 1px solid rgba(55, 103, 142, 1);
   }
 
-  .element-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
+  border-bottom: none;
+}
+
+tr.mat-row:nth-child(even) {
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #fdf5f7;
+}
+
+tr.mat-row:nth-child(odd) {
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #b1bfce;
+}
+
+// td.mat-cell:first-child,
+// td.mat-footer-cell:first-child,
+// th.mat-header-cell:first-child {
+//   padding-left: 3.8rem;
+// }
+
+.mat-column-select {
+  border-right: none !important;
+  width: 2rem !important;
+
+  :host ::ng-deep .mat-checkbox-frame {
+    border: none !important;
+    // background: #fff;
+    // border-color: #E5E3E3 !important;
   }
 
-  .element-doc {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: normal;
+  :host ::ng-deep .mat-checkbox-checkmark-path,
+  :host ::ng-deep .mat-checkbox-mixedmark {
+    background-color: #f26623;
+    stroke: #f26623 !important;
   }
 
-  tr.detail-row {
-    height: 0;
+  :host ::ng-deep .mat-checkbox-inner-container {
+    background-color: #fff;
+    border-radius: 3px;
+    border: solid 1px #e5e3e5;
   }
 
-  tr.example-element-row:not(.example-expanded-row):hover {
-    background: whitesmoke;
+  :host ::ng-deep .mat-checkbox-background {
+    background-color: #fff;
   }
+}
 
-  tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
-  }
+.mat-column-name {
+  padding-left: 1.8rem !important;
+}

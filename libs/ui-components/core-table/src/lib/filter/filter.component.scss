@@ -1,3 +1,5 @@
+@import '../../../../../shared/styles/src/scss/global/elevation';
+
 :host {
   display: flex;
   align-items: center;
@@ -14,9 +16,7 @@
   transition-duration: 0.2s;
   transition-property: opacity, transform;
 
-  :host.has-value & {
-    color: rgba(0, 0, 0, 0.54);
-  }
+
 
   :host:hover &,
   :host.show-trigger & {
@@ -27,9 +27,42 @@
 
 .container {
   padding: 0 16px;
-
+ overflow: hidden;
+  position: relative;
+  flex: 1 1 auto;
   mat-form-field {
     margin: -8px 0;
     width: 100%;
   }
+}
+
+#contentContainer {
+  overflow: hidden;
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.hza-custom-overlay-container-class {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+   background-color: rgba(59, 103, 142, 1) !important;
+} 
+ 
+  ::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  background-color: rgba(59, 103, 142, 1) !important;
+ }
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: rgba(59, 103, 142, 1) !important;
 }

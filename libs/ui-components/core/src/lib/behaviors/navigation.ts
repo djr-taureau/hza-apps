@@ -1,4 +1,4 @@
-import { Constructor, NavigationLink, isNotUseable, isFalse } from '@hza/shared';
+import { Constructor, NavigationLink, isNotUseable, isFalse } from '@hza/shared/utils';
 
 export interface HasNavigation {
 	location: NavigationLink;

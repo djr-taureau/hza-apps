@@ -13,7 +13,7 @@ import {
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { searchMessages, LoanQuery, defaultQuery, toFormValue } from '@hza/shared/loans/models';
+import { searchMessages, LoanQuery, defaultQuery, toSearchFormValue } from '@hza/shared/loans/models';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({

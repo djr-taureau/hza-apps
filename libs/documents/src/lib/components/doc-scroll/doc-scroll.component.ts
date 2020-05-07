@@ -8,7 +8,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 	styleUrls: ['./doc-scroll.component.scss']
 })
 export class DocScrollComponent implements OnInit {
-	@Input() docs: Document[];
+	@Input() documents: Document[];
 
 	selectedDoc: Document;
 

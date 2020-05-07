@@ -21,8 +21,7 @@
             "polyfills": "apps/hza/src/polyfills.ts",
             "tsConfig": "apps/hza/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              {
+            "assets": [{
                 "glob": "favicon.ico",
                 "input": "libs/shared/assets/src",
                 "output": ""
@@ -47,12 +46,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "libs/shared/environments/src/lib/environment.ts",
-                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "libs/shared/environments/src/lib/environment.ts",
+                "with": "libs/shared/environments/src/lib/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -61,8 +58,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -719,6 +715,146 @@
         }
       }
     },
+    "ui-components-text-list": {
+      "projectType": "library",
+      "root": "libs/ui-components/text-list",
+      "sourceRoot": "libs/ui-components/text-list/src",
+      "prefix": "hza",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-components/text-list/tsconfig.lib.json",
+              "libs/ui-components/text-list/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/text-list/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-components/text-list/jest.config.js",
+            "tsConfig": "libs/ui-components/text-list/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui-components/text-list/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-components-value-callout": {
+      "projectType": "library",
+      "root": "libs/ui-components/value-callout",
+      "sourceRoot": "libs/ui-components/value-callout/src",
+      "prefix": "hza",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-components/value-callout/tsconfig.lib.json",
+              "libs/ui-components/value-callout/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/value-callout/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-components/value-callout/jest.config.js",
+            "tsConfig": "libs/ui-components/value-callout/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui-components/value-callout/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-components-value-list": {
+      "projectType": "library",
+      "root": "libs/ui-components/value-list",
+      "sourceRoot": "libs/ui-components/value-list/src",
+      "prefix": "hza",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-components/value-list/tsconfig.lib.json",
+              "libs/ui-components/value-list/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/value-list/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-components/value-list/jest.config.js",
+            "tsConfig": "libs/ui-components/value-list/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui-components/value-list/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+        "ui-components-data-list": {
+          "projectType": "library",
+          "root": "libs/ui-components/data-list",
+          "sourceRoot": "libs/ui-components/data-list/src",
+          "prefix": "hza",
+          "architect": {
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "libs/ui-components/data-list/tsconfig.lib.json",
+                  "libs/ui-components/data-list/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!libs/ui-components/data-list/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "libs/ui-components/data-list/jest.config.js",
+                "tsConfig": "libs/ui-components/data-list/tsconfig.spec.json",
+                "passWithNoTests": true,
+                "setupFile": "libs/ui-components/data-list/src/test-setup.ts"
+              }
+            }
+          },
+          "schematics": {
+            "@nrwl/angular:component": {
+              "styleext": "scss"
+            }
+          }
+        },
     "doc-repo": {
       "projectType": "application",
       "schematics": {
@@ -748,12 +884,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/doc-repo/src/environments/environment.ts",
-                  "with": "apps/doc-repo/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "apps/doc-repo/src/environments/environment.ts",
+                "with": "apps/doc-repo/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -762,8 +896,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
