@@ -87,11 +87,14 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 	}
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {
 		this.overlayRef = this.popover.open<{ values: string[] }>({
-			content,
 			origin,
+			content,
+			
 			data: {
 				values: ['1', '2', '3']
-			}
+			},
+			width: '1600px',
+			height: '300px'
 		});
 
 		this.overlayRef.afterClosed$.subscribe((res) => {
