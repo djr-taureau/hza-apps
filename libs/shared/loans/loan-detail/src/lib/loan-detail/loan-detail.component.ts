@@ -38,6 +38,9 @@ export class LoanDetailComponent implements OnInit {
 			this.loanNumber = v.loanNumber;
 			this.loanDetail = toLoanFormValue(v);
 			this.loanForm = this.fb.group(this.loanDetail);
+			
+			this.loanForm.disable;
+			this.loanForm.get('borrower').disable();
 		});
 	}
 }

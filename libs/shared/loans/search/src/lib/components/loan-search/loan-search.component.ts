@@ -94,7 +94,7 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 				values: ['1', '2', '3']
 			},
 			width: '90vw',
-			height: '300px'
+			height: '280px'
 		});
 
 		this.overlayRef.afterClosed$.subscribe((res) => {
