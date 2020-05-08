@@ -9,6 +9,7 @@ import { UiComponentsValueCalloutModule } from '@hza/ui-components/value-callout
 import { UiComponentsTextListModule } from '@hza/ui-components/text-list'
 import { UiComponentsOverlayModule } from '@hza/ui-components/overlay';
 import { UiComponentsFormsModule } from '@hza/ui-components/forms';
+import { UiComponentsIconsModule } from '@hza/ui-components/icons';
 
 const MODULES = [
 	CommonModule,
@@ -20,7 +21,8 @@ const MODULES = [
 	UiComponentsValueCalloutModule,
 	UiComponentsTextListModule,
 	UiComponentsOverlayModule,
-	UiComponentsFormsModule
+	UiComponentsFormsModule,
+	UiComponentsIconsModule
 ];
 
 @NgModule({

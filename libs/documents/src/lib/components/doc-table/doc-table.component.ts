@@ -4,6 +4,7 @@ import { Document } from '../../models/document.model';
 import { PopoverService, PopoverRef } from '@hza/ui-components/overlay';
 import { ComponentType } from '@angular/cdk/portal';
 import { CoreTableFilterComponent } from '@hza/ui-components/core-table';
+import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'hza-doc-table',
@@ -19,6 +20,8 @@ export class DocTableComponent extends CoreTable<Document> {
 		}
 	}
 
+	faCaretRight = faCaretRight;
+	faCaretDown = faCaretDown;
 	@Input() sticky: boolean;
 	@Input() loaded: boolean;
 
