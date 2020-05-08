@@ -14,8 +14,19 @@
     margin: 0.5em 0 0 0.5em;
     z-index: 1;
   }
+}
 
-  div.padded.float-left {
+.title-bar {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+hza-control-bar {
+  height: 2em;
+  z-index: 5;
+}
+
+div.padded.float-left {
   color: #000000;
   display: block;
   float: left;
@@ -54,5 +65,34 @@ textarea {
   min-width: 20em;
 }
 
+input, textarea {
+  background-color: #add8e6;
+  border: 1px solid #e2e2e2;
+  color: #333333;
+  cursor: default;
+  float: none;
+  font-family: Arial;
+  font-size: 9.6px;
+  font-weight: 700;
+  margin: 0;
+  width: 20em;
+  max-width: 28em;
+  min-width: 7em;
+  padding: 0 0.25em;
+  text-align: right;
 }
 
+input:disabled, textarea:disabled {
+  background-color: #d3d3d3;
+  cursor: default;
+}
+
+
+.xwide {
+    width: 20em;
+    min-width: 20em;
+}
+
+.right {
+    text-align: right;
+}
