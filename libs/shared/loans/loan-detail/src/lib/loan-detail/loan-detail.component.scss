@@ -75,14 +75,24 @@ input, textarea {
   font-size: 9.6px;
   font-weight: 700;
   margin: 0;
+  width: 20em;
   max-width: 28em;
   min-width: 7em;
   padding: 0 0.25em;
   text-align: right;
-  width: 7em;
 }
 
 input:disabled, textarea:disabled {
   background-color: #d3d3d3;
   cursor: default;
+}
+
+
+.xwide {
+    width: 20em;
+    min-width: 20em;
+}
+
+.right {
+    text-align: right;
 }
