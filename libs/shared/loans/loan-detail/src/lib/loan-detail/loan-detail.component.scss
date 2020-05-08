@@ -65,7 +65,7 @@ textarea {
   min-width: 20em;
 }
 
-input {
+input, textarea {
   background-color: #add8e6;
   border: 1px solid #e2e2e2;
   color: #333333;
@@ -82,7 +82,7 @@ input {
   width: 7em;
 }
 
-input:disabled {
+input:disabled, textarea:disabled {
   background-color: #d3d3d3;
   cursor: default;
 }

@@ -26,7 +26,7 @@ export class LoanDetailComponent implements OnInit {
 	controls = {
 		borrower: this.loanForm.get('borrower'),
 		borrowerPrimarySSN: this.loanForm.get('borrowerPrimarySSN'),
-		propertyAddress1: this.loanForm.get('propertyAddresss1'),
+		propertyAddress1: this.loanForm.get('propertyAddress1'),
 		propertyCity: this.loanForm.get('propertyCity')
 	};
 
@@ -39,8 +39,10 @@ export class LoanDetailComponent implements OnInit {
 			this.loanDetail = toLoanFormValue(v);
 			this.loanForm = this.fb.group(this.loanDetail);
 			
-			this.loanForm.disable;
 			this.loanForm.get('borrower').disable();
+			this.loanForm.get('borrowerPrimarySSN').disable();
+			this.loanForm.get('propertyAddress1').disable();
+			this.loanForm.get('propertyCity').disable();
 		});
 	}
 }
