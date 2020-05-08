@@ -14,6 +14,145 @@
     margin: 0.5em 0 0 0.5em;
     z-index: 1;
   }
+
+  form {
+    display: grid;
+    // padding: 1em;
+    width: 100%;
+    border: 1px solid #c1c1c1;
+    margin: 0.2rem auto 0 auto;
+  }
+
+  @media (min-width: 500px) {
+    form {
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 8px;
+    }
+
+    label.borrower {
+      text-align: right;
+      justify-self: start;
+      align-self: end;
+      grid-column: 1 / 2;
+      grid-row: 1;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      margin-left: 0.5em;
+      font-weight: bold;
+    }
+    label.SSN {
+      text-align: right;
+      justify-self: start;
+      align-self: start;
+      grid-column: 1 / 2;
+      grid-row: 2;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      margin-left: 0.5em;
+      font-weight: bold;
+    }
+
+    label.investor {
+      text-align: right;
+      justify-self: start;
+      align-self: end;
+      grid-column: 3 / 4;
+      grid-row: 1;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      font-weight: bold;
+      margin-left: 1em;
+    }
+
+    input,
+    textarea {
+      background-color: #add8e6;
+      border: 1px solid #e2e2e2;
+      color: #333333;
+      cursor: default;
+      float: none;
+      font-family: Arial;
+      font-size: 9.6px;
+      font-weight: bold;
+      margin: 0;
+      width: 20em;
+      max-width: 28em;
+      min-width: 7em;
+      padding: 0 0.25em;
+      text-align: right;
+      font-weight: bold;
+    }
+    input:disabled,
+    textarea:disabled {
+      background-color: #d3d3d3;
+      cursor: default;
+    }
+
+    input.borrower-field {
+      text-align: right;
+      align-self: center;
+      grid-column: 2 / 3;
+      grid-row: 1;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      font-size: 9.6px;
+      height: 2em;
+      font-weight: bold;
+    }
+
+    input.SSN-field {
+      text-align: right;
+      align-self: start;
+      grid-column: 2 / 3;
+      grid-row: 2;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      font-size: 9.6px;
+      height: 2em;
+      font-weight: bold;
+    }
+
+    input.investor-field {
+      text-align: right;
+      align-self: center;
+      justify-self: start;
+      grid-column: 4 / 5;
+      grid-row: 1;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      min-width: 0;
+      font-size: 9.6px;
+      height: 2em;
+      font-weight: bold;
+    }
+
+    label.property {
+      text-align: right;
+      justify-self: start;
+      align-self: end;
+      grid-column: 5 / 6;
+      grid-row: 1;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      font-weight: bold;
+      font-family: Arial;
+      font-size: 0.7em;
+      font-weight: 600;
+      line-height: 1.7em;
+      margin-left: 2em;
+    }
+    textarea.property-field {
+      text-align: right;
+      align-self: end;
+      justify-self: end;
+      grid-column: 6 / 7;
+      grid-row: 1 / 2;
+      overflow: hidden; /* NEW */
+      min-width: 0;
+      font-weight: bold;
+    }
+  }
 }
 
 .title-bar {
@@ -26,38 +165,40 @@ hza-control-bar {
   z-index: 5;
 }
 
-div.padded.float-left {
-  color: #000000;
-  display: block;
-  float: left;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  font-size: 12px;
-  line-height: 18px;
-  margin: 0 0 0 0.5em;
-  padding: 0.5em;
+// .right {
+//   text-align: right;
+// }
 
-  label {
-    color: #000000;
-    cursor: default;
-    display: block;
-    min-width: 20em;
-    max-width: 35em;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-    font-size: 0.8em;
-    font-weight: 600;
-    line-height: 1.7em;
-    overflow: hidden;
-  }
-  .right {
-    text-align: right;
-  }
-}
+// .right {
+//   text-align: right;
+// }
+
+// div.padded.float-left {
+//   color: #000000;
+//   display: block;
+//   float: left;
+//   font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+//   font-size: 12px;
+//   line-height: 18px;
+//   margin: 0 0 0 0.5em;
+//   padding: 0.5em;
 
 textarea {
   font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
   height: 5em;
   resize: none;
-  overflow-y: auto;
+}
+
+label {
+  color: #000000;
+  cursor: default;
+  display: block;
+  min-width: 20em;
+  max-width: 35em;
+  font-family: Arial;
+  font-size: 0.7em;
+  font-weight: 600;
+  line-height: 1.7em;
 }
 
 .xwide {
@@ -65,7 +206,8 @@ textarea {
   min-width: 20em;
 }
 
-input, textarea {
+input,
+textarea {
   background-color: #add8e6;
   border: 1px solid #e2e2e2;
   color: #333333;
@@ -73,7 +215,7 @@ input, textarea {
   float: none;
   font-family: Arial;
   font-size: 9.6px;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   width: 20em;
   max-width: 28em;
@@ -82,17 +224,13 @@ input, textarea {
   text-align: right;
 }
 
-input:disabled, textarea:disabled {
+input:disabled,
+textarea:disabled {
   background-color: #d3d3d3;
   cursor: default;
 }
 
-
 .xwide {
-    width: 20em;
-    min-width: 20em;
-}
-
-.right {
-    text-align: right;
+  width: 20em;
+  min-width: 20em;
 }

@@ -68,7 +68,9 @@ export class CoreTableFilterComponent implements AfterViewInit {
 			origin,
 			data: {
 				values: ['1', '2', '3']
-			}
+			},
+			width: '5vw',
+			height: '30px'
 		});
 		this.overlayRef.afterClosed$.subscribe((res) => {
 			console.log(res);

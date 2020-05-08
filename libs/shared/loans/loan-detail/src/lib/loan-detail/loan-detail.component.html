@@ -1,50 +1,55 @@
+<div class="container">
+  <!-- TODO:: djr - hza-elevation - Add to elevation in global framework styles -->
+  <hza-section>
+    <hza-control-bar>
+      <h2 class="title-bar" hzaSectionTitle>{{ loanNumber }}</h2>
+    </hza-control-bar>
+  </hza-section>
+  <hza-section>
+    <form *ngIf="loan$ | async; let loan; else: loading" [formGroup]="loanForm">
+      <label class="borrower" for="BorrowerName"
+        >Borrower Name</label
+      >
+      <input
+        id="borrower"
+        type="text"
+        class="borrower-field"
+        name="BorrowerName"
+        formControlName="borrower"
+      />
+      <label class="SSN" for="BorrowerSSN">Borrower SSN</label>
+      <input
+        id="borrowerPrimarySSN"
+        type="text"
+        name="BorrowerSSN"
+        formControlName="borrowerPrimarySSN"
+        class="longdate SSN-field"
+      />
 
-  <div class="container">
-    <!-- TODO:: djr - hza-elevation - Add to elevation in global framework styles -->
-    <hza-section>
-      <hza-control-bar>
-        <h2 class="title-bar" hzaSectionTitle>{{ loanNumber }}</h2>
-      </hza-control-bar>
-    </hza-section>
-    <hza-section>
-      <form *ngIf="loan$ | async; let loan; else loading" [formGroup]="loanForm">
-        <div class="padded float-left">
-          <label id="label" for="BorrowerName">Borrower Name</label>
-          <input
-            id="borrower"
-            type="text"
-            class="right"
-            name="BorrowerName"
-            formControlName="borrower"
-          />
-          <label id="label" for="BorrowerSSN">Borrower SSN</label>
-          <input
-            id="borrowerPrimarySSN"
-            type="text"
-            name="BorrowerSSN"
-            formControlName="borrowerPrimarySSN"
-            class="right longdate"
-          />
-        </div>
-        <div class="padded float-left">
-          <label id="label" for="PropertyCity">Property City</label>
-          <input
-            id="propertyCity"
-            type="text"
-            formControlName="propertyCity"
-            class="right"
-            name="PropertyCity"
-            value=""
-          />
-        </div>
-        <div class="padded float-left">
-          <label id="label" for="PropertyAddress">Property Address</label>
-          <textarea class="xwide" id="propertyAddress1" formControlName="propertyAddress1" name="PropertyAddress" class="xwide">
-        </textarea>
-        </div>
-      </form>
-    </hza-section>
-  </div>
+      <label class="investor" for="Investor">Investor</label>
+      <input
+        id="investor"
+        type="text"
+        formControlName="investor"
+        class="investor-field"
+        name="Investor"
+      />
+
+      <label class="property" for="PropertyAddress"
+        >Property</label
+      >
+      <textarea
+        class="xwide property-field"
+        id="propertyAddress1"
+        formControlName="propertyAddress1"
+        name="PropertyAddress"
+        class="xwide"
+        value="{{ property$ | async }}"
+      >
+      </textarea>
+    </form>
+  </hza-section>
+</div>
 
 <ng-template #loading>
   Loading Loan Data...

@@ -4,13 +4,19 @@
   width: 100%;
   align-self: stretch;
   flex-direction: row;
-  // justify-content: start;
-  min-height: 5rem;
+  min-height: 1rem;
   .hza-section-title {
     width: 100%;
   }
 }
+.section-form {
+  .hza-section {
+      display: grid;
+        align-self: stretch;
+    width: 100%;
 
+  }
+}
 // .page-sub-header {
 //   padding: 2.9rem 3.8rem;
 

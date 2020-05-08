@@ -57,17 +57,16 @@ export class PopoverService {
 
 	private getPositions(): ConnectionPositionPair[] {
 		return [
+			// {
+			// 	originX: 'center',
+			// 	originY: 'top',
+			// 	overlayX: 'center',
+			// 	overlayY: 'bottom'
+			// },
 			{
-				originX: 'center',
-				originY: 'top',
-				overlayX: 'center',
-				overlayY: 'bottom'
-			},
-
-			{
-				originX: 'end',
+				originX: 'start',
 				originY: 'center',
-				overlayX: 'start',
+				overlayX: 'end',
 				overlayY: 'center'
 			},
 
@@ -76,13 +75,6 @@ export class PopoverService {
 				originY: 'bottom',
 				overlayX: 'center',
 				overlayY: 'top'
-			},
-
-			{
-				originX: 'start',
-				originY: 'center',
-				overlayX: 'end',
-				overlayY: 'center'
 			}
 		];
 	}
