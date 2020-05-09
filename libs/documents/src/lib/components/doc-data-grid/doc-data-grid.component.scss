@@ -1,0 +1,49 @@
+:host {
+  .pbl-ngrid.pbl-ngrid-row:nth-child(even) {
+    font-size: 0.8em;
+    height: 1.8em;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #fdf5f7;
+  }
+
+  .pbl-ngrid.pbl-ngrid-row:nth-child(odd) {
+    font-size: 0.8em;
+    height: 1.8em;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #b1bfce;
+  }
+   font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+
+.pbl-row-detail-parent {
+  &:focus {
+    outline: none;
+  }
+  &.pbl-row-detail-opened {
+    background: #f5f5f5;
+  }
+}
+
+.pbl-detail-row {
+  padding: 10px 40px;
+  overflow: hidden;
+}
+
+.pbl-ngrid.row-height .pbl-ngrid-row {
+  font-size: 0.8em;
+  height: 1.8em;
+}
+
+.pbl-ngrid .pbl-ngrid-row:nth-child(even) {
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #fdf5f7;
+}
+
+.pbl-ngrid .pbl-ngrid-row:nth-child(odd) {
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #b1bfce;
+}

@@ -1,0 +1,40 @@
+
+<pbl-ngrid
+  id="docDataGrid"
+  persistState
+  identityProp="id"
+  rowReorder
+  columnReorder
+  blockUi
+  matSort
+  vScrollFixed="5"
+  cellTooltip
+  matCheckboxSelection="selection"
+  focusMode="cell"
+  [dataSource]="dataSource"
+  [columns]="columns"
+  (cellClick)="$event.context && $event.context.startEdit()"
+  style="height: 500px;"
+  class="pbl-ngrid-cell-ellipsis pbl-ngrid-header-cell-ellipsis row-height"
+>
+  <div *pblNgridCellDef="'documents'; row as document">
+    <mat-icon>check</mat-icon>
+  </div>
+</pbl-ngrid>
+
+<!-- <pbl-ngrid
+  id="docDetailGrid"
+  persistState
+  #pblTbl
+  blockUi
+  matSort
+  vScrollFixed
+  matCheckboxSelection="selection"
+  focusMode="row"
+  [detailRow]="detailRowPredicate"
+  [singleDetailRow]="singleDetailRow"
+  [dataSource]="dataSource"
+  [columns]="columns"
+  (cellClick)="$event.context && $event.context.startEdit()"
+  class="pbl-ngrid-cell-ellipsis pbl-ngrid-header-cell-ellipsis"
+></pbl-ngrid> -->
