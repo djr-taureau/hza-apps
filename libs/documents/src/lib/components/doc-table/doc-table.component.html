@@ -1,21 +1,25 @@
 <cdk-virtual-scroll-viewport itemSize="25" style="height:40vh; width:100%" coreTableVirtualScroll>
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="select">
-      <th mat-header-cell *matHeaderCellDef>
-        <!-- <mat-checkbox (change)="$event && toggleAll()" [checked]="selectedAll" [indeterminate]="indeterminate">
-        </mat-checkbox> -->
-      </th>
-      <td mat-cell *matCellDef="let row">
-      <fa-icon size="lg" transform="left-2" [icon]="faCaretRight"></fa-icon>
-        <!-- <mat-checkbox (click)="$event.stopPropagation()" (change)="$event && toggle(row)" [checked]="isSelected(row)">
-        </mat-checkbox> -->
-      </td>
-    </ng-container>
+    		<ng-container matColumnDef="select">
+			<th mat-header-cell *matHeaderCellDef>
+        <div mat-sort-header></div>
+			</th>
+			<td mat-cell *matCellDef="let row">
+        <fa-icon size="lg" transform="left-2" [icon]="faCaretRight"></fa-icon>
+			</td>
+		</ng-container>
         <ng-container matColumnDef="Extension">
       <th mat-header-cell *matHeaderCellDef>
           <div mat-sort-header></div>
       </th>
-      <td mat-cell *matCellDef="let row">{{ row.Extension }}</td>
+      <td mat-cell *matCellDef="let row">
+        <ng-container [ngSwitch]="row.Extension">
+          <fa-icon *ngSwitchCase="'.pdf'" [icon]="faFilePdf"></fa-icon>
+          <fa-icon *ngSwitchCase="'.xlsx'" [icon]="faFileExcel"></fa-icon>
+          <fa-icon *ngSwitchCase="'.msg'" [icon]="faEnvelope"></fa-icon>
+          <fa-icon *ngSwitchDefault="'.msg'" [icon]="faEnvelope"></fa-icon>
+        </ng-container>
+      </td>
     </ng-container>
     <ng-container matColumnDef="DocFileName">
       <th mat-header-cell *matHeaderCellDef>
@@ -55,11 +59,11 @@
       </th>
       <td mat-cell *matCellDef="let row"></td>
     </ng-container>
-    <ng-container matColumnDef="progress">
+    <!-- <ng-container matColumnDef="progress">
       <th mat-header-cell *matHeaderCellDef [attr.colspan]="displayedColumns.length">
         <mat-progress-bar [class.show]="pending" mode="indeterminate"></mat-progress-bar>
       </th>
-    </ng-container>
+    </ng-container> -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
     <!-- <tr mat-header-row class="progress" *matHeaderRowDef="['progress']; sticky: false"></tr> -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
