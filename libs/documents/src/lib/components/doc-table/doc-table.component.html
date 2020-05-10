@@ -1,5 +1,5 @@
 <cdk-virtual-scroll-viewport itemSize="25" style="height:40vh; width:100%" coreTableVirtualScroll>
-  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows="true">
     <ng-container matColumnDef="select">
 			<th mat-header-cell *matHeaderCellDef>
         <div mat-sort-header></div>
@@ -87,6 +87,5 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
     <tr [style.height.px]="placeholderHeight" mat-row *matRowDef="let row; let index = index; columns: []; when: placeholderWhen"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </cdk-virtual-scroll-viewport>

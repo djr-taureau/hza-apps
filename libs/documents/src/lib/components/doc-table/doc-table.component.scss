@@ -190,26 +190,6 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-description-attribution {
   opacity: 0.5;
 }
-  // .filter {
-//   border: 1px solid rgba(55, 103, 142, 1);
-//   background-color: #8f9fb5;
-//   padding-left: 2.4rem;
-//   font-size: 0.02rem;
-//   font-weight: 600;
-
-//   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
-//   letter-spacing: 0.03em;
-//   line-height: 0.02rem;
-//   text-align: center;
-//   &:not(:last-child) {
-//     border-right: 1px solid rgba(55, 103, 142, 1);
-//   }
-
-//   color: black;
-//   font-size: 0.8rem;
-//   letter-spacing: 0.015rem;
-// }
-
 
 @include base;
 @include progress;
