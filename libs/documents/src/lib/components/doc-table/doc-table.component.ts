@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CoreTable } from '@hza/ui-components/core-table';
 import { Document } from '../../models/document.model';
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +7,14 @@ import { faEnvelope, faFileExcel, faFilePdf, faFileWord } from '@fortawesome/fre
 @Component({
 	selector: 'hza-doc-table',
 	templateUrl: './doc-table.component.html',
-	styleUrls: [ './doc-table.component.scss' ]
+	styleUrls: [ './doc-table.component.scss' ],
+	animations: [
+		trigger('detailExpand', [
+			state('collapsed', style({ height: '0px', minHeight: '0' })),
+			state('expanded', style({ height: '*' })),
+			transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+		])
+	]
 })
 export class DocTableComponent extends CoreTable<Document> {
 	@Input()
@@ -17,6 +25,7 @@ export class DocTableComponent extends CoreTable<Document> {
 		}
 	}
 
+	expandedElement: Document | null;
 	placeholderHeight = 0;
 	faEnvelope = faEnvelope;
 	faFilePdf = faFilePdf;
