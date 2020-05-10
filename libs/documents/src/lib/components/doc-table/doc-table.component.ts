@@ -6,7 +6,7 @@ import { faEnvelope, faFileExcel, faFilePdf, faFileWord } from '@fortawesome/fre
 @Component({
 	selector: 'hza-doc-table',
 	templateUrl: './doc-table.component.html',
-	styleUrls: ['./doc-table.component.scss']
+	styleUrls: [ './doc-table.component.scss' ]
 })
 export class DocTableComponent extends CoreTable<Document> {
 	@Input()
@@ -16,6 +16,8 @@ export class DocTableComponent extends CoreTable<Document> {
 			this.set(documents);
 		}
 	}
+
+	placeholderHeight = 0;
 	faEnvelope = faEnvelope;
 	faFilePdf = faFilePdf;
 	faFileWord = faFileWord;
@@ -25,10 +27,9 @@ export class DocTableComponent extends CoreTable<Document> {
 	@Input() sticky: boolean;
 	@Input() loaded: boolean;
 
-
 	constructor() {
 		// column definitions for CoreTable
-		super(['select', 'Extension', 'DocFileName', 'DocType', 'CreatedDate', 'CreatedBy', 'actions']);
+		super([ 'select', 'Extension', 'DocFileName', 'DocType', 'FileSize', 'CreatedDate', 'CreatedBy', 'actions' ]);
 	}
 
 	onInit() {
@@ -41,8 +42,12 @@ export class DocTableComponent extends CoreTable<Document> {
 			// but it's a hassle so let's just fix a pretty ok one here
 			const magicNumber = 200;
 			const offset = Math.min(magicNumber, this.viewport.getOffsetToRenderedContentStart());
+			this.placeholderHeight = offset;
 			el.style.setProperty('--offset', `-${offset}px`);
 		});
 	}
 
+	placeholderWhen(index: number, _: any) {
+		return index == 0;
+	}
 }

@@ -19,14 +19,11 @@ import { SharedLoanDetailModule } from '@hza/shared/loans/loan-detail';
 import { DocumentsMainContainer } from './containers/documents-main/documents-main.container';
 import { DocumentsContainer } from './containers/documents/documents.container';
 import { DocDetailComponent } from './components/doc-detail/doc-detail.component';
-import { DocScrollComponent } from './components/doc-scroll/doc-scroll.component';
 import { DocListComponent } from './components/doc-list/doc-list.component';
 import { DocTableComponent } from './components/doc-table/doc-table.component';
 import { DocHeaderComponent } from './components/doc-header/doc-header.component';
 import { DocFooterComponent } from './components/doc-footer/doc-footer.component';
-import { FooComponent } from './components/foo/foo.component';
-import { DocDataListComponent } from './components/doc-data-list/doc-data-list.component';
-import { DocDataTableComponent } from './components/doc-data-table/doc-data-table.component';
+
 
 
 
@@ -36,12 +33,8 @@ const COMPONENTS = [
 	DocHeaderComponent,
 	DocFooterComponent,
 	DocDetailComponent,
-	DocScrollComponent,
 	DocListComponent,
 	DocTableComponent,
-	FooComponent,
-	DocDataListComponent,
-	DocDataTableComponent
 ];
 
 @NgModule({

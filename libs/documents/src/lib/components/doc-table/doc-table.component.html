@@ -1,6 +1,6 @@
 <cdk-virtual-scroll-viewport itemSize="25" style="height:40vh; width:100%" coreTableVirtualScroll>
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
-    		<ng-container matColumnDef="select">
+    <ng-container matColumnDef="select">
 			<th mat-header-cell *matHeaderCellDef>
         <div mat-sort-header></div>
 			</th>
@@ -8,7 +8,7 @@
         <fa-icon size="lg" transform="left-2" [icon]="faCaretRight"></fa-icon>
 			</td>
 		</ng-container>
-        <ng-container matColumnDef="Extension">
+    <ng-container matColumnDef="Extension">
       <th mat-header-cell *matHeaderCellDef>
           <div mat-sort-header></div>
       </th>
@@ -37,6 +37,14 @@
       </th>
       <td mat-cell class="screen-75" *matCellDef="let row">{{ row.DocType }}</td>
     </ng-container>
+        <ng-container matColumnDef="FileSize">
+      <th mat-header-cell *matHeaderCellDef>
+        <core-table-filter class="filter" (change)="filter('FileSize', $event)">
+          <div mat-sort-header>File Size</div>
+        </core-table-filter>
+      </th>
+      <td mat-cell class="screen-75" *matCellDef="let row">{{ row.FileSize }}</td>
+    </ng-container>
     <ng-container matColumnDef="CreatedDate">
       <th mat-header-cell *matHeaderCellDef>
         <core-table-filter class="filter" (change)="filter('CreatedDate', $event)">
@@ -64,7 +72,8 @@
         <mat-progress-bar [class.show]="pending" mode="indeterminate"></mat-progress-bar>
       </th>
     </ng-container> -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr [style.height.px]="placeholderHeight" mat-row *matRowDef="let row; let index = index; columns: []; when: placeholderWhen"></tr>
     <!-- <tr mat-header-row class="progress" *matHeaderRowDef="['progress']; sticky: false"></tr> -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>

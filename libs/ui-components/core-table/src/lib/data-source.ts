@@ -182,34 +182,7 @@ export class CoreTableDataSource<T> extends DataSource<T> {
     this.selection.select(...items);
   }
 
-  /**
-   * Sets a new `CoreTableFilter` based on its key
-   * and applies all existing filters to the `DataSource`.
-   * @param key Unique key, usually representing the property path to retrieve a value from an item.
-   * @param predicate How to filter the values extracted by `key`, like `Array.prototype.filter`.
-   * @param valueFn Optional function to extract a value from each item.
-   *
-   * Default: `item => item[key]`.
-   *
-   * Note: Supports nested property paths, e.g. `'my.nested.prop'`
-   *
-   * @example
-   * const dataSource = new CoreTableDataSource([1, 2, 3, 4]);
-   * dataSource.setFilter({
-   *   key: 'prop',
-   *   predicate: value => value % 2
-   * });
-   * console.log(dataSource.data);
-   * // [2, 4]
-   *
-   * dataSource.setFilter({
-   *   key: 'propPlusOne',
-   *   predicate: value => value % 2,
-   *   valueFn: item => item + 1
-   * });
-   * console.log(dataSource.data);
-   * // [1, 3]
-   */
+
   setFilter({
     key,
     predicate,

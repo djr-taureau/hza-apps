@@ -6,7 +6,6 @@ import { DocHeaderComponent } from '../components/doc-header/doc-header.componen
 import { DocumentsContainer } from '../containers/documents/documents.container';
 import { DocumentsGuard } from '../services/documents.guard';
 import { LoanDetailComponent } from '@hza/shared/loans/loan-detail';
-import { FooComponent } from '../components/foo/foo.component';
 
 @NgModule({
 	imports: [

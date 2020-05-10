@@ -174,4 +174,9 @@ cdk-virtual-scroll-viewport {
   height: 25vh;
 }
 
+::ng-deep .cdk-virtual-scroll-content-wrapper {
+  transform: translateY(0px) !important;
+}
+
+
 // this makes the <th>s respond to --offset
