@@ -1,33 +1,23 @@
-import {
-	AfterViewInit,
-	ChangeDetectionStrategy,
-	Component,
-	Output,
-	ViewChild,
-	TemplateRef,
-	ViewContainerRef,
-	HostBinding
-} from '@angular/core';
+import { TemplatePortalDirective } from '@angular/cdk/portal';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { OverlayService, PopoverRef, PopoverService } from '@hza/ui-components/overlay';
 import { merge, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { MatInput } from '@angular/material/input';
-import { PopoverService, PopoverRef, OverlayService } from '@hza/ui-components/overlay';
-import { TemplatePortalDirective, TemplatePortal } from '@angular/cdk/portal';
-import { ElementRef } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
 	selector: 'core-table-filter',
 	templateUrl: './filter.component.html',
-	styleUrls: ['./filter.component.scss'],
+	styleUrls: [ './filter.component.scss' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoreTableFilterComponent implements AfterViewInit {
 	@Output() change: Observable<(text: string) => boolean>;
 
 	@ViewChild(MatInput) input: MatInput;
-	@ViewChild(MatMenuTrigger) menu: MatMenuTrigger;
+	@ViewChild(MatMenuTrigger) filterMenu: MatMenuTrigger;
 
 	@ViewChild('overlayTemplate') overlayTemplate: TemplatePortalDirective;
 
@@ -35,6 +25,8 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	operation = new FormControl();
 	operations: any[];
 	@ViewChild('filterButton') filterButton: ElementRef;
+
+	
 	overlayRef: PopoverRef;
 
 	constructor(
@@ -56,6 +48,8 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit() {
+		this.input.focus()
+	//  this.filterMenu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// if (this.showTrigger) {
 		// 	console.log('who')
@@ -67,7 +61,7 @@ export class CoreTableFilterComponent implements AfterViewInit {
 			content,
 			origin,
 			data: {
-				values: ['1', '2', '3']
+				values: [ '1', '2', '3' ]
 			},
 			width: '5vw',
 			height: '30px'
@@ -76,6 +70,7 @@ export class CoreTableFilterComponent implements AfterViewInit {
 			console.log(res);
 		});
 	}
+
 
 	open(content: TemplateRef<any>) {
 		const ref = this.overlayService.open(content, this.filterButton);
@@ -100,7 +95,7 @@ const fnArgumentCount = (fn: Function): number =>
 		.replace(/function.*?\((.*?)\).*/, '$1') // for functions
 		.split(',').length;
 
-const operations = [contains, equals, startsWith, endsWith, empty, notEmpty].map((predicate) => ({
+const operations = [ contains, equals, startsWith, endsWith, empty, notEmpty ].map((predicate) => ({
 	predicate,
 	name: predicate.name,
 	text: textify(predicate.name),

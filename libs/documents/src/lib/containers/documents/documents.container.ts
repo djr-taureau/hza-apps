@@ -4,7 +4,6 @@ import { observeOn, shareReplay, delay, startWith, map } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
 
-
 @Component({
 	selector: 'hza-doc-repo',
 	templateUrl: './documents.container.html',
@@ -31,9 +30,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 
 	fetchingData: boolean;
 
-	constructor(private docs: DocsFacade) {
-		this.fetch();
-	}
+	constructor(private docs: DocsFacade) {}
 
 	ngOnInit() {
 		this.sticky = false;
@@ -48,7 +45,6 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	ngOnChanges() {
 		this.selectedDoc$.subscribe((v) => console.log('selected doc', v));
 	}
-
 
 	ngOnDestroy() {
 		this.unsubscribe$.next();

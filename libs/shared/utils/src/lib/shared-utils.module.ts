@@ -5,7 +5,7 @@ import { ReplacePipe, AddressPipe, PhonePipe } from './text';
 import { MaterialModule, PrimeNgModule } from './+modules';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { FocusDirective } from './directives/focus/focus.directive';
+import { FocusDirective, MatInputFocusDirective } from './directives/focus/focus.directive';
 import { CopyableDirective } from './directives/copyable.directive';
 import { TooltipDirective } from './directives/tooltip/tooltip.directive';
 import { ExternalLinkDirective } from './directives/external-link.directive';
@@ -21,6 +21,7 @@ const COMPONENTS = [
 	CopyableDirective,
 	TooltipDirective,
 	FocusDirective,
+	MatInputFocusDirective,
 	ExternalLinkDirective,
 	EmailLinkDirective
 ];
