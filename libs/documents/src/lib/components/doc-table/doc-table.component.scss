@@ -56,14 +56,14 @@
     border-bottom: none;
   }
 
-  tr.mat-row:nth-child(even) {
+  tr.mat-row.element-row:nth-child(even) {
     font-size: 0.8em;
     height: 1.8em;
     border: 1px solid rgba(55, 103, 142, 1);
     background-color: #fdf5f7;
   }
 
-  tr.mat-row:nth-child(odd) {
+  tr.mat-row.element-row:nth-child(odd) {
     font-size: 0.8em;
     height: 1.8em;
     border: 1px solid rgba(55, 103, 142, 1);
@@ -147,23 +147,23 @@
     font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
   }
   
-  tr.example-detail-row {
-  height: 0;
-}
+  tr.detail-row {
+    height: 0;
+  }
 
-tr.example-element-row:not(.example-expanded-row):hover {
-  background: whitesmoke;
-}
+  // tr.example-element-row:not(.example-expanded-row):hover {
+//   background: whitesmoke;
+// }
 
-tr.example-element-row:not(.example-expanded-row):active {
-  background: #efefef;
-}
+// tr.example-element-row:not(.example-expanded-row):active {
+//   background: #efefef;
+// }
 
-.example-element-row td {
+.element-row td {
   border-bottom-width: 0;
 }
 
-.example-element-detail {
+.element-detail {
   overflow: hidden;
   display: flex;
 }
