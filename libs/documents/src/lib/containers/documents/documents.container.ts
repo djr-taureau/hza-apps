@@ -1,16 +1,21 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
-import { Observable, Subject, asyncScheduler } from 'rxjs';
-import { observeOn, shareReplay } from 'rxjs/operators';
+import { Observable, Subject, asyncScheduler, of } from 'rxjs';
+import { observeOn, shareReplay, delay, startWith, map } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
 
 @Component({
 	selector: 'hza-doc-repo',
 	templateUrl: './documents.container.html',
-	styleUrls: ['./documents.container.scss'],
+	styleUrls: [ './documents.container.scss' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
+	delay = 2000;
+
+	pending: Observable<boolean>;
+	sticky: boolean;
+
 	private unsubscribe$: Subject<void> = new Subject();
 
 	public docsLoaded$: Observable<Boolean>;
@@ -22,7 +27,6 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	theme = 'default';
 	collapsed = false;
 	opened: boolean;
-	sticky: boolean;
 
 	fetchingData: boolean;
 

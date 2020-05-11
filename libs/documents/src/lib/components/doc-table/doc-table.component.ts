@@ -1,14 +1,20 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CoreTable } from '@hza/ui-components/core-table';
 import { Document } from '../../models/document.model';
-import { PopoverService, PopoverRef } from '@hza/ui-components/overlay';
-import { ComponentType } from '@angular/cdk/portal';
-import { CoreTableFilterComponent } from '@hza/ui-components/core-table';
-
+import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faFileExcel, faFilePdf, faFileWord } from '@fortawesome/free-regular-svg-icons';
 @Component({
 	selector: 'hza-doc-table',
 	templateUrl: './doc-table.component.html',
-	styleUrls: ['./doc-table.component.scss']
+	styleUrls: [ './doc-table.component.scss' ],
+	animations: [
+		trigger('detailExpand', [
+			state('collapsed', style({ height: '0px', minHeight: '0' })),
+			state('expanded', style({ height: '*' })),
+			transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+		])
+	]
 })
 export class DocTableComponent extends CoreTable<Document> {
 	@Input()
@@ -19,14 +25,20 @@ export class DocTableComponent extends CoreTable<Document> {
 		}
 	}
 
+	expandedElement: Document | null;
+	placeholderHeight = 0;
+	faEnvelope = faEnvelope;
+	faFilePdf = faFilePdf;
+	faFileWord = faFileWord;
+	faFileExcel = faFileExcel;
+	faCaretRight = faCaretRight;
+	faCaretDown = faCaretDown;
 	@Input() sticky: boolean;
 	@Input() loaded: boolean;
 
-	overlayRef: PopoverRef;
-
-	constructor(private popover: PopoverService) {
+	constructor() {
 		// column definitions for CoreTable
-		super(['select', 'Extension', 'DocFileName', 'DocType', 'CreatedDate', 'CreatedBy', 'actions']);
+		super([ 'select', 'Extension', 'DocFileName', 'DocType', 'FileSize', 'CreatedDate', 'CreatedBy', 'actions' ]);
 	}
 
 	onInit() {
@@ -39,18 +51,12 @@ export class DocTableComponent extends CoreTable<Document> {
 			// but it's a hassle so let's just fix a pretty ok one here
 			const magicNumber = 200;
 			const offset = Math.min(magicNumber, this.viewport.getOffsetToRenderedContentStart());
+			this.placeholderHeight = offset;
 			el.style.setProperty('--offset', `-${offset}px`);
 		});
 	}
 
-	// open(origin: HTMLElement) {
-	// 	const popoverRef = this.popover.open({
-	// 		content: CoreTableFilterComponent,
-	// 		origin
-	// 	});
-
-	// 	popoverRef.afterClosed$.subscribe((res) => {
-	// 		console.log(res);
-	// 	});
-	// }
+	placeholderWhen(index: number, _: any) {
+		return index == 0;
+	}
 }

@@ -22,6 +22,7 @@ export class PopoverComponent implements OnInit {
     }
 
     if (this.content instanceof TemplateRef) {
+      console.log('where', this.content);
       this.renderMethod = 'template';
       this.context = {
         close: this.popoverRef.close.bind(this.popoverRef)

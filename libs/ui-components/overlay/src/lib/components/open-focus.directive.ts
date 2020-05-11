@@ -7,9 +7,8 @@ import { ComponentType, TemplatePortalDirective } from '@angular/cdk/portal';
 import { OverlayRef } from '@angular/cdk/overlay';
 
 @Directive({
-	selector: 'input[hzaFocusModal]',
+	selector: 'input[hzaFocusModal], button[hzaFocusModal]',
 	inputs: ['content']
-	// outputs: string[]
 })
 export class OpenFocusDirective implements OnInit {
 	overlayRef: OverlayRef;

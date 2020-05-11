@@ -7,171 +7,213 @@
   flex-direction: column;
   z-index: 15;
 
-  @extend .hza-elevation
+  @extend .hza-elevation;
 }
 
 .mat-header-row {
   position: sticky;
   // transform: translateY(-190px)
 }
-  th.mat-header-cell {
-    border: 1px solid rgba(55, 103, 142, 1);
-    background-color: #8f9fb5;
-    // padding-left: 2.4rem;
-    height: 1em;
-    font-size: 1em;
-    font-weight: 600;
+th.mat-header-cell {
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #8f9fb5;
+  // padding-left: 2.4rem;
+  height: 1em;
+  font-size: 1em;
+  font-weight: 600;
 
-    font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
-    letter-spacing: 0.04em;
-    line-height: 1em;
-    align-self: center;
-    place-items: center;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
+  font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
+  letter-spacing: 0.04em;
+  line-height: 1em;
+  align-self: center;
+  place-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
 
-    &:not(:last-child) {
-      border-right: 1px solid rgba(55, 103, 142, 1);
-    }
-
-    color: black;
-    font-size: 0.8rem;
-    letter-spacing: 0.015rem;
-    transform: translateY(var(--offset));
+  &:not(:last-child) {
+    border-right: 1px solid rgba(55, 103, 142, 1);
   }
 
-  td.mat-cell {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-    font-size: 0.8em;
-    line-height: 1em;
-    text-align: center;
-    border: 1px solid rgb(159, 168, 175);
+  color: black;
+  font-size: 0.8rem;
+  letter-spacing: 0.015rem;
+  transform: translateY(var(--offset));
+}
 
-    &:not(:last-child) {
-      border-right: 1px solid rgba(55, 103, 142, 1);
-    }
-    border-bottom: none;
-  }
+td.mat-cell {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+  font-size: 0.8em;
+  line-height: 1em;
+  text-align: center;
+  border: 1px solid rgb(159, 168, 175);
 
-  tr.mat-row:nth-child(even) {
-    font-size: 0.8em;
-    height: 1.8em;
-    border: 1px solid rgba(55, 103, 142, 1);
-    background-color: #fdf5f7;
+  &:not(:last-child) {
+    border-right: 1px solid rgba(55, 103, 142, 1);
   }
+  border-bottom: none;
+}
 
-  tr.mat-row:nth-child(odd) {
-    font-size: 0.8em;
-    height: 1.8em;
-    border: 1px solid rgba(55, 103, 142, 1);
-    background-color: #b1bfce;
-  }
+[role='row']:nth-child(even) {
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #fdf5f7;
+}
 
-  td.mat-column-Extension {
-    text-align: center;
-    line-height: 1em;
-    font-size: 0.7em;
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 3% !important;
-    width: 3% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  }
-  td.mat-column-DocFileName {
-    text-align: left;
-    line-height: 1em;
-    font-size: 0.7em;
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 35% !important;
-    width: 35% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  }
+[role='row']:nth-child(odd) {
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #b1bfce;
+}
 
-  td.mat-column-DocType {
-    text-align: center;
-    line-height: 1em;
-    font-size: 0.7em;
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 25% !important;
-    width: 25% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  }
-
-  td.mat-column-FileSize {
-    text-align: center;
-    line-height: 1em;
-    font-size: 0.7em;
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 8% !important;
-    width: 8% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  }
-
-  td.mat-column-CreatedBy {
-    text-align: center;
-    line-height: 1em;
-    font-size: 0.7em;
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 10% !important;
-    width: 10% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  }
-
-  td.mat-column-CreatedDate {
-    text-align: center;
-    line-height: 1em;
-    font-size: 0.7em;
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 24% !important;
-    width: 24% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-  }
-  // .filter {
+// tr.mat-row.cdk-row.element-row:nth-child(even) {
+//   font-size: 0.8em;
+//   height: 1.8em;
 //   border: 1px solid rgba(55, 103, 142, 1);
-//   background-color: #8f9fb5;
-//   padding-left: 2.4rem;
-//   font-size: 0.02rem;
-//   font-weight: 600;
-
-//   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
-//   letter-spacing: 0.03em;
-//   line-height: 0.02rem;
-//   text-align: center;
-//   &:not(:last-child) {
-//     border-right: 1px solid rgba(55, 103, 142, 1);
-//   }
-
-//   color: black;
-//   font-size: 0.8rem;
-//   letter-spacing: 0.015rem;
+//   background-color: #fdf5f7;
 // }
 
+// tr.mat-row.cdk-row.element-row:nth-child(odd) {
+//   font-size: 0.8em;
+//   height: 1.8em;
+//   border: 1px solid rgba(55, 103, 142, 1);
+//   background-color: #b1bfce;
+// }
+
+td.mat-column-Extension {
+  text-align: center;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 3% !important;
+  width: 3% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+td.mat-column-DocFileName {
+  text-align: left;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 35% !important;
+  width: 35% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+
+td.mat-column-DocType {
+  text-align: center;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 25% !important;
+  width: 25% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+
+td.mat-column-FileSize {
+  text-align: center;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 8% !important;
+  width: 8% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+
+td.mat-column-CreatedBy {
+  text-align: center;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+
+td.mat-column-CreatedDate {
+  text-align: center;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 24% !important;
+  width: 24% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+// tr.example-element-row:not(.example-expanded-row):hover {
+//   background: whitesmoke;
+// }
+
+// tr.example-element-row:not(.example-expanded-row):active {
+//   background: #efefef;
+// }
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
 
 @include base;
 @include progress;
 
 cdk-virtual-scroll-viewport {
   height: 25vh;
+}
+
+::ng-deep .cdk-virtual-scroll-content-wrapper {
+  transform: translateY(0px) !important;
 }
 
 // this makes the <th>s respond to --offset

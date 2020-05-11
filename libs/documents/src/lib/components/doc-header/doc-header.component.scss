@@ -2,9 +2,9 @@
   z-index: 4;
 }
 
-.header {
+.doc-header {
   display: grid;
-  grid-template-columns: 8;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 3fr;
   width: 100%;
   background-color: white;
   box-shadow: 5px 5px 10px black;
@@ -15,6 +15,8 @@
 
   /* needed for the floated layout */
   clear: both;
+  
+
 
   .logo {
     grid-column-start: 1;
@@ -29,8 +31,8 @@
   }
 
   h1.app-title {
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
     color: #000;
     display: inline-block;
     font-size: 3em;
@@ -40,14 +42,19 @@
     margin-top: .2em;
     padding-left: .1em;
     padding-bottom: 0;
-    align-self: end;
+    align-self: start;
   }
 
-
+div.search {
+  grid-column-start: 8;
+  grid-column-end: 9;
+  align-self: end;
+  justify-self: end;
+  justify-items: end;
+  justify-content: end;
+}
 
   div.login {
-    // grid-column-start: 7;
-    // grid-column-end: 8;
     border: 1px solid #000;
     color: #000;
     height: 3.5em;
@@ -67,8 +74,8 @@
     margin-top: 0;
     padding-bottom: 0;
     text-align: right;
-
-    align-self: center;
+    justify-self: end;
+    align-self: end;
   }
 
   span.userpic {
@@ -91,11 +98,3 @@
 
 }
 
-div.search {
-  grid-column-start: 5;
-  grid-column-end: 6;
-  align-self: end;
-  justify-self: end;
-  justify-items: end;
-  justify-content: end;
-}
