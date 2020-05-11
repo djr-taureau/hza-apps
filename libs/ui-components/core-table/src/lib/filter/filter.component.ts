@@ -1,5 +1,15 @@
 import { TemplatePortalDirective } from '@angular/cdk/portal';
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+	AfterViewInit,
+	ChangeDetectionStrategy,
+	Component,
+	ElementRef,
+	Output,
+	TemplateRef,
+	ViewChild,
+	ViewContainerRef,
+	AfterContentInit
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { MatMenuTrigger } from '@angular/material/menu';
@@ -13,7 +23,7 @@ import { filter, map } from 'rxjs/operators';
 	styleUrls: [ './filter.component.scss' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoreTableFilterComponent implements AfterViewInit {
+export class CoreTableFilterComponent implements AfterViewInit, AfterContentInit {
 	@Output() change: Observable<(text: string) => boolean>;
 
 	@ViewChild(MatInput) input: MatInput;
@@ -26,7 +36,6 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	operations: any[];
 	@ViewChild('filterButton') filterButton: ElementRef;
 
-	
 	overlayRef: PopoverRef;
 
 	constructor(
@@ -48,8 +57,9 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit() {
-		this.input.focus()
-	//  this.filterMenu.menuOpened.subscribe(() => this.input && this.input.focus());
+		// this.input.focus()
+		this.filterButton.nativeElement.focus();
+		//  this.filterMenu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// if (this.showTrigger) {
 		// 	console.log('who')
@@ -70,7 +80,6 @@ export class CoreTableFilterComponent implements AfterViewInit {
 			console.log(res);
 		});
 	}
-
 
 	open(content: TemplateRef<any>) {
 		const ref = this.overlayService.open(content, this.filterButton);
