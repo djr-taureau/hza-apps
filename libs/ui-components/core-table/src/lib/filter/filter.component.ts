@@ -23,7 +23,7 @@ import { filter, map } from 'rxjs/operators';
 	styleUrls: [ './filter.component.scss' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoreTableFilterComponent implements AfterViewInit, AfterContentInit {
+export class CoreTableFilterComponent implements AfterViewInit {
 	@Output() change: Observable<(text: string) => boolean>;
 
 	@ViewChild(MatInput) input: MatInput;
