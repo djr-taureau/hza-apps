@@ -9,24 +9,24 @@
   }
 }
 
-@mixin progress {
-  tr.progress {
-    height: 0;
+// @mixin progress {
+//   tr.progress {
+//     height: 0;
 
-    th {
-      border: 0;
-      padding: 0;
-    }
+//     th {
+//       border: 0;
+//       padding: 0;
+//     }
 
-    mat-progress-bar {
-      bottom: 0;
-      position: absolute;
-      transition: height 0.3s, opacity 0.25s linear;
+//     // mat-progress-bar {
+//     //   bottom: 0;
+//     //   position: absolute;
+//     //   transition: height 0.3s, opacity 0.25s linear;
 
-      &:not(.show) {
-        height: 0;
-        opacity: 0;
-      }
-    }
-  }
-}
+//     //   &:not(.show) {
+//     //     height: 0;
+//     //     opacity: 0;
+//     //   }
+//     // }
+//   }
+// }

@@ -26,9 +26,8 @@ import { CoreTableVirtualScrollStrategy } from './virtual-scroll.strategy';
 export class CoreTableFixedVirtualScrollDirective
   implements AfterViewInit, OnChanges, OnDestroy {
   @Input() rowHeight = 48;
-  @Input() offset = 5;
-
-  @ContentChild(MatTable) table: MatTable<any>;
+  @Input() offset = 20;
+   @ContentChild(MatTable) table: MatTable<any>;
 
   scrollStrategy: CoreTableVirtualScrollStrategy;
 

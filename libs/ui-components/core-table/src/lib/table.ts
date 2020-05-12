@@ -50,8 +50,6 @@ export class CoreTable<T> implements AfterViewInit, OnInit {
 
 	ngOnInit() {
 		this.init();
-    console.log(this.columns)
-    console.log(this.displayedColumns)
 	}
 
 	ngAfterViewInit() {

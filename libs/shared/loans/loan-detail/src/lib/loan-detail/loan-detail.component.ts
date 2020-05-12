@@ -20,6 +20,8 @@ export class LoanDetailComponent implements OnInit {
 	loanForm = this.fb.group({
 		borrower: [''],
 		borrowerPrimarySSN: [''],
+		coBorrower: [''],
+		borrowerSecondarySSN: [''],
 		propertyAddress1: [''],
 		propertyCity: ['']
 	});
@@ -27,6 +29,8 @@ export class LoanDetailComponent implements OnInit {
 	controls = {
 		borrower: this.loanForm.get('borrower'),
 		borrowerPrimarySSN: this.loanForm.get('borrowerPrimarySSN'),
+		coBorrower: this.loanForm.get('coBorrower'),
+		borrowerSecondarySSN: this.loanForm.get('borrowerSecondarySSN'),
 		propertyAddress1: this.loanForm.get('propertyAddress1'),
 		propertyCity: this.loanForm.get('propertyCity')
 	};
@@ -41,6 +45,8 @@ export class LoanDetailComponent implements OnInit {
 			this.loanForm = this.fb.group(this.loanDetail);
 			this.loanForm.get('borrower').disable();
 			this.loanForm.get('borrowerPrimarySSN').disable();
+			this.loanForm.get('coBorrower').disable();
+			this.loanForm.get('borrowerSecondarySSN').disable();
 			this.loanForm.get('propertyAddress1').disable();
 			this.loanForm.get('propertyCity').disable();
 			this.loanForm.get('investor').disable();
