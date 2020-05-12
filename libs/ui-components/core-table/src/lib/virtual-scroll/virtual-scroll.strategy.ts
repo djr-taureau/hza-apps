@@ -49,12 +49,9 @@ export class CoreTableVirtualScrollStrategy implements VirtualScrollStrategy {
 		if (!this.viewport) {
 			return;
 		}
-		console.log('vp', this.viewport.getViewportSize());
-		console.log('h', this.itemHeight);
-		console.log('scroll offset', this.viewport.measureScrollOffset());
-		console.log('header off', this.headerOffset);
 
-		const amount = Math.ceil(this.viewport.getViewportSize() / this.itemHeight);
+		let amount = Math.ceil(this.viewport.getViewportSize() / this.itemHeight);
+		amount  = 500;
 		const offset = this.viewport.measureScrollOffset() - this.headerOffset;
 		const buffer = Math.ceil(amount / 2);
 
@@ -67,14 +64,5 @@ export class CoreTableVirtualScrollStrategy implements VirtualScrollStrategy {
 		this.viewport.setRenderedRange({ start, end });
 
 		this.indexChange.next(index);
-		console.log('amount', amount);
-		console.log('offset', offset);
-		console.log('buffer', buffer);
-		console.log('skip', skip);
-		console.log('index', index);
-		console.log('start', start);
-		console.log('end', end);
-		console.log('index', this.indexChange);
-		console.log('scroll', this.scrolledIndexChange);
 	}
 }

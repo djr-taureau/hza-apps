@@ -8,55 +8,44 @@
   z-index: 15;
 
   @extend .hza-elevation;
-  
+
   tr.mat-row.element-row[role='row'] {
-  fa-icon {
-    opacity: 1;
-    transform: 'none'
-  }
-}
-
-
-tr.mat-row.element-row.expanded-row[role='row'] {
-  fa-icon {
+    fa-icon {
       opacity: 1;
-  transform: rotate(90deg);
+      transform: 'none';
+    }
   }
 
-}
-  
-  tr.element-row:nth-child(1){
-  height: 0;
-  font-size: 0.8em;
-  height: 1.8em;
-  border: 1px solid rgba(55, 103, 142, 1);
-  background-color: #b1bfce;
-}
-  tr.element-row:nth-child(even){
-  height: 0;
-  font-size: 0.8em;
-  height: 1.8em;
-  border: 1px solid rgba(55, 103, 142, 1);
-  background-color: #fdf5f7;
-}
+  tr.mat-row.element-row:nth-child(odd) {
+    height: 0;
+    font-size: 0.8em;
+    height: 1.8em;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #b1bfce;
+  }
+  tr.mat-row.element-row:nth-child(even) {
+    height: 0;
+    font-size: 0.8em;
+    height: 1.8em;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #fdf5f7;
+  }
 
-tr.detail-row:nth-child(even){
-  height: 0;
-}
+  tr.detail-row:nth-child(even) {
+    height: 0;
+  }
 
+  tr.element-row:nth-child(odd) {
+    height: 0;
+    font-size: 0.8em;
+    height: 1.8em;
+    border: 1px solid rgba(55, 103, 142, 1);
+    background-color: #b1bfce;
+  }
 
-tr.element-row:nth-child(odd){
-  height: 0;
-  font-size: 0.8em;
-  height: 1.8em;
-  border: 1px solid rgba(55, 103, 142, 1);
-  background-color: #b1bfce;
-}
-
-tr.detail-row:nth-child(odd) {
-  height: 0;
-}
-
+  tr.detail-row:nth-child(odd) {
+    height: 0;
+  }
 }
 
 div.mat-sort-header {
@@ -72,6 +61,11 @@ div.mat-sort-header {
   position: sticky;
   // transform: translateY(-190px)
 }
+
+.mat-sort-header-container {
+  margin-left: 1em;
+}
+
 th.mat-header-cell {
   border: 1px solid rgba(55, 103, 142, 1);
   background-color: #8f9fb5;
@@ -81,7 +75,8 @@ th.mat-header-cell {
   font-weight: 600;
   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
   letter-spacing: 0.04em;
-  line-height: 1em;
+  line-height: .8em;
+  margin-left: 1.5em;
   .column-header {
     flex-direction: column;
     justify-content: center;
@@ -112,13 +107,26 @@ td.mat-cell {
   border-bottom: none;
 }
 
+tr.mat-row.cdk-row.element-row[role='row']:nth-child(odd) {
+  height: 0;
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #b1bfce;
+}
+tr.mat-row.cdk-row.element-row[role='row']:nth-child(even) {
+  height: 0;
+  font-size: 0.8em;
+  height: 1.8em;
+  border: 1px solid rgba(55, 103, 142, 1);
+  background-color: #fdf5f7;
+}
 // [role='row']:nth-child(even) {
 //   font-size: 0.8em;
 //   height: 1.8em;
 //   border: 1px solid rgba(55, 103, 142, 1);
 //   background-color: #fdf5f7;
 // }
-
 
 // tr.mat-row.element-row:nth-child(even){
 //   height: 0;
@@ -132,7 +140,6 @@ td.mat-cell {
 //   height: 0;
 // }
 
-
 // tr.mat-row.element-row:nth-child(odd){
 //   height: 0;
 //   font-size: 0.8em;
@@ -145,16 +152,12 @@ td.mat-cell {
 //   height: 0;
 // }
 
-
-
-
 // [role='row']:nth-child(odd) {
 //   font-size: 0.8em;
 //   height: 1.8em;
 //   border: 1px solid rgba(55, 103, 142, 1);
 //   background-color: #b1bfce;
 // }
-
 
 // tr.element-row:nth-child(odd){
 //   height: 0;
@@ -275,22 +278,20 @@ td.mat-column-CreatedDate {
 //   visibility: hidden;
 // }
 
-tr.mat-row.element-row[role='row'] {
-  fa-icon {
-    opacity: 1;
-    transform: 'none'
-  }
-}
+// tr.mat-row.element-row[role='row'] {
+//   fa-icon {
+//     opacity: 1;
+//     transform: 'none'
+//   }
+// }
 
+// tr.mat-row.element-row.expanded-row[role='row'] {
+//   fa-icon {
+//       opacity: 1;
+//   transform: rotate(90deg);
+//   }
 
-tr.mat-row.element-row.expanded-row[role='row'] {
-  fa-icon {
-      opacity: 1;
-  transform: rotate(90deg);
-  }
-
-}
-
+// }
 
 // fa-icon.element-row:not(.expanded-row) {
 //   opacity: 1;
@@ -309,7 +310,6 @@ tr.mat-row.element-row.expanded-row[role='row'] {
 // fa-icon.expanded-row {
 //   opacity: 0;
 // }
-
 
 .element-row td {
   border-bottom-width: 0;
@@ -353,5 +353,3 @@ cdk-virtual-scroll-viewport {
 ::ng-deep .cdk-virtual-scroll-content-wrapper {
   transform: translateY(0px) !important;
 }
-
-// this makes the <th>s respond to --offset
