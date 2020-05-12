@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges, EventEmitter } from '@angular/core';
 import { Observable, Subject, asyncScheduler, of } from 'rxjs';
 import { observeOn, shareReplay, delay, startWith, map } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
+import { EventBusService, EventData } from '@hza/core';
 
 @Component({
 	selector: 'hza-doc-repo',
@@ -30,7 +31,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 
 	fetchingData: boolean;
 
-	constructor(private docs: DocsFacade) {}
+	constructor(private docs: DocsFacade, private eventBus: EventBusService) {}
 
 	ngOnInit() {
 		this.sticky = false;
@@ -41,18 +42,19 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.opened = false;
 		this.fetchingData = false;
 	}
-
 	ngOnChanges() {
 		this.selectedDoc$.subscribe((v) => console.log('selected doc', v));
 	}
-
 	ngOnDestroy() {
 		this.unsubscribe$.next();
 		this.unsubscribe$.complete();
 	}
-
 	selectDoc(id) {
 		console.log(id);
 		this.docs.selectDoc(id);
+	}
+	clearDocFilters(evt: string) {
+		console.log('clear filter', evt);
+		this.eventBus.emit(new EventData('ClearFilters', evt));
 	}
 }

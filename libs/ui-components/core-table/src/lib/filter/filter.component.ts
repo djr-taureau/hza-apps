@@ -16,6 +16,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { OverlayService, PopoverRef, PopoverService } from '@hza/ui-components/overlay';
 import { merge, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'core-table-filter',
@@ -31,6 +32,7 @@ export class CoreTableFilterComponent implements AfterViewInit {
 
 	@ViewChild('overlayTemplate') overlayTemplate: TemplatePortalDirective;
 
+	faFilter = faFilter;
 	filter = new FormControl();
 	operation = new FormControl();
 	operations: any[];

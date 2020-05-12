@@ -32,7 +32,7 @@ export class CoreTableDataSource<T> extends DataSource<T> {
   private readonly visibleData: Observable<any[]>;
   private _data: T[];
 
-  batch = 20;
+  batch = 50;
   theEnd = false;
 
   offset = new BehaviorSubject(null);
