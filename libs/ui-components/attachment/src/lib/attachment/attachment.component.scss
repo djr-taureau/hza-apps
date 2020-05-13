@@ -1,56 +1,55 @@
 @import '../../../../../shared/styles/src/index.scss';
 :host {
-    mat-card-title.attachment-name {
-    color: $color-green;
+  .attachment-container {
+    padding: 1em;
+  }
+  mat-card {
+    width: 119px;
+    height: 180px;
+  }
+  mat-card-title.attachment-name {
+    color: $color-green-darker;
     background-color: $color-grey-lightest;
-    padding: 2em;
-    font-size: 1em;
+    width: auto;
+    height: 100px;
+    font-size: .6em;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .mat-card-subtitle {
+    box-sizing: border-box;
+    color: #000000;
+    cursor: default;
+    font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
+    font-size: .4em;
     font-weight: 500;
   }
   .mat-flat-button {
-        background-image: -webkit-linear-gradient(top, #fafafa, #eee);
-    background-image: -moz-linear-gradient(top, #fafafa, #eee);
-    background-image: -o-linear-gradient(top, #fafafa, #eee);
-    background-image: -ms-linear-gradient(top, #fafafa, #eee);
-    background-image: linear-gradient(to bottom, #fafafa, #eee);
-    -webkit-border-radius: 2px;
     border-radius: 2px;
-    border: 1px solid #eee;
     text-decoration: none;
-    display: block;
-    padding: 4px 5px;
-    text-align: center;
+    justify-self: start;
+    align-self: start;
     color: #aaa;
-    margin-top: 26px;
+    width: auto;
+    font-size: .6em;
   }
 }
-.attachment-icon {
-  position: relative;
-  width: 2.2rem;
-  height: 2.2rem;
-  padding: 1px;
-  box-sizing: border-box;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-  .icon {
-    &:before {
-      font-size: 3rem;
-    }
-  }
-}
-.attachment-info {
-  span {
-    display: block;
-    font-family: $font-family-primary;
-  }
-  mat-card-title.attachment-name {
-    color: $color-green;
-    font-size: 1.4rem;
-    font-weight: 700;
-  }
-  .attachment-modified {
-    color: $color-grey;
-    font-size: 1.4rem;
-    font-weight: 300;
-  }
-}
+
+// .attachment-info {
+//   span {
+//     display: block;
+//     font-family: $font-family-primary;
+//   }
+//   mat-card-title.attachment-name {
+//     color: $color-green;
+//     font-size: 1.4rem;
+//     font-weight: 700;
+//   }
+//   .attachment-modified {
+//     color: $color-grey;
+//     font-size: 1.4rem;
+//     font-weight: 300;
+//   }
+// }
