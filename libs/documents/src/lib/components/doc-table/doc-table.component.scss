@@ -107,7 +107,7 @@ td.mat-cell {
   border-bottom: none;
 }
 
-tr.mat-row.cdk-row.element-row[role='row']:nth-child(odd) {
+tr.mat-row.cdk-row.element-row.blue {
   height: 0;
   font-size: 0.8em;
   height: 1.8em;
@@ -278,30 +278,6 @@ td.mat-column-CreatedDate {
 //   visibility: hidden;
 // }
 
-// tr.mat-row.element-row[role='row'] {
-//   fa-icon {
-//     opacity: 1;
-//     transform: 'none'
-//   }
-// }
-
-// tr.mat-row.element-row.expanded-row[role='row'] {
-//   fa-icon {
-//       opacity: 1;
-//   transform: rotate(90deg);
-//   }
-
-// }
-
-// fa-icon.element-row:not(.expanded-row) {
-//   opacity: 1;
-//   transform: 'none'
-// }
-
-// fa-icon.expanded-row:not(.element-row) {
-//   opacity: 1;
-//   transform: rotate(90deg);
-// }
 
 // fa-icon.element-row {
 //   opacity: 1;
