@@ -3,14 +3,14 @@
   .attachment-container {
     padding: 1em;
   }
-  mat-card {
-    width: 119px;
-    height: 180px;
+  mat-card.attachment {
+    width: 120px;
+    height: 200px;
   }
   mat-card-title.attachment-name {
     color: $color-green-darker;
     background-color: $color-grey-lightest;
-    width: auto;
+    max-width: 116px;
     height: 100px;
     font-size: .6em;
     font-weight: 600;
@@ -23,17 +23,17 @@
     color: #000000;
     cursor: default;
     font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
-    font-size: .4em;
-    font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
   }
   .mat-flat-button {
     border-radius: 2px;
+    border: 1px solid #eee;
     text-decoration: none;
-    justify-self: start;
-    align-self: start;
+    display: block;
+    text-align: center;
     color: #aaa;
-    width: auto;
-    font-size: .6em;
+    margin-top: 3px;
   }
 }
 
