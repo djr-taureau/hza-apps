@@ -18,11 +18,7 @@
         <div mat-sort-header></div>
       </th>
       <td mat-cell *matCellDef="let row">
-        <fa-icon
-          size="2x"
-          transform="left-2"
-          [icon]="faCaretRight"
-        ></fa-icon>
+        <fa-icon size="2x" transform="left-2" [icon]="faCaretRight"></fa-icon>
       </td>
     </ng-container>
     <ng-container matColumnDef="Extension">
@@ -143,21 +139,11 @@
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr
-      [style.height.px]="placeholderHeight"
-      mat-row
-      *matRowDef="
-        let row;
-        let index = index;
-        columns: [];
-        when: placeholderWhen
-      "
-    ></tr>
     <tr
       mat-row
-      *matRowDef="let element; columns: displayedColumns"
+      *matRowDef="let element; let i = index; let even = even; columns: displayedColumns"
       class="element-row"
-      [class.expanded-row]="expandedElement === element"
+      [ngClass]="{pink: even}"
       (click)="expandedElement = expandedElement === element ? null : element"
     ></tr>
     <tr
@@ -165,6 +151,5 @@
       *matRowDef="let row; columns: ['expandedDetail']"
       class="detail-row"
     ></tr>
-
   </table>
 </cdk-virtual-scroll-viewport>
