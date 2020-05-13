@@ -66,8 +66,10 @@
       "@hza/ui-components/data-list": [
         "libs/ui-components/data-list/src/index.ts"
       ],
-      "@hza/auth": ["libs/auth/src/index.ts"]
-
+      "@hza/auth": ["libs/auth/src/index.ts"],
+      "@hza/ui-components/attachment": [
+        "libs/ui-components/attachment/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
