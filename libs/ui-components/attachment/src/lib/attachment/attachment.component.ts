@@ -1,8 +1,6 @@
-//tslint:disable:use-host-property-decorator
-import { Component, OnInit, Input } from '@angular/core';
-// import { fileTypesSlug } from '@fay/shared';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AttachmentData } from '../models';
+
 
 @Component({
 	selector: 'hza-attachment',
@@ -15,11 +13,12 @@ import { AttachmentData } from '../models';
 export class AttachmentComponent implements OnInit {
 	fileIcon: string;
 
-	@Input() attachmentData: AttachmentData; // TODO: Need to add Attachement Typings but need straighten out file Typings
+	@Input() attachmentData: AttachmentData;
+	@Output() removeAttachment: EventEmitter<string>;
 
 	constructor() {}
 
 	ngOnInit() {
-		// this.fileIcon = `icon icon-${fileTypesSlug(this.attachmentData.relativePath)}`;
+		console.log('attachment')
 	}
 }

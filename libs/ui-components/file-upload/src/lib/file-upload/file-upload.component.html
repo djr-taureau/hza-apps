@@ -1,35 +1,28 @@
 <div class="center">
-  <ngx-file-drop
-    dropZoneLabel="Drop files here"
-    (onFileDrop)="dropped($event)"
-    (onFileOver)="fileOver($event)"
-    (onFileLeave)="fileLeave($event)"
-  >
-    <ng-template
-      ngx-file-drop-content-tmp
-      let-openFileSelector="openFileSelector"
-    >
-      Drop Files to Upload or
-      <button type="button" (click)="openFileSelector()">Browse Files</button>
-    </ng-template>
-  </ngx-file-drop>
-  <div class="upload-table">
-    <table class="table">
-      <thead>
-        <tr></tr>
-      </thead>
-      <tbody class="upload-name-style">
-        <tr>
-          <td>
-            <div *ngIf="hasFiles" class="file-upload-preview">
-              <hza-attachment
-                *ngFor="let file of files; let i = index"
-                [attachmentData]="file"
-              ></hza-attachment>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+    (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+          Drop Files to Upload or
+          <button type="button" (click)="openFileSelector()">Browse Files</button>
+        </ng-template>
+    </ngx-file-drop>
+    <div class="upload-table">
+        <table class="table">
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <tr *ngFor="let item of chosenFiles; let i=index">
+                    <td><strong>{{ item.name }} || {{ item.size | hzaFileSize }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<!-- <div *ngIf="hasFiles" class="file-upload-preview">
+  <hza-attachment
+    *ngFor="let file of files"
+    [attachmentData]="file"
+  ></hza-attachment>
+</div> -->

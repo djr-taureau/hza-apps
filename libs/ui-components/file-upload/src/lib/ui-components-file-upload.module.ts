@@ -6,10 +6,12 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { UiComponentsButtonsModule } from '@hza/ui-components/buttons';
 import { UiComponentsAttachmentModule } from '@hza/ui-components/attachment';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { SharedUtilsModule } from '@hza/shared/utils';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedUtilsModule,
     FormsModule,
     HttpClientModule,
     NgxFileDropModule,
