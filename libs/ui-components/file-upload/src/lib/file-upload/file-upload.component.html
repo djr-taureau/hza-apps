@@ -12,17 +12,19 @@
                 <tr></tr>
             </thead>
             <tbody class="upload-name-style">
-                <tr *ngFor="let item of chosenFiles; let i=index">
-                    <td><strong>{{ item.name }} || {{ item.size | hzaFileSize }}</strong></td>
+                <tr>
+                    <td>
+                        <div *ngIf="hasFiles" class="file-upload-preview">
+                            <hza-attachment
+                                *ngFor="let file of chosenFiles; let i=index"
+                                [attachmentData]="file"
+                            ></hza-attachment>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 
-<!-- <div *ngIf="hasFiles" class="file-upload-preview">
-  <hza-attachment
-    *ngFor="let file of files"
-    [attachmentData]="file"
-  ></hza-attachment>
-</div> -->
+

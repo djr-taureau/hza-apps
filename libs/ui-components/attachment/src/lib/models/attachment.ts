@@ -6,4 +6,6 @@ export interface Attachment {
 
 export interface AttachmentData {
   relativePath?: string;
+  name?: string;
+  size?: number;
 }

@@ -13,7 +13,7 @@ import { AttachmentData } from '../models';
 export class AttachmentComponent implements OnInit {
 	fileIcon: string;
 
-	@Input() attachmentData: AttachmentData;
+	@Input() attachmentData: File;
 	@Output() removeAttachment: EventEmitter<string>;
 
 	constructor() {}
