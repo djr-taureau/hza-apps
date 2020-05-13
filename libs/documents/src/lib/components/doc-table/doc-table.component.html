@@ -143,7 +143,7 @@
       mat-row
       *matRowDef="let element; let i = index; let even = even; columns: displayedColumns"
       class="element-row"
-      [ngClass]="{blue: even}"
+      [ngClass]="{pink: even}"
       (click)="expandedElement = expandedElement === element ? null : element"
     ></tr>
     <tr
