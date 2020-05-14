@@ -1345,10 +1345,10 @@
   resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-9.0.0.tgz#7a918601794c6adce3c9e7c471ecd7f923e50a33"
   integrity sha512-0NQ+ppwiLuXtRZ2t79qdudbJhGlmuX2Qh6ORF9hplQoQn8Nl3BUp/TrH8SaAwISbg/B4EOhLWFmLVkXN8HZL8w==
 
-"@ngrx/router-store@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-9.0.0.tgz#5bb5aaad74f4e40d4cce2bce15dfb8c8dc6768b3"
-  integrity sha512-eVgdRwK0twPgTgWnIpc2EBoz6LgWsGdlheDVKZ9MNU8ZkbPV8/ycivW5Oy5cm+ppi1QHHmkpgt+u5c2iGi68cg==
+"@ngrx/router-store@^9.1.0":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-9.1.2.tgz#4433c951c7090fa0705e6b69a5d1d25a04134508"
+  integrity sha512-zqAm7fOdJ34dY2Tlts2YV9MDcDP2CqB+hLEytjo/bOIkUo/lQA1R5VAUI+Z8+tUlmPqSVIJkzsGuCxO6XnLEjQ==
 
 "@ngrx/schematics@^9.0.0":
   version "9.0.0"
