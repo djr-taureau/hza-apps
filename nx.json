@@ -126,6 +126,9 @@
     },
     "shared-loans-ui": {
       "tags": ["scope:shared", "type:ui"]
+    },
+    "ui-components-attachment": {
+      "tags": []
     }
   },
   "tasksRunnerOptions": {

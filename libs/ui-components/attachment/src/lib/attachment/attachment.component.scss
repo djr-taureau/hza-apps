@@ -1,0 +1,42 @@
+@import '../../../../../shared/styles/src/index.scss';
+:host {
+  .attachment-container {
+    padding: 1em;
+  }
+  mat-card.attachment {
+    width: 120px;
+    height: 200px;
+  }
+  mat-card-title.attachment-name {
+    color: $color-green-darker;
+    background-color: $color-grey-lightest;
+    max-width: 116px;
+    height: 100px;
+    font-size: 0.6em;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .mat-card-subtitle {
+    box-sizing: border-box;
+    color: #000000;
+    cursor: default;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .mat-flat-button {
+    border-radius: 2px;
+    border: 1px solid #eee;
+    text-decoration: none;
+    align-self: center;
+    text-align: center;
+    color: $color-grey-dark;
+    background-color: $color-grey-lighter;
+    margin-top: 3px;
+    font-size: .6em;
+    font-weight: 600;
+    margin-left: 1em;
+  }
+}
