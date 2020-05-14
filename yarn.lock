@@ -7715,6 +7715,11 @@ ngx-bootstrap@^5.6.2:
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-5.6.2.tgz#e648f826d303c29255c16772676efd30695740d1"
   integrity sha512-6YHXtdXkGH3w0NQoaUgNYAcrj064Lv5RTO284ha/hvpNTrh55yQz2cVh0VvwBk3MjyY2tdmLH4SuCJDszYdYiw==
 
+ngx-file-drop@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-file-drop/-/ngx-file-drop-9.0.1.tgz#ef84df9c9254f87c829ea47d2657cb49b0790254"
+  integrity sha512-xtUUjGMr9c8wwSfA4Cyy0iZMPLnBOg9i32A3tHOPfEivRrn9evULvxriCM45Qz6HpuuqA7vZGxGZZTCUIj/h3A==
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
