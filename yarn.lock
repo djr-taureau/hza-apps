@@ -9065,10 +9065,10 @@ pretty-format@^25.5.0:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
-primeng@^9.0.5:
-  version "9.0.5"
-  resolved "https://registry.yarnpkg.com/primeng/-/primeng-9.0.5.tgz#f7025b3d6bc94af2077fad4e027e1c2675134e36"
-  integrity sha512-juugoXZaU7TyGyTSFx0PNjObqM+/RTY/arJ/LwyH/0KaIv0V+Oqfvnx8btJ96kLOZ+h0xLWXLuAbxsTXe9EX6w==
+primeng@^9.0.6:
+  version "9.0.6"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-9.0.6.tgz#b0d8350428722aaab2f5d4a65d3d06b5d4f673e0"
+  integrity sha512-RGVTkXwHTb7609zTU/uJFYdbJV124kOwrMiwnHjFn6UkwmS3yTX0Kkr21v8KOTJqsKLq3OWVYhkOwvUklipAAg==
 
 private@^0.1.8:
   version "0.1.8"
