@@ -45,6 +45,20 @@ export class LoanEffects {
 			)
 		)
 	);
+	
+		loadLoanDetail$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(LoanActions.loadLoanDetail),
+			switchMap(({ loanNumber }) =>
+				this.loanService
+					.getLoanDetails(loanNumber)
+					.pipe(
+						map((loanDetail) => LoanActions.loadLoanDetailDocSuccess({ loanDetail })),
+						catchError((error) => of(LoanActions.loadLoansFail(error)))
+					)
+			)
+		)
+	);
 
 	constructor(private actions$: Actions, private loanService: LoansService, private facade: LoansFacade) {}
 }

@@ -3,7 +3,7 @@ import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges, Templ
 import { Router } from '@angular/router';
 import { ComponentType } from '@angular/cdk/portal';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
-import { Loan } from '@hza/shared/loans/models';
+import { Loan, LoanDetailDoc } from '@hza/shared/loans/models';
 import { observeOn, shareReplay, tap, filter, take } from 'rxjs/operators';
 import { OverlayService } from '@hza/ui-components/overlay';
 import { BehaviorSubject } from 'rxjs';
@@ -29,6 +29,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	loansTotal$: Observable<number>;
 	loanQuery$: Observable<LoanQuery>;
 	selectedLoan$: Observable<Loan>;
+	loanDetail$: Observable<LoanDetailDoc>;
 	loansContainer = null;
 	unsubscribe$: Subject<void> = new Subject();
 	opened: boolean;
@@ -39,6 +40,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		this.opened = false;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loanQuery$ = this.loansFacade.loanQuery$;
+		this.loanDetail$ = this.loansFacade.loanDetail$;
 		this.loans$ = this.loansFacade.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.loansTotal$ = this.loansFacade.loanTotal$;
 		this.selectedLoan$ = this.loansFacade.selectedLoan$;
@@ -61,6 +63,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	selectLoan(id) {
 		this.loansFacade.selectLoan(id);
+		this.loansFacade.getLoanDetail(id);
 		const foo = this.loansFacade.selectedLoan$.pipe(tap((data) => data), filter((data) => !!data), take(1));
 		foo.subscribe(v => console.log('loan', v));
 		this.router.navigate(['docs/repo']);

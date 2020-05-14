@@ -11,34 +11,38 @@ import { LoanQuery, defaultQuery } from '@hza/shared/loans/models';
 // **
 @Injectable()
 export class LoansFacade {
-  loans$ = this.store.select(loansQuery.selectAllLoans);
-  loansLoaded$ = this.store.select(loansQuery.loadedLoans);
-  loanQuery$ = this.store.select(loansQuery.selectLoanQuery);
-  loanTotal$ = this.store.select(loansQuery.selectLoanTotal);
-  selectedLoan$ = this.store.select(loansQuery.selectCurrentLoan);
+	loans$ = this.store.select(loansQuery.selectAllLoans);
+	loansLoaded$ = this.store.select(loansQuery.loadedLoans);
+	loanQuery$ = this.store.select(loansQuery.selectLoanQuery);
+	loanTotal$ = this.store.select(loansQuery.selectLoanTotal);
+	selectedLoan$ = this.store.select(loansQuery.selectCurrentLoan);
+	loanDetail$ = this.store.select(loansQuery.selectLoanDetail);
 
-  // ** The Store gets injected one time for each facade
+	// ** The Store gets injected one time for each facade
 
-  constructor(private store: Store<State>) {}
+	constructor(private store: Store<State>) {}
 
-  loadLoans() {
-    this.store.dispatch(LoanActions.loadLoans());
-  }
+	loadLoans() {
+		this.store.dispatch(LoanActions.loadLoans());
+	}
 
-  selectLoan(loanNumber: number) {
-    this.store.dispatch(LoanActions.selectLoan({ loanNumber }));
-  }
-  initQuery() {
-    this.store.dispatch(LoanActions.queryLoans({ query: defaultQuery }))
-  }
-  queryLoans(query: LoanQuery) {
-    this.clearLoans();
-    this.store.dispatch(LoanActions.queryLoans({ query }));
-  }
-  
-  clearLoans() {
-    this.store.dispatch(LoanActions.clearLoans());
-    this.store.dispatch(LoanActions.clearQuery());
-  }
+	selectLoan(loanNumber: number) {
+		this.store.dispatch(LoanActions.selectLoan({ loanNumber }));
+	}
+	initQuery() {
+		this.store.dispatch(LoanActions.queryLoans({ query: defaultQuery }));
+	}
+	queryLoans(query: LoanQuery) {
+		this.clearLoans();
+		this.store.dispatch(LoanActions.queryLoans({ query }));
+	}
+
+	getLoanDetail(loanNumber: string) {
+		this.store.dispatch(LoanActions.loadLoanDetail({ loanNumber }));
+	}
+
+	clearLoans() {
+		this.store.dispatch(LoanActions.clearLoans());
+		this.store.dispatch(LoanActions.clearQuery());
+	}
 }
-
