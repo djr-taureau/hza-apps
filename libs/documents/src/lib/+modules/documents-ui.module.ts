@@ -10,6 +10,7 @@ import { UiComponentsTextListModule } from '@hza/ui-components/text-list'
 import { UiComponentsOverlayModule } from '@hza/ui-components/overlay';
 import { UiComponentsFormsModule } from '@hza/ui-components/forms';
 import { UiComponentsIconsModule } from '@hza/ui-components/icons';
+import { UiComponentsFileUploadModule } from '@hza/ui-components/file-upload';
 
 const MODULES = [
 	CommonModule,
@@ -22,7 +23,8 @@ const MODULES = [
 	UiComponentsTextListModule,
 	UiComponentsOverlayModule,
 	UiComponentsFormsModule,
-	UiComponentsIconsModule
+	UiComponentsIconsModule,
+	UiComponentsFileUploadModule
 ];
 
 @NgModule({
