@@ -45,7 +45,6 @@ export class LoanEffects {
 			)
 		)
 	);
-	
 		loadLoanDetail$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(LoanActions.loadLoanDetail),
