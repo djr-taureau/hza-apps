@@ -1052,10 +1052,10 @@
     "@webcomponents/shadycss" "^1.9.3"
     "@webcomponents/webcomponentsjs" "^2.4.0"
 
-"@clr/icons@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-3.0.1.tgz#eec5b366c9e60fe9e4cf78f59b7fed97a0121dc8"
-  integrity sha512-bQrVWe8tYpIwfunIt/IFsCEJ/gL3sbf1jzjyQ3BQFrp0EzqIkcQwb7oBP9I4aaMcUdc5VbS5CV8sYNFDgq2+9g==
+"@clr/icons@^3.1.1":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-3.1.2.tgz#72fe44ba4656d48183dc8bf4659b2ece77035a5e"
+  integrity sha512-vd5gFEmS42961wBtnYLvtm2mzSfxJ/V9Mt0aeHJlN9DDQSkq1k5dntYnwYxsjoZeqyMTA6lCDXajEBROBwvr4g==
 
 "@clr/ui@^3.0.1":
   version "3.0.1"
