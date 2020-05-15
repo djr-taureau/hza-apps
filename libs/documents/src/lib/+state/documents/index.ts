@@ -46,6 +46,11 @@ export const selectCurrentDocId = createSelector(
   fromDocs.getSelectedDocId
 );
 
+export const selectDocTypes = createSelector(
+  selectDocRepoState,
+  fromDocs.getDocTypes
+);
+
 export const isLoadingDocs = createSelector(
   selectDocRepoState,
   fromDocs.isLoading
@@ -72,4 +77,5 @@ export const docsQuery = {
 	isLoadingDocs,
 	loadedDocs,
 	selectCurrentDoc,
+  selectDocTypes
 };

@@ -12,13 +12,13 @@ import { FixedRouterSerializer } from '../+state/fixedRouterStateSerializer'
 	imports: [
 		StoreModule.forRoot(
 			reducers, {
-			metaReducers,
-			runtimeChecks: {
-				strictStateImmutability: true,
-				strictActionImmutability: true,
-				strictActionSerializability: true,
-				strictStateSerializability: true
-			}
+			metaReducers
+			// runtimeChecks: {
+			// 	strictStateImmutability: true,
+			// 	strictActionImmutability: true,
+			// 	strictActionSerializability: true,
+			// 	strictStateSerializability: true
+			// }
 		}),
 		EffectsModule.forRoot([]),
 		StoreDevtoolsModule.instrument({
