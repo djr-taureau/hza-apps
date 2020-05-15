@@ -39,7 +39,7 @@ export class LoansListComponent extends CoreTable<Loan> implements OnInit, After
 
 	ngOnInit() {
 		console.log('loan list init')
-		console.log(this.loanNumber)// this is how you could recalculate the sticky header position on scrol
+		console.log(this.loanNumber)
 	}
 	ngAfterViewInit() {
 		console.log('loan list after view init')

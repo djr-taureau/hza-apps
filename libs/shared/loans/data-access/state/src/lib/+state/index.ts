@@ -55,6 +55,11 @@ export const loadedLoans = createSelector(
   selectLoansState,
   fromLoans.loaded
 );
+
+export const selectLoanDetail = createSelector(
+  selectLoansState,
+  fromLoans.getLoanDetail
+);
  
 export const selectCurrentLoan = createSelector(
   selectLoanEntities,
@@ -72,5 +77,6 @@ export const loansQuery = {
 	isLoadingLoans,
 	loadedLoans,
 	selectCurrentLoan,
-  selectLoanQuery
+  selectLoanQuery,
+  selectLoanDetail
 };
