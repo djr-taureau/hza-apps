@@ -62,7 +62,7 @@
     "@nrwl/angular": "9.2.4",
     "@nrwl/nx-cloud": "^9.0.7",
     "@swimlane/ngx-datatable": "^17.0.0",
-    "@types/ramda": "^0.27.0",
+    "@types/ramda": "^0.27.4",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/shadycss": "^1.9.6",
     "@webcomponents/webcomponentsjs": "^2.4.3",
