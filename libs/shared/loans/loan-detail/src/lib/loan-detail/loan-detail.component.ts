@@ -30,6 +30,7 @@ export class LoanDetailComponent implements OnInit {
 
 	ngOnInit() {
 		this.loan$ = this.loanFacade.loanDetail$;
+		// TODO:: Figure out why pipe/tap is not working djr
 		this.loan$.pipe(tap((l) => console.log('', l[0])));
 		this.loan$.subscribe((v) => {
 			this.loanNumber = v[0].LoanNumber;
@@ -42,16 +43,13 @@ export class LoanDetailComponent implements OnInit {
 				InvestorName: v[0].InvestorName,
 				Property: v[0].PropertyStreet + v[0].PropertyCity + v[0].PropertyStateCode + v[0].PropertyZipCode
 			});
-
-			// this.loanDetail = toLoanFormValue(v);
-			// this.loanForm = this.fb.group(this.loanDetail);
-			// this.loanForm.get('borrower').disable();
-			// this.loanForm.get('borrowerPrimarySSN').disable();
-			// this.loanForm.get('coBorrower').disable();
-			// this.loanForm.get('borrowerSecondarySSN').disable();
-			// this.loanForm.get('propertyAddress1').disable();
-			// this.loanForm.get('propertyCity').disable();
-			// this.loanForm.get('investor').disable();
+			this.loanForm = this.fb.group(this.loanDetail);
+			this.loanForm.get('BorrowerPrimaryFullName').disable();
+			this.loanForm.get('BorrowerSSN').disable();
+			this.loanForm.get('BorrowerSecondaryFullName').disable();
+			this.loanForm.get('BorrowerCoSSN').disable();
+			this.loanForm.get('InvestorName').disable();
+			this.loanForm.get('Property').disable();
 		});
 	}
 }

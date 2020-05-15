@@ -26,7 +26,7 @@
         class="longdate SSN-field"
       />
       
-      <label class="borrower" for="BorrowerSecondaryFullName">Co Borrower Name</label>
+    <label class="coBorrower" for="BorrowerSecondaryFullName">Co Borrower Name</label>
     <input
         id="BorrowerSecondaryFullName"
         type="text"
@@ -34,13 +34,13 @@
         name="BorrowerSecondaryFullName"
         formControlName="BorrowerSecondaryFullName"
       />
-      <label class="SSN" for="BorrowerCoSSN">Co Borrower SSN</label>
+      <label class="coSSN" for="BorrowerCoSSN">Co Borrower SSN</label>
       <input
         id="BorrowerCoSSN"
         type="text"
         name="BorrowerCoSSN"
         formControlName="BorrowerCoSSN"
-        class="longdate SSN-field"
+        class="longdate coSSN-field"
       />
 
       <label class="investor" for="InvestorName">Investor</label>
@@ -65,8 +65,11 @@
       </textarea>
     </form>
   </hza-section>
+
 </div>
 
 <ng-template #loading>
   Loading Loan Data...
 </ng-template>
+
+
