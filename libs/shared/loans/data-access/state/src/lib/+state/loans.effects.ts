@@ -52,8 +52,7 @@ export class LoanEffects {
 				this.loanService
 					.getLoanDetails(loanNumber)
 					.pipe(
-						map((loanDetail) => LoanActions.loadLoanDetailDocSuccess({ loanDetail })),
-						catchError((error) => of(LoanActions.loadLoansFail(error)))
+						map((loanDetail) => LoanActions.loadLoanDetailDocSuccess({ loanDetail }))
 					)
 			)
 		)

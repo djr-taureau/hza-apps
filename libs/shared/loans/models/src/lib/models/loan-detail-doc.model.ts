@@ -170,11 +170,11 @@ export interface LoanDetailDoc {
 	RecoverCorpAdvanceBalance: number;
 	NonRecCorpAdvanceBalance: number;
 	TotalCorpAdvanceBalance: number;
-	FirstDueDate: '2007-06-25T00:00:00';
+	FirstDueDate: Date;
 	EscAdvanceBalance: number;
 	LienPosition: string;
-	NoteDate: '2007-05-25T00:00:00';
-	MaturityDate: '2058-08-01T00:00:00';
+	NoteDate: Date;
+	MaturityDate: Date;
 	OriginalBalance: number;
 	ModificationFlag: boolean;
 	ModificationDate: Date;
