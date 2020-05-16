@@ -53,7 +53,7 @@
     "@ngrx/entity": "^9.0.0",
     "@ngrx/router-store": "^9.0.0",
     "@ngrx/schematics": "^9.0.0",
-    "@ngrx/store": "^9.0.0",
+    "@ngrx/store": "^9.1.0",
     "@ngrx/store-devtools": "^9.0.0",
     "@ngx-formly/bootstrap": "^5.5.14",
     "@ngx-formly/core": "^5.5.14",
