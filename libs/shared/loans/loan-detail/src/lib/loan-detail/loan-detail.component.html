@@ -7,9 +7,9 @@
   </hza-section>
   <hza-section>
     <form *ngIf="loan$ | async; let loan; else: loading" [formGroup]="loanForm">
-      <label class="borrower" for="BorrowerPrimaryFullName"
-        >Borrower Name</label
-      >
+      <label class="borrower" for="BorrowerPrimaryFullName">
+        Borrower Name
+      </label>
       <input
         id="BorrowerPrimaryFullName"
         type="text"
@@ -25,7 +25,6 @@
         formControlName="BorrowerSSN"
         class="longdate SSN-field"
       />
-      
     <label class="coBorrower" for="BorrowerSecondaryFullName">Co Borrower Name</label>
     <input
         id="BorrowerSecondaryFullName"
