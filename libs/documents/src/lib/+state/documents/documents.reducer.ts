@@ -2,6 +2,7 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { Document } from './../../models/document.model';
 import * as DocActions from './documents.actions';
+import { CodeTable } from '../../models/code-table.model';
 
 // ** This reducer is what each reducer will look like for an entity with the standard
 // ** state interface
@@ -11,6 +12,7 @@ export interface DocsState extends EntityState<Document> {
   selectedDocId: number | null;
   isLoading: boolean;
   loaded: boolean;
+  docTypes: CodeTable[];
 }
 
 export const adapter: EntityAdapter<Document> = createEntityAdapter<Document>({
@@ -23,6 +25,7 @@ export const docsInitialState: DocsState = adapter.getInitialState({
   selectedDocId: null,
   isLoading: false,
   loaded: false,
+  docTypes: []
 });
 
 export const reducer = createReducer(
@@ -60,6 +63,10 @@ export const reducer = createReducer(
     ...state,
     selectedDocId: ID,
   })),
+    on(DocActions.loadDocTypesSuccess, (state, { docTypes }) => ({
+    ...state,
+    docTypes: docTypes,
+  })),
 );
 
 export function docsReducer(state: DocsState | undefined, action: Action): DocsState {
@@ -72,7 +79,7 @@ export function docsReducer(state: DocsState | undefined, action: Action): DocsS
 export const getSelectedDocId = (state: DocsState) => state.selectedDocId;
 export const isLoading = (state: DocsState) => state.isLoading;
 export const loaded = (state: DocsState) => state.loaded;
-
+export const getDocTypes = (state: DocsState) => state.docTypes;
 
 // get the selectors
 const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();

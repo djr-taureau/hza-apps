@@ -83,6 +83,7 @@ export class LoanSearchComponent implements OnInit, OnChanges, AfterViewInit {
 
 	selectedLoan($event) {
 		this.loanNumber.emit($event);
+		console.log('loan# from search', $event);
 		this.overlayRef.close();
 	}
 	show(content: ComponentType<LoanSearchFormComponent>, origin) {

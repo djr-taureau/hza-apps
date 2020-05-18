@@ -23,6 +23,10 @@ export class DocsFacade {
   loadDocs() {
     this.store.dispatch(DocActions.loadDocs());
   }
+  
+  loadDocTypes() {
+    this.store.dispatch(DocActions.loadDocTypes());
+  }
 
   selectDoc(ID: number) {
     this.store.dispatch(DocActions.selectDoc({ ID }));

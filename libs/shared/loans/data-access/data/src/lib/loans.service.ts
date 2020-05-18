@@ -10,6 +10,7 @@ import { Loan, LoanQuery, LoanDetailDoc } from '@hza/shared/loans/models';
 @Injectable()
 export class LoansService {
 	loansUrl: string;
+	loanDetailUrl: string;
 	constructor(
 		private apiService: ApiService,
 		private apiEndpoint: ApiEndpointService,
@@ -17,6 +18,7 @@ export class LoansService {
 	) {
 		const baseUrl = configService.getCommonApiEndpoint();
 		this.loansUrl = `${baseUrl}/loans`;
+		this.loanDetailUrl = `${baseUrl}/loanDetail`;
 	}
 
 	getLoans(): Observable<Loan[]> {
@@ -32,7 +34,8 @@ export class LoansService {
 	}
 	
 	public getLoanDetails(loanNumber: string): Observable<LoanDetailDoc> {
-		const loanDetailUrl = `${this.loansUrl}?LoanNumber=${loanNumber}`
+		const loanDetailUrl = `${this.loanDetailUrl}?LoanNumber=${loanNumber}`
+		console.log('EARL', loanDetailUrl);
 		return this.apiService.get<LoanDetailDoc>(loanDetailUrl);
 	}
 }

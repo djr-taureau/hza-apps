@@ -34,6 +34,7 @@ export class DocumentsGuard implements CanActivate {
 
 	private prefetch() {
 		// ** facades interact with the store. These two methods dispatch the actions for loading
+		this.docsFacade.loadDocTypes();
 		this.docsFacade.loadDocs();
 	}
 }

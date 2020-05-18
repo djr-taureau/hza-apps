@@ -2,64 +2,55 @@ import { Component, OnInit } from '@angular/core';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
-import { Loan, LoanDetail, toLoanFormValue } from '@hza/shared/loans/models';
+import { Loan, LoanDetail, toLoanFormValue, LoanDetailDoc } from '@hza/shared/loans/models';
 import { tap, startWith, map } from 'rxjs/operators';
 
 @Component({
 	selector: 'hza-loan-detail',
 	templateUrl: './loan-detail.component.html',
-	styleUrls: ['./loan-detail.component.scss']
+	styleUrls: [ './loan-detail.component.scss' ]
 })
 export class LoanDetailComponent implements OnInit {
-	loan$: Observable<Loan>;
+	loan$: Observable<LoanDetailDoc>;
 	loanDetail: LoanDetail;
 	loanNumber: string;
 	property$: Observable<string>;
 	// loanForm: FormGroup;
 
 	loanForm = this.fb.group({
-		borrower: [''],
-		borrowerPrimarySSN: [''],
-		coBorrower: [''],
-		borrowerSecondarySSN: [''],
-		propertyAddress1: [''],
-		propertyCity: ['']
+		BorrowerPrimaryFullName: [ '' ],
+		BorrowerSSN: [ '' ],
+		BorrowerSecondaryFullName: [ '' ],
+		BorrowerCoSSN: [ '' ],
+		InvestorName: [ '' ],
+		Property: [ '' ],
 	});
-
-	controls = {
-		borrower: this.loanForm.get('borrower'),
-		borrowerPrimarySSN: this.loanForm.get('borrowerPrimarySSN'),
-		coBorrower: this.loanForm.get('coBorrower'),
-		borrowerSecondarySSN: this.loanForm.get('borrowerSecondarySSN'),
-		propertyAddress1: this.loanForm.get('propertyAddress1'),
-		propertyCity: this.loanForm.get('propertyCity')
-	};
 
 	constructor(private loanFacade: LoansFacade, private fb: FormBuilder) {}
 
 	ngOnInit() {
-		this.loan$ = this.loanFacade.selectedLoan$;
+		this.loan$ = this.loanFacade.loanDetail$;
+		// TODO:: Figure out why pipe/tap is not working djr
+		this.loan$.pipe(tap((l) => console.log('', l[0])));
 		this.loan$.subscribe((v) => {
-			this.loanNumber = v.loanNumber;
-			this.loanDetail = toLoanFormValue(v);
+			this.loanNumber = v[0].LoanNumber;
+			console.log('EARL', v[0]);
+			this.loanForm.setValue({
+				BorrowerPrimaryFullName: v[0].BorrowerPrimaryFullName,
+				BorrowerSSN: v[0].BorrowerSSN,
+				BorrowerSecondaryFullName: v[0].BorrowerSecondaryFullName,
+				BorrowerCoSSN: v[0].BorrowerCoSSN,
+				InvestorName: v[0].InvestorName,
+				Property: v[0].PropertyStreet + v[0].PropertyCity + v[0].PropertyStateCode + v[0].PropertyZipCode
+			});
 			this.loanForm = this.fb.group(this.loanDetail);
-			this.loanForm.get('borrower').disable();
-			this.loanForm.get('borrowerPrimarySSN').disable();
-			this.loanForm.get('coBorrower').disable();
-			this.loanForm.get('borrowerSecondarySSN').disable();
-			this.loanForm.get('propertyAddress1').disable();
-			this.loanForm.get('propertyCity').disable();
-			this.loanForm.get('investor').disable();
-			const addressCtrl = this.loanForm.get('propertyAddress1');
-			const cityCtrl = this.loanForm.get('propertyCity');
-			this.property$ = combineLatest(
-				addressCtrl.valueChanges.pipe(startWith(addressCtrl.value)),
-				cityCtrl.valueChanges.pipe(startWith(cityCtrl.value))
-			).pipe(
-				map(([address, city]) => {
-					return `${address} ${city}`;
-				})
-			);
+			this.loanForm.get('BorrowerPrimaryFullName').disable();
+			this.loanForm.get('BorrowerSSN').disable();
+			this.loanForm.get('BorrowerSecondaryFullName').disable();
+			this.loanForm.get('BorrowerCoSSN').disable();
+			this.loanForm.get('InvestorName').disable();
+			this.loanForm.get('Property').disable();
 		});
 	}
 }
+

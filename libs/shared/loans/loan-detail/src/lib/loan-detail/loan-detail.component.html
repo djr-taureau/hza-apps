@@ -7,67 +7,68 @@
   </hza-section>
   <hza-section>
     <form *ngIf="loan$ | async; let loan; else: loading" [formGroup]="loanForm">
-      <label class="borrower" for="BorrowerName"
-        >Borrower Name</label
-      >
+      <label class="borrower" for="BorrowerPrimaryFullName">
+        Borrower Name
+      </label>
       <input
-        id="borrower"
+        id="BorrowerPrimaryFullName"
         type="text"
         class="borrower-field"
-        name="BorrowerName"
-        formControlName="borrower"
+        name="BorrowerPrimaryFullName"
+        formControlName="BorrowerPrimaryFullName"
       />
       <label class="SSN" for="BorrowerSSN">Borrower SSN</label>
       <input
-        id="borrowerPrimarySSN"
+        id="BorrowerSSN"
         type="text"
         name="BorrowerSSN"
-        formControlName="borrowerPrimarySSN"
+        formControlName="BorrowerSSN"
         class="longdate SSN-field"
       />
-      
-    <!-- <ng-container>
+    <label class="coBorrower" for="BorrowerSecondaryFullName">Co Borrower Name</label>
     <input
-        id="coBorrower"
+        id="BorrowerSecondaryFullName"
         type="text"
         class="coBorrower-field"
-        name="CoBorrowerName"
-        formControlName="coBorrower"
+        name="BorrowerSecondaryFullName"
+        formControlName="BorrowerSecondaryFullName"
       />
-      <label class="SSN" for="CoBorrowerSSN">Co Borrower SSN</label>
+      <label class="coSSN" for="BorrowerCoSSN">Co Borrower SSN</label>
       <input
-        id="borrowerSecondarySSN"
+        id="BorrowerCoSSN"
         type="text"
-        name="BorrowerSecondarySSN"
-        formControlName="borrowerSeondarySSN"
-        class="longdate SSN-field"
+        name="BorrowerCoSSN"
+        formControlName="BorrowerCoSSN"
+        class="longdate coSSN-field"
       />
-      </ng-container> -->
-      <label class="investor" for="Investor">Investor</label>
+
+      <label class="investor" for="InvestorName">Investor</label>
       <input
         id="investor"
         type="text"
-        formControlName="investor"
+        formControlName="InvestorName"
         class="investor-field"
         name="Investor"
       />
 
-      <label class="property" for="PropertyAddress"
+      <label class="property" for="Property"
         >Property</label
       >
       <textarea
         class="xwide property-field"
         id="propertyAddress1"
-        formControlName="propertyAddress1"
+        formControlName="Property"
         name="PropertyAddress"
         class="xwide"
-        value="{{ property$ | async }}"
       >
       </textarea>
     </form>
   </hza-section>
+
 </div>
 
 <ng-template #loading>
   Loading Loan Data...
 </ng-template>
+
+

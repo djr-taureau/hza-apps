@@ -3,7 +3,6 @@ import { Update } from '@ngrx/entity';
 import { Loan, LoanQuery, defaultQuery, LoanDetailDoc } from '@hza/shared/loans/models';
 
 export const loadLoans = createAction('[loans] LOAD_LOANS');
-
 export const clearLoans = createAction('[loans] CLEAR_LOANS');
 export const clearQuery = createAction('[loans] CLEAR_QUERY');
 export const queryLoans = createAction('[loans] Query LOANS', props<{ query: LoanQuery }>());
