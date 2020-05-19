@@ -42,7 +42,7 @@
 			<p class="size">
 				{{ formatBytes(file?.size) }}
 			</p>
-			<app-progress [progress]="file?.progress"></app-progress>
+			<hza-progress [progress]="file?.progress"></hza-progress>
 		</div>
 
 		<div class="delete" (click)="deleteFile(i)">

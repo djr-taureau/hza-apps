@@ -2,13 +2,9 @@
   <hza-section class="upload">
     <hza-file-upload-custom></hza-file-upload-custom>
   </hza-section>
-<div class="spacer-bar"></div>
+<div class="form-container">
   <form [formGroup]="docForm" class="doc-form">
-      <label id="-label" class="doc-type" hzaControlBarControl id="-label" for="docType"
-        >Document Type</label
-      >
-
-
+      <label id="-label" class="doc-type" hzaControlBarControl id="-label" for="docType">Document Type</label>
       <select
         hzaControlBarControl
         class="x-wide"
@@ -22,9 +18,7 @@
         </option>
       </select>
 
-      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc" id="-label"
-        >Rename Filename</label
-      >
+      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc" id="-label">Rename File</label>
       <input
         hzaControlBarControl
         class="doc-field x-wide"
@@ -33,4 +27,5 @@
       />
       <button disabled hzaControlBarControl>Upload</button>
   </form>
+  </div>
 </div>

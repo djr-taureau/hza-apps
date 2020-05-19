@@ -9,6 +9,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { DndDirective } from './file-upload-custom/dnd.directive';
 import { FileUploadCustomComponent } from './file-upload-custom/file-upload-custom.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ProgressComponent } from './progress/progress.component';
 
 
 @NgModule({
@@ -21,8 +22,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     UiComponentsButtonsModule,
     UiComponentsAttachmentModule,
   ],
-  declarations: [FileUploadComponent, FileUploadCustomComponent, DndDirective],
-  exports: [FileUploadComponent, FileUploadCustomComponent, DndDirective],
+  declarations: [FileUploadComponent, FileUploadCustomComponent, DndDirective, ProgressComponent],
+  exports: [FileUploadComponent, FileUploadCustomComponent, DndDirective, ProgressComponent],
   
 })
 export class UiComponentsFileUploadModule {}
