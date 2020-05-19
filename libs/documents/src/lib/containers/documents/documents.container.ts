@@ -4,6 +4,7 @@ import { observeOn, shareReplay, delay, startWith, map } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';
 import { Document } from '../../models/document.model';
 import { EventBusService, EventData } from '@hza/core';
+import { CodeTable } from '../../models/code-table.model';
 
 @Component({
 	selector: 'hza-doc-repo',
@@ -23,6 +24,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 	public documents$: Observable<Document[]>;
 	public docsTotal$: Observable<number>;
 	public selectedDoc$: Observable<Document>;
+	public docTypes$: Observable<CodeTable[]>;
 
 	content = 'A simple string content modal overlay';
 	theme = 'default';
@@ -39,6 +41,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.docsTotal$ = this.docs.docTotal$;
 		this.docsLoaded$ = this.docs.docsLoaded$;
 		this.selectedDoc$ = this.docs.selectedDoc$;
+		this.docTypes$ = this.docs.docTypes$;
 		this.opened = false;
 		this.fetchingData = false;
 	}

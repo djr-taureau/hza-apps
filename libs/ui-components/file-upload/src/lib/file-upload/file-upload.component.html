@@ -1,16 +1,17 @@
 <div class="center">
-  <ngx-file-drop
+  <ngx-file-drop 
+    dropZoneClassName="drop-zone" 
+    browseBtnClassName="drop-zone-button" 
+    browseBtnClassName="drop-zone-button" 
+    contentClassName="drop-zone-msg" 
     dropZoneLabel="Drop files here"
     (onFileDrop)="dropped($event)"
     (onFileOver)="fileOver($event)"
     (onFileLeave)="fileLeave($event)"
   >
-    <ng-template
-      ngx-file-drop-content-tmp contentClassName="dz-message"
-      let-openFileSelector="openFileSelector"
-    >
+    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
       Drop Files to Upload or
-      <button type="button" (click)="openFileSelector()">Browse Files</button>
+      <button (click)="openFileSelector()">Browse Files</button>
     </ng-template>
   </ngx-file-drop>
   <div class="upload-table">

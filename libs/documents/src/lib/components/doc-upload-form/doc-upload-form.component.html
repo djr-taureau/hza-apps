@@ -1,13 +1,25 @@
-
-        <hza-control-bar>
-
-            <!-- <mat-form-field appearance="outline" floatLabel="never" hzaControlBarControl>
-                <span matPrefix>
-                    <mat-icon>search</mat-icon>
-                </span>
-                <input matInput placeholder="Search">
-            </mat-form-field> -->
-
-            <button mat-flat-button hzaControlBarControl>Upload</button>
-        </hza-control-bar>
- 
+<div class="hza-elevation container">
+  <hza-section class="upload">
+    <hza-file-upload></hza-file-upload>
+  </hza-section>
+  <hza-control-bar class="doc-upload">
+  <form [formGroup]="docForm">
+    <div class="controls-type">
+      <label hzaControlBarControl class="doc-type-label" id="-label" for="docType">Document Type</label>
+      <select hzaControlBarControl class="doc-type-select" id="docType" (change)="changeDocType($event)"  formControlName="docType">
+        <option value="">Choose A Document Type</option>
+         <option *ngFor="let docType of docTypes" [value]="docType.CodeValue">
+          {{docType.CodeValue }}
+        </option>
+      </select>
+    </div>
+    <div class="controls-doc">
+      <label hzaControlBarControl class="doc-label" for="renameDoc" id="-label">Rename Filename</label>
+      <input hzaControlBarControl class="doc-field x-wide" type="text" name="renameDoc" />
+    </div>
+     <div class="upload-button">
+      <button disabled hzaControlBarControl>Upload</button>
+    </div>
+  </form>
+</hza-control-bar>
+</div>

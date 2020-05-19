@@ -1,0 +1,35 @@
+:host {
+  .container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    background-color: #fff7f7;
+
+    .upload {
+      grid-column: 1 / 9;
+    }
+
+    .hza-control-bar {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      background-color: #fff7f7;
+
+      .controls-type {
+        grid-column: 1 / 4;
+        grid-row: 1;
+      }
+
+      .controls-doc {
+        grid-column: 1 / 4;
+        grid-row: 2;
+      }
+
+      .upload-button {
+        grid-column: 6 / 9;
+        grid-row: 2 / 3;
+      }
+    }
+  }
+}
+

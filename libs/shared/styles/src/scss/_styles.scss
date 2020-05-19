@@ -31,5 +31,81 @@ body {
 
 }
 
+.wide {
+    width: 10em;
+    min-width: 10em;
+}
+
+.wider {
+    width: 15em;
+    min-width: 15em;
+}
+
+.x-wide {
+    width: 20em;
+    min-width: 20em;
+}
+
+.xx-wide {
+    width: 30em;
+    min-width: 30em;
+}
 
 
+select {
+    border: 1px solid #e2e2e2;
+    color: #333;
+    background-color: lightblue;
+    font-size: 1em;
+    padding: 0 0.25em 0 0.25em;
+    margin: 0;
+}
+
+
+button {
+  background-color: #D3DCE0;
+  border: 1px solid #787878;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 19.2px;
+  font-weight: 600;
+  margin-right: .25em;
+  padding: 0 .5em;
+  text-align: center;
+  vertical-align: middle;
+  width: auto;
+
+  &:disabled {
+    background-color: #D3D3D3;
+    color: #808080;
+    cursor: default;
+  }
+}
+
+input.x-wide {
+  background-color: #ADD8E6;
+  border: 1px solid #E2E2E2;
+  color: #333333;
+  cursor: text;
+  float: none;
+  font-family: Arial;
+  font-size: 9.6px;
+  font-weight: 700;
+  margin: 0;
+  max-width: 28em;
+  min-width: 20em;
+  padding: 0 .25em;
+  width: 20em;
+}
+
+label#-label {
+  color: #000000;
+  cursor: default;
+  display: block;
+  font-family: "Segoe UI",Verdana,Helvetica,sans-serif;
+  font-size: .6em;
+  font-weight: 600;
+  overflow: hidden;
+}
