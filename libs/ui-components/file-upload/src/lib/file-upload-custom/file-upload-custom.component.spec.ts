@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { FileUploadIeComponent } from './file-upload-ie.component';
+import { FileUploadCustomComponent } from './gcvhkjf';
 
-describe('FileUploadIeComponent', () => {
-  let component: FileUploadIeComponent;
-  let fixture: ComponentFixture<FileUploadIeComponent>;
+describe('FileUploadCustomComponent', () => {
+  let component: FileUploadCustomComponent;
+  let fixture: ComponentFixture<FileUploadCustomComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileUploadIeComponent ]
+      declarations: [ FileUploadCustomComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FileUploadIeComponent);
+    fixture = TestBed.createComponent(FileUploadCustomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

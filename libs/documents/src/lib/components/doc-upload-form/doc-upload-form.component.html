@@ -1,25 +1,36 @@
 <div class="hza-elevation container">
   <hza-section class="upload">
-    <hza-file-upload></hza-file-upload>
+    <hza-file-upload-custom></hza-file-upload-custom>
   </hza-section>
-  <hza-control-bar class="doc-upload">
-  <form [formGroup]="docForm">
-    <div class="controls-type">
-      <label hzaControlBarControl class="doc-type-label" id="-label" for="docType">Document Type</label>
-      <select hzaControlBarControl class="doc-type-select" id="docType" (change)="changeDocType($event)"  formControlName="docType">
-        <option value="">Choose A Document Type</option>
-         <option *ngFor="let docType of docTypes" [value]="docType.CodeValue">
-          {{docType.CodeValue }}
+<div class="spacer-bar"></div>
+  <form [formGroup]="docForm" class="doc-form">
+      <label id="-label" class="doc-type" hzaControlBarControl id="-label" for="docType"
+        >Document Type</label
+      >
+
+
+      <select
+        hzaControlBarControl
+        class="x-wide"
+        id="docType"
+        (change)="changeDocType($event)"
+        formControlName="docType"
+      >
+        <option value="">---Select Document Type---</option>
+        <option *ngFor="let docType of docTypes" [value]="docType.CodeValue">
+          {{ docType.CodeValue }}
         </option>
       </select>
-    </div>
-    <div class="controls-doc">
-      <label hzaControlBarControl class="doc-label" for="renameDoc" id="-label">Rename Filename</label>
-      <input hzaControlBarControl class="doc-field x-wide" type="text" name="renameDoc" />
-    </div>
-     <div class="upload-button">
+
+      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc" id="-label"
+        >Rename Filename</label
+      >
+      <input
+        hzaControlBarControl
+        class="doc-field x-wide"
+        type="text"
+        name="renameDoc"
+      />
       <button disabled hzaControlBarControl>Upload</button>
-    </div>
   </form>
-</hza-control-bar>
 </div>
