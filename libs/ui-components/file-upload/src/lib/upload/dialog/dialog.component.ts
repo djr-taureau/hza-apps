@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog/dialog-ref';
+import { MatDialogRef } from '@angular/material/dialog';
 import { UploadService } from '../upload.service';
 import { forkJoin } from 'rxjs';
 
 @Component({
-  selector: 'app-dialog',
+  selector: 'hza-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
