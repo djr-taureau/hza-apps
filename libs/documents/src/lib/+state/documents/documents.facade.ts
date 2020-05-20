@@ -15,6 +15,7 @@ export class DocsFacade {
 
   docTotal$ = this.store.select(docsQuery.selectDocTotal);
   selectedDoc$ = this.store.select(docsQuery.selectCurrentDoc);
+  docTypes$ = this.store.select(docsQuery.selectDocTypes);
 
   // ** The Store gets injected one time for each facade
 

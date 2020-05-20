@@ -13,64 +13,60 @@ const ROUTE_DATA_PAGE_LAYOUT = 'pageLayout';
 const isEndOfNavigation = is(NavigationEnd);
 
 @Component({
-  selector: 'hza-page',
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  host: { class: 'hza-page' },
+	selector: 'hza-page',
+	templateUrl: './page.component.html',
+	styleUrls: [ './page.component.scss' ],
+	encapsulation: ViewEncapsulation.None,
+	host: { class: 'hza-page' }
 })
 export class PageComponent implements OnDestroy {
-  private unsubscribe: Subject<void> = new Subject();
-  @Input() pageLayout: string;
+	private unsubscribe: Subject<void> = new Subject();
+	@Input() pageLayout: string;
 
-  @HostBinding('class.full-page')
-  get fullLayout() {
-    return this.pageLayout === 'full';
-  }
+	@HostBinding('class.full-page')
+	get fullLayout() {
+		return this.pageLayout === 'full';
+	}
 
-  @HostBinding('class.fullWithLeftSidebar')
-  get fullWithLeftSidebar() {
-    return this.pageLayout === 'fullWithLeftSidebar';
-  }
+	@HostBinding('class.fullWithLeftSidebar')
+	get fullWithLeftSidebar() {
+		return this.pageLayout === 'fullWithLeftSidebar';
+	}
 
-  @HostBinding('class.almostfullWithLeftSidebar')
-  get almostfullWithLeftSidebar() {
-    return this.pageLayout === 'almostfullWithLeftSidebar';
-  }
+	@HostBinding('class.almostfullWithLeftSidebar')
+	get almostfullWithLeftSidebar() {
+		return this.pageLayout === 'almostfullWithLeftSidebar';
+	}
 
-  @HostBinding('class.detailWithLeftSidebar')
-  get detailWithLeftSidebar() {
-    return this.pageLayout === 'detailWithLeftSidebar';
-  }
+	@HostBinding('class.detailWithLeftSidebar')
+	get detailWithLeftSidebar() {
+		return this.pageLayout === 'detailWithLeftSidebar';
+	}
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-    this.listenForPageLayout();
-  }
+	constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+		this.listenForPageLayout();
+	}
 
-  listenForPageLayout() {
-    this.router.events.pipe(takeUntil(this.unsubscribe)).subscribe(event => {
-      if (isEndOfNavigation(event)) {
-        console.log('page', event);
-        let child = this.activatedRoute.firstChild;
-        while (child) {
-          console.log('page', child);
-          if (child.firstChild) {
-            child = child.firstChild;
-            console.log('page', child);
-          } else if (has(ROUTE_DATA_PAGE_LAYOUT, child.snapshot.data)) {
-            console.log('page', child.snapshot.data);
-            return prop(ROUTE_DATA_PAGE_LAYOUT, child.snapshot.data);
-          } else {
-            return null;
-          }
-        }
-        return null;
-      }
-    });
-  }
+	listenForPageLayout() {
+		this.router.events.pipe(takeUntil(this.unsubscribe)).subscribe((event) => {
+			if (isEndOfNavigation(event)) {
+				let child = this.activatedRoute.firstChild;
+				while (child) {
+					if (child.firstChild) {
+						child = child.firstChild;
+					} else if (has(ROUTE_DATA_PAGE_LAYOUT, child.snapshot.data)) {
+						return prop(ROUTE_DATA_PAGE_LAYOUT, child.snapshot.data);
+					} else {
+						return null;
+					}
+				}
+				return null;
+			}
+		});
+	}
 
-  ngOnDestroy() {
-    this.unsubscribe.next();
-    this.unsubscribe.complete();
-  }
+	ngOnDestroy() {
+		this.unsubscribe.next();
+		this.unsubscribe.complete();
+	}
 }

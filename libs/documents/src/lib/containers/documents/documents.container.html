@@ -4,8 +4,10 @@
       <h2 class="title-bar" hzaSectionTitle>Repository</h2>
     </hza-control-bar>
   </hza-section>
-  <hza-file-upload></hza-file-upload>
-  <hza-section> 
+
+  <hza-doc-upload-form [docTypes]="docTypes$ | async"></hza-doc-upload-form>
+
+  <hza-section>
     <hza-control-bar>
       <h2 class="title-bar" hzaSectionTitle>Documents</h2>
       <select hzaControlBarControl name="showDocs" placeHolder="25 Documents">
@@ -24,8 +26,4 @@
     [loaded]="docsLoaded$ | async"
     [sticky]="sticky"
   ></hza-doc-table>
-  <!-- <hza-doc-cdk
-  [documents]="documents$ | async"
-></hza-doc-cdk> -->
-
 </div>
