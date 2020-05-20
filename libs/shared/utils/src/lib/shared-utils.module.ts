@@ -13,6 +13,7 @@ import { EmailLinkDirective } from './email-link.directive';
 import { FontAwesomeIconModule } from './+modules/font-awesome-icon.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FileSizePipe } from './directives/file-size/file-size.pipe';
+import { Focus2Directive } from './directives/focus/focus2.directive';
 
 const COMPONENTS = [
 	NiceDatePipe,
@@ -25,7 +26,8 @@ const COMPONENTS = [
 	MatInputFocusDirective,
 	ExternalLinkDirective,
 	EmailLinkDirective,
-	FileSizePipe
+	FileSizePipe,
+	Focus2Directive
 ];
 
 const MODULES = [CommonModule, MaterialModule, PrimeNgModule, FontAwesomeIconModule, OverlayPanelModule, ButtonsModule, NgxDatatableModule];

@@ -16,7 +16,9 @@
   transition-duration: 0.2s;
   transition-property: opacity, transform;
 
-
+  :host.has-value & {
+    color: rgba(0, 0, 0, 0.54);
+  }
 
   :host:hover &,
   :host.show-trigger & {
@@ -24,7 +26,7 @@
     transform: translateY(-1px);
   }
 }
-
+  
 .container {
   padding: 0 16px;
 //  overflow: hidden;
