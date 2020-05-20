@@ -5,18 +5,20 @@ import {
 	Component,
 	ElementRef,
 	Output,
+	QueryList,
 	TemplateRef,
 	ViewChild,
+	ViewChildren,
 	ViewContainerRef,
-	AfterContentInit
+	HostBinding
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import { OverlayService, PopoverRef, PopoverService } from '@hza/ui-components/overlay';
 import { merge, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'core-table-filter',
@@ -31,6 +33,7 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	@ViewChild(MatMenuTrigger) filterMenu: MatMenuTrigger;
 
 	@ViewChild('overlayTemplate') overlayTemplate: TemplatePortalDirective;
+	@ViewChildren('filterInput') inputs: QueryList<ElementRef>;
 
 	faFilter = faFilter;
 	filter = new FormControl();
@@ -39,6 +42,15 @@ export class CoreTableFilterComponent implements AfterViewInit {
 	@ViewChild('filterButton') filterButton: ElementRef;
 
 	overlayRef: PopoverRef;
+
+	@HostBinding('class.has-value')
+	get hasValue(): boolean {
+		return !this.needsFilter || this.filter.value;
+	}
+
+	get needsFilter(): boolean {
+		return this.operation.value.needsFilter;
+	}
 
 	constructor(
 		private popover: PopoverService,
@@ -60,7 +72,14 @@ export class CoreTableFilterComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		// this.input.focus()
-		this.filterButton.nativeElement.focus();
+		this.filter.valueChanges.subscribe((v) => {
+			console.log('filter values', v)
+		});
+		this.inputs.changes.subscribe((v) => {
+			console.log(this.needsFilter);
+			const checkThis = v.toArray();
+			checkThis[checkThis.length - 1].nativeElement.focus();
+		});
 		//  this.filterMenu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// this.menu.menuOpened.subscribe(() => this.input && this.input.focus());
 		// if (this.showTrigger) {

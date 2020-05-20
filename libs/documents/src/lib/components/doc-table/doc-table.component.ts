@@ -39,8 +39,7 @@ export class DocTableComponent extends CoreTable<Document> implements AfterViewI
 	@Input() sticky: boolean;
 	@Input() loaded: boolean;
 	@ViewChild(MatSort, { static: false })
-	@ViewChildren(CoreTableFilterComponent)
-	viewChildren: QueryList<CoreTableFilterComponent>;
+
 	dataSort: MatSort;
 	constructor(private eventBus: EventBusService) {
 		// column definitions for CoreTable
@@ -69,7 +68,6 @@ export class DocTableComponent extends CoreTable<Document> implements AfterViewI
 		return index == 0;
 	}
 	ngAfterViewInit() {
-		this.viewChildren.changes.subscribe((v) => console.log(v.ElementRef.nativeElement));
 		const sortChange = merge(this.sort.sortChange, this.sort.initialized);
 		this.dataSort = this.sort;
 		const sortChangeHere = merge(this.dataSort.sortChange, this.dataSort.initialized);
