@@ -43,7 +43,7 @@ export class LoanDetailComponent implements OnInit {
 				InvestorName: v[0].InvestorName,
 				Property: v[0].PropertyStreet + v[0].PropertyCity + v[0].PropertyStateCode + v[0].PropertyZipCode
 			});
-			this.loanForm = this.fb.group(this.loanDetail);
+			// this.loanForm = this.fb.group(this.loanDetail);
 			this.loanForm.get('BorrowerPrimaryFullName').disable();
 			this.loanForm.get('BorrowerSSN').disable();
 			this.loanForm.get('BorrowerSecondaryFullName').disable();

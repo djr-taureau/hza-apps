@@ -4,9 +4,9 @@
   padding: 0;
 }
 body {
-    background-color: rgba(255, 0, 0, 0.1);
-    z-index: auto;
-    // height: 100vh;
+  background-color: rgba(255, 0, 0, 0.1);
+  z-index: auto;
+  // height: 100vh;
 }
 
 .form-flex {
@@ -28,42 +28,39 @@ body {
   ::ng-deep .clr-input-group-icon-action {
     float: right;
   }
-
 }
 
 .wide {
-    width: 10em;
-    min-width: 10em;
+  width: 10em;
+  min-width: 10em;
 }
 
 .wider {
-    width: 15em;
-    min-width: 15em;
+  width: 15em;
+  min-width: 15em;
 }
 
 .x-wide {
-    width: 20em;
-    min-width: 20em;
+  width: 20em;
+  min-width: 20em;
 }
 
 .xx-wide {
-    width: 30em;
-    min-width: 30em;
+  width: 30em;
+  min-width: 30em;
 }
-
 
 select {
-    border: 1px solid #e2e2e2;
-    color: #333;
-    background-color: lightblue;
-    font-size: 1em;
-    padding: 0 0.25em 0 0.25em;
-    margin: 0;
+  border: 1px solid #e2e2e2;
+  color: #333;
+  background-color: lightblue;
+  font-size: 1em;
+  padding: 0 0.25em 0 0.25em;
+  margin: 0;
 }
 
-
 button {
-  background-color: #D3DCE0;
+  background-color: #d3dce0;
   border: 1px solid #787878;
   border-radius: 5px;
   color: #000000;
@@ -71,57 +68,76 @@ button {
   font-family: Arial;
   font-size: 19.2px;
   font-weight: 600;
-  margin-right: .25em;
-  padding: 0 .5em;
+  margin-right: 0.25em;
+  padding: 0 0.5em;
   text-align: center;
   vertical-align: middle;
   width: auto;
 
   &:disabled {
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
     color: #808080;
     cursor: default;
   }
 }
 
 input.x-wide {
-  background-color: #ADD8E6;
-  border: 1px solid #E2E2E2;
+  background-color: #add8e6;
+  border: 1px solid #e2e2e2;
   color: #333333;
   cursor: text;
   float: none;
   font-family: Arial;
-  font-size: 9.6px;
+  font-size: 12.8px;
   font-weight: 700;
   margin: 0;
   max-width: 28em;
   min-width: 20em;
-  padding: 0 .25em;
+  padding: 0 0.25em;
   width: 20em;
+    &:focus {
+    background-color: #FFFFFF;
+    border: 1px solid #7AC0DA;
+  }
+  
 }
 
 label#-label {
   color: #000000;
   cursor: default;
   display: block;
-  font-size: .7em;
+  font-size: 0.7em;
   font-weight: 500;
   overflow: hidden;
 }
 
-input.x-wide {
-  background-color: #ADD8E6;
-  border: 1px solid #E2E2E2;
+label {
+  display: inline;
+}
+
+input.x-wide-focus {
+  background-color: white;
+  border: 1px solid #e2e2e2;
   color: #333333;
   cursor: text;
   float: none;
+  text-align: left;
   font-family: Arial;
   font-size: 9.6px;
   font-weight: 700;
   margin: 0;
   max-width: 28em;
   min-width: 20em;
-  padding: 0 .25em;
-  width: 20em;
+  padding: 0 0.25em;
   height: 1.5em;
+}
+
+input.medium-focus {
+  width: 7em;
+  height: 1.5em;
+  min-width: 7em;
+  text-align: left;
+  background-color: white;
+  border: 1px solid #e2e2e2;
+  color: #333333;
 }

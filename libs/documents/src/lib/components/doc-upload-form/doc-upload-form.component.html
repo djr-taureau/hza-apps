@@ -3,13 +3,12 @@
     <hza-file-upload-custom></hza-file-upload-custom>
   </hza-section>
 <div class="form-container">
-  <form [formGroup]="docForm" class="doc-form">
-      <label id="-label" class="doc-type" hzaControlBarControl id="-label" for="docType">Document Type</label>
+  <form [formGroup]="docUploadForm" (ngSubmit)="submit()" class="doc-form">
+      <label id="-label" class="doc-type" hzaControlBarControl for="docType">Document Type</label>
       <select
         hzaControlBarControl
         class="x-wide"
         id="docType"
-        (change)="changeDocType($event)"
         formControlName="docType"
       >
         <option value="">---Select Document Type---</option>
@@ -18,17 +17,19 @@
         </option>
       </select>
 
-      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc" id="-label">Rename File</label>
+      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc">Rename File</label>
       <input
         hzaControlBarControl
         class="doc-field x-wide"
         type="text"
-        name="renameDoc"
+        formControlName="renameDoc"
       />
-      <button disabled hzaControlBarControl>Upload</button>
+      <button type="submit" [disabled]="!docUploadForm.valid" hzaControlBarControl>Upload</button>
       <br/>
       <br/>
-      <hza-upload mat-flat-button hzaControlBarControl></hza-upload>
+      <!-- ** This is my file upload that I have used for some time. Just discovered that it doesn't -->
+      <!-- ** IE which I haven't had to support in over 10 years -->
+      <!-- <hza-upload mat-flat-button hzaControlBarControl></hza-upload> -->
   </form>
   </div>
 </div>

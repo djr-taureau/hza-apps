@@ -16,7 +16,7 @@ export class FormConfigBuilder {
 			},
 			expressionProperties: {
 				// apply expressionProperty for disabled based on formState
-				'templateOptions.disabled': 'formState.disabled'
+				'templateOptions.disabled': 'formState.disabled',
 			}
 		};
 	}

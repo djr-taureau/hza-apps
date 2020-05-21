@@ -16,14 +16,17 @@ import { FormComponent } from './components/form/form.component';
 import { config } from './config';
 import { DocDetailInput } from './types/doc-detail-input';
 import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
+import { FormlyFieldCustomInput } from './types/custom-input.component';
 
 const COMPONENTS = [
 	PanelWrapperComponent,
 	ErrorWrapperComponent,
 	RepeatSectionComponent,
 	FormlyHorizontalWrapper,
+	FormlyFieldCustomInput,
 	DocDetailInput,
-	FormComponent
+	FormComponent,
+	FormlyHorizontalWrapper
 ];
 
 @NgModule({
@@ -33,15 +36,11 @@ const COMPONENTS = [
 		FormlyMatDatepickerModule,
 		FormlyMatToggleModule,
 		FormlyMatDatepickerModule,
-		FormlyModule.forRoot(config),
 		FormlyMaterialModule,
-		FormlyBootstrapModule
+		FormlyBootstrapModule,
+		FormlyModule.forRoot(config)
 	],
-	declarations: [
-		COMPONENTS
-	],
-	exports: [
-		COMPONENTS
-	]
+	declarations: [ COMPONENTS ],
+	exports: [ COMPONENTS ]
 })
 export class UiComponentsFormsModule {}
