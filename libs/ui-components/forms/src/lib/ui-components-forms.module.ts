@@ -25,7 +25,8 @@ const COMPONENTS = [
 	FormlyHorizontalWrapper,
 	FormlyFieldCustomInput,
 	DocDetailInput,
-	FormComponent
+	FormComponent,
+	FormlyHorizontalWrapper
 ];
 
 @NgModule({
@@ -35,15 +36,11 @@ const COMPONENTS = [
 		FormlyMatDatepickerModule,
 		FormlyMatToggleModule,
 		FormlyMatDatepickerModule,
-		FormlyModule.forRoot(config),
 		FormlyMaterialModule,
-		FormlyBootstrapModule
+		FormlyBootstrapModule,
+		FormlyModule.forRoot(config)
 	],
-	declarations: [
-		COMPONENTS
-	],
-	exports: [
-		COMPONENTS
-	]
+	declarations: [ COMPONENTS ],
+	exports: [ COMPONENTS ]
 })
 export class UiComponentsFormsModule {}

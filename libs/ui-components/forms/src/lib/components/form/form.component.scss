@@ -1,7 +1,10 @@
-.container {
-  max-width: 700px;
-  margin: 0 auto;
+:host {
+  ::ng-deep.formly-wrapper-form-field {
+ /*change color of underline when focused*/
+ background-color: rgba(59, 103, 142, 1) !important;
 }
+}
+
 
 input.field {
   font-weight: bold;
@@ -67,3 +70,5 @@ formly-form {
 
   text-align: right;
 }
+
+

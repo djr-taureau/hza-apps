@@ -72,6 +72,8 @@ export class DocTableComponent extends CoreTable<Document> implements AfterViewI
 		this.dataSort = this.sort;
 		const sortChangeHere = merge(this.dataSort.sortChange, this.dataSort.initialized);
 	}
+	
+	
 
 	toggle() {
 		this.isExpanded = !this.isExpanded;

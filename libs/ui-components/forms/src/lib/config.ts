@@ -11,7 +11,8 @@ import { DocDetailInput } from './types/doc-detail-input';
 import { FormlyFieldCustomInput } from './types/custom-input.component';
 import { ErrorWrapperComponent } from './wrappers/error.component';
 import { ConfigOption } from '@ngx-formly/core';
-import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
+import { FormlyHorizontalWrapper } from './wrappers/horizontal.wrapper';
+
 
 export const config: ConfigOption = {
 	validationMessages: [

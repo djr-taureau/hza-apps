@@ -71,11 +71,11 @@ th.mat-header-cell {
   background-color: #8f9fb5;
   // padding-left: 2.4rem;
   height: 1em;
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-weight: 600;
   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
   letter-spacing: 0.04em;
-  line-height: 0.8em;
+  line-height: 0.6em;
   margin-left: 1.5em;
   .column-header {
     flex-direction: column;
@@ -229,8 +229,8 @@ td.mat-column-FileSize {
   font-size: 0.7em;
   word-wrap: break-word !important;
   white-space: unset !important;
-  flex: 0 0 8% !important;
-  width: 8% !important;
+  flex: 0 0 4% !important;
+  width: 4% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -255,6 +255,17 @@ td.mat-column-CreatedDate {
   white-space: unset !important;
   flex: 0 0 24% !important;
   width: 24% !important;
+  overflow-wrap: break-word;
+}
+
+td.mat-column-actions {
+  text-align: center;
+  line-height: 1em;
+  font-size: 0.7em;
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 4% !important;
+  width: 4% !important;
   overflow-wrap: break-word;
 }
 
