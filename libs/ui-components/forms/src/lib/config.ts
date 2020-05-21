@@ -8,6 +8,7 @@ import { maximumMoneyValidation } from './helpers/validators';
 import { PanelWrapperComponent } from './wrappers/panel-wrapper.component';
 import { RepeatSectionComponent } from './types/repeat-section.component';
 import { DocDetailInput } from './types/doc-detail-input';
+import { FormlyFieldCustomInput } from './types/custom-input.component';
 import { ErrorWrapperComponent } from './wrappers/error.component';
 import { ConfigOption } from '@ngx-formly/core';
 import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
@@ -29,6 +30,7 @@ export const config: ConfigOption = {
 	types: [
 		{ name: 'repeat', component: RepeatSectionComponent },
 		{ name: 'detail-disabled', component: DocDetailInput },
+		{ name: 'custom', component: FormlyFieldCustomInput, wrappers: ['form-field'] },
 	],
 	validators: [{ name: 'maximumMoneyValidation', validation: maximumMoneyValidation }]
 };

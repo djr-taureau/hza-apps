@@ -75,7 +75,7 @@ th.mat-header-cell {
   font-weight: 600;
   font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
   letter-spacing: 0.04em;
-  line-height: .8em;
+  line-height: 0.8em;
   margin-left: 1.5em;
   .column-header {
     flex-direction: column;
@@ -175,12 +175,9 @@ tr.mat-row.cdk-row.element-row.pink {
 //   background-color: #b1bfce;
 // }
 
-// tr.mat-row.cdk-row.detail-row:nth-child(odd) {
-//   font-size: 0.8em;
-//   height: 1.8em;
-//   border: 1px solid rgba(55, 103, 142, 1);
-//   background-color: #fdf5f7;
-// }
+tr.mat-row.cdk-row.detail-row {
+  background-color: #d3d3d3;
+}
 
 // tr.mat-row.cdk-row.detail-row:nth-child(even) {
 //   font-size: 0.8em;
@@ -201,7 +198,6 @@ td.mat-column-Extension {
   flex-direction: column;
   justify-content: center;
   word-wrap: break-word;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 }
 td.mat-column-DocFileName {
   text-align: left;
@@ -213,7 +209,6 @@ td.mat-column-DocFileName {
   width: 35% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 }
 
 td.mat-column-DocType {
@@ -226,7 +221,6 @@ td.mat-column-DocType {
   width: 25% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 }
 
 td.mat-column-FileSize {
@@ -239,7 +233,6 @@ td.mat-column-FileSize {
   width: 8% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 }
 
 td.mat-column-CreatedBy {
@@ -252,7 +245,6 @@ td.mat-column-CreatedBy {
   width: 10% !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 }
 
 td.mat-column-CreatedDate {
@@ -264,8 +256,6 @@ td.mat-column-CreatedDate {
   flex: 0 0 24% !important;
   width: 24% !important;
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  font-family: 'Segoe UI', Verdana, Helvetica, sans-serif;
 }
 
 // fa-icon.down.expanded-row {
@@ -286,7 +276,6 @@ td.mat-column-CreatedDate {
 //   visibility: hidden;
 // }
 
-
 // fa-icon.element-row {
 //   opacity: 1;
 // }
@@ -302,20 +291,20 @@ td.mat-column-CreatedDate {
 .element-detail {
   overflow: hidden;
   display: flex;
+  background-color: #d3d3d3;
 }
 
 .element-diagram {
   min-width: 50px;
-  border: 2px solid black;
-  padding: 8px;
-  font-weight: lighter;
-  margin: 8px 0;
-  height: 60px;
+
+  // font-weight: lighter;
+  margin: 0 0;
+  height: 170px;
 }
 
 .element-docFileName {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 5px;
   line-height: normal;
 }
 

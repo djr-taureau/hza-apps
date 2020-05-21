@@ -1,3 +1,20 @@
 :host {
   width: 1200px;
+  input {
+    text-align: right;
+  }
+  input.label {
+    width: auto;
+  }
+  label {
+    justify-self: start;
+  }
 }
+  formly-field.value {
+    padding: 0;
+  }
+
+  formly-field-wrapper {
+    padding: 0;
+    margin: 0;
+  }
