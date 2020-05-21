@@ -59,6 +59,7 @@ export class FileUploadCustomComponent  {
       item.progress = 0;
       this.files.push(item);
     }
+    console.log(this.files);
     this.uploadFilesSimulator(0);
   }
 
