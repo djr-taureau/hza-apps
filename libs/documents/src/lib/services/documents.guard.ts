@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { Store, select } from '@ngrx/store';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Observable, of } from 'rxjs';
 import { docsQuery, State } from '../+state/documents';
 import { catchError, filter, switchMap, take, tap, first } from 'rxjs/operators';
