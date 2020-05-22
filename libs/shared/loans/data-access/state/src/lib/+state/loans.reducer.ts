@@ -7,7 +7,7 @@ import { Loan, LoanQuery, LoanDetailDoc } from '@hza/shared/loans/models';
 export const loansFeatureKey = 'loans';
 
 export interface LoansState extends EntityState<Loan> {
-	selectedLoanId: number | null;
+	selectedLoanId: string | null;
 	isLoading: boolean;
 	loaded: boolean;
 	loanQuery: LoanQuery;

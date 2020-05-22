@@ -1,7 +1,7 @@
 :host {
   .container {
     display: grid;
-    grid-template-rows: 2fr 1fr 4px;
+    grid-template-rows: 2fr 2fr 1fr 4px;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 1em 2em;
     background-color: #fff7f7;
@@ -17,12 +17,21 @@
   margin-top: 1em;
 }
 
+.hza-section.upload-2 {
+  grid-row: 2 / 3;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  align-content: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
 .hza-control-bar {
   background-color: #fff7f7;
 }
 
 div.form-container {
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
 }
 
 label.doc-type {

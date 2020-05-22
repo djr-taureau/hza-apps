@@ -26,7 +26,7 @@ export class LoansFacade {
 		this.store.dispatch(LoanActions.loadLoans());
 	}
 
-	selectLoan(loanNumber: number) {
+	selectLoan(loanNumber: string) {
 		this.store.dispatch(LoanActions.selectLoan({ loanNumber }));
 	}
 	initQuery() {

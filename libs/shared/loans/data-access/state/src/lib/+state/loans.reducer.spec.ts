@@ -1,76 +1,80 @@
-import { generateMockLoan, Loan } from '../../../../../feature-loan-search/src/lib/models/loan.model';
+import { Loan, mockLoan1, mockLoan2 } from '@hza/shared/loans/models';
 import * as fromLoans from './loans.reducer';
 import * as LoansActions from './loans.actions';
 import * as loansQuery from '.';
 
 describe('LoansReducer', () => {
-  const loan1 = generateMockLoan();
-  const loan2 = { ...loan1, id: 12 };
-  const loan3 = { ...loan1, id: 14 };
-  const loansInitialState: fromLoans.LoansState = {
-    ids: [loan1.id, loan2.id],
-    entities: {
-      [loan1.id]: loan1,
-      [loan2.id]: loan2,
-    },
-    selectedLoanId: null,
-    isLoading: false,
-    loaded: false,
-  };
+	const loan1 = mockLoan1;
+	const loan2 = mockLoan2;
 
-  describe('undefined action', () => {
-    it('should return the default state', () => {
-      const result = fromLoans.loansReducer(undefined, {} as any);
+	const loansInitialState: fromLoans.LoansState = {
+		ids: [ loan1.loanNumber, loan2.loanNumber ],
+		entities: {
+			[loan1.loanNumber]: loan1,
+			[loan2.loanNumber]: loan2
+		},
+		selectedLoanId: null,
+		isLoading: false,
+		loaded: true,
+		loanQuery: null,
+		loanDetail: null
+	};
 
-      expect(result).toMatchSnapshot();
-    });
-  });
+	// describe('undefined action', () => {
+	// 	it('should return the default state', () => {
+	// 		const result = fromLoans.loansReducer(undefined, {} as any);
 
-  describe('LOANS_LOAD_SUCCESS', () => {
-    type LoansActions = typeof LoansActions.loadLoansSuccess;
-    function noExistingLoans(action: LoansActions, loansInitialState: any, loans: Loan[]) {
-      const createAction = action({ loans });
+	// 		expect(result).toMatchSnapshot();
+	// 	});
+	// });
 
-      const result = fromLoans.loansReducer(loansInitialState, createAction);
+	describe('LOANS_LOAD_SUCCESS', () => {
+		type LoansActions = typeof LoansActions.loadLoansSuccess;
+		function noExistingLoans(action: LoansActions, loansInitialState: any, loans: Loan[]) {
+			const createAction = action({ loans });
 
-      expect(result).toMatchSnapshot();
-    }
+			const result = fromLoans.loansReducer(loansInitialState, createAction);
 
-    it('should add all loans in the payload when none exist', () => {
-      noExistingLoans(LoansActions.loadLoansSuccess, loansInitialState, [loan1, loan2]);
-    });
-  });
+			expect(result).toMatchSnapshot();
+		}
 
-  describe('LOAD', () => {
-    const expectedResult = {
-      ids: [loan1.id],
-      entities: {
-        [loan1.id]: loan1,
-      },
-      selectedLoanId: null,
-    };
-  });
+		it('should add all loans in the payload when none exist', () => {
+			noExistingLoans(LoansActions.loadLoansSuccess, loansInitialState, [ loan1, loan2 ]);
+		});
+	});
 
-  describe('SELECT', () => {
-    it('should set the selected loan number on the state', () => {
-      const action = LoansActions.selectLoan({ id: loan1.id });
+	describe('LOAD_LOANS', () => {
+		const expectedResult = {
+			ids: [],
+			entities: {},
+			selectedLoanId: null,
+			isLoading: true,
+			loaded: false,
+			loanQuery: null,
+			loanDetail: null
+		};
+	});
 
-      const result = fromLoans.loansReducer(loansInitialState, action);
+	describe('SELECT', () => {
+		it('should set the selected loan number on the state', () => {
+			const action = LoansActions.selectLoan({ loanNumber: loan1.loanNumber });
 
-      expect(result).toMatchSnapshot();
-    });
-  });
+			const result = fromLoans.loansReducer(loansInitialState, action);
 
-  describe('Selectors', () => {
-    describe('selectId', () => {
-      it('should return the selected id', () => {
-        const result = fromLoans.getSelectedLoanId({
-          ...loansInitialState,
-          selectedLoanId: loan1.id,
-        });
+			expect(result).toMatchSnapshot();
+		});
+	});
 
-        expect(result).toMatchSnapshot();
-      });
-    });
-  });
+	describe('Selectors', () => {
+		describe('selectId', () => {
+			it('should return the selected id', () => {
+				const result = fromLoans.getSelectedLoanId({
+					...loansInitialState,
+					selectedLoanId: loan1.loanNumber
+				});
+
+				expect(result).toMatchSnapshot();
+			});
+		});
+	});
 });
