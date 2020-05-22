@@ -28,7 +28,9 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "private": true,
   "dependencies": {
@@ -91,7 +93,8 @@
     "rxjs": "6.5.5",
     "uuid": "^7.0.3",
     "web-animations-js": "^2.3.2",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "snyk": "^1.324.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.901.4",
@@ -115,5 +118,6 @@
     "ts-node": "~8.8.1",
     "tslint": "~6.1.0",
     "typescript": "3.8.3"
-  }
+  },
+  "snyk": true
 }
