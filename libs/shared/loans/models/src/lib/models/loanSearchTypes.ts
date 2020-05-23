@@ -10,6 +10,12 @@ export const defaultQuery: LoanQuery = {
 	loanSearch: ''
 };
 
+export const mockLoanQuery: LoanQuery = {
+	company: '0',
+	loan: 'city',
+	loanSearch: 'Houston'
+};
+
 
 
 export function toSearchFormValue<T extends LoanQuery>(data: T): LoanQuery {

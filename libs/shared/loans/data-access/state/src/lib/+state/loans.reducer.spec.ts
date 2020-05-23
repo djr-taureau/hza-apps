@@ -1,4 +1,4 @@
-import { Loan, mockLoan1, mockLoan2 } from '@hza/shared/loans/models';
+import { Loan, mockLoan1, mockLoan2, LoanQuery, mockLoanQuery, LoanDetailDoc, mockLoanDetailDoc } from '@hza/shared/loans/models';
 import * as fromLoans from './loans.reducer';
 import * as LoansActions from './loans.actions';
 import * as loansQuery from '.';
@@ -20,14 +20,6 @@ describe('LoansReducer', () => {
 		loanDetail: null
 	};
 
-	// describe('undefined action', () => {
-	// 	it('should return the default state', () => {
-	// 		const result = fromLoans.loansReducer(undefined, {} as any);
-
-	// 		expect(result).toMatchSnapshot();
-	// 	});
-	// });
-
 	describe('LOANS_LOAD_SUCCESS', () => {
 		type LoansActions = typeof LoansActions.loadLoansSuccess;
 		function noExistingLoans(action: LoansActions, loansInitialState: any, loans: Loan[]) {
@@ -40,6 +32,33 @@ describe('LoansReducer', () => {
 
 		it('should add all loans in the payload when none exist', () => {
 			noExistingLoans(LoansActions.loadLoansSuccess, loansInitialState, [ loan1, loan2 ]);
+		});
+	});
+	
+	
+		describe('LOAD LOAN DETAIL Success', () => {
+		type LoansActions = typeof LoansActions.loadLoanDetailDocSuccess;
+		function noExistingLoanDetail(action: LoansActions, loansInitialState: any, loanDetail: LoanDetailDoc) {
+			const createAction = action({ loanDetail });
+
+			const result = fromLoans.loansReducer(loansInitialState, createAction);
+
+			expect(result).toMatchSnapshot();
+		}
+
+		it('should should return the full loan detail for requested loan number', () => {
+			noExistingLoanDetail(LoansActions.loadLoanDetailDocSuccess, loansInitialState, mockLoanDetailDoc);
+		});
+	});
+
+
+	describe('query loans', () => {
+		it('should set the loan query on the state', () => {
+			const action = LoansActions.queryLoans({ query: mockLoanQuery });
+
+			const result = fromLoans.loansReducer(loansInitialState, action);
+
+			expect(result).toMatchSnapshot();
 		});
 	});
 
