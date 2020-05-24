@@ -49,8 +49,8 @@ describe('LoanEffects', () => {
 			]
 		});
 
-		effects = TestBed.get(LoanEffects);
-		loanService = TestBed.get(LoansService);
+		effects = TestBed.inject(LoanEffects);
+		loanService = TestBed.inject(LoansService);
 	});
 
 	describe('queryLoans$', () => {

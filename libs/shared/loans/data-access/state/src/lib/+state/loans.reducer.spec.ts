@@ -38,7 +38,7 @@ describe('LoansReducer', () => {
 	
 		describe('LOAD LOAN DETAIL Success', () => {
 		type LoansActions = typeof LoansActions.loadLoanDetailDocSuccess;
-		function noExistingLoanDetail(action: LoansActions, loansInitialState: any, loanDetail: LoanDetailDoc) {
+		function noExistingLoanDetail(action: LoansActions, loansInitialState, loanDetail: LoanDetailDoc) {
 			const createAction = action({ loanDetail });
 
 			const result = fromLoans.loansReducer(loansInitialState, createAction);
