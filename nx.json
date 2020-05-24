@@ -129,6 +129,9 @@
     },
     "ui-components-attachment": {
       "tags": []
+    },
+    "shared-loans-tests": {
+      "tags": []
     }
   },
   "tasksRunnerOptions": {

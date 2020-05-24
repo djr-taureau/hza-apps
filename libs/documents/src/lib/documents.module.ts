@@ -25,9 +25,6 @@ import { DocHeaderComponent } from './components/doc-header/doc-header.component
 import { DocFooterComponent } from './components/doc-footer/doc-footer.component';
 import { DocUploadFormComponent } from './components/doc-upload-form/doc-upload-form.component';
 
-
-
-
 const COMPONENTS = [
 	DocumentsMainContainer,
 	DocumentsContainer,

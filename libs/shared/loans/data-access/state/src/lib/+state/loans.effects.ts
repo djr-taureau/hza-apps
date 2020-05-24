@@ -12,7 +12,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import * as LoanActions from './loans.actions';
 import { LoansService } from '@hza/shared/loans/data-access/data';
-import { LoansFacade } from './loans.facade';
+
 
 
 @Injectable()
@@ -67,5 +67,5 @@ export class LoanEffects {
 		)
 	);
 
-	constructor(private actions$: Actions, private loanService: LoansService, private facade: LoansFacade) {}
+	constructor(private actions$: Actions, private loanService: LoansService) {}
 }
