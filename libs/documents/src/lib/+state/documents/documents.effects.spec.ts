@@ -39,14 +39,6 @@ describe('DocEffects', () => {
 				mockProvider(DocumentsService),
 				DataPersistence,
 				provideMockActions(() => actions)
-				// provideMockStore({
-				// 	selectors: [
-				// 		{
-				// 			selector: docsQuery.selectAllDocs,
-				// 			value: documents
-				// 		}
-				// 	]
-				// })
 			]
 		});
 

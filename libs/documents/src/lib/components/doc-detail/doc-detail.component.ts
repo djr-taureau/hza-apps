@@ -34,7 +34,6 @@ export class DocDetailComponent implements OnInit, OnChanges {
 	ngOnChanges() {
 		if (this.doc) {
 			this.buildDocForm(this.doc);
-			console.log('from doc detail', this.doc)
 		}
 	}
 

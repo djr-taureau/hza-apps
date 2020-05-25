@@ -2,7 +2,7 @@ import { ApiService, ApiEndpointService, ConfigService } from '@hza/core';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { Loan, LoanQuery, LoanDetailDoc } from '@hza/shared/loans/models';
 
 // MOCK_LOANS: `/loans?title_like=server&source=1`,
@@ -13,16 +13,18 @@ export class LoansService {
 	loanDetailUrl: string;
 	constructor(
 		private apiService: ApiService,
-		private apiEndpoint: ApiEndpointService,
+		private httpClient: HttpClient,
+		// private apiEndpoint: ApiEndpointService,
 		private configService: ConfigService
 	) {
 		const baseUrl = configService.getCommonApiEndpoint();
+		// const endpoint = apiEndpoint.getEndpoint(baseUrl, ApiEndpointService.ENDPOINT.LOANS)
 		this.loansUrl = `${baseUrl}/loans`;
 		this.loanDetailUrl = `${baseUrl}/loanDetail`;
 	}
 
 	getLoans(): Observable<Loan[]> {
-		return this.apiService.get<Loan[]>(this.loansUrl);
+		return this.httpClient.get<Loan[]>(this.loansUrl);
 	}
 
 	public queryLoans(request: LoanQuery): Observable<Loan[]> {
@@ -35,7 +37,6 @@ export class LoansService {
 	
 	public getLoanDetails(loanNumber: string): Observable<LoanDetailDoc> {
 		const loanDetailUrl = `${this.loanDetailUrl}?LoanNumber=${loanNumber}`
-		console.log('EARL', loanDetailUrl);
 		return this.apiService.get<LoanDetailDoc>(loanDetailUrl);
 	}
 }

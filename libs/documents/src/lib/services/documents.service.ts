@@ -35,4 +35,8 @@ export class DocumentsService {
 	getDocumentTypes(): Observable<CodeTable[]> {
 		return this.apiService.get<CodeTable[]>(this.docTypesUrl);
 	}
+	
+	getEndpoint() {
+		return this.configService.getDocsApiEndpoint();
+	}
 }

@@ -53,7 +53,6 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
 		this.unsubscribe$.complete();
 	}
 	selectDoc(id) {
-		console.log(id);
 		this.docs.selectDoc(id);
 	}
 	clearDocFilters(evt: string) {
