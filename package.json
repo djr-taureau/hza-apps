@@ -99,6 +99,7 @@
     "@angular/cli": "9.1.4",
     "@angular/compiler-cli": "9.1.4",
     "@angular/language-service": "9.1.4",
+    "@ngneat/spectator": "^5.8.0",
     "@nrwl/cypress": "9.2.4",
     "@nrwl/jest": "9.2.4",
     "@nrwl/workspace": "9.2.4",

@@ -1,128 +1,72 @@
-// import { TestBed } from '@angular/core/testing';
-// import { DocumentsService } from '../../services/documents.service';
-// import { Actions } from '@ngrx/effects';
-// import { cold, hot } from 'jasmine-marbles';
-// import { Observable, empty } from 'rxjs';
-// import * as DocActions from './documents.actions';
-// import { DocEffects } from './documents.effects';
-// import { Document } from '../../models/document.model';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { createSpyObject, mockProvider, SpyObject } from '@ngneat/spectator';
+import { LoansService } from '@hza/shared/loans/data-access/data';
+import { Loan, mockLoan1, mockLoan2, mockLoanQuery } from '@hza/shared/loans/models';
+import { EffectsModule } from '@ngrx/effects';
+import { provideMockActions } from '@ngrx/effects/testing';
+import { StoreModule } from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
+import { DataPersistence, NxModule } from '@nrwl/angular';
+import { cold, hot } from '@nrwl/angular/testing';
+import { Observable, of } from 'rxjs';
+import { docsQuery } from './index';
+import * as DocActions from './documents.actions';
+import { DocEffects } from './documents.effects';
+import { DocumentsService } from '../../services';
+import { mockDoc1, mockDoc2, Document } from '../../models';
 
-// export class TestActions extends Actions {
-//   constructor() {
-//     super(empty());
-//   }
+describe('DocEffects', () => {
+	let actions: Observable<any>;
+	let effects: DocEffects;
+	let docsStub: SpyObject<DocumentsService>;
+	let docService: DocumentsService;
+	const doc1 = mockDoc1 as Document;
+	const doc2 = mockDoc2 as Document;
+	const documents = [ doc1, doc2 ];
 
-//   set stream(source: Observable<any>) {
-//     this.source = source;
-//   }
-// }
+	beforeEach(() => {
+		TestBed.configureTestingModule({
+			imports: [
+				HttpClientTestingModule,
+				NxModule.forRoot(),
+				StoreModule.forRoot({}),
+				EffectsModule.forRoot([])
+			],
+			providers: [
+				DocEffects,
+				{ provide: DocumentsService, useValue: { getDocuments: () => of(documents) } },
+				mockProvider(DocumentsService),
+				DataPersistence,
+				provideMockActions(() => actions)
+				// provideMockStore({
+				// 	selectors: [
+				// 		{
+				// 			selector: docsQuery.selectAllDocs,
+				// 			value: documents
+				// 		}
+				// 	]
+				// })
+			]
+		});
 
-// export function getActions() {
-//   return new TestActions();
-// }
+		effects = TestBed.inject(DocEffects);
+		docService = TestBed.inject(DocumentsService);
+		docsStub = TestBed.inject(DocumentsService) as SpyObject<DocumentsService>;
+	});
 
-// describe('DocEffects', () => {
-//   let effects: DocEffects;
-//   let actions$: TestActions;
-//   let documentsService: any;
 
-//   const document1: Document =     {
-//       "id": 1,
-//       "Documentid": "EAF572FC-5086-4908-B862-B1C013CDA5C7",
-//       "MetaDataType": "NULL",
-//       "MetaDataValue": "NULL",
-//       "LoanNumber": "0000123456",
-//       "Sourceid": 1,
-//       "Key1": "NULL",
-//       "Key2": "NULL",
-//       "Key3": "NULL",
-//       "DocFileName": "1MB.txt",
-//       "DocType": "undefined",
-//       "FileSize": 1048576,
-//       "CreatedDated": "2019-10-10 08:46:56.4629789",
-//       "CreatedBy": "colsen",
-//       "IsDeleted": 1,
-//       "DeletedDated": "2019-10-10 15:44:22.2884661",
-//       "DeletedBy": "colsen",
-//       "UpdatedDate": "NULL",
-//       "UpdatedBy": "NULL",
-//       "Extension": ".txt",
-//       "MeridianImport": 0,
-//       "ScanStatus": 2
-//     },
-//     document2: Document =     {
-//       "id": 2,
-//       "Documentid": "601DC455-4346-4BC4-98D7-76E939CCCC46",
-//       "MetaDataType": "NULL",
-//       "MetaDataValue": "NULL",
-//       "LoanNumber": "0000123456",
-//       "Sourceid": 1,
-//       "Key1": "NULL",
-//       "Key2": "NULL",
-//       "Key3": "NULL",
-//       "DocFileName": "1MB.txt",
-//       "DocType": "undefined",
-//       "FileSize": 1048576,
-//       "CreatedDated": "2019-10-10 08:54:53.3986677",
-//       "CreatedBy": "colsen",
-//       "IsDeleted": 1,
-//       "DeletedDated": "2019-10-10 15:44:26.1158488",
-//       "DeletedBy": "colsen",
-//       "UpdatedDate": "NULL",
-//       "UpdatedBy": "NULL",
-//       "Extension": ".txt",
-//       "MeridianImport": 0,
-//       "ScanStatus": 2
-//     },
-//     documents = [document1, document2];
+	describe('loadDocs$', () => {
+		it('should load loan docs', () => {
+			const action = DocActions.loadDocs();
+			const outcome = DocActions.loadDocsSuccess({ documents });
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       providers: [
-//         DocEffects,
-//         {
-//           provide: DocumentsService,
-//           useValue: { load: jest.fn() }
-//         },
-//         {
-//           provide: Actions,
-//           useFactory: getActions
-//         }
-//       ]
-//     });
+			actions = hot('-a', { a: action });
+			const response = cold('-a|', { a: documents });
+			docsStub.getDocuments.and.returnValue(response);
 
-//     effects = TestBed.get(DocEffects);
-//     documentsService = TestBed.get(DocumentsService);
-//     actions$ = TestBed.get(Actions);
-//   });
-
-//   describe('load$', () => {
-//     it('should return a new customer.LoadSuccess, with the documents, on success', () => {
-//       const action = new DocActions.loadDocs(),
-//         completion = new DocActions.loadDocsSuccess({documents}),
-//         response = cold('a|', { a: documents }),
-//         expected = cold('-b', { b: completion });
-
-//       actions$.stream = hot('-a', { a: action });
-
-//       // mock the load function to be the response
-//       documentsService.load = jest.fn(() => response);
-
-//       expect(effects.loadDocs$).toMatchSnapshot();
-//     });
-
-//     it('should return a new customer.LoadError, on fail', () => {
-//       const action = new Load(),
-//         completion = new LoadFail('error'),
-//         response = cold('#'),
-//         expected = cold('-b', { b: completion });
-
-//       actions$.stream = hot('-a', { a: action });
-
-//       // mock the load function to be the response
-//       documentsService.load = jest.fn(() => response);
-
-//       expect(effects.load$).toMatchSnapshot();
-//     });
-//   });
-// });
+			const expected = cold('--b', { b: outcome });
+			expect(effects.loadDocs$).toBeObservable(expected);
+		});
+	});
+});
