@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
 import { Loan, LoanDetail, toLoanFormValue, LoanDetailDoc } from '@hza/shared/loans/models';
 import { tap, startWith, map } from 'rxjs/operators';
+import { LoansService } from '@hza/shared/loans/data-access/data';
 
 @Component({
 	selector: 'hza-loan-detail',
@@ -26,15 +27,15 @@ export class LoanDetailComponent implements OnInit {
 		Property: [ '' ],
 	});
 
-	constructor(private loanFacade: LoansFacade, private fb: FormBuilder) {}
+	constructor(private loanFacade: LoansFacade, private fb: FormBuilder, private loansService: LoansService) {}
 
 	ngOnInit() {
 		this.loan$ = this.loanFacade.loanDetail$;
+		this.loansService.getLoans().subscribe(v => console.log('erl loans', v));
 		// TODO:: Figure out why pipe/tap is not working djr
 		this.loan$.pipe(tap((l) => console.log('', l[0])));
 		this.loan$.subscribe((v) => {
 			this.loanNumber = v[0].LoanNumber;
-			console.log('EARL', v[0]);
 			this.loanForm.setValue({
 				BorrowerPrimaryFullName: v[0].BorrowerPrimaryFullName,
 				BorrowerSSN: v[0].BorrowerSSN,

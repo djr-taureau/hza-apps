@@ -7,6 +7,7 @@ import { SharedUtilsModule } from '@hza/shared/utils';
 import { UiComponentsLayoutsModule } from '@hza/ui-components/layouts';
 import { UiComponentsFormsModule } from '@hza/ui-components/forms';
 import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/state';
+import { SharedLoansDataAccessDataModule } from '@hza/shared/loans/data-access/data';
 import { LoanDetailComponent } from './loan-detail/loan-detail.component';
 
 
@@ -18,6 +19,7 @@ import { LoanDetailComponent } from './loan-detail/loan-detail.component';
     SharedUtilsModule,
     UiComponentsLayoutsModule,
     UiComponentsFormsModule,
+    SharedLoansDataAccessDataModule,
     SharedLoansDataAccessStateModule,
     RouterModule.forChild([
       { path: '', component: LoanDetailComponent }

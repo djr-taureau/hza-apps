@@ -36,8 +36,9 @@ export class ApiEndpointService {
 		DOWNTIME: `downtime/{applications}`,
 		DOWNTIME_EXTERNAL: `downtime/{application}/{external:bool}`,
 		ERROR: `error/{application}/{user?}/{shortmessage?}/{detail?}/{errorlevel?}`,
-		LOANS: `loans/search/{source:int}/{search}`,
+		// LOANS: `loans/search/{source:int}/{search}`,
 		// MOCK_LOANS: `/posts?title=json-server&author=typicode`,
+		LOANS: `/loans`,
 		LOAN: `loan/search/{source}/{search}/{value}`,
 		LOAN_COMMENTS: `loan/comment/{source:int}/{loan}/{workstation?}/{filtertype?}/{filter?}`,
 		CARS: 'cars',
@@ -59,7 +60,7 @@ export class ApiEndpointService {
      */
 	constructor() {}
 
-	public getEndpoint(url: string, endpoint: string, params?: {}, query?: {}, noCache: boolean = false): string {
+	public getEndpoint(url?: string, endpoint?: string, params?: {}, query?: {}, noCache: boolean = false): string {
 		const baseUrl = `${url}${endpoint}`;
 		const urlWithParams: string = StringUtil.replaceTokens(baseUrl, params);
 

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { SharedUtilsModule } from '@hza/shared/utils';
 import { SharedLoansUiModule } from '@hza/shared/loans/ui';
+import { SharedLoansDataAccessDataModule } from '@hza/shared/loans/data-access/data';
 import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/state';
 import { LoansContainer } from './containers/loans.container';
 import { LoanSearchComponent } from './components/loan-search';
@@ -23,6 +24,7 @@ const COMPONENTS = [
 		AgGridModule.withComponents([]),
 		SharedUtilsModule,
 		SharedLoansUiModule,
+		SharedLoansDataAccessDataModule, 
 		SharedLoansDataAccessStateModule,
 		RouterModule.forChild([
 			{

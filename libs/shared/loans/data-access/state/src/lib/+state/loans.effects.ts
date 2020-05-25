@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
+import { Action } from '@ngrx/store/src/models';
+import { NxModule } from '@nrwl/angular';
+import { StoreModule } from '@ngrx/store';
+import { hot } from '@nrwl/angular/testing';
 import { DataPersistence, navigation, optimisticUpdate } from '@nrwl/angular';
 import { LoansPartialState } from './loans.reducer';
+import { TestBed, async } from '@angular/core/testing';
+import { provideMockActions } from '@ngrx/effects/testing';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import * as LoanActions from './loans.actions';
 import { LoansService } from '@hza/shared/loans/data-access/data';
-import { LoansFacade } from './loans.facade';
+
+
 
 @Injectable()
 export class LoanEffects {
@@ -32,6 +39,8 @@ export class LoanEffects {
 			map((query) => LoanActions.queryLoansSuccess({ query }))
 		)
 	);
+	
+
 	queryLoans$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(LoanActions.queryLoans),
@@ -58,5 +67,5 @@ export class LoanEffects {
 		)
 	);
 
-	constructor(private actions$: Actions, private loanService: LoansService, private facade: LoansFacade) {}
+	constructor(private actions$: Actions, private loanService: LoansService) {}
 }

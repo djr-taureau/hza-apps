@@ -69,7 +69,8 @@
       "@hza/auth": ["libs/auth/src/index.ts"],
       "@hza/ui-components/attachment": [
         "libs/ui-components/attachment/src/index.ts"
-      ]
+      ],
+      "@hza/shared/loans/tests": ["libs/shared/loans/tests/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

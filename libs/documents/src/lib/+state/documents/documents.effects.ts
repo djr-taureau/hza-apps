@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { DocumentsService } from './../../services/documents.service';
 import * as DocActions from './documents.actions';
-import { DocsFacade } from './documents.facade';
+
 
 @Injectable()
 export class DocEffects {
@@ -21,7 +21,7 @@ export class DocEffects {
       ),
     ),
   );
-  
+
     loadDocTypes$ = createEffect(() =>
     this.actions$.pipe(
       ofType(DocActions.loadDocTypes),
@@ -35,5 +35,5 @@ export class DocEffects {
 
 
 
-  constructor(private actions$: Actions, private docService: DocumentsService, private facade: DocsFacade) {}
+  constructor(private actions$: Actions, private docService: DocumentsService) {}
 }

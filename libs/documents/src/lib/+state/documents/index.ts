@@ -77,5 +77,6 @@ export const docsQuery = {
 	isLoadingDocs,
 	loadedDocs,
 	selectCurrentDoc,
-  selectDocTypes
+  selectDocTypes,
+  selectCurrentDocId
 };
