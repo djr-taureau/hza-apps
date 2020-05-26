@@ -8,12 +8,12 @@
   <hza-section>
     <form *ngIf="loan$ | async; let loan; else: loading" [formGroup]="loanForm">
       <label class="borrower" for="BorrowerPrimaryFullName">
-        Borrower Name
+        Borrower
       </label>
       <input
         id="BorrowerPrimaryFullName"
         type="text"
-        class="borrower-field"
+        class="borrower-field right"
         name="BorrowerPrimaryFullName"
         formControlName="BorrowerPrimaryFullName"
       />
@@ -25,11 +25,11 @@
         formControlName="BorrowerSSN"
         class="longdate SSN-field"
       />
-    <label class="coBorrower" for="BorrowerSecondaryFullName">Co Borrower Name</label>
+    <label class="coBorrower" for="BorrowerSecondaryFullName">Co Borrower</label>
     <input
         id="BorrowerSecondaryFullName"
         type="text"
-        class="coBorrower-field"
+        class="coBorrower-field right"
         name="BorrowerSecondaryFullName"
         formControlName="BorrowerSecondaryFullName"
       />
@@ -47,7 +47,7 @@
         id="investor"
         type="text"
         formControlName="InvestorName"
-        class="investor-field"
+        class="investor-field right"
         name="Investor"
       />
 
@@ -55,7 +55,7 @@
         >Property</label
       >
       <textarea
-        class="xwide property-field"
+        class="property-field"
         id="propertyAddress1"
         formControlName="Property"
         name="PropertyAddress"

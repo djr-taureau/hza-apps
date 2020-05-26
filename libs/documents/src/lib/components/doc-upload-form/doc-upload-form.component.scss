@@ -1,29 +1,30 @@
 :host {
   .container {
     display: grid;
-    grid-template-rows: 2fr 2fr 1fr 4px;
+    grid-template-rows: 1fr;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 1em 2em;
     background-color: #fff7f7;
   }
 }
 
-.hza-section.upload {
-  grid-row: 1 / 2;
-  grid-column-start: 1;
-  grid-column-end: 8;
-  align-content: center;
-  justify-content: center;
-  margin-top: 1em;
-}
+// .hza-section.upload {
+//   grid-row: 1 / 2;
+//   grid-column-start: 1;
+//   grid-column-end: 8;
+//   align-content: center;
+//   justify-content: center;
+//   margin-top: 1em;
+// }
 
 .hza-section.upload-2 {
-  grid-row: 2 / 3;
+  grid-row: 1;
   grid-column-start: 1;
-  grid-column-end: 8;
+  grid-column-end: 6;
   align-content: center;
   justify-content: center;
   margin-top: 1em;
+  justify-self: start;
 }
 
 .hza-control-bar {
@@ -31,53 +32,57 @@
 }
 
 div.form-container {
-  grid-row: 3 / 4;
-}
-
-label.doc-type {
-  grid-column-start: 1;
-  grid-column-end: 4;
-
-  padding: 0;
-  margin: 0;
-  justify-self: start;
-  color: #000000;
-  cursor: default;
-  display: inline;
-
-  font-size: 0.5em;
-  font-weight: 600;
-  overflow: hidden;
-}
-
-select {
-
-  grid-column-start: 5;
+  grid-row: 1;
+  grid-column-start: 7;
   grid-column-end: 8;
-  display: inline;
+  justify-self: end;
+  align-self: center;
 }
 
-label.doc-label {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  padding: 0;
-  // margin-top: 1em;
-  color: #000000;
-  cursor: default;
-  display: inline;
-  font-size: 0.5em;
-  font-weight: 600;
-  overflow: hidden;
-}
+// label.doc-type {
+//   grid-column-start: 1;
+//   grid-column-end: 4;
 
-input.doc-field {
-  grid-column: 4 / 6;
-  margin: 0;
-  grid-row: 7;
-  display: inline;
-  align-self: start;
-  justify-self: start;
-}
+//   padding: 0;
+//   margin: 0;
+//   justify-self: start;
+//   color: #000000;
+//   cursor: default;
+//   display: inline;
+
+//   font-size: 0.5em;
+//   font-weight: 600;
+//   overflow: hidden;
+// }
+
+// select {
+
+//   grid-column-start: 5;
+//   grid-column-end: 8;
+//   display: inline;
+// }
+
+// label.doc-label {
+//   grid-column-start: 1;
+//   grid-column-end: 3;
+//   padding: 0;
+//   // margin-top: 1em;
+//   color: #000000;
+//   cursor: default;
+//   display: inline;
+//   font-size: 0.5em;
+//   font-weight: 600;
+//   overflow: hidden;
+// }
+
+// input.doc-field {
+//   grid-column: 4 / 6;
+//   margin: 0;
+//   grid-row: 7;
+//   display: inline;
+//   align-self: start;
+//   justify-self: start;
+// }
 
 button {
   align-self: end;
