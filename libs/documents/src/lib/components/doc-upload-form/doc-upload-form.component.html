@@ -7,7 +7,7 @@
   </hza-section>
 <div class="form-container">
   <form [formGroup]="docUploadForm" (ngSubmit)="submit()" class="doc-form">
-      <label id="-label" class="doc-type" hzaControlBarControl for="docType">Document Type</label>
+      <label id="-label" class="doc-type" hzaControlBarControl for="docType">Document Type
       <select
         hzaControlBarControl
         class="x-wide"
@@ -19,14 +19,15 @@
           {{ docType.CodeValue }}
         </option>
       </select>
-
-      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc">Rename File</label>
+      </label>
+      <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc">Rename File
       <input
         hzaControlBarControl
         class="doc-field x-wide"
         type="text"
         formControlName="renameDoc"
       />
+      </label>
       <button type="submit" [disabled]="!docUploadForm.valid" hzaControlBarControl>Upload</button>
       <br/>
       <br/>
