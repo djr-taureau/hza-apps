@@ -33,8 +33,9 @@
       grid-row: 1;
       overflow: hidden;
       min-width: 0;
-      font-size: 0.5em;
+      font-size: 0.6em;
       margin-left: 0.6em;
+      margin-top: 1em;
       font-weight: bold;
       justify-self: start;
       align-self: end;
@@ -46,7 +47,7 @@
       overflow: hidden;
       min-width: 0;
       margin-left: 0.6em;
-      font-size: 0.5em;
+      font-size: 0.6em;
       font-weight: 600;
       justify-self: start;
       align-self: start;
@@ -56,6 +57,8 @@
       text-align: right;
       align-self: end;
       justify-self: end;
+      margin-top: 1em;
+      margin-bottom: 1em;
       grid-column: 2;
       grid-row: 1;
       overflow: hidden;
@@ -85,12 +88,12 @@
       grid-row: 1;
       overflow: hidden;
       min-width: 0;
-      font-size: 0.5em;
+      font-size: 0.6em;
       font-weight: 600;
-      justify-self: center;
-      align-self:end;
+      justify-self: start;
+      align-self: end;
       margin-right: 2em;
-      margin-top: 2em;
+      margin-top: 1em;
     }
     label.coSSN {
       font-family: Arial;
@@ -98,9 +101,9 @@
       grid-column: 3;
       grid-row: 2;
       min-width: 0;
-      font-size: 0.5em;
+      font-size: 0.6em;
       font-weight: 600;
-      justify-self: center;
+      justify-self: start;
       align-self: start;
     }
 
@@ -114,6 +117,7 @@
       min-width: 0;
       max-width: 15em;
       font-size: 12.8px;
+      margin-bottom: 1em;
       height: 1em;
       font-weight: 700;
     }
@@ -134,13 +138,14 @@
     label.investor {
       font-family: Arial;
       justify-self: center;
-      align-self: end;
+      align-self: center;
       margin-top: 1em;
       grid-column: 5;
       grid-row: 1;
+      margin-top: 1.2em;
       overflow: hidden;
       min-width: 0;
-      font-size: 0.5em;
+      font-size: 0.6em;
       font-weight: 600;
     }
 
@@ -154,6 +159,7 @@
       min-width: 0;
       max-width: 15em;
       font-size: 12.8px;
+      margin-bottom: 1em;
       height: 1em;
       font-weight: 700;
     }
@@ -168,22 +174,21 @@
       overflow: hidden;
       min-width: 0;
       font-family: Arial;
-      overflow: hidden;
       min-width: 0;
-      font-size: 0.5em;
+      font-size: 0.6em;
       font-weight: 600;
     }
     textarea.property-field {
       text-align: left;
       align-self: end;
-      justify-self: end;
+      justify-self: start;
       grid-column: 8;
       grid-row-start: 1;
       grid-row-end: 2;
       overflow: hidden;
       min-width: 0;
       font-weight: bold;
-      margin-top: 4em;
+      margin-top: 7em;
     }
 
     // input,
