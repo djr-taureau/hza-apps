@@ -7,8 +7,10 @@ export class FormConfigBuilder {
 			key: '',
 			className: '',
 			type: '',
-			// wrappers: ['form-field-horizontal'],
+			wrappers: [ 'flex', 'form-field' ],
 			templateOptions: {
+				fxLayout: 'row',
+				fxLayoutAlign: 'space-between start',
 				label: '',
 				attributes: {
 					class: ''

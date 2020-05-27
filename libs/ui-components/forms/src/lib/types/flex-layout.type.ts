@@ -6,7 +6,8 @@ import { FieldType } from '@ngx-formly/core';
   template: `
     <div
       class="content" 
-      [fxLayout]="to.fxLayout" 
+      [fxLayout]="to.fxLayout"
+      [fxLayoutAlign]="to.fxLayoutAlign" 
       fxLayout.xs="column" 
       fxFlexFill
     >
