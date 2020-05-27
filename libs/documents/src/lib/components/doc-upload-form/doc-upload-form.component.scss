@@ -1,23 +1,10 @@
 :host {
   .container {
-    display: grid;
-    grid-template-rows: 1fr 30px 2fr 4px;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 1em 2em;
     background-color: #fff7f7;
   }
 }
 
-// .hza-section.upload {
-//   grid-row: 1 / 2;
-//   grid-column-start: 1;
-//   grid-column-end: 8;
-//   align-content: center;
-//   justify-content: center;
-//   margin-top: 1em;
-// }
-
-.hza-section.upload-2 {
+.hza-section.upload {
   grid-row: 1;
   grid-column-start: 1;
   grid-column-end: 8;
@@ -40,55 +27,6 @@ div.form-container {
   align-self: center;
 }
 
-form.label {
-  display: inline-block;
-}
-
-// label.doc-type {
-//   grid-column-start: 1;
-//   grid-column-end: 4;
-
-//   padding: 0;
-//   margin: 0;
-//   justify-self: start;
-//   color: #000000;
-//   cursor: default;
-//   display: inline;
-
-//   font-size: 0.5em;
-//   font-weight: 600;
-//   overflow: hidden;
-// }
-
-// select {
-
-//   grid-column-start: 5;
-//   grid-column-end: 8;
-//   display: inline;
-// }
-
-// label.doc-label {
-//   grid-column-start: 1;
-//   grid-column-end: 3;
-//   padding: 0;
-//   // margin-top: 1em;
-//   color: #000000;
-//   cursor: default;
-//   display: inline;
-//   font-size: 0.5em;
-//   font-weight: 600;
-//   overflow: hidden;
-// }
-
-// input.doc-field {
-//   grid-column: 4 / 6;
-//   margin: 0;
-//   grid-row: 7;
-//   display: inline;
-//   align-self: start;
-//   justify-self: start;
-// }
-
 button {
   align-self: end;
   justify-self: end;
@@ -105,10 +43,32 @@ select.x-wide {
   font-size: 12.8px;
   margin: 0;
   max-width: 28em;
+  line-height: 1em;
   min-width: calc(20em + 2px + 0.5em);
   padding: 0 0.25em;
   white-space: pre;
   width: calc(20em + 2px + 0.5em);
+}
+
+input.x-wide {
+  background-color: #add8e6;
+  border: 1px solid #e2e2e2;
+  color: #333333;
+  cursor: text;
+  float: none;
+  font-family: Arial;
+  font-size: 12.8px;
+  font-weight: 700;
+  margin: 0;
+  max-width: 15em;
+  min-width: 20em;
+  line-height: 1em;
+  padding: 0 0.25em;
+  width: 20em;
+  &:focus {
+    background-color: #ffffff;
+    border: 1px solid #7ac0da;
+  }
 }
 
 /* Shake animation */
@@ -156,4 +116,119 @@ select.x-wide {
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
+}
+
+@media (min-width: 700px) {
+  // .form-grid-3 {
+  //   display: grid;
+  //   grid-template-columns: 500px 1fr auto;
+  //   grid-template-rows: repeat(2, 1fr);
+  //   grid-row-gap: 1rem;
+  //   grid-column-gap: 1rem;
+  //   padding: 0.5rem;
+  // }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 20em 5px 5px 1fr 1fr 1fr 1fr;
+    grid-gap: 0.3em 0.6em;
+    grid-auto-flow: dense;
+    align-items: start;
+  }
+
+  input {
+    grid-row: 2;
+    grid-column: 2 / 3;
+    width: 20em;
+    margin: 0;
+    text-align: left;
+    justify-self: start;
+  }
+  select {
+    grid-column: 2 / 3;
+    width: 20em;
+    margin: 0;
+    text-align: center;
+    justify-self: start;
+  }
+
+  button {
+    grid-column: 7;
+    grid-row: 2;
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+    align-self: center;
+    justify-self: center;
+  }
+
+  label.doc-type {
+
+    justify-self: start;
+    align-self: start;
+    grid-column: 1 / 2;
+    font-size: 12.8px;
+    font-weight: 600;
+    line-height: 21.76px;
+  }
+  label.doc-label {
+
+    justify-self: start;
+    align-self: start;
+    grid-column: 1 / 2;
+    font-size: 12.8px;
+    font-weight: 600;
+    line-height: 21.76px;
+  }
+}
+
+input,
+select,
+button {
+  box-sizing: border-box;
+  padding: 0.2em 0.4em;
+  margin: 0.2em 0;
+  outline: 0 none;
+  border: 0 none;
+  box-shadow: none;
+}
+
+label {
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* fallback 30%/70% float layout */
+input,
+select,
+button {
+  clear: both;
+  float: right;
+  width: 70%;
+}
+
+label {
+  float: left;
+  width: 30%;
+  text-align: left;
+  padding: 0.25em 1em 0 0;
+}
+
+button {
+  width: auto;
+  float: left;
+  margin: 0.5em 0.5em 0 30%;
+}
+
+.form-flex {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.form-flex label {
+  width: 300px;
 }
