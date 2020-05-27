@@ -4,7 +4,7 @@ export interface FormBuilderModel {
 	fieldType: string;
 	cssSelector: string;
 	templateCssSelector: string;
-	fxFlexField?: string;
+	fxFlexAlignField?: string;
 }
 
 export const docDetailFields: FormBuilderModel[] = [
@@ -21,7 +21,7 @@ export const docDetailFields: FormBuilderModel[] = [
 		fieldType: 'input',
 		cssSelector: 'value',
 		templateCssSelector: 'medium-focus',
-		fxFlexField: 'end'
+		fxFlexAlignField: 'end center'
 	},
     {
 		displayName: 'Username',
@@ -29,7 +29,7 @@ export const docDetailFields: FormBuilderModel[] = [
 		fieldType: 'input',
 		cssSelector: 'value',
 		templateCssSelector: 'medium-focus',
-		fxFlexField: 'end'
+		fxFlexAlignField: 'end center'
 	},
         {
 		displayName: 'Created',
