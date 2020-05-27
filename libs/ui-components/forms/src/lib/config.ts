@@ -12,6 +12,9 @@ import { FormlyFieldCustomInput } from './types/custom-input.component';
 import { ErrorWrapperComponent } from './wrappers/error.component';
 import { ConfigOption } from '@ngx-formly/core';
 import { FormlyHorizontalWrapper } from './wrappers/horizontal.wrapper';
+import { FlexLayoutType } from './types/flex-layout.type';
+import { FlexContainerWrapperComponent } from './wrappers/flex-container-wrapper.component';
+import { FlexWrapperComponent } from './wrappers/flex-wrapper.component';
 
 
 export const config: ConfigOption = {
@@ -26,12 +29,15 @@ export const config: ConfigOption = {
 	wrappers: [
 		{ name: 'panel', component: PanelWrapperComponent },
 		{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper },
-		{ name: 'error-on-top', component: ErrorWrapperComponent }
+		{ name: 'error-on-top', component: ErrorWrapperComponent },
+		{ name: 'flex-container', component: FlexContainerWrapperComponent },
+        { name: 'flex', component: FlexWrapperComponent }
 	],
 	types: [
 		{ name: 'repeat', component: RepeatSectionComponent },
 		{ name: 'detail-disabled', component: DocDetailInput },
 		{ name: 'custom', component: FormlyFieldCustomInput, wrappers: ['form-field'] },
+		{ name: 'flex-layout', component: FlexLayoutType }
 	],
 	validators: [{ name: 'maximumMoneyValidation', validation: maximumMoneyValidation }]
 };

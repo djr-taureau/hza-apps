@@ -16,7 +16,6 @@ export class DocDetailComponent implements OnInit, OnChanges {
 	model: any;
 	form;
 	fieldNames: string[];
-	requestFieldNames: string[];
 	fields: FormlyFieldConfig[] = [];
 	options: FormlyFormOptions = {
 		formState: {
