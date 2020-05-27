@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { LibCoreModule, LibUIModule } from './+modules';
 
 import { SectionTitleComponent, SectionSubtitleDirective } from './section-title/section-title.component';
@@ -28,7 +29,7 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [LibCoreModule, LibUIModule],
+  imports: [LibCoreModule, LibUIModule, FlexLayoutModule],
   declarations: COMPONENTS,
   exports: COMPONENTS,
 })

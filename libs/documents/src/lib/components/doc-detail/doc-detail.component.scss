@@ -1,20 +1,35 @@
 :host {
   width: 1200px;
+  height: 350px;
   input {
     text-align: right;
   }
-  input.label {
-    width: auto;
-  }
+  // input.label {
+  //   width: auto;
+  // }
   label {
+    text-align: left;
     justify-self: start;
   }
-}
-  formly-field.value {
-    padding: 0;
-  }
 
-  formly-field-wrapper {
-    padding: 0;
-    margin: 0;
-  }
+  // div.form-label {
+  //   text-align: left;
+  //   justify-self: start;
+  // }
+}
+
+::ng-deep.form-label {
+  text-align: left;
+  justify-self: start;
+  font-size: 12.8px;
+  font-weight: 600;
+  line-height: 21.6px;
+}
+
+::ng-deep.form-field {
+  text-align: left;
+  justify-self: end;
+  justify-content: end;
+  justify-items: end;
+}
+

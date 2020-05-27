@@ -1,36 +1,46 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-// * wrappers
-import { PanelWrapperComponent } from './wrappers/panel-wrapper.component';
-import { ErrorWrapperComponent } from './wrappers/error.component';
-// * types
-import { RepeatSectionComponent } from './types/repeat-section.component';
 // * components
 import { FormComponent } from './components/form/form.component';
 import { config } from './config';
-import { DocDetailInput } from './types/doc-detail-input';
-import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
 import { FormlyFieldCustomInput } from './types/custom-input.component';
+import { DocDetailInput } from './types/doc-detail-input';
+import { FlexLayoutType } from './types/flex-layout.type';
+// * types
+import { RepeatSectionComponent } from './types/repeat-section.component';
+import { ErrorWrapperComponent } from './wrappers/error.component';
+import { FlexContainerWrapperComponent } from './wrappers/flex-container-wrapper.component';
+import { FlexWrapperComponent } from './wrappers/flex-wrapper.component';
+import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
+// * wrappers
+import { FlexPanelWrapperComponent } from './wrappers/flex-panel-wrapper.component';
+
+
+
 
 const COMPONENTS = [
-	PanelWrapperComponent,
+	FlexPanelWrapperComponent,
 	ErrorWrapperComponent,
 	RepeatSectionComponent,
 	FormlyHorizontalWrapper,
 	FormlyFieldCustomInput,
 	DocDetailInput,
 	FormComponent,
-	FormlyHorizontalWrapper
+	FormlyHorizontalWrapper, 
+	FlexLayoutType,
+	FlexContainerWrapperComponent,
+	FlexWrapperComponent
 ];
 
 @NgModule({
 	imports: [
+		FlexLayoutModule,
 		ReactiveFormsModule,
 		FormsModule,
 		FormlyMatDatepickerModule,
