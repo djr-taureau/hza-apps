@@ -7,7 +7,7 @@ import { FieldWrapper, FormlyTemplateOptions } from '@ngx-formly/core';
     <div [fxLayout]="to.fxLayout" [fxLayoutAlign]="to.fxLayoutAlign">
       <div class="form-label" [fxLayout]="to.fxLayoutLabel" [fxFlex]="to.fxFlexLabel">{{ to.label }}</div>
       <div class="form-spacer" [fxFlex]="to.fxFlexSpacer"></div>
-      <div class="form-field" [fxLayout]="to.fxLayoutField" [fxFlex]="to.fxFlexField">
+      <div class="form-field" [fxLayoutAlign]="to.fxLayoutAlignField" [fxFlex]="to.fxFlexField">
         <ng-container #fieldComponent></ng-container>
       </div>
     </div>
@@ -34,9 +34,9 @@ export class FlexPanelWrapperComponent extends FieldWrapper {
 		this.to.fxFlexLabel = this.to.fxFlexLabel || '40';
 		this.to.fxFlexSpacer = this.to.fxFlexSpacer || '20';
 		this.to.fxFlexField = this.to.fxFlexField || '40';
-		this.to.fxLayoutLabel = this.to.fxLayoutLabel || 'column';
-		this.to.fxLayoutField = this.to.fxLayoutField || 'column';
-    this.to.fxLayoutAlignLabel = this.to.fxLayoutAlignLabel || 'space-around start';
-		this.to.fxLayoutAlignField = this.to.fxLayoutAlignField || 'space-around end';
+		// this.to.fxLayoutLabel = this.to.fxLayoutLabel || 'column';
+		// this.to.fxLayoutField = this.to.fxLayoutField || 'column';
+    this.to.fxLayoutAlignLabel = this.to.fxLayoutAlignLabel || 'start center';
+		this.to.fxLayoutAlignField = this.to.fxLayoutAlignField || 'end center';
 	}
 }
