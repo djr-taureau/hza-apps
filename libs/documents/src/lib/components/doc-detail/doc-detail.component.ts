@@ -37,13 +37,7 @@ export class DocDetailComponent implements OnInit, OnChanges {
 
 	buildDocForm(doc: Document) {
 		this.fieldNames = formFieldDefaults(doc, [ 'DocType', 'FileSize', 'CreatedDate', 'CreatedBy' ]);
-		const fieldGroupConfig = formFieldConfig(docDetailFields);
-		this.fields = [
-			{
-				wrappers: [ 'flex-container' ],
-				fieldGroup: fieldGroupConfig
-			}
-		];
+		this.fields = formFieldConfig(docDetailFields);
 		const getObject = _.pick(this.doc, this.fieldNames);
 		this.model = getObject;
 	}

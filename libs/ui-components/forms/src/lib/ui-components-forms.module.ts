@@ -19,20 +19,20 @@ import { FlexContainerWrapperComponent } from './wrappers/flex-container-wrapper
 import { FlexWrapperComponent } from './wrappers/flex-wrapper.component';
 import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
 // * wrappers
-import { PanelWrapperComponent } from './wrappers/panel-wrapper.component';
+import { FlexPanelWrapperComponent } from './wrappers/flex-panel-wrapper.component';
 
 
 
 
 const COMPONENTS = [
-	PanelWrapperComponent,
+	FlexPanelWrapperComponent,
 	ErrorWrapperComponent,
 	RepeatSectionComponent,
 	FormlyHorizontalWrapper,
 	FormlyFieldCustomInput,
 	DocDetailInput,
 	FormComponent,
-	FormlyHorizontalWrapper,
+	FormlyHorizontalWrapper, 
 	FlexLayoutType,
 	FlexContainerWrapperComponent,
 	FlexWrapperComponent

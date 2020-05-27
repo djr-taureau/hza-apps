@@ -21,7 +21,7 @@ export const formFieldConfig = (formFields) => {
 			.cssSelector(v.cssSelector)
 			.key(v.fieldName)
 			.type(v.fieldType)
-			.templateOptions(v.displayName, v.templateCssSelector)
+			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexField)
 			.build();
 		formConfigs.push(formConfig);
 	});
