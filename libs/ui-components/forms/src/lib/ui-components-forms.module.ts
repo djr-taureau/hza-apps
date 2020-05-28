@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
@@ -43,6 +44,7 @@ const COMPONENTS = [
 		FlexLayoutModule,
 		ReactiveFormsModule,
 		FormsModule,
+		CardModule,
 		FormlyMatDatepickerModule,
 		FormlyMatToggleModule,
 		FormlyMatDatepickerModule,

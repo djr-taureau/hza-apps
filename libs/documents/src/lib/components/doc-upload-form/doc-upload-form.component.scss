@@ -4,7 +4,37 @@
   }
 }
 
+// .upload {
+//   grid-row: 1;
+//   grid-column: 1 / 8;
+//   align-self: center;
+//   justify-self: center;
+// }
 
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 2em 1fr 1fr 10px;
+}
+
+.spacer {
+  grid-row: 1;
+  grid-column: 1 / 9;
+}
+
+.doc-type {
+  grid-row: 2;
+  grid-column: 1 / 9;
+  align-self: end;
+  justify-self: start;
+}
+
+.doc-name {
+  grid-row: 3;
+  grid-column: 1 / 9;
+  align-self: end;
+  justify-self: start;
+}
 
 .hza-control-bar {
   background-color: #fff7f7;
@@ -47,15 +77,15 @@ input.x-wide {
   }
 }
 
-  label.doc-type {
-    font-size: 12.8px;
-    font-weight: 600;
-    line-height: 21.76px;
-  }
-  label.doc-label {
-    font-weight: 600;
-    line-height: 21.76px;
-  }
+label.doc-type {
+  font-size: 12.8px;
+  font-weight: 600;
+  line-height: 21.76px;
+}
+label.doc-label {
+  font-weight: 600;
+  line-height: 21.76px;
+}
 
 /* Shake animation */
 @keyframes shake {
@@ -106,10 +136,6 @@ input.x-wide {
 
 @media (min-width: 700px) {
   // .form-grid-3 {
-
-
-
-
 }
 
 input,
@@ -128,5 +154,3 @@ label {
   user-select: none;
   cursor: pointer;
 }
-
-

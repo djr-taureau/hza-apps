@@ -11,6 +11,7 @@ export class FormConfigBuilder {
 			templateOptions: {
 				label: '',
 				fxFlexAlignField: '',
+				fxFlexAlignLabel: '',
 				attributes: {
 					class: ''
 				}
@@ -42,9 +43,11 @@ export class FormConfigBuilder {
 		return this;
 	}
 
-	templateOptions(key: string, cssClass: string, fxFlexAlignField?: string): FormConfigBuilder {
+	templateOptions(key: string, cssClass: string, fxFlexAlignField?: string, fxFlexSpacer?: string, fxFlexAlignLabel?: string): FormConfigBuilder {
 		this._formConfig.templateOptions.label = key;
 		this._formConfig.templateOptions.fxFlexField = fxFlexAlignField;
+		this._formConfig.templateOptions.fxFlexField = fxFlexAlignLabel;
+		this._formConfig.templateOptions.fxFlexSpacer = fxFlexSpacer;
 		this._formConfig.templateOptions.attributes.class = cssClass;
 		return this;
 	}

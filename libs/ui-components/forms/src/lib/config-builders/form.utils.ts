@@ -16,12 +16,11 @@ export const formFieldConfig = (formFields) => {
 
 	let formConfigs: FormlyFieldConfig[] = [];
 	formFields.map((v) => {
-		console.log('from field config', v);
 		const formConfig = new FormConfigBuilder()
 			.cssSelector(v.cssSelector)
 			.key(v.fieldName)
 			.type(v.fieldType)
-			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexField)
+			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexField, v.fxFlexSpacer, v.flexAlignLabel)
 			.build();
 		formConfigs.push(formConfig);
 	});
