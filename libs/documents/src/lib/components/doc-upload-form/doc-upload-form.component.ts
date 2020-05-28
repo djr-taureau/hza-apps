@@ -12,7 +12,7 @@ import { DocsFacade } from '../../+state/documents/documents.facade';
 	styleUrls: [ './doc-upload-form.component.scss' ]
 })
 export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit {
-	@Input() docTypes: Observable<CodeTable[]>;
+	@Input() docTypes:CodeTable[];
 
 	form = new FormGroup({});
 	model = {
@@ -27,6 +27,7 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 			type: 'select',
 			wrappers: [ 'flex-container-panel' ],
 			templateOptions: {
+				class: 'x-wide',
 				label: 'Document Type',
 				options: this.docsFacade.docTypes$,
 				labelProp: 'CodeValue',
@@ -38,7 +39,8 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 			type: 'input',
 			wrappers: [ 'flex-container-panel' ],
 			templateOptions: {
-				label: 'Rename File'
+				label: 'Rename File',
+				class: 'x-wide',
 			}
 		}
 	];
@@ -59,6 +61,7 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 	}
 	ngAfterViewInit() {
 		console.log(this.fields);
+		console.log(this.form);
 	}
 
 	// Getter method to access formcontrols

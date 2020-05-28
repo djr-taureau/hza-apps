@@ -4,8 +4,10 @@
       <h2 class="title-bar" hzaSectionTitle>Repository</h2>
     </hza-control-bar>
   </hza-section>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <hza-doc-upload-form [docTypes]="docTypes$ | async"></hza-doc-upload-form>
+</div>
 
-  <hza-doc-upload-form [docTypes]="docTypes$"></hza-doc-upload-form>
 
   <hza-section>
     <hza-control-bar>
