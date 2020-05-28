@@ -1,54 +1,57 @@
 <div class="hza-elevation container">
-
-    <div class="upload">
-      <hza-file-upload-custom></hza-file-upload-custom>
-    </div>
-
+  <div class="upload">
+    <hza-file-upload-custom></hza-file-upload-custom>
+  </div>
   <br />
   <br />
   <div class="form-container">
-  <div class="spacer"></div>
-  <form [formGroup]="docUploadForm" (ngSubmit)="submit()" class="doc-form">
-  <div class="formFields">
-      <label id="-label" hzaControlBarControl for="docType">Document Type </label>
+    <div class="spacer"></div>
+    <form [formGroup]="docUploadForm" (ngSubmit)="submit()" class="doc-form">
+      <div class="doc-type">
+        <label id="-label" hzaControlBarControl for="docType"
+          >Document Type
+        </label>
 
-    <select
-      hzaControlBarControl
-      class="x-wide"
-      id="docType"
-      formControlName="docType"
-    >
-      <option value="">---Select Document Type---</option>
-      <option *ngFor="let docType of docTypes" [value]="docType.CodeValue">
-        {{ docType.CodeValue }}
-      </option>
-    </select>
+        <select
+          hzaControlBarControl
+          class="x-wide"
+          id="docType"
+          formControlName="docType"
+        >
+          <option value="">---Select Document Type---</option>
+          <option *ngFor="let docType of docTypes" [value]="docType.CodeValue">
+            {{ docType.CodeValue }}
+          </option>
+        </select>
+      </div>
+      <div class="doc-name">
+        <label
+          id="-label"
+          hzaControlBarControl
+          class="doc-label"
+          for="renameDoc"
+          >Rename File</label
+        >
 
-    <label id="-label" hzaControlBarControl class="doc-label" for="renameDoc"
-      >Rename File</label
-    >
+        <input
+          hzaControlBarControl
+          class="doc-field x-wide"
+          type="text"
+          formControlName="renameDoc"
+        />
 
-    <input
-      hzaControlBarControl
-      class="doc-field x-wide"
-      type="text"
-      formControlName="renameDoc"
-    />
-
-    <button
-      type="submit"
-      [disabled]="!docUploadForm.valid"
-      hzaControlBarControl
-    >
-      Upload
-    </button>
-  
+        <button
+          type="submit"
+          [disabled]="!docUploadForm.valid"
+          hzaControlBarControl
+        >
+          Upload
+        </button>
+      </div>
+    </form>
   </div>
-
-  </form>
 </div>
-  <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+<!-- <form [formGroup]="form" (ngSubmit)="submit()">
     <hza-ui-form [model]="model" [fields]="fields"> </hza-ui-form>
     <button>Upload</button>
   </form> -->
-</div>
