@@ -13,7 +13,7 @@ export interface FormBuilderModel {
 export const docLoanDetailBorrower: FormBuilderModel[] = [
 	{
 		displayName: 'Borrower',
-		fieldName: 'BorrowerPrimaryLastName',
+		fieldName: 'BorrowerPrimaryFullName',
 		fieldType: 'input',
 		cssSelector: 'value',
 		templateCssSelector: 'x-wide-disabled right',
@@ -68,8 +68,8 @@ export const docLoanDetailProperty: FormBuilderModel[] = [
 		fieldType: 'textarea',
 		cssSelector: 'value property',
 		templateCssSelector: 'x-wide-disabled',
-		fxLayoutAlignLabel: 'start start',
-		fxFlexAlignField: 'end center',
-		fxFlexSpacer: '5'
+		fxLayoutAlignLabel: 'end start',
+		fxFlexAlignField: 'space-around center',
+		fxFlexSpacer: '2'
 	}
 ];
