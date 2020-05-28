@@ -233,3 +233,13 @@ textarea.x-wide-disabled {
 
 }
 
+.blocks {
+  min-width: 75px;
+  min-height: 50px;
+  border-radius: 3px;
+}
+
+.containerX {
+  border: solid 1px #b6b6b6;
+  box-sizing: content-box !important;
+}
