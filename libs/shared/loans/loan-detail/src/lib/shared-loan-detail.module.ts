@@ -8,7 +8,7 @@ import { UiComponentsLayoutsModule } from '@hza/ui-components/layouts';
 import { UiComponentsFormsModule } from '@hza/ui-components/forms';
 import { SharedLoansDataAccessStateModule } from '@hza/shared/loans/data-access/state';
 import { SharedLoansDataAccessDataModule } from '@hza/shared/loans/data-access/data';
-import { LoanDetailComponent, CardComponent } from './loan-detail/loan-detail.component';
+import { LoanDetailComponent } from './loan-detail/loan-detail.component';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { LoanDetailComponent, CardComponent } from './loan-detail/loan-detail.co
       { path: '', component: LoanDetailComponent }
     ])
   ],
-  declarations: [LoanDetailComponent, CardComponent],
-  exports: [LoanDetailComponent, CardComponent]
+  declarations: [LoanDetailComponent],
+  exports: [LoanDetailComponent]
 })
 export class SharedLoanDetailModule {}

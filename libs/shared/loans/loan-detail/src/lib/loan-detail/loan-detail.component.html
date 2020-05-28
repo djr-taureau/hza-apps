@@ -1,25 +1,74 @@
 <div class="container">
+  <!-- TODO:: djr - hza-elevation - Add to elevation in global framework styles -->
   <hza-section>
     <hza-control-bar>
       <h2 class="title-bar" hzaSectionTitle>{{ loanNumber }}</h2>
     </hza-control-bar>
   </hza-section>
   <hza-section>
-    <p-card>
-      <hza-ui-form [fields]="borrowerFields" [model]="borrowerModel"></hza-ui-form>
-    </p-card>
-    <p-card>
-      <hza-ui-form [fields]="coBorrowerFields" [model]="coBorrowerModel"></hza-ui-form>
-    </p-card>
-    <p-card>
-      <hza-ui-form [fields]="investorFields" [model]="investorModel"></hza-ui-form>
-    </p-card>
-    <p-card>
-      <hza-ui-form [fields]="propertyFields" [model]="propertyModel"></hza-ui-form>
-    </p-card>
+    <form *ngIf="loan$ | async; let loan; else: loading" [formGroup]="loanForm">
+      <label class="borrower" for="BorrowerPrimaryFullName">
+        Borrower
+      </label>
+      <input
+        id="BorrowerPrimaryFullName"
+        type="text"
+        class="borrower-field right"
+        name="BorrowerPrimaryFullName"
+        formControlName="BorrowerPrimaryFullName"
+      />
+      <label class="SSN" for="BorrowerSSN">Borrower SSN</label>
+      <input
+        id="BorrowerSSN"
+        type="text"
+        name="BorrowerSSN"
+        formControlName="BorrowerSSN"
+        class="longdate SSN-field"
+      />
+    <label class="coBorrower" for="BorrowerSecondaryFullName">Co Borrower</label>
+    <input
+        id="BorrowerSecondaryFullName"
+        type="text"
+        class="coBorrower-field right"
+        name="BorrowerSecondaryFullName"
+        formControlName="BorrowerSecondaryFullName"
+      />
+      <label class="coSSN" for="BorrowerCoSSN">Co Borrower SSN</label>
+      <input
+        id="BorrowerCoSSN"
+        type="text"
+        name="BorrowerCoSSN"
+        formControlName="BorrowerCoSSN"
+        class="longdate coSSN-field"
+      />
+
+      <label class="investor" for="InvestorName">Investor</label>
+      <input
+        id="investor"
+        type="text"
+        formControlName="InvestorName"
+        class="investor-field right"
+        name="Investor"
+      />
+
+      <label class="property" for="Property"
+        >Property</label
+      >
+      <textarea
+        class="property-field"
+        id="propertyAddress1"
+        formControlName="Property"
+        name="PropertyAddress"
+        class="xwide"
+      >
+      </textarea>
+    </form>
   </hza-section>
+  
 </div>
 
 <ng-template #loading>
   Loading Loan Data...
 </ng-template>
+
+
