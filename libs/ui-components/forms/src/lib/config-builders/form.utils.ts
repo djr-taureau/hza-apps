@@ -20,7 +20,7 @@ export const formFieldConfig = (formFields) => {
 			.cssSelector(v.cssSelector)
 			.key(v.fieldName)
 			.type(v.fieldType)
-			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexField)
+			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexField, v.fxFlexSpacer, v.flexAlignLabel)
 			.build();
 		formConfigs.push(formConfig);
 	});

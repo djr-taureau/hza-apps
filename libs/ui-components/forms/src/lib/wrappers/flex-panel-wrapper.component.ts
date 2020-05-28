@@ -36,7 +36,7 @@ export class FlexPanelWrapperComponent extends FieldWrapper {
 		this.to.fxFlexField = this.to.fxFlexField || '40';
 		// this.to.fxLayoutLabel = this.to.fxLayoutLabel || 'column';
 		// this.to.fxLayoutField = this.to.fxLayoutField || 'column';
-    this.to.fxLayoutAlignLabel = this.to.fxLayoutAlignLabel || 'start center';
+    	this.to.fxLayoutAlignLabel = this.to.fxLayoutAlignLabel || 'start start';
 		this.to.fxLayoutAlignField = this.to.fxLayoutAlignField || 'end center';
 	}
 }

@@ -74,3 +74,21 @@ export class LoanDetailComponent implements OnInit {
 		return [ getObject, fields ];
 	}
 }
+
+
+@Component({
+  selector: 'hza-card',
+  template: `
+  	<div>
+		<ng-content></ng-content>
+	</div>
+	`,
+  styles: [`
+  :host {
+    display: block;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+  `]
+})
+export class CardComponent {}

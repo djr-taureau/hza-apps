@@ -3,6 +3,8 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    height: 8em;
+    
     background-color: rgba(255, 255, 255, 0.7);
     border: 2px solid #37678e;
     border-radius: 5px;
@@ -34,6 +36,7 @@ hza-control-bar {
 textarea {
   height: 5em;
   resize: none;
+  margin-right: 1em;
 }
 
 label {
@@ -48,15 +51,23 @@ label {
   line-height: 1.7em;
 }
 
+.containerX {
+  border: solid 1px #b6b6b6;
+  box-sizing: content-box !important;
+}
 
+.property {
+  margin-bottom: 10em;
+}
 
 
 ::ng-deep.form-label {
   text-align: left;
   justify-self: start;
+  margin-left: .5em;
   font-size: 12.8px;
   font-weight: 600;
-  line-height: 21.6px;
+  line-height: 15px;
 }
 
 ::ng-deep.form-field {
@@ -65,4 +76,5 @@ label {
   justify-content: end;
   justify-items: end;
   margin-left: 50px;
+  line-height: 14px;
 }
