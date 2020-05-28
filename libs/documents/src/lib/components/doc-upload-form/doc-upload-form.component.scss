@@ -1,12 +1,28 @@
 :host {
   .container {
     background-color: #fff7f7;
-     border: solid 1px #b6b6b6;
-    box-sizing: content-box !important;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr 10px 2fr 2fr;
   }
 }
 
+.upload {
+  grid-row: 1;
+  grid-column: 1 / 8;
+  align-self: center;
+  justify-self: center;
+}
 
+.spacer {
+  grid-row: 2;
+  grid-column: 1 / 8;
+}
+
+.formFields {
+  grid-row: 3;
+  grid-column: 1 / 8;
+}
 
 .hza-control-bar {
   background-color: #fff7f7;

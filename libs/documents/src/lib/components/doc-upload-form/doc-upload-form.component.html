@@ -1,14 +1,16 @@
 <div class="hza-elevation container">
-  <hza-section>
-    <div fxLayout="row" fxFlexAlign="center">
+
+    <div class="upload">
       <hza-file-upload-custom></hza-file-upload-custom>
     </div>
-  </hza-section>
+
   <br />
   <br />
-  <div class="form-container"></div>
+  <div class="form-container">
+  <div class="spacer"></div>
   <form [formGroup]="docUploadForm" (ngSubmit)="submit()" class="doc-form">
-    <label id="-label" hzaControlBarControl for="docType">Document Type </label>
+  <div class="formFields">
+      <label id="-label" hzaControlBarControl for="docType">Document Type </label>
 
     <select
       hzaControlBarControl
@@ -40,10 +42,13 @@
     >
       Upload
     </button>
-  </form>
+  
+  </div>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  </form>
+</div>
+  <!-- <form [formGroup]="form" (ngSubmit)="submit()">
     <hza-ui-form [model]="model" [fields]="fields"> </hza-ui-form>
     <button>Upload</button>
-  </form>
+  </form> -->
 </div>
