@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import {CardModule} from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
@@ -24,6 +25,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 const MODULES = [
 	CommonModule,
+	CardModule,
 	InputMaskModule,
 	TabMenuModule,
 	TabViewModule,

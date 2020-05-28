@@ -13,213 +13,12 @@
     z-index: 1;
   }
 
-  form {
-    display: grid;
-    // padding: 1em;
-    width: 100%;
-    // margin: 0.2rem auto 0 auto;
+  label {
+    text-align: left;
+    justify-self: start;
   }
 
-  @media (min-width: 700px) {
-    form {
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: 2fr 2fr 2fr 2fr 1fr 2fr 1fr 3fr;
-      grid-gap: 2px 0.4em;
-    }
 
-    label.borrower {
-      font-family: Arial;
-      grid-column: 1;
-      grid-row: 1;
-      overflow: hidden;
-      min-width: 0;
-      font-size: 0.6em;
-      margin-left: 0.6em;
-      margin-top: 1em;
-      font-weight: bold;
-      justify-self: start;
-      align-self: end;
-    }
-    label.SSN {
-      font-family: Arial;
-      grid-column: 1;
-      grid-row: 2;
-      overflow: hidden;
-      min-width: 0;
-      margin-left: 0.6em;
-      font-size: 0.6em;
-      font-weight: 600;
-      justify-self: start;
-      align-self: start;
-    }
-
-    input.borrower-field {
-      text-align: right;
-      align-self: end;
-      justify-self: end;
-      margin-top: 1em;
-      margin-bottom: 1em;
-      grid-column: 2;
-      grid-row: 1;
-      overflow: hidden;
-      min-width: 0;
-      max-width: 15em;
-      font-size: 12.8px;
-      height: 1em;
-      font-weight: 700;
-    }
-
-    input.SSN-field {
-      grid-column: 2;
-      grid-row: 2;
-      align-self: start;
-      justify-self: end;
-      overflow: hidden;
-      min-width: 0;
-      width: 50%;
-      font-size: 12.8px;
-      height: 1em;
-      font-weight: 600;
-    }
-
-    label.coBorrower {
-      font-family: Arial;
-      grid-column: 3;
-      grid-row: 1;
-      overflow: hidden;
-      min-width: 0;
-      font-size: 0.6em;
-      font-weight: 600;
-      justify-self: start;
-      align-self: end;
-      margin-right: 2em;
-      margin-top: 1em;
-    }
-    label.coSSN {
-      font-family: Arial;
-      text-align: right;
-      grid-column: 3;
-      grid-row: 2;
-      min-width: 0;
-      font-size: 0.6em;
-      font-weight: 600;
-      justify-self: start;
-      align-self: start;
-    }
-
-    input.coBorrower-field {
-      text-align: right;
-      align-self: end;
-      justify-self: end;
-      grid-column: 4;
-      grid-row: 1;
-      overflow: hidden;
-      min-width: 0;
-      max-width: 15em;
-      font-size: 12.8px;
-      margin-bottom: 1em;
-      height: 1em;
-      font-weight: 700;
-    }
-
-    input.coSSN-field {
-      text-align: right;
-      align-self: start;
-      justify-self: end;
-      grid-column: 4;
-      grid-row: 2;
-      width: 50%;
-      overflow: hidden;
-      font-size: 12.8px;
-      height: 1em;
-      font-weight: 700;
-    }
-
-    label.investor {
-      font-family: Arial;
-      justify-self: center;
-      align-self: center;
-      margin-top: 1em;
-      grid-column: 5;
-      grid-row: 1;
-      margin-top: 1.2em;
-      overflow: hidden;
-      min-width: 0;
-      font-size: 0.6em;
-      font-weight: 600;
-    }
-
-    input.investor-field {
-      text-align: right;
-      align-self: end;
-      justify-self: end;
-      grid-column: 6;
-      grid-row: 1;
-      overflow: hidden;
-      min-width: 0;
-      max-width: 15em;
-      font-size: 12.8px;
-      margin-bottom: 1em;
-      height: 1em;
-      font-weight: 700;
-    }
-
-    label.property {
-      text-align: right;
-      justify-self: end;
-      align-self: end;
-      grid-column: 7;
-      grid-row-start: 1;
-      grid-row-end: 2;
-      overflow: hidden;
-      min-width: 0;
-      font-family: Arial;
-      min-width: 0;
-      font-size: 0.6em;
-      font-weight: 600;
-    }
-    textarea.property-field {
-      text-align: left;
-      align-self: end;
-      height: 3em;
-      justify-self: start;
-      grid-column: 8;
-      grid-row-start: 2;
-      grid-row-end: 3;
-      overflow: hidden;
-      min-width: 0;
-      width: 10em;
-      font-weight: bold;
-      margin-top: 7em;
-    }
-
-    // input,
-    // textarea {
-    //   background-color: #add8e6;
-    //   text-align: left;
-    //   border: 1px solid #e2e2e2;
-    //   color: #333333;
-    //   cursor: default;
-    //   float: none;
-    //   font-family: Arial;
-    //   font-size: 9.6px;
-    //   font-weight: bold;
-    //   margin: 0;
-    //   width: 20em;
-    //   max-width: 28em;
-    //   min-width: 7em;
-    //   padding: 0 0.25em;
-    //   text-align: right;
-    //   font-weight: bold;
-    // }
-
-    input.investor-field,
-    input:disabled,
-    textarea:disabled {
-      background-color: #d3d3d3;
-      cursor: default;
-    }
-  }
 }
 
 .title-bar {
@@ -249,36 +48,21 @@ label {
   line-height: 1.7em;
 }
 
-.xwide {
-  width: 20em;
-  min-width: 20em;
-}
 
-input,
-textarea {
-  background-color: #add8e6;
-  border: 1px solid #e2e2e2;
-  color: #333333;
-  cursor: default;
-  float: none;
-  font-family: Arial;
-  font-size: 9.6px;
+
+
+::ng-deep.form-label {
+  text-align: left;
+  justify-self: start;
+  font-size: 12.8px;
   font-weight: 600;
-  margin: 0;
-  width: 20em;
-  max-width: 28em;
-  min-width: 7em;
-  padding: 0 0.25em;
-  text-align: right;
+  line-height: 21.6px;
 }
 
-input:disabled,
-textarea:disabled {
-  background-color: #d3d3d3;
-  cursor: default;
-}
-
-.xwide {
-  width: 10em;
-  min-width: 20em;
+::ng-deep.form-field {
+  text-align: left;
+  justify-self: end;
+  justify-content: end;
+  justify-items: end;
+  margin-left: 50px;
 }

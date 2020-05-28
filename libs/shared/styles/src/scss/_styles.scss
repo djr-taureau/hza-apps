@@ -95,19 +95,18 @@ input.x-wide {
   min-width: 20em;
   padding: 0 0.25em;
   width: 20em;
-    &:focus {
-    background-color: #FFFFFF;
-    border: 1px solid #7AC0DA;
+  &:focus {
+    background-color: #ffffff;
+    border: 1px solid #7ac0da;
   }
-  
 }
 
-label#-label {
+label {
   color: #000000;
   cursor: default;
   display: block;
   font-size: 0.7em;
-  font-weight: 500;
+  font-weight: 600;
   overflow: hidden;
 }
 
@@ -132,6 +131,23 @@ input.x-wide-focus {
   height: 1.5em;
 }
 
+input.x-wide-disabled {
+  background-color: #D3D3D3;
+  border: 1px solid #E2E2E2;
+  color: #333333;
+  cursor: default;
+  float: none;
+  font-family: Arial;
+  font-size: 12.8px;
+  line-height: 21px;
+  font-weight: 700;
+  margin: 0;
+  max-width: 28em;
+  padding: 0 .25em;
+  text-align: right;
+
+}
+
 input.medium-focus {
   width: 7em;
   height: 1.5em;
@@ -142,11 +158,31 @@ input.medium-focus {
   color: #333333;
 }
 
+input.medium-disabled {
+  background-color: #d3d3d3;
+  border: 1px solid #e2e2e2;
+  color: #333333;
+  cursor: default;
+  float: none;
+  font-family: Arial;
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 21px;
+  margin: 0;
+  max-width: 28em;
+  min-width: 7em;
+  padding: 0 0.25em;
+  text-align: right;
+  width: 7em;
+}
 
+.right {
+  text-align: right;
+}
 
 input.right {
-  background-color: #ADD8E6;
-  border: 1px solid #E2E2E2;
+  background-color: #add8e6;
+  border: 1px solid #e2e2e2;
   color: #333333;
   cursor: default;
   float: none;
@@ -155,22 +191,45 @@ input.right {
   font-weight: 700;
   margin: 0;
   max-width: 15em;
-  padding: 0 .25em;
+  padding: 0 0.25em;
   text-align: right;
 
   &:disabled {
-    background-color: #D3D3D3;
+    background-color: #d3d3d3;
     cursor: default;
   }
 }
 
 // *** BEGINNING OF COMMON STYLES FROM FAY COMMON
 
-
 .float-left {
-    float: left;
+  float: left;
 }
 
 .float-right {
-    float: right;
+  float: right;
 }
+
+
+textarea.x-wide-disabled {
+  background-color: #D3D3D3;
+  border: 1px solid #E2E2E2;
+  color: #333333;
+  cursor: default;
+  float: none;
+  font-family: "Segoe UI",Verdana,Helvetica,sans-serif;
+  font-size: 12.8px;
+  font-weight: 700;
+  height: 4em;
+  margin: 0;
+  max-width: 28em;
+  min-width: 20em;
+  overflow-y: auto;
+  padding: 0 .25em;
+  resize: none;
+  white-space: pre-wrap;
+  width: 20em;
+  word-wrap: break-word;
+
+}
+

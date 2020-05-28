@@ -27,7 +27,7 @@ export class FormComponent implements OnInit, OnChanges {
 
 	ngOnInit() {
 		if (this.formOptions) {
-			console.log(this.formOptions);
+			// console.log(this.formOptions);
 		}
 	}
 
@@ -35,6 +35,6 @@ export class FormComponent implements OnInit, OnChanges {
 		// form fields
 	}
 	onSubmit() {
-		console.log(this.model);
+		// console.log(this.model);
 	}
 }

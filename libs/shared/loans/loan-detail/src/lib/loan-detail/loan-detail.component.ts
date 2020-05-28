@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { LoansFacade } from '@hza/shared/loans/data-access/state';
-import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { LoanDetail, LoanDetailDoc } from '@hza/shared/loans/models';
-import { LoansService } from '@hza/shared/loans/data-access/data';
+import {
+	LoanDetail,
+	LoanDetailDoc,
+	docLoanDetailBorrower,
+	docLoanDetailCoBorrower,
+	docLoanDetailInvestor,
+	docLoanDetailProperty
+} from '@hza/shared/loans/models';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { formFieldDefaults, formFieldConfig, FormBuilderModel } from '@hza/ui-components/forms';
+import * as _ from 'lodash';
+import { pluck } from 'ramda';
+import { LoansFacade } from '@hza/shared/loans/data-access/state';
 
 @Component({
 	selector: 'hza-loan-detail',
@@ -16,39 +25,52 @@ export class LoanDetailComponent implements OnInit {
 	loanNumber: string;
 	property$: Observable<string>;
 	// loanForm: FormGroup;
+	borrowerModel: any;
+	coBorrowerModel: any;
+	investorModel: any;
+	propertyModel: any;
+	form;
+	fieldNames: string[];
+	borrowerFields: FormlyFieldConfig[] = [];
+	coBorrowerFields: FormlyFieldConfig[] = [];
+	investorFields: FormlyFieldConfig[] = [];
+	propertyFields: FormlyFieldConfig[] = [];
+	options: FormlyFormOptions = {
+		formState: {
+			disabled: true
+		}
+	};
 
-	loanForm = this.fb.group({
-		BorrowerPrimaryFullName: [ '' ],
-		BorrowerSSN: [ '' ],
-		BorrowerSecondaryFullName: [ '' ],
-		BorrowerCoSSN: [ '' ],
-		InvestorName: [ '' ],
-		Property: [ '' ],
-	});
-
-	constructor(private loanFacade: LoansFacade, private fb: FormBuilder, private loansService: LoansService) {}
+	constructor(private loanFacade: LoansFacade) {}
 
 	ngOnInit() {
 		this.loan$ = this.loanFacade.loanDetail$;
-		this.loansService.getLoans().subscribe(v => console.log('erl loans', v));
 		this.loan$.subscribe((v) => {
 			this.loanNumber = v[0].LoanNumber;
-			this.loanForm.setValue({
-				BorrowerPrimaryFullName: v[0].BorrowerPrimaryFullName,
-				BorrowerSSN: v[0].BorrowerSSN,
-				BorrowerSecondaryFullName: v[0].BorrowerSecondaryFullName,
-				BorrowerCoSSN: v[0].BorrowerCoSSN,
-				InvestorName: v[0].InvestorName,
-			Property: `${v[0].PropertyStreet}\n${v[0].PropertyCity},${v[0].PropertyStateCode}  ${v[0].PropertyZipCode}`
-			});
-			// this.loanForm = this.fb.group(this.loanDetail);
-			this.loanForm.get('BorrowerPrimaryFullName').disable();
-			this.loanForm.get('BorrowerSSN').disable();
-			this.loanForm.get('BorrowerSecondaryFullName').disable();
-			this.loanForm.get('BorrowerCoSSN').disable();
-			this.loanForm.get('InvestorName').disable();
-			this.loanForm.get('Property').disable();
+			const loan = v[0];
+			this.borrowerModel = this.buildLoanDetailForm(loan, docLoanDetailBorrower)[0];
+			this.coBorrowerModel = this.buildLoanDetailForm(loan, docLoanDetailCoBorrower)[0];
+			this.investorModel = this.buildLoanDetailForm(loan, docLoanDetailInvestor)[0];
+			this.propertyModel = this.buildLoanDetailForm(loan, docLoanDetailProperty)[0];
+			this.propertyModel.PropertyStreet = `${loan.PropertyStreet}\n${loan.PropertyCity}, ${loan.PropertyStateCode}  ${loan.PropertyZipCode}`;
+			this.borrowerFields = this.buildLoanDetailForm(loan, docLoanDetailBorrower)[1];
+			this.coBorrowerFields = this.buildLoanDetailForm(loan, docLoanDetailCoBorrower)[1];
+			this.investorFields = this.buildLoanDetailForm(loan, docLoanDetailInvestor)[1];
+			this.propertyFields = this.buildLoanDetailForm(loan, docLoanDetailProperty)[1];
+			
+			console.log('b', this.borrowerModel);
+			console.log('cb', this.coBorrowerModel);
+			console.log('i', this.investorModel);
+			console.log('p', this.propertyModel);
 		});
 	}
-}
 
+	buildLoanDetailForm(loan: LoanDetailDoc, formConfig: FormBuilderModel[]) {
+		const getFieldNames = pluck('fieldName');
+		const fieldNames = getFieldNames(formConfig);
+		this.fieldNames = formFieldDefaults(loan, fieldNames);
+		const fields = formFieldConfig(formConfig);
+		const getObject = _.pick(loan, this.fieldNames);
+		return [ getObject, fields ];
+	}
+}

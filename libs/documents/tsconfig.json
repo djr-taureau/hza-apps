@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["node", "jest"]
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "../shared/loans/models/src/lib/models/loan-detail-form.config.ts"]
 }

@@ -1,21 +1,14 @@
 :host {
   width: 1200px;
-  height: 350px;
+  height: 10em;
   input {
     text-align: right;
   }
-  // input.label {
-  //   width: auto;
-  // }
   label {
     text-align: left;
     justify-self: start;
   }
 
-  // div.form-label {
-  //   text-align: left;
-  //   justify-self: start;
-  // }
 }
 
 ::ng-deep.form-label {
