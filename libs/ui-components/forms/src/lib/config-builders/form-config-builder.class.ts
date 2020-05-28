@@ -11,6 +11,7 @@ export class FormConfigBuilder {
 			templateOptions: {
 				label: '',
 				fxFlexAlignField: '',
+				fxFlexAlignLabel: '',
 				attributes: {
 					class: ''
 				}
