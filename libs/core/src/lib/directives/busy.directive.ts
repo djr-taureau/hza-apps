@@ -1,9 +1,8 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CounterService } from '../services/b.service';
 
 @Directive({
-	selector: '[httpBusy]'
+	selector: '[hzaHttpBusy]'
 })
 export class BusyDirective implements OnInit, OnDestroy {
 	private autoUnsubscribe: Subscription;
