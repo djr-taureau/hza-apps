@@ -6,29 +6,10 @@
 body {
   background-color: rgba(255, 0, 0, 0.1);
   z-index: auto;
-  // height: 100vh;
+  height: 100vh;
 }
 
-// .form-flex {
-//   width: 100%;
 
-//   input:not([clrDate]),
-//   textarea {
-//     width: 100% !important;
-//   }
-
-//   ::ng-deep .clr-input-group {
-//     width: 100%;
-//   }
-
-//   ::ng-deep .clr-input-wrapper {
-//     width: 100%;
-//   }
-
-//   ::ng-deep .clr-input-group-icon-action {
-//     float: right;
-//   }
-// }
 
 .wide {
   width: 10em;
@@ -233,13 +214,3 @@ textarea.x-wide-disabled {
 
 }
 
-.blocks {
-  min-width: 75px;
-  min-height: 50px;
-  border-radius: 3px;
-}
-
-.containerX {
-  border: solid 1px #b6b6b6;
-  box-sizing: content-box !important;
-}
