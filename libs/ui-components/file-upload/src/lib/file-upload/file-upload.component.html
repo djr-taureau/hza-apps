@@ -27,14 +27,15 @@
       <button (click)="openFileSelector()">Browse Files</button>
     </ng-template>
   </ngx-file-drop>
-  <div class="upload-table">
+  <!-- ** Leaving this in. I might still use it -->
+  <!-- <div class="upload-table">
     <div *ngIf="hasFiles" class="file-upload-preview">
       <hza-attachment
         *ngFor="let file of chosenFiles; let i = index"
         [attachmentData]="file"
       ></hza-attachment>
     </div>
-  </div>
+  </div> -->
   <div class="files-list">
 	<div class="single-file" *ngFor="let file of chosenFiles; let i = index">
 		<div class="file-icon" style="width: 50px">

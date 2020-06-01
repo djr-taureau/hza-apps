@@ -1,7 +1,6 @@
 <div class="hza-elevation container">
   <div class="upload">
-    <hza-file-upload></hza-file-upload>
-    <!-- <hza-file-upload-custom (sendFiles)="handleFiles($event)"></hza-file-upload-custom> -->
+    <hza-file-upload (sendFiles)="handleFiles($event)"></hza-file-upload>
   </div>
   <br />
   <br />
@@ -39,6 +38,7 @@
           class="doc-field x-wide"
           type="text"
           formControlName="renameDoc"
+          [disabled]="!enableRenameDoc"
         />
 
         <button
@@ -52,7 +52,3 @@
     </form>
   </div>
 </div>
-<!-- <form [formGroup]="form" (ngSubmit)="submit()">
-    <hza-ui-form [model]="model" [fields]="fields"> </hza-ui-form>
-    <button>Upload</button>
-  </form> -->

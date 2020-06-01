@@ -13,11 +13,11 @@ export class EventBusService {
 
   emit(event: EventData) {
     this.subject$.next(event);
-    this.subject$.subscribe(v => console.log('service emit', v))
+    // this.subject$.subscribe(v => console.log('service emit', v))
   }
 
   on(eventName: string, action: any): Subscription {
-    this.subject$.subscribe(v => console.log('service on', v))
+    // this.subject$.subscribe(v => console.log('service on', v))
     return this.subject$.pipe(
       filter( (e: EventData) => e.name === eventName),
       map( (e: EventData) => e["value"])).subscribe(action);
@@ -25,5 +25,5 @@ export class EventBusService {
 }
 
 export enum Events {
-  DocUploadRemoved
+  DocUploadChanged
 }

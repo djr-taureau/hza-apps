@@ -1,63 +1,71 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, Directive, Input, HostBinding, Output, EventEmitter, OnChanges } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	ViewEncapsulation,
+	ViewChild,
+	Directive,
+	Input,
+	HostBinding,
+	Output,
+	EventEmitter,
+	OnChanges
+} from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { EventBusService, EventData } from '@hza/core';
 @Component({
-  selector: 'hza-file-upload',
-  templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.scss'],
-  host: { class: 'hza-file-upload' },
-  encapsulation: ViewEncapsulation.None,
+	selector: 'hza-file-upload',
+	templateUrl: './file-upload.component.html',
+	styleUrls: [ './file-upload.component.scss' ],
+	host: { class: 'hza-file-upload' },
+	encapsulation: ViewEncapsulation.None
 })
 export class FileUploadComponent implements OnChanges {
-  
-  @Output() sendFiles = new EventEmitter<File[]>();
-  public chosenFiles: File[] = [];
-  public files: NgxFileDropEntry[] = [];
-  
-  constructor(private eventBus: EventBusService) {}
+	@Output() sendFiles = new EventEmitter<File[]>();
+	public chosenFiles: File[] = [];
+	public files: NgxFileDropEntry[] = [];
 
-  public dropped(files: NgxFileDropEntry[]) {
-    this.files = files;
-    console.log(this.files)
-    for (const droppedFile of files) {
+	constructor(private eventBus: EventBusService) {}
 
-      // Is it a file?
-      if (droppedFile.fileEntry.isFile) {
-        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-        fileEntry.file((file: File) => {
-          // Here you can access the real file
-          this.chosenFiles.push(file);
-          console.log(this.chosenFiles);
-          this.sendFiles.emit(this.chosenFiles);
-        });
-      } else {
-        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
-        console.log(droppedFile.relativePath, fileEntry);
-      }
-    }
-  }
+	public dropped(files: NgxFileDropEntry[]) {
+		this.files = files;
+		console.log(this.files);
+		for (const droppedFile of files) {
+			// Is it a file?
+			if (droppedFile.fileEntry.isFile) {
+				const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+				fileEntry.file((file: File) => {
+					// Here you can access the real file
+					this.chosenFiles.push(file);
+					console.log(this.chosenFiles);
+					this.sendFiles.emit(this.chosenFiles);
+				});
+			} else {
+				const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+				console.log(droppedFile.relativePath, fileEntry);
+			}
+		}
+	}
 
-  public fileOver(event){
-    console.log(event);
-  }
+	public fileOver(event) {
+		console.log(event);
+	}
 
-  public fileLeave(event){
-    console.log(event);
-  }
-  
-  public fileDelete(i){
-    this.files.splice(i, 1);
-    this.chosenFiles.splice(i, 1);
-    this.eventBus.emit(new EventData('DocUploadRemoved', this.chosenFiles));
-    this.sendFiles.emit(this.chosenFiles);
-  }
-  
-  ngOnChanges() { 
-     this.sendFiles.emit(this.chosenFiles);
-  }
+	public fileLeave(event) {
+		console.log(event);
+	}
 
-  get hasFiles(): boolean {
-    return this.files.length ? true : false;
-  }
-  
+	public fileDelete(i) {
+		this.files.splice(i, 1);
+		this.chosenFiles.splice(i, 1);
+		this.eventBus.emit(new EventData('DocUploadChanged', this.chosenFiles));
+		this.sendFiles.emit(this.chosenFiles);
+	}
+
+	ngOnChanges() {
+		this.sendFiles.emit(this.chosenFiles);
+	}
+
+	get hasFiles(): boolean {
+		return this.files.length ? true : false;
+	}
 }
