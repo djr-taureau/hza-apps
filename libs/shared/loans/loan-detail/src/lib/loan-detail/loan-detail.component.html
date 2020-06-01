@@ -4,7 +4,7 @@
       <h2 class="title-bar" hzaSectionTitle>{{ loanNumber }}</h2>
     </hza-control-bar>
   </hza-section>
-  <hza-section>
+  <hza-section class="loan-detail">
     <form *ngIf="loan$ | async; let loan; else: loading" [formGroup]="loanForm">
       <label class="borrower" for="BorrowerPrimaryFullName">
         Borrower
