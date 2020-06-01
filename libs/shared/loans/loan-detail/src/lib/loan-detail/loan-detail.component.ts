@@ -30,7 +30,6 @@ export class LoanDetailComponent implements OnInit {
 
 	ngOnInit() {
 		this.loan$ = this.loanFacade.loanDetail$;
-		this.loansService.getLoans().subscribe(v => console.log('erl loans', v));
 		this.loan$.subscribe((v) => {
 			this.loanNumber = v[0].LoanNumber;
 			this.loanForm.setValue({

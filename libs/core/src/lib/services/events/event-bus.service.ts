@@ -23,3 +23,7 @@ export class EventBusService {
       map( (e: EventData) => e["value"])).subscribe(action);
   }
 }
+
+export enum Events {
+  DocUploadRemoved
+}

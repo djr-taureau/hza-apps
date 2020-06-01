@@ -5,6 +5,7 @@ import { CodeTable } from '../../models/code-table.model';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Observable } from 'rxjs';
 import { DocsFacade } from '../../+state/documents/documents.facade';
+import { EventBusService, EventData } from '@hza/core';
 
 @Component({
 	selector: 'hza-doc-upload-form',
@@ -44,7 +45,7 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 			}
 		}
 	];
-	constructor(private fb: FormBuilder, private docsFacade: DocsFacade) {
+	constructor(private fb: FormBuilder, private docsFacade: DocsFacade, private eventBus: EventBusService) {
 		this.docUploadForm = this.fb.group({
 			docType: [ '', Validators.required ],
 			renameDoc: [ '', Validators.required ]
@@ -54,6 +55,9 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 	ngOnInit() {
 		// console.log('EARL', this.docTypes);
 		console.log(this.fields);
+		this.eventBus.on('DocUploadRemoved', (data: any) => {
+			console.log('from upload', data)
+		});
 	}
 
 	ngOnChanges() {
@@ -67,6 +71,18 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 	// Getter method to access formcontrols
 	get docType() {
 		return this.docUploadForm.get('docType');
+	}
+	
+	handleFiles($event) {
+		console.log('files to upload', $event);
+		this.uploadFiles($event)
+	}
+	
+	uploadFiles(files: any[]) {
+		if (files.length > 1) {
+			this.docUploadForm.get('renameDoc').disable();	
+		}
+		
 	}
 
 	submit() {

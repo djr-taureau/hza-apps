@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, Directive, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, Directive, Input, HostBinding, Output, EventEmitter, OnChanges } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import { EventBusService, EventData } from '@hza/core';
 @Component({
   selector: 'hza-file-upload',
   templateUrl: './file-upload.component.html',
@@ -7,9 +8,13 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
   host: { class: 'hza-file-upload' },
   encapsulation: ViewEncapsulation.None,
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnChanges {
+  
+  @Output() sendFiles = new EventEmitter<File[]>();
   public chosenFiles: File[] = [];
   public files: NgxFileDropEntry[] = [];
+  
+  constructor(private eventBus: EventBusService) {}
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -22,6 +27,8 @@ export class FileUploadComponent {
         fileEntry.file((file: File) => {
           // Here you can access the real file
           this.chosenFiles.push(file);
+          console.log(this.chosenFiles);
+          this.sendFiles.emit(this.chosenFiles);
         });
       } else {
         const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
@@ -38,6 +45,16 @@ export class FileUploadComponent {
     console.log(event);
   }
   
+  public fileDelete(i){
+    this.files.splice(i, 1);
+    this.chosenFiles.splice(i, 1);
+    this.eventBus.emit(new EventData('DocUploadRemoved', this.chosenFiles));
+    this.sendFiles.emit(this.chosenFiles);
+  }
+  
+  ngOnChanges() { 
+     this.sendFiles.emit(this.chosenFiles);
+  }
 
   get hasFiles(): boolean {
     return this.files.length ? true : false;
