@@ -1,0 +1,13 @@
+{
+  "type": "mssql",
+  "entities": [
+    "microservices/libs/domain-entities/*{.js,.ts}"
+  ],
+  "migrations": [
+    "infrastructure/migrations/*{.js,.ts}"
+  ],
+  "options": {
+    "encrypt": true
+  },
+  "url": "mssql://sa:Password123!@localhost:1433/hza"
+}

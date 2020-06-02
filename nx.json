@@ -40,7 +40,7 @@
       "tags": ["scope:shared", "type:environments"]
     },
     "core": {
-      "tags": ["scope:hza"]
+      "tags": ["scope:shared"]
     },
     "shared-data-access": {
       "tags": ["scope:shared", "type:data-access"]
