@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { CodeTable } from '../../models/code-table.model';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { Observable } from 'rxjs';
 import { DocsFacade } from '../../+state/documents/documents.facade';
+import { EventBusService } from '@hza/core';
 
 @Component({
 	selector: 'hza-doc-upload-form',
@@ -12,7 +12,7 @@ import { DocsFacade } from '../../+state/documents/documents.facade';
 	styleUrls: [ './doc-upload-form.component.scss' ]
 })
 export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit {
-	@Input() docTypes:CodeTable[];
+	@Input() docTypes: CodeTable[];
 
 	form = new FormGroup({});
 	model = {
@@ -20,6 +20,8 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 		renameDoc: ''
 	};
 	docUploadForm: FormGroup;
+	
+	enableRenameDoc: boolean;
 
 	fields: FormlyFieldConfig[] = [
 		{
@@ -40,11 +42,11 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 			wrappers: [ 'flex-container-panel' ],
 			templateOptions: {
 				label: 'Rename File',
-				class: 'x-wide',
+				class: 'x-wide'
 			}
 		}
 	];
-	constructor(private fb: FormBuilder, private docsFacade: DocsFacade) {
+	constructor(private fb: FormBuilder, private docsFacade: DocsFacade, private eventBus: EventBusService) {
 		this.docUploadForm = this.fb.group({
 			docType: [ '', Validators.required ],
 			renameDoc: [ '', Validators.required ]
@@ -52,12 +54,29 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 	}
 
 	ngOnInit() {
-		// console.log('EARL', this.docTypes);
 		console.log(this.fields);
+		this.enableRenameDoc = true;
+		this.eventBus.on('DocUploadChanged', (data: File[]) => {
+			if (data.length > 1) {
+				console.log('hey dave init', this.enableRenameDoc)
+			}
+			this.enableRenameDoc = data.length <= 1 ? true : false;
+		});
 	}
 
 	ngOnChanges() {
 		console.log(this.docUploadForm.value);
+		this.eventBus.on('DocUploadChanged', (data: File[]) => {
+			// if (data.length > 1) {
+			// 	console.log('hey dave change')
+			// 	this.uploadDocsStatus = true;
+			// } else {
+			// 	this.uploadDocsStatus = false;
+			// }
+			console.log(this.enableRenameDoc);
+			// ** Perfect example of where ternary totally makes sense
+			this.enableRenameDoc = data.length <= 1 ? true : false;
+		});
 	}
 	ngAfterViewInit() {
 		console.log(this.fields);
@@ -67,6 +86,15 @@ export class DocUploadFormComponent implements OnInit, OnChanges, AfterViewInit 
 	// Getter method to access formcontrols
 	get docType() {
 		return this.docUploadForm.get('docType');
+	}
+
+	handleFiles($event) {
+		console.log('files to upload', $event);
+		this.uploadFiles($event);
+	}
+
+	uploadFiles(files: File[]) {
+		this.enableRenameDoc = files.length <= 1 ? true : false;
 	}
 
 	submit() {

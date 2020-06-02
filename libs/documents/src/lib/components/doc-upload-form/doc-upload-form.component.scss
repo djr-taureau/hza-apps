@@ -75,6 +75,10 @@ input.x-wide {
     background-color: #ffffff;
     border: 1px solid #7ac0da;
   }
+   &:disabled {
+    background-color: #d3d3d3;
+    cursor: default;
+  }
 }
 
 label.doc-type {

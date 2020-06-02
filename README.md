@@ -1,12 +1,41 @@
 # Fay Enterprise Apps
 
-Monorepo for hza
+Monorepo for hza Apps
 
 ## Local Setup
 
 Local development environment setup.
 
 ## Tooling Setup
+
+Install Development Tools
+- yarn - `npm i yarn -g`
+
+- Docker -
+https://docs.docker.com/install/  (Will be user for SQL Server on localhost for development)
+
+- npx -  `yarn global add npx`
+
+- Azure Command Line -
+https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+
+- Azure Functions Core Tools -
+ https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=macos%2Ccsharp%2Cbash
+
+-mssql-scripter
+https://github.com/microsoft/mssql-scripter/blob/dev/doc/installation_guide.md
+
+- Azure Data Studio -
+https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017
+
+- Azure Storage Explorer -
+https://azure.microsoft.com/en-us/features/storage-explorer/
+
+## Docker SQL Server
+
+If you do not already have a Docker SQL Server run `yarn: setup:sql`. If you have made changes to the Seed Data or Entities run `yarn sql:update`. If you just need to start the sql server again run
+`yarn sql:start`.
+
 
 ## Angular Structure
 
@@ -46,6 +75,8 @@ Use the built in 'nx console UI' extension for VS Code
 
 UI-Components live in `/libs/ui-components/[component-name]`
 
+### Authentication Library
+
 ### Core Library
 
 The core library houses specific services, interfaces, classes and pipes which are vital to an 'Application` an example of this would be an Authentication service, messaging, events, notifications services, or HTTP Interceptors. Most pieces of the Core Library are single use.
@@ -67,6 +98,5 @@ For example a `Pipe` which selects the first item from an array.
 #### documents
 
 #### loans
-
 
 #### tasks

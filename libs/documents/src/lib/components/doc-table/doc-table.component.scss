@@ -80,6 +80,7 @@ th.mat-header-cell {
   .column-header {
     flex-direction: column;
     justify-content: center;
+    justify-content: center !important;
   }
 
   &:not(:last-child) {
