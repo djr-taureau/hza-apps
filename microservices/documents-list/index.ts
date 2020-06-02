@@ -8,10 +8,10 @@ import { Context, HttpRequest } from '../libs/azure-function-types';
 
 
 export default async function run(context: Context, req: HttpRequest) {
-    const notes = new DocumentService();
+    const documents = new DocumentService();
 
 	try {
-		const results = await notes.getDocuments(req.query);
+		const results = await documents.getDocuments(req.query);
 		context.res.body = queryResponse(req.query, results);
 	} catch (err) {
 		context.res.status = 500;
