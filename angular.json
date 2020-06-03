@@ -880,11 +880,28 @@
             "tsConfig": "apps/doc-repo/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/doc-repo/src/favicon.ico",
-              "apps/doc-repo/src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "libs/shared/assets/src",
+                "output": ""
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
             ],
-            "styles": ["apps/doc-repo/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "libs/shared/styles/src/index.scss",
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css"
+            ],
+            "scripts": [
+              "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
+              "node_modules/@clr/icons/clr-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -920,7 +937,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "doc-repo:build"
+            "browserTarget": "doc-repo:build",
+            "proxyConfig": "apps/doc-repo/proxy.conf.js"
           },
           "configurations": {
             "production": {
@@ -1292,6 +1310,375 @@
             "jestConfig": "libs/shared/loans/tests/jest.config.js",
             "tsConfig": "libs/shared/loans/tests/tsconfig.spec.json",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tasks-app": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/tasks-app",
+      "sourceRoot": "apps/tasks-app/src",
+      "prefix": "hza",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tasks-app",
+            "index": "apps/tasks-app/src/index.html",
+            "main": "apps/tasks-app/src/main.ts",
+            "polyfills": "apps/tasks-app/src/polyfills.ts",
+            "tsConfig": "apps/tasks-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/tasks-app/src/favicon.ico",
+              "apps/tasks-app/src/assets"
+            ],
+            "styles": ["apps/tasks-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tasks-app/src/environments/environment.ts",
+                  "with": "apps/tasks-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tasks-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tasks-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tasks-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/tasks-app/tsconfig.app.json",
+              "apps/tasks-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/tasks-app/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/tasks-app/jest.config.js",
+            "tsConfig": "apps/tasks-app/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/tasks-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "tasks-app-e2e": {
+      "root": "apps/tasks-app-e2e",
+      "sourceRoot": "apps/tasks-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tasks-app-e2e/cypress.json",
+            "tsConfig": "apps/tasks-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "tasks-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tasks-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/tasks-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/tasks-app-e2e/**"]
+          }
+        }
+      }
+    },
+    "tasks-admin-app": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/tasks-admin-app",
+      "sourceRoot": "apps/tasks-admin-app/src",
+      "prefix": "hza",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tasks-admin-app",
+            "index": "apps/tasks-admin-app/src/index.html",
+            "main": "apps/tasks-admin-app/src/main.ts",
+            "polyfills": "apps/tasks-admin-app/src/polyfills.ts",
+            "tsConfig": "apps/tasks-admin-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/tasks-admin-app/src/favicon.ico",
+              "apps/tasks-admin-app/src/assets"
+            ],
+            "styles": ["apps/tasks-admin-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tasks-admin-app/src/environments/environment.ts",
+                  "with": "apps/tasks-admin-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tasks-admin-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tasks-admin-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tasks-admin-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/tasks-admin-app/tsconfig.app.json",
+              "apps/tasks-admin-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/tasks-admin-app/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/tasks-admin-app/jest.config.js",
+            "tsConfig": "apps/tasks-admin-app/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/tasks-admin-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "tasks-admin-app-e2e": {
+      "root": "apps/tasks-admin-app-e2e",
+      "sourceRoot": "apps/tasks-admin-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tasks-admin-app-e2e/cypress.json",
+            "tsConfig": "apps/tasks-admin-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "tasks-admin-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tasks-admin-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/tasks-admin-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/tasks-admin-app-e2e/**"]
+          }
+        }
+      }
+    },
+    "cars-app": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/cars-app",
+      "sourceRoot": "apps/cars-app/src",
+      "prefix": "hza",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/cars-app",
+            "index": "apps/cars-app/src/index.html",
+            "main": "apps/cars-app/src/main.ts",
+            "polyfills": "apps/cars-app/src/polyfills.ts",
+            "tsConfig": "apps/cars-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/cars-app/src/favicon.ico",
+              "apps/cars-app/src/assets"
+            ],
+            "styles": ["apps/cars-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cars-app/src/environments/environment.ts",
+                  "with": "apps/cars-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cars-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cars-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cars-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/cars-app/tsconfig.app.json",
+              "apps/cars-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/cars-app/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/cars-app/jest.config.js",
+            "tsConfig": "apps/cars-app/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/cars-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "cars-app-e2e": {
+      "root": "apps/cars-app-e2e",
+      "sourceRoot": "apps/cars-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/cars-app-e2e/cypress.json",
+            "tsConfig": "apps/cars-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "cars-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cars-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/cars-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/cars-app-e2e/**"]
           }
         }
       }

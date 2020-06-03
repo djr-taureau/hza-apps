@@ -13,19 +13,55 @@
   "projects": {
     "hza": {
       "tags": ["scope:hza", "type:app"],
+      "implicitDependencies": []
+    },
+    "hza-e2e": {
+      "tags": [],
+      "implicitDependencies": ["hza"]
+    },
+    "doc-repo": {
+      "tags": ["scope: doc-repo", "type: app"],
       "implicitDependencies": [
         "shared-assets",
         "shared-styles",
         "shared-utils",
         "shared-loans-search",
         "shared-loan-detail",
-        "documents",
+        "documents"
+      ]
+    },
+    "doc-repo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["doc-repo"]
+    },
+    "tasks-app": {
+      "tags": ["scope: tasks-app", "type: app"],
+      "implicitDependencies": [
+        "shared-assets",
+        "shared-styles",
+        "shared-utils",
+        "shared-loans-search",
+        "shared-loan-detail",
         "tasks"
       ]
     },
-    "hza-e2e": {
+    "tasks-app-e2e": {
       "tags": [],
-      "implicitDependencies": ["hza"]
+      "implicitDependencies": ["tasks-app"]
+    },
+    "tasks-admin-app": {
+      "tags": ["scope: tasks-admin-app", "type: app"]
+    },
+    "tasks-admin-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tasks-admin-app"]
+    },
+    "cars-app": {
+      "tags": ["scope: cars-app", "type: app"]
+    },
+    "cars-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["cars-app"]
     },
     "shared-assets": {
       "tags": ["scope:shared", "type:assets"]
@@ -95,13 +131,6 @@
     },
     "ui-components-data-list": {
       "tags": ["scope:shared", "type:ui"]
-    },
-    "doc-repo": {
-      "tags": []
-    },
-    "doc-repo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["doc-repo"]
     },
     "auth": {
       "tags": []
