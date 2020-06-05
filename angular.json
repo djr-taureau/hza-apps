@@ -1002,27 +1002,27 @@
     },
     "auth": {
       "projectType": "library",
-      "root": "libs/auth",
-      "sourceRoot": "libs/auth/src",
+      "root": "libs/authentication",
+      "sourceRoot": "libs/authentication/src",
       "prefix": "hza",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/auth/tsconfig.lib.json",
-              "libs/auth/tsconfig.spec.json"
+              "libs/authentication/tsconfig.lib.json",
+              "libs/authentication/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/auth/**"]
+            "exclude": ["**/node_modules/**", "!libs/authentication/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/auth/jest.config.js",
-            "tsConfig": "libs/auth/tsconfig.spec.json",
+            "jestConfig": "libs/authentication/jest.config.js",
+            "tsConfig": "libs/authentication/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/auth/src/test-setup.ts"
+            "setupFile": "libs/authentication/src/test-setup.ts"
           }
         }
       },

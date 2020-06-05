@@ -7,10 +7,7 @@ export * from './lib/storage';
 export * from './lib/text';
 export * from './lib/uri';
 export * from './lib/utility';
-
-
-
-
-
+export * from './lib/error';
+export * from './lib/decorators';
 // end:ng42.barrel
 

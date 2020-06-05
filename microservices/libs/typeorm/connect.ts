@@ -1,14 +1,14 @@
 import 'reflect-metadata';
 import { createConnection, ConnectionOptions } from 'typeorm';
 import {
+	ActivityLog,
 	Address,
-	Attribute,
 	ClientAccount,
 	ClientAffiliation,
 	ClientRelationship,
 	ClientMember,
-	Profile,
 	Settings,
+	Profile,
 	ProfileAttribute,
 	ContactInformation,
 	SystemUser,
@@ -36,17 +36,15 @@ import {
 	RelationshipDefinition,
 	SystemTool,
 	SystemToolResult,
-	ActivityLog,
-	Notification,
-	Event,
 	EventParticipant,
 	EventParticipation,
 	EventWithParticipants,
 	SystemUserRole,
 	Statistics,
-    Note,
-	StatisticAttribute
-} from '../domain-entities';
+	StatisticAttribute,
+	Note
+} from '../domain-entities/entities';
+import { Attribute } from '@angular/core';
 
 const connectionConfig: ConnectionOptions = {
 	type: 'mssql',
@@ -54,7 +52,7 @@ const connectionConfig: ConnectionOptions = {
 	username: process.env.SQL_UID,
 	password: process.env.SQL_PWD,
 	database: process.env.SQL_DB,
-	synchronize: (process.env.SQL_SYNC) as any || false,
+	synchronize: (process.env.SQL_SYNC as any) || false,
 	logging: false,
 	entities: [
 		ActivityLog,
@@ -101,7 +99,7 @@ const connectionConfig: ConnectionOptions = {
 		SystemUserRole,
 		Statistics,
 		StatisticAttribute,
-        Note
+		Note
 	],
 	options: {
 		encrypt: true
