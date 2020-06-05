@@ -1,4 +1,9 @@
-import { Constructor, NavigationLink, isNotUseable, isFalse } from '@hza/shared/utils';
+import {
+	Constructor,
+	NavigationLink,
+	isNotUseable,
+	isFalse
+} from '@hza/shared/utils';
 
 export interface HasNavigation {
 	location: NavigationLink;
@@ -9,23 +14,25 @@ export interface HasNavigation {
 export enum renderAsType {
 	action,
 	displayOnly,
-	location,
-	actionLocation
+  location,
+  actionLocation
 }
 
 /** Mixin to add a `wrapWithAnchor` and `location` properties to a directive or component. */
-export function mixinNavigation<T extends Constructor<{}>>(base: T): Constructor<HasNavigation> & T {
+export function mixinNavigation<T extends Constructor<{}>>(
+	base: T
+): Constructor<HasNavigation> & T {
 	return class extends base {
 		wrapWithAnchor: boolean;
 		location: NavigationLink;
 		action: string;
 
 		get renderAs() {
-			if (this.action) {
+	     if (this.action) {
 				return renderAsType[renderAsType.action];
 			} else if (this.location) {
-				return renderAsType[renderAsType.location];
-			}
+        return renderAsType[renderAsType.location];
+      }
 			return renderAsType[renderAsType.displayOnly];
 		}
 

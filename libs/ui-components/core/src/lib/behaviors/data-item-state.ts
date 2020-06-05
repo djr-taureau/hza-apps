@@ -1,4 +1,4 @@
-import { Constructor } from '@hza/shared/utils';
+import { Constructor } from '../types';
 import { HasCssModifiers } from './css-modifiers';
 
 export interface HasDataItemState<T> {

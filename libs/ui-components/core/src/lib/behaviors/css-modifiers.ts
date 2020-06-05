@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { Constructor } from '@hza/shared/utils';
+import { Constructor } from '../types';
 
 export interface HasElementRef {
 	_elementRef: ElementRef;
@@ -16,11 +16,15 @@ export interface HasCssModifiers extends HasElementRef {
 }
 
 /** Mixin to augment a directive with a `disabled` property. */
-export function mixinCssModifiers<T extends Constructor<HasElementRef>>(base: T): Constructor<HasCssModifiers> & T {
+export function mixinCssModifiers<T extends Constructor<HasElementRef>>(
+	base: T
+): Constructor<HasCssModifiers> & T {
 	return class extends base {
 		/** Gets whether the button has one of the given attributes. */
 		_hasHostAttributes(...attributes: string[]) {
-			return attributes.some((attribute) => this._getHostElement().hasAttribute(attribute));
+			return attributes.some(attribute =>
+				this._getHostElement().hasAttribute(attribute)
+			);
 		}
 
 		_getHostElement(): HTMLElement {

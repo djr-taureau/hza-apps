@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { Constructor } from '@hza/shared/utils';
+import { Constructor } from '../types';
 import { HasCssModifiers } from './css-modifiers';
 
 export interface HasColor {
@@ -47,7 +47,7 @@ export function mixinColor<T extends Constructor<HasCssModifiers>>(
 		}
 		set color(value: ColorPalette) {
 			const colorPalette = value || defaultColor;
-			this._updateCssClass('hza-color', this._color, colorPalette);
+			this._updateCssClass('lw-color', this._color, colorPalette);
 			if (this._isNewCssClass(this._color, colorPalette)) {
 				this._color = colorPalette;
 			}
@@ -73,7 +73,7 @@ export function mixinTextColor<T extends Constructor<HasCssModifiers>>(
 		}
 		set color(value: TextColorPalette) {
 			const colorPalette = value || defaultColor;
-			this._updateCssClass('hza-text-color', this._color, colorPalette);
+			this._updateCssClass('lw-text-color', this._color, colorPalette);
 			if (this._isNewCssClass(this._color, colorPalette)) {
 				this._color = colorPalette;
 			}
@@ -99,7 +99,11 @@ export function mixinIconColor<T extends Constructor<HasCssModifiers>>(
 		}
 		set iconColor(value: IconColorPalette) {
 			const colorPalette = value || defaultColor;
-			this._updateCssClass('hza-icon-color', this._iconColor, colorPalette);
+			this._updateCssClass(
+				'lw-icon-color',
+				this._iconColor,
+				colorPalette
+			);
 			if (this._isNewCssClass(this._iconColor, colorPalette)) {
 				this._iconColor = colorPalette;
 			}
