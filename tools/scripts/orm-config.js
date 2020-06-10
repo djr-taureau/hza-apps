@@ -4,7 +4,7 @@ var config = require(fileName);
 
 var connectionString =
 	process.env.TYPEORM_HOST ||
-	'mssql://sa:Password123!\@localhost:1433/hza';
+	'mssql://SA:Password123!\@localhost:1433/hza';
 
 config.url = connectionString;
 
@@ -15,3 +15,5 @@ fs.writeFile('./ormconfig.json', JSON.stringify(config, null, 2), function(err) 
 	console.log(JSON.stringify(config));
 	console.log('writing to ' + fileName);
 });
+
+

@@ -1,13 +1,18 @@
 {
   "type": "mssql",
   "entities": [
-    "microservices/libs/domain-entities/*{.js,.ts}"
+    "join('microservices/libs/domain-entities/entities/', '**', '*.entity.{.ts}')"
   ],
   "migrations": [
-    "infrastructure/migrations/*{.js,.ts}"
+    "join('infrastructure/migrations/', '**', '*{.ts}')"
   ],
   "options": {
     "encrypt": true
   },
-  "url": "mssql://sa:Password123!@localhost:1433/hza"
+  "migrationsRun": true,
+  "url": "mssql://SA:Password123!@localhost:1433/hza",
+  "cli": {
+    "migrationsDir": "infrastructure/migrations",
+    "entitiesDir": "libs/microservices/libs/domain-entities/entities"
+  }
 }

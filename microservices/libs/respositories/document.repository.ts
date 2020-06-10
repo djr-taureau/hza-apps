@@ -17,7 +17,7 @@ export class DocumentRepository extends AbstractRepository<Document> {
 		return await this.repository.save(document);
 	}
 
-	async update(guid: string, note: DeepPartial<Document>) {
+	async update(guid: string, document: DeepPartial<Document>) {
 		return await this.repository.update(guid, document);
 	}
 }
