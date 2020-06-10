@@ -10,7 +10,7 @@ import {
   lensProp,
   reduce
 } from 'ramda';
-import { getValueAs } from './';
+import { getValueAs } from '.';
 
 
 interface InsertExtensionsOptions {

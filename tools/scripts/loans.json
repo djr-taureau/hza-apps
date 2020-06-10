@@ -1,0 +1,315 @@
+  {
+    "loans": [{
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000014049",
+        "borrower": "BRETT STALLARD",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-0095",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "bsstallard@yahoo.com",
+        "borrowerPrimaryPhoneNumber": "9726793244",
+        "borrowerSecondaryPhoneNumber": null,
+        "propertyAddress1": "6058  KENWOOD AVE",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000016094",
+        "borrower": "NORBERTO ROMERO",
+        "coBorrower": "LORENA RODRIGUEZ",
+        "borrowerPrimarySSN": "xxx-xx-7256",
+        "borrowerSecondarySSN": "xxx-xx-4014",
+        "borrowerPrimaryEmailAddress": "babynobie@yahoo.com",
+        "borrowerPrimaryPhoneNumber": "2144542913",
+        "borrowerSecondaryPhoneNumber": "2143212150",
+        "propertyAddress1": "10141  CASA VIEW DR",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000017116",
+        "borrower": "JENNIFER STARNES",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-3976",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "carolinaphilly@hotmail.com",
+        "borrowerPrimaryPhoneNumber": "7049179440",
+        "borrowerSecondaryPhoneNumber": "7049179440",
+        "propertyAddress1": "1131  LARKSPUR LN",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018562",
+        "borrower": "SHELIA BATES",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-3436",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": null,
+        "borrowerPrimaryPhoneNumber": "2143961101",
+        "borrowerSecondaryPhoneNumber": "2145840334",
+        "propertyAddress1": "1815  GREENDALE DR",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018577",
+        "borrower": "BEVERLYN COLAR",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-5651",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "BEVERLYN.COLAR@YAHOO.COM",
+        "borrowerPrimaryPhoneNumber": "4694166630",
+        "borrowerSecondaryPhoneNumber": "4694166630",
+        "propertyAddress1": "6820  ORIOLE DR",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018578",
+        "borrower": "SYDA INTHALANGSY",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-2552",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": null,
+        "borrowerPrimaryPhoneNumber": "4693286388",
+        "borrowerSecondaryPhoneNumber": "9723021400",
+        "propertyAddress1": "4739  LARUE ST",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018591",
+        "borrower": "MARIA PINA",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-2905",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": null,
+        "borrowerPrimaryPhoneNumber": "4693345939",
+        "borrowerSecondaryPhoneNumber": "2143392363",
+        "propertyAddress1": "1103  HANSBORO AVE",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018594",
+        "borrower": "AURORA GUTIERREZ",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-6364",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "art1gutierrez@yahoo.com",
+        "borrowerPrimaryPhoneNumber": "2144370776",
+        "borrowerSecondaryPhoneNumber": "4696121684",
+        "propertyAddress1": "418  GRANDVIEW AVE",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018597",
+        "borrower": "C HIGHLAND",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-2550",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "carefuldenise@earthlink.net",
+        "borrowerPrimaryPhoneNumber": "2144049490",
+        "borrowerSecondaryPhoneNumber": "2147744442",
+        "propertyAddress1": "11613  LIPPITT AVE",
+        "propertyCity": "DALLAS"
+      },
+      {
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000031394",
+        "borrower": "DON WAGGONER",
+        "coBorrower": "ELVIA WAGGONER",
+        "borrowerPrimarySSN": "xxx-xx-8209",
+        "borrowerSecondarySSN": "xxx-xx-5366",
+        "borrowerPrimaryEmailAddress": null,
+        "borrowerPrimaryPhoneNumber": "2147158171",
+        "borrowerSecondaryPhoneNumber": "2147151920",
+        "propertyAddress1": "1519  VIDA CT",
+        "propertyCity": "DALLAS"
+      },
+      {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000014119",
+        "borrower": "LUZ BATALLA",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-7281",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "anilxgupta@hotmail.com",
+        "borrowerPrimaryPhoneNumber": "8324885736",
+        "borrowerSecondaryPhoneNumber": "8322361769",
+        "propertyAddress1": "18307  MEANDERING MEADOW LN",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000014901",
+        "borrower": "SALVADOR FARIAS",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-2378",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "sal25dor@yahoo.com",
+        "borrowerPrimaryPhoneNumber": "8322989802",
+        "borrowerSecondaryPhoneNumber": null,
+        "propertyAddress1": "10018  KIRKPLUM DR",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000015195",
+        "borrower": "JETT WILLIAMS",
+        "coBorrower": "AMY WILLIAMS",
+        "borrowerPrimarySSN": "xxx-xx-8778",
+        "borrowerSecondarySSN": "xxx-xx-2213",
+        "borrowerPrimaryEmailAddress": "jw3xxx@yahoo.com",
+        "borrowerPrimaryPhoneNumber": "7139271333",
+        "borrowerSecondaryPhoneNumber": null,
+        "propertyAddress1": "1802  MORSE ST",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000015837",
+        "borrower": "CARMEN GOODMAN",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-3010",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "CARMENDENISEGOODMAN@YAHOO.COM",
+        "borrowerPrimaryPhoneNumber": "2818086612",
+        "borrowerSecondaryPhoneNumber": null,
+        "propertyAddress1": "3459  GDN GRV DR",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000015864",
+        "borrower": "JEFFERY BARRON",
+        "coBorrower": "MICHELLE BARRON",
+        "borrowerPrimarySSN": "xxx-xx-6553",
+        "borrowerSecondarySSN": "xxx-xx-7172",
+        "borrowerPrimaryEmailAddress": "JMPROTEK@MTAONLINE.NET",
+        "borrowerPrimaryPhoneNumber": "9078926021",
+        "borrowerSecondaryPhoneNumber": null,
+        "propertyAddress1": "11765W BALLYSHANNON",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000016534",
+        "borrower": "MIGUEL RIOS",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-2458",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": null,
+        "borrowerPrimaryPhoneNumber": "7132050366",
+        "borrowerSecondaryPhoneNumber": "7136579592",
+        "propertyAddress1": "11111  CLARK RD",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018550",
+        "borrower": "NORMA BLANCO",
+        "coBorrower": "SANTIAGO BLANCO",
+        "borrowerPrimarySSN": "xxx-xx-2303",
+        "borrowerSecondarySSN": "xxx-xx-0762",
+        "borrowerPrimaryEmailAddress": null,
+        "borrowerPrimaryPhoneNumber": null,
+        "borrowerSecondaryPhoneNumber": "8323198816",
+        "propertyAddress1": "14218  DUNCUM",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018564",
+        "borrower": "ESTATE RUBY GIBBS",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-6706",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "dianej@avenuecdc.org",
+        "borrowerPrimaryPhoneNumber": "8324529457",
+        "borrowerSecondaryPhoneNumber": "8328311677",
+        "propertyAddress1": "5206  WILMINGTON ST",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018573",
+        "borrower": "MICHELLE GONZALES",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-4210",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "michelleggg@gmail.com",
+        "borrowerPrimaryPhoneNumber": null,
+        "borrowerSecondaryPhoneNumber": "8322745007",
+        "propertyAddress1": "1902  GARDENIA DR",
+        "propertyCity": "HOUSTON"
+
+
+
+      }, {
+
+        "sourceID": 1,
+        "source": "Fay",
+        "loanNumber": "0000018574",
+        "borrower": "ESTATE OF WILLIAMS",
+        "coBorrower": null,
+        "borrowerPrimarySSN": "xxx-xx-0420",
+        "borrowerSecondarySSN": "",
+        "borrowerPrimaryEmailAddress": "hisshamrock@gmail.com",
+        "borrowerPrimaryPhoneNumber": "2819996124",
+        "borrowerSecondaryPhoneNumber": null,
+        "propertyAddress1": "2103  DRAYTON LN",
+        "propertyCity": "HOUSTON"
+
+
+
+      }
+    ]
+
+  }
