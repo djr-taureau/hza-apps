@@ -65,10 +65,10 @@ export abstract class DescribedBaseEntity extends NamedBaseEntity {
 
 
 export enum EntityScope {
-	Account=1,
-	Firm=2,
-	Team=3,
-	Client=4,
+	AccountManager=1,
+	Fay=2,
+	Investor=3,
+	Borrower=4,
 	User=5,
 	Event=6
 }

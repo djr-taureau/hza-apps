@@ -4,26 +4,14 @@ import { ActivityLog, Address, Document, Note, Notification, Settings, SystemPer
 
 const connectionConfig: ConnectionOptions = {
 	type: 'mssql',
-	host: 'localhost',
-	username: 'SA',
-	password: 'Password123!',
+	host: 'hzasqlserver-756364790.database.windows.net',
+	username: 'azureuser',
+	password: 'Azure123!',
 	database: 'hza',
 	synchronize: true,
 	logging: true,
 	entities: [
-		Document,
-		Notification,
-		Settings,
-		Address,
-		ActivityLog,
-		SystemTool,
-		SystemRole,
-		SystemPermission,
-		SystemRole,
-		SystemUser,
-		Note,
-		Templates,
-		Settings,
+		Document
 	],
 	options: {
 		encrypt: true

@@ -1,4 +1,4 @@
-import { TrackedBaseEntity, MembershipType } from "./";
+import { TrackedBaseEntity, MembershipType } from ".";
 // import { SystemRole } from '../entitiies'
 
 export abstract class TeamMembership<T> extends TrackedBaseEntity {

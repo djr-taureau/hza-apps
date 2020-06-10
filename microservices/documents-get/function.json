@@ -1,13 +1,13 @@
 {
-  "disabled": false,
-  "bindings": [{
+  "bindings": [
+    {
       "authLevel": "anonymous",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "route": "notes",
       "methods": [
-        "get"
+        "get",
+        "post"
       ]
     },
     {
@@ -15,5 +15,6 @@
       "direction": "out",
       "name": "res"
     }
-  ]
+  ],
+  "scriptFile": "../dist/documents-get/index.js"
 }

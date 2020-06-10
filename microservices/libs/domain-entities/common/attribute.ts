@@ -1,5 +1,5 @@
 import {Column, Entity} from 'typeorm';
-import { TrackedBaseEntity, ValueType, EntityContext } from './';
+import { TrackedBaseEntity, ValueType, EntityContext } from '.';
 
 @Entity('attributes')
 export class Attribute extends TrackedBaseEntity {
