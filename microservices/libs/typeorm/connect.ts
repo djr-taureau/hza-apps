@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { ConnectionOptions, createConnection } from 'typeorm';
-import { ActivityLog, Address, Document, Note, Notification, Settings, SystemPermission, SystemRole, SystemTool, SystemUser, Templates } from '../domain-entities/entities';
+import { ActivityLog, Address, Document, Note, Notification, Settings, SystemPermission, SystemRole, SystemTool, SystemUser} from '../domain-entities/entities';
 
 const connectionConfig: ConnectionOptions = {
 	type: 'mssql',

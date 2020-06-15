@@ -33,11 +33,13 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 	loansContainer = null;
 	unsubscribe$: Subject<void> = new Subject();
 	opened: boolean;
+	loanTest: boolean;
 
 	constructor(private loansFacade: LoansFacade, private overlayService: OverlayService, private router: Router) {}
 
 	ngOnInit() {
 		this.opened = false;
+		this.loanTest = true;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loanQuery$ = this.loansFacade.loanQuery$;
 		this.loanDetail$ = this.loansFacade.loanDetail$;

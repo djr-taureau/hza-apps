@@ -13,7 +13,7 @@ import { CodeTable } from '../../models/code-table.model';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
-	delay = 2000;
+	delay = 3000;
 
 	pending: Observable<boolean>;
 	sticky: boolean;
