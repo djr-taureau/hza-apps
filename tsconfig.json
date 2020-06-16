@@ -64,7 +64,8 @@
       "@hza/ui-components/attachment": [
         "libs/ui-components/attachment/src/index.ts"
       ],
-      "@hza/shared/loans/tests": ["libs/shared/loans/tests/src/index.ts"]
+      "@hza/shared/loans/tests": ["libs/shared/loans/tests/src/index.ts"],
+      "@hza/shared/services": ["libs/shared/services/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

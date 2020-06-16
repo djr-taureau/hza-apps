@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { EventBusService, EventData } from '@hza/core';
+=======
+import { EventBusService, EventData } from '@hza/shared/services';
+>>>>>>> new-deployment
 import { asyncScheduler, Observable, Subject } from 'rxjs';
 import { observeOn, shareReplay } from 'rxjs/operators';
 import { DocsFacade } from '../../+state/documents/documents.facade';

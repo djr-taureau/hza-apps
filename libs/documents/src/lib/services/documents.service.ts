@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError, of } from 'rxjs';
-import { catchError, map, toArray, tap, pluck } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
-import { ApiService, ApiEndpointService, ConfigService } from '@hza/core';
-import { Document } from '../models/document.model';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
-import * as _ from 'lodash';
+import { ApiEndpointService, ApiService, ConfigService } from '@hza/shared/services';
+import { Observable } from 'rxjs';
 import { CodeTable } from '../models/code-table.model';
-import { pluck as rPluck } from 'ramda';
+import { Document } from '../models/document.model';
 @Injectable()
 export class DocumentsService {
 	docsUrl: string;

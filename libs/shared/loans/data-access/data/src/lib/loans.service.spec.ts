@@ -4,7 +4,7 @@ import {
 	mockProvider,
 	SpectatorHttp,
 } from '@ngneat/spectator';
-import { ApiEndpointService, ApiService, ConfigService } from '@hza/core';
+import { ApiEndpointService, ApiService, ConfigService } from '@hza/shared/services';
 import { LoansService } from '@hza/shared/loans/data-access/data';
 
 describe('LoansService', () => {

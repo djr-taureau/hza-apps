@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
+import { ApiEndpointService, ApiService } from '@hza/shared/services';
 import { DocsFacade } from '../+state/documents/documents.facade';
-import { DocumentsService, DocumentsGuard } from '../services';
-import { ApiService, ApiEndpointService } from '@hza/core';
+import { DocumentsGuard, DocumentsService } from '../services';
 
 const PROVIDERS = [
 	DocumentsService,

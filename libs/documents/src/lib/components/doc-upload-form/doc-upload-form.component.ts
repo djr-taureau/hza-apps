@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { CodeTable } from '../../models/code-table.model';
+import { EventBusService } from '@hza/shared/services';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { DocsFacade } from '../../+state/documents/documents.facade';
-import { EventBusService } from '@hza/core';
+import { CodeTable } from '../../models/code-table.model';
+
 
 @Component({
 	selector: 'hza-doc-upload-form',

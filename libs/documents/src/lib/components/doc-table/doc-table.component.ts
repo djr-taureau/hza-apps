@@ -1,10 +1,10 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { faEnvelope, faFileExcel, faFilePdf, faFileWord } from '@fortawesome/free-regular-svg-icons';
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
-import { EventBusService } from '@hza/core';
-import { CoreTable, CoreTableFilterComponent } from '@hza/ui-components/core-table';
+import { EventBusService } from '@hza/shared/services';
+import { CoreTable } from '@hza/ui-components/core-table';
 import { merge } from 'rxjs';
 import { Document } from '../../models/document.model';
 @Component({

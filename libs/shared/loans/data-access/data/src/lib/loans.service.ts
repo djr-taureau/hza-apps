@@ -1,9 +1,8 @@
-import { ApiService, ApiEndpointService, ConfigService } from '@hza/core';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { HttpErrorResponse, HttpClient } from '@angular/common/http';
-import { Loan, LoanQuery, LoanDetailDoc } from '@hza/shared/loans/models';
+import { Loan, LoanDetailDoc, LoanQuery } from '@hza/shared/loans/models';
+import { ApiService, ConfigService } from '@hza/shared/services';
+import { Observable } from 'rxjs';
 
 // MOCK_LOANS: `/loans?title_like=server&source=1`,
 
