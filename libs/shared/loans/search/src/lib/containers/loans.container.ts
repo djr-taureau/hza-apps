@@ -1,13 +1,11 @@
-import { Observable, Subject, asyncScheduler } from 'rxjs';
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, OnChanges, TemplateRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { ComponentType } from '@angular/cdk/portal';
+import { ChangeDetectionStrategy, Component, OnChanges, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoansFacade } from '@hza/shared/loans/data-access/state';
-import { Loan, LoanDetailDoc } from '@hza/shared/loans/models';
-import { observeOn, shareReplay, tap, filter, take } from 'rxjs/operators';
+import { Loan, LoanDetailDoc, LoanQuery } from '@hza/shared/loans/models';
 import { OverlayService } from '@hza/ui-components/overlay';
-import { BehaviorSubject } from 'rxjs';
-import { LoanQuery } from '@hza/shared/loans/models';
+import { asyncScheduler, Observable, Subject } from 'rxjs';
+import { filter, observeOn, shareReplay, take, tap } from 'rxjs/operators';
 @Component({
 	selector: 'hza-loans-container',
 	template: `
@@ -39,14 +37,13 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	ngOnInit() {
 		this.opened = false;
-		this.loanTest = true;
+		this.loanTest = false;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loanQuery$ = this.loansFacade.loanQuery$;
 		this.loanDetail$ = this.loansFacade.loanDetail$;
 		this.loans$ = this.loansFacade.loans$.pipe(observeOn(asyncScheduler), shareReplay(4));
 		this.loansTotal$ = this.loansFacade.loanTotal$;
 		this.selectedLoan$ = this.loansFacade.selectedLoan$;
-		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 		this.loans$.subscribe((v) => console.log('loans', v));
 		this.loanQuery$.subscribe((v) => console.log('loan query', v));
 	}
@@ -55,7 +52,6 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 		this.loans$.subscribe((v) => console.log('loans', v));
 		this.loanQuery$.subscribe((v) => console.log('loan query', v));
-		console.log('loanQu', this.getLoan());
 	}
 
 	ngOnDestroy() {

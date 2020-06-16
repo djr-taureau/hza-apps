@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FieldWrapper } from '@ngx-formly/core';
 
 @Component({
-  selector: 'formly-horizontal-wrapper',
+  selector: 'hza-horizontal-wrapper',
   template: `
     <div class="form-group row">
       <label [attr.for]="id" class="col-lg-2 col-form-label" *ngIf="to.label">

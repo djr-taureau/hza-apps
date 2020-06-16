@@ -4,7 +4,6 @@ import {
 	minlengthValidationMessage,
 	minValidationMessage
 } from './helpers/validations-messages';	
-import { maximumMoneyValidation } from './helpers/validators';
 import { FlexPanelWrapperComponent } from './wrappers/flex-panel-wrapper.component';
 import { RepeatSectionComponent } from './types/repeat-section.component';
 import { DocDetailInput } from './types/doc-detail-input';
@@ -23,14 +22,13 @@ export const config: ConfigOption = {
 		{ name: 'minlength', message: minlengthValidationMessage },
 		{ name: 'maxlength', message: maxlengthValidationMessage },
 		{ name: 'min', message: minValidationMessage },
-		{ name: 'max', message: maxValidationMessage },
-		{ name: 'maximumMoneyValidation', message: 'should be 100' }
+		{ name: 'max', message: maxValidationMessage }
 	],
 	wrappers: [
 		{ name: 'form-field-horizontal', component: FormlyHorizontalWrapper },
 		{ name: 'error-on-top', component: ErrorWrapperComponent },
 		{ name: 'flex-container', component: FlexContainerWrapperComponent },
-        { name: 'flex', component: FlexWrapperComponent },
+        { name: 'hza-flex', component: FlexWrapperComponent },
 		{ name: 'flex-container-panel', component: FlexPanelWrapperComponent }
 	],
 	types: [
@@ -39,5 +37,5 @@ export const config: ConfigOption = {
 		{ name: 'custom', component: FormlyFieldCustomInput, wrappers: ['form-field'] },
 		{ name: 'flex-layout', component: FlexLayoutType }
 	],
-	validators: [{ name: 'maximumMoneyValidation', validation: maximumMoneyValidation }]
+	validators: []
 };

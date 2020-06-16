@@ -3,7 +3,7 @@ import { FieldWrapper } from '@ngx-formly/core';
 import { FormlyTemplateOptions } from '@ngx-formly/core';
 
 @Component({
-	selector: 'flex-container-wrapper',
+	selector: 'hza-flex-container-wrapper',
 	template: `
     <div [fxLayout]="to.fxLayout" [fxLayoutAlign]="to.fxLayoutAlign">
       <ng-container #fieldComponent></ng-container>

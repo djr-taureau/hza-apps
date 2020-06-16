@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'formly-form-flex',
+  selector: 'hza-form-flex',
   template: `
     <div
       class="content" 

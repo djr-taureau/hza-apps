@@ -45,9 +45,6 @@
       "@hza/ui-components/overlay": ["libs/ui-components/overlay/src/index.ts"],
       "@hza/ui-components/tabs": ["libs/ui-components/tabs/src/index.ts"],
       "@hza/ui-components/icons": ["libs/ui-components/icons/src/index.ts"],
-      "@hza/ui-components/data-table": [
-        "libs/ui-components/data-table/src/index.ts"
-      ],
       "@hza/ui-components/forms": ["libs/ui-components/forms/src/index.ts"],
       "@hza/ui-components/layouts": ["libs/ui-components/layouts/src/index.ts"],
       "@hza/ui-components/core": ["libs/ui-components/core/src/index.ts"],
@@ -57,9 +54,6 @@
       ],
       "@hza/ui-components/value-list": [
         "libs/ui-components/value-list/src/index.ts"
-      ],
-      "@hza/ui-components/value-callout": [
-        "libs/ui-components/value-callout/src/index.ts"
       ],
       "@hza/ui-components/text-list": [
         "libs/ui-components/text-list/src/index.ts"

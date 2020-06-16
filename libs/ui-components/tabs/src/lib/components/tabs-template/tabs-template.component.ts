@@ -2,7 +2,7 @@ import {Component, AfterViewInit, TemplateRef, ViewChild, ViewContainerRef, OnIn
 import {ComponentPortal, Portal, TemplatePortal} from '@angular/cdk/portal';
 
 @Component({
-  selector: 'fay-tabs',
+  selector: 'hza-tabs',
   templateUrl: './tabs-template.component.html',
   styleUrls: ['./tabs-template.component.scss']
 })
@@ -25,7 +25,7 @@ export class TabsTemplateComponent implements AfterViewInit {
 
 
 @Component({
-  selector: 'fay-component-portal',
+  selector: 'hza-component-portal',
   template: 'Hello, this is a component portal'
 })
 export class ComponentPortalExample {}

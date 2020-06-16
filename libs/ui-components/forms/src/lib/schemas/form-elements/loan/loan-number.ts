@@ -1,6 +1,7 @@
 import { Field } from '../../../helpers/fields';
+import { constants } from 'fs';
 
-let startTyping = false;
+const startTyping = false;
 
 export const LOAN_NUMBER = (disabled) => {
   const templateOptions = {

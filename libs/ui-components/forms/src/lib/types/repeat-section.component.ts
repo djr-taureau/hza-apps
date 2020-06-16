@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
 
 @Component({
-  selector: 'formly-repeat-section',
+  selector: 'hza-formly-repeat-section',
   template: `
     <div *ngFor="let field of field.fieldGroup; let i = index;">
       <formly-group

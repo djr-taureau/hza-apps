@@ -4,7 +4,7 @@ export class CdkOverlayContainer extends OverlayContainer {
    * Create overlay container and append to ElementRef from directive
    */
   public hzaCreateContainer(element: HTMLElement): void {
-    let container = document.createElement('div');
+    const container = document.createElement('div');
     container.classList.add('hza-custom-overlay-container-class');
 
     element.appendChild(container);

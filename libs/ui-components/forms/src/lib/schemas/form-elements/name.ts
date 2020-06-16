@@ -1,6 +1,6 @@
 import { Field } from '../../helpers/fields';
 
-let startTyping = true;
+const startTyping = true;
 
 export const NAME = (disabled) => {
   const templateOptions = {

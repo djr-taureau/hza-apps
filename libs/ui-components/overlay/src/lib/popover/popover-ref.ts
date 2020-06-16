@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { PopoverParams } from './popover.service';
 import { TemplateRef, Type } from '@angular/core';
 
-export type PopoverCloseEvent<T = any> = {
+export interface PopoverCloseEvent<T = any> {
   type: 'backdropClick' | 'close';
   data: T;
 }

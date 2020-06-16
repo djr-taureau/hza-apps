@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { LoansService } from './loans.service';
 import { ApiEndpointService, ApiService } from '@hza/core';
-import { LoansResolver } from './loans.resolver';
+import { LoansService } from './loans.service';
+
 
 @NgModule({
   imports: [],
-  providers: [LoansService, LoansResolver, ApiService, ApiEndpointService],
+  providers: [LoansService, ApiService, ApiEndpointService],
 })
 export class SharedLoansDataAccessDataModule {}

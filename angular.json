@@ -521,41 +521,6 @@
         }
       }
     },
-    "ui-components-data-table": {
-      "projectType": "library",
-      "root": "libs/ui-components/data-table",
-      "sourceRoot": "libs/ui-components/data-table/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/data-table/tsconfig.lib.json",
-              "libs/ui-components/data-table/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/data-table/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/data-table/jest.config.js",
-            "tsConfig": "libs/ui-components/data-table/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/data-table/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "ui-components-forms": {
       "projectType": "library",
       "root": "libs/ui-components/forms",
@@ -745,41 +710,6 @@
             "tsConfig": "libs/ui-components/text-list/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui-components/text-list/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ui-components-value-callout": {
-      "projectType": "library",
-      "root": "libs/ui-components/value-callout",
-      "sourceRoot": "libs/ui-components/value-callout/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/value-callout/tsconfig.lib.json",
-              "libs/ui-components/value-callout/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/value-callout/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/value-callout/jest.config.js",
-            "tsConfig": "libs/ui-components/value-callout/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/value-callout/src/test-setup.ts"
           }
         }
       },
