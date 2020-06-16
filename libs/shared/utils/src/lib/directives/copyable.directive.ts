@@ -2,7 +2,7 @@ import { HostListener, Directive, ViewChild, ViewContainerRef, EventEmitter } fr
 import { Clipboard } from '@angular/cdk/clipboard';
 import { getValueFromEvent } from '@hza/shared/utils'
 @Directive({
-	selector: 'hzaCopy'
+	selector: '[hzaCopy]'
 })
 export class CopyableDirective {
 	constructor(private clipboard: Clipboard) {}

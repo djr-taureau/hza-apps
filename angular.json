@@ -1218,32 +1218,6 @@
         }
       }
     },
-    "shared-loans-tests": {
-      "root": "libs/shared/loans/tests",
-      "sourceRoot": "libs/shared/loans/tests/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/loans/tests/tsconfig.lib.json",
-              "libs/shared/loans/tests/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/loans/tests/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/loans/tests/jest.config.js",
-            "tsConfig": "libs/shared/loans/tests/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "tasks-app": {
       "projectType": "application",
       "schematics": {

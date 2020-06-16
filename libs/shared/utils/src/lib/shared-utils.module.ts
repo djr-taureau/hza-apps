@@ -8,8 +8,6 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { FocusDirective, MatInputFocusDirective } from './directives/focus/focus.directive';
 import { CopyableDirective } from './directives/copyable.directive';
 import { TooltipDirective } from './directives/tooltip/tooltip.directive';
-import { ExternalLinkDirective } from './directives/external-link.directive';
-import { EmailLinkDirective } from './email-link.directive';
 import { FontAwesomeIconModule } from './+modules/font-awesome-icon.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FileSizePipe } from './directives/file-size/file-size.pipe';
@@ -24,8 +22,6 @@ const COMPONENTS = [
 	TooltipDirective,
 	FocusDirective,
 	MatInputFocusDirective,
-	ExternalLinkDirective,
-	EmailLinkDirective,
 	FileSizePipe,
 	Focus2Directive
 ];

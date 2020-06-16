@@ -5,7 +5,7 @@ import { FileSizePipe } from './file-size.pipe';
 
 describe('Pipe: FileSizee', () => {
   it('create an instance', () => {
-    let pipe = new FileSizePipe();
+    const pipe = new FileSizePipe();
     expect(pipe).toBeTruthy();
   });
 });

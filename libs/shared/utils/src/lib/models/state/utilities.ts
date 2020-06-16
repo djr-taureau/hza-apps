@@ -67,5 +67,5 @@ const calculateDataState = ([loaded, count]: [boolean, number]): DataState => {
  * Calculates the State of the requested dataset from the count and loadStatus
  */
 export const getDatasetState = (loaded$: Observable<boolean>, count$: Observable<number>) => {
-  return combineLatest(loaded$, count$).pipe(rxMap(calculateDataState));
+  return combineLatest([loaded$, count$]).pipe(rxMap(calculateDataState));
 };

@@ -12,7 +12,7 @@ export interface PaginationResult<T> extends IPaginationHeader {
 }
 
 export interface PaginationResultAction<A, R> {
-  new (payload: R[], paging: IPaginationHeader): A;
+  new (payload: R[], paging: IPaginationHeader): => A;
 }
 
 export function createPaginationSuccessAction<A, R>(ResultsAction: PaginationResultAction<A, R>) {

@@ -12,6 +12,6 @@ describe(`SharedDataAccessModule`, () => {
   });
 
   it(`should provide 'Store' service`, () => {
-    expect(() => TestBed.get(Store)).toBeTruthy();
+    expect(() => TestBed.inject(Store)).toBeTruthy();
   });
 });

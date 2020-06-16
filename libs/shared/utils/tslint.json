@@ -1,8 +1,8 @@
 {
   "extends": "../../../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "hzaRepo", "camelCase"],
-    "component-selector": [true, "element", "hza-repo", "kebab-case"]
+    "directive-selector": [true, "attribute", "hza", "camelCase"],
+    "component-selector": [true, "element", "hza", "kebab-case"]
   },
   "linterOptions": {
     "exclude": ["!**/*"]

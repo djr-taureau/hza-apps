@@ -5,7 +5,7 @@ import { Directive, ElementRef, Inject, Input, OnChanges, PLATFORM_ID, SimpleCha
   selector: '[hzaInputFocus]',
 })
 export class Focus2Directive implements OnChanges {
-  @Input() appFocus: boolean = false;
+  @Input() appFocus = false;
 
   readonly isBrowser: boolean;
 

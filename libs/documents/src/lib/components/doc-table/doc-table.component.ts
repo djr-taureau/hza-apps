@@ -1,5 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
+<<<<<<< HEAD
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+=======
+import { AfterViewInit, Component, Input, ViewChild, OnInit } from '@angular/core';
+>>>>>>> linting-test
 import { MatSort } from '@angular/material/sort';
 import { faEnvelope, faFileExcel, faFilePdf, faFileWord } from '@fortawesome/free-regular-svg-icons';
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +23,7 @@ import { Document } from '../../models/document.model';
 		])
 	]
 })
-export class DocTableComponent extends CoreTable<Document> implements AfterViewInit {
+export class DocTableComponent extends CoreTable<Document> implements OnInit, AfterViewInit {
 	@Input()
 	set documents(documents: Document[]) {
 		if (documents) {
@@ -38,6 +42,7 @@ export class DocTableComponent extends CoreTable<Document> implements AfterViewI
 	faCaretDown = faCaretDown;
 	@Input() sticky: boolean;
 	@Input() loaded: boolean;
+	
 	@ViewChild(MatSort, { static: false })
 
 	dataSort: MatSort;
@@ -65,15 +70,13 @@ export class DocTableComponent extends CoreTable<Document> implements AfterViewI
 	}
 
 	placeholderWhen(index: number, _: any) {
-		return index == 0;
+		return index === 0;
 	}
 	ngAfterViewInit() {
 		const sortChange = merge(this.sort.sortChange, this.sort.initialized);
 		this.dataSort = this.sort;
 		const sortChangeHere = merge(this.dataSort.sortChange, this.dataSort.initialized);
 	}
-	
-	
 
 	toggle() {
 		this.isExpanded = !this.isExpanded;

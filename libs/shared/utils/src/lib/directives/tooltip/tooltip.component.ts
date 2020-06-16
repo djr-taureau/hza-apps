@@ -2,7 +2,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'fay-tooltip',
+  selector: 'hza-tooltip',
   styleUrls: ['./tooltip.component.css'],
   templateUrl: './tooltip.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
