@@ -64,10 +64,6 @@
       "@hza/ui-components/attachment": [
         "libs/ui-components/attachment/src/index.ts"
       ],
-<<<<<<< HEAD
-      "@hza/shared/loans/tests": ["libs/shared/loans/tests/src/index.ts"],
-=======
->>>>>>> linting-test
       "@hza/shared/services": ["libs/shared/services/src/index.ts"]
     }
   },
