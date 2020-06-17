@@ -96,9 +96,6 @@
     "ui-components-overlay": {
       "tags": ["scope:shared", "type:ui"]
     },
-    "ui-components-tabs": {
-      "tags": ["scope:shared", "type:ui"]
-    },
     "ui-components-icons": {
       "tags": ["scope:shared", "type:ui"]
     },
@@ -117,17 +114,8 @@
     "ui-components-file-upload": {
       "tags": ["scope:shared", "type:ui"]
     },
-    "ui-components-text-list": {
-      "tags": ["scope:shared", "type:ui"]
-    },
-    "ui-components-value-list": {
-      "tags": ["scope:shared", "type:ui"]
-    },
     "ui-components-data-list": {
       "tags": ["scope:shared", "type:ui"]
-    },
-    "auth": {
-      "tags": []
     },
     "shared-loan-detail": {
       "tags": ["scope:shared", "type:feature"]
@@ -151,9 +139,6 @@
       "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-attachment": {
-      "tags": []
-    },
-    "shared-services": {
       "tags": []
     },
     "shared-services": {

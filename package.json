@@ -160,10 +160,9 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-    "husky": {
-      "hooks": {
-        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-        "pre-commit": "npm run format && npm run affected:test && npm run affected:lint && npm run affected:build -- --uncommitted"
-      }
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run affected:test && npm run affected:lint && npm run affected:build -- --uncommitted"
     }
+  }
 }
