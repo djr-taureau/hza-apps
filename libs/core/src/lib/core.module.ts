@@ -1,28 +1,12 @@
+import { HttpBackendClient } from '@hza/shared/services';
 // core.module.ts
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CoreCoreModule, SharedDataAccessModule } from './+modules';
 import { httpInterceptorProviders } from './http-interceptors';
-import { ApiService, ApiEndpointService, EventBusService, NotificationService, CacheMapService, HttpBackendClient } from './services';
-import { LazyLoaderService } from './lazy-components/lazy-loader.service';
-import { LAZY_WIDGETS } from './lazy-components/tokens';
-import { lazyArrayToObj } from './lazy-components/lazy-widgets';
 
 @NgModule({
-	imports: [
-		CoreCoreModule,
-		SharedDataAccessModule.forRoot()
-	],
-	providers: [
-		ApiEndpointService,
-		ApiService,
-		EventBusService,
-		NotificationService,
-		CacheMapService,
-		LazyLoaderService,
-		HttpBackendClient,
-		httpInterceptorProviders,
-		{ provide: LAZY_WIDGETS, useFactory: lazyArrayToObj }
-	]
+	imports: [ CoreCoreModule, SharedDataAccessModule.forRoot() ],
+	providers: [ httpInterceptorProviders, HttpBackendClient ]
 })
 export class CoreModule {
 	constructor(

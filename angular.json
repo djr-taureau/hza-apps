@@ -457,38 +457,6 @@
         }
       }
     },
-    "ui-components-tabs": {
-      "projectType": "library",
-      "root": "libs/ui-components/tabs",
-      "sourceRoot": "libs/ui-components/tabs/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/tabs/tsconfig.lib.json",
-              "libs/ui-components/tabs/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/tabs/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/tabs/jest.config.js",
-            "tsConfig": "libs/ui-components/tabs/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/tabs/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "ui-components-icons": {
       "projectType": "library",
       "root": "libs/ui-components/icons",
@@ -512,41 +480,6 @@
             "tsConfig": "libs/ui-components/icons/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui-components/icons/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ui-components-data-table": {
-      "projectType": "library",
-      "root": "libs/ui-components/data-table",
-      "sourceRoot": "libs/ui-components/data-table/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/data-table/tsconfig.lib.json",
-              "libs/ui-components/data-table/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/data-table/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/data-table/jest.config.js",
-            "tsConfig": "libs/ui-components/data-table/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/data-table/src/test-setup.ts"
           }
         }
       },
@@ -710,111 +643,6 @@
             "tsConfig": "libs/ui-components/file-upload/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui-components/file-upload/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ui-components-text-list": {
-      "projectType": "library",
-      "root": "libs/ui-components/text-list",
-      "sourceRoot": "libs/ui-components/text-list/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/text-list/tsconfig.lib.json",
-              "libs/ui-components/text-list/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/text-list/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/text-list/jest.config.js",
-            "tsConfig": "libs/ui-components/text-list/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/text-list/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ui-components-value-callout": {
-      "projectType": "library",
-      "root": "libs/ui-components/value-callout",
-      "sourceRoot": "libs/ui-components/value-callout/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/value-callout/tsconfig.lib.json",
-              "libs/ui-components/value-callout/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/value-callout/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/value-callout/jest.config.js",
-            "tsConfig": "libs/ui-components/value-callout/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/value-callout/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ui-components-value-list": {
-      "projectType": "library",
-      "root": "libs/ui-components/value-list",
-      "sourceRoot": "libs/ui-components/value-list/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-components/value-list/tsconfig.lib.json",
-              "libs/ui-components/value-list/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-components/value-list/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-components/value-list/jest.config.js",
-            "tsConfig": "libs/ui-components/value-list/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui-components/value-list/src/test-setup.ts"
           }
         }
       },
@@ -997,38 +825,6 @@
             "tsConfig": ["apps/doc-repo-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/doc-repo-e2e/**"]
           }
-        }
-      }
-    },
-    "auth": {
-      "projectType": "library",
-      "root": "libs/authentication",
-      "sourceRoot": "libs/authentication/src",
-      "prefix": "hza",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/authentication/tsconfig.lib.json",
-              "libs/authentication/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/authentication/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/authentication/jest.config.js",
-            "tsConfig": "libs/authentication/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/authentication/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
         }
       }
     },
@@ -1283,32 +1079,6 @@
           "options": {
             "jestConfig": "libs/ui-components/attachment/jest.config.js",
             "tsConfig": "libs/ui-components/attachment/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-loans-tests": {
-      "root": "libs/shared/loans/tests",
-      "sourceRoot": "libs/shared/loans/tests/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/loans/tests/tsconfig.lib.json",
-              "libs/shared/loans/tests/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/loans/tests/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/loans/tests/jest.config.js",
-            "tsConfig": "libs/shared/loans/tests/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -1680,6 +1450,38 @@
             "tsConfig": ["apps/cars-app-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/cars-app-e2e/**"]
           }
+        }
+      }
+    },
+    "shared-services": {
+      "projectType": "library",
+      "root": "libs/shared/services",
+      "sourceRoot": "libs/shared/services/src",
+      "prefix": "hza",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/services/tsconfig.lib.json",
+              "libs/shared/services/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/services/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/services/jest.config.js",
+            "tsConfig": "libs/shared/services/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/services/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

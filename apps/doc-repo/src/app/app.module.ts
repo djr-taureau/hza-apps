@@ -5,9 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CoreModule, ConfigService, appInitializer, OnDemandPreloadStrategy, CONFIG_URL } from '@hza/core';
-import { ClarityModule } from '@clr/angular';
+import { ConfigService, appInitializer, CONFIG_URL } from '@hza/shared/services';
+import { CoreModule, OnDemandPreloadStrategy } from '@hza/core';
+
 import { environment } from '@hza/shared/environments';
+
 
 const routes: Routes = [
 	{
@@ -38,7 +40,6 @@ const routes: Routes = [
 			enableTracing: true,
 			preloadingStrategy: OnDemandPreloadStrategy
 		}),
-		ClarityModule,
 		BrowserAnimationsModule
 	],
 	providers: [

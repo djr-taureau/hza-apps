@@ -1,5 +1,5 @@
 {
-    "azureFunctions.deploySubpath": "microservices",
+    "azureFunctions.deploySubpath": "test",
     "azureFunctions.postDeployTask": "npm install",
     "azureFunctions.projectLanguage": "TypeScript",
     "azureFunctions.projectRuntime": "~3",

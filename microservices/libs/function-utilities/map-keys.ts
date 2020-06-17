@@ -4,7 +4,7 @@ import { curry, fromPairs, map, adjust, toPairs } from "ramda";
 export const mapKeys = curry((fn: (a: string) => string, obj: any) =>
   fromPairs(
     map(
-      adjust(fn, 0),
+      adjust(0, fn),
       toPairs(obj) as any
     ) as any
   )

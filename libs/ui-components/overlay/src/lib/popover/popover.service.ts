@@ -4,7 +4,7 @@ import { Injectable, Injector } from '@angular/core';
 import { PopoverContent, PopoverRef } from './popover-ref';
 import { PopoverComponent } from './popover.component';
 
-export type PopoverParams<T> = {
+export interface PopoverParams<T> {
 	width?: string | number;
 	height?: string | number;
 	origin: HTMLElement;

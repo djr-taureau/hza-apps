@@ -1,10 +1,7 @@
-import { HostListener, Directive, TemplateRef, OnInit, ViewChild, EventEmitter } from '@angular/core';
-import { OverlayService } from './../services/overlay.service';
-// import { YesNoComponent } from './yes-no/yes-no.component';
-// import { SubscribeComponent } from './subscribe/subscribe.component';
-import { LazyLoaderService } from '@hza/core';
-import { ComponentType, TemplatePortalDirective } from '@angular/cdk/portal';
 import { OverlayRef } from '@angular/cdk/overlay';
+import { CdkPortal, ComponentType } from '@angular/cdk/portal';
+import { Directive, EventEmitter, HostListener, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { OverlayService } from './../services/overlay.service';
 
 @Directive({
 	selector: 'input[hzaFocusModal], button[hzaFocusModal]',
@@ -12,7 +9,7 @@ import { OverlayRef } from '@angular/cdk/overlay';
 })
 export class OpenFocusDirective implements OnInit {
 	overlayRef: OverlayRef;
-	@ViewChild('overlayTemplate') overlayTemplate: TemplatePortalDirective;
+	@ViewChild('overlayTemplate') overlayTemplate: CdkPortal;
 	content = 'A simple string content modal overlay';
 
 	subscribeData = null;
@@ -59,7 +56,7 @@ export class OpenFocusDirective implements OnInit {
 export class OpenModalDirective {
 	feature: string;
 	featureString: EventEmitter<string> = new EventEmitter<string>();
-	constructor(private lazyLoader: LazyLoaderService) {}
+	constructor() {}
 
 	@HostListener('focus', ['$event.target'])
 	onFocus(formField) {

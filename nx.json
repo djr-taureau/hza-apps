@@ -96,13 +96,7 @@
     "ui-components-overlay": {
       "tags": ["scope:shared", "type:ui"]
     },
-    "ui-components-tabs": {
-      "tags": ["scope:shared", "type:ui"]
-    },
     "ui-components-icons": {
-      "tags": ["scope:shared", "type:ui"]
-    },
-    "ui-components-data-table": {
       "tags": ["scope:shared", "type:ui"]
     },
     "ui-components-forms": {
@@ -120,20 +114,8 @@
     "ui-components-file-upload": {
       "tags": ["scope:shared", "type:ui"]
     },
-    "ui-components-text-list": {
-      "tags": ["scope:shared", "type:ui"]
-    },
-    "ui-components-value-callout": {
-      "tags": ["scope:shared", "type:ui"]
-    },
-    "ui-components-value-list": {
-      "tags": ["scope:shared", "type:ui"]
-    },
     "ui-components-data-list": {
       "tags": ["scope:shared", "type:ui"]
-    },
-    "auth": {
-      "tags": []
     },
     "shared-loan-detail": {
       "tags": ["scope:shared", "type:feature"]
@@ -159,7 +141,7 @@
     "ui-components-attachment": {
       "tags": []
     },
-    "shared-loans-tests": {
+    "shared-services": {
       "tags": []
     }
   },

@@ -2,7 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { FieldWrapper } from '@ngx-formly/core';
 
 @Component({
-  selector: 'formly-wrapper-error',
+  selector: 'hza-formly-wrapper-error',
   template: `
     <div class="alert alert-danger" role="alert" *ngIf="formControl.errors && formControl.errors['totalAmount']">
       {{ formControl.errors['totalAmount'] }}

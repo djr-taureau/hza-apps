@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpResponse, HttpHandler } from '@angular/common/http';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { CacheMapService } from '../services/cache/cache-map.service';
+import { CacheMapService } from '@hza/shared/services';
 
 const CACHABLE_URL = 'http://localhost:3000/documents';
 

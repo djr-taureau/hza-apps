@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FieldType, FormlyConfig } from '@ngx-formly/core';
 
 @Component({
-	selector: 'formly-field-custom-input',
+	selector: 'hza-field-custom-input',
 	template: `
     <formly-field>
       [model]="field.model"

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BusyService } from '../services/busy.service';
+import { BusyService } from '@hza/shared/services';
 import { finalize } from 'rxjs/operators';
 import { prefixReq, prefixRes } from './http-config';
 

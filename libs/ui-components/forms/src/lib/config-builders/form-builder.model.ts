@@ -4,5 +4,8 @@ export interface FormBuilderModel {
 	fieldType: string;
 	cssSelector: string;
 	templateCssSelector: string;
-	fxFlexField?: string;
+	fxFlexAlignField?: string;
+	fxLayoutAlignLabel?: string;
+	fxFlexSpacer?: string;
+	
 }

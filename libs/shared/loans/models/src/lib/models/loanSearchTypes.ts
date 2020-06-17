@@ -27,7 +27,7 @@ export function toSearchFormValue<T extends LoanQuery>(data: T): LoanQuery {
 }
 
 export function searchMessages(value: string): string {
-	let message: string = '';
+	let message = '';
 	switch (value) {
 		case 'loan':
 			message = 'Full loan number must be provided (leading zeros are optional)';

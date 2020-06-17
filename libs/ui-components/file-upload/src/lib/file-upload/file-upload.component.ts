@@ -1,17 +1,17 @@
 import {
 	Component,
-	OnInit,
-	ViewEncapsulation,
-	ViewChild,
-	Directive,
-	Input,
-	HostBinding,
-	Output,
+
+
+
+
+
+
+
 	EventEmitter,
-	OnChanges
+	OnChanges, Output, ViewEncapsulation
 } from '@angular/core';
-import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { EventBusService, EventData } from '@hza/core';
+import { EventBusService, EventData } from '@hza/shared/services';
+import { FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
 @Component({
 	selector: 'hza-file-upload',
 	templateUrl: './file-upload.component.html',

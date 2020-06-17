@@ -18,41 +18,35 @@ import { RepeatSectionComponent } from './types/repeat-section.component';
 import { ErrorWrapperComponent } from './wrappers/error.component';
 import { FlexContainerWrapperComponent } from './wrappers/flex-container-wrapper.component';
 import { FlexWrapperComponent } from './wrappers/flex-wrapper.component';
-import { FormlyHorizontalWrapper } from './wrappers/FormlyHorizontalWrapper';
 // * wrappers
 import { FlexPanelWrapperComponent } from './wrappers/flex-panel-wrapper.component';
 
-
-
-
 const COMPONENTS = [
-	FlexPanelWrapperComponent,
-	ErrorWrapperComponent,
-	RepeatSectionComponent,
-	FormlyHorizontalWrapper,
-	FormlyFieldCustomInput,
-	DocDetailInput,
-	FormComponent,
-	FormlyHorizontalWrapper, 
-	FlexLayoutType,
-	FlexContainerWrapperComponent,
-	FlexWrapperComponent
+  FlexPanelWrapperComponent,
+  ErrorWrapperComponent,
+  RepeatSectionComponent,
+  FormlyFieldCustomInput,
+  DocDetailInput,
+  FormComponent,
+  FlexLayoutType,
+  FlexContainerWrapperComponent,
+  FlexWrapperComponent,
 ];
 
 @NgModule({
-	imports: [
-		FlexLayoutModule,
-		ReactiveFormsModule,
-		FormsModule,
-		CardModule,
-		FormlyMatDatepickerModule,
-		FormlyMatToggleModule,
-		FormlyMatDatepickerModule,
-		FormlyMaterialModule,
-		FormlyBootstrapModule,
-		FormlyModule.forRoot(config)
-	],
-	declarations: [ COMPONENTS ],
-	exports: [ COMPONENTS ]
+  imports: [
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CardModule,
+    FormlyMatDatepickerModule,
+    FormlyMatToggleModule,
+    FormlyMatDatepickerModule,
+    FormlyMaterialModule,
+    FormlyBootstrapModule,
+    FormlyModule.forRoot(config),
+  ],
+  declarations: [COMPONENTS],
+  exports: [COMPONENTS],
 })
 export class UiComponentsFormsModule {}

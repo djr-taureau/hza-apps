@@ -88,9 +88,9 @@ export class BaseRepository<T> {
 		return _query.execute();
 	}
 
-	public async eQuery(options?: QueryOptions) {
-		return await this.manager.find<T>(this.entity, {
-			relations: ['firms']
-		});
-	}
+	// public async eQuery(options?: QueryOptions) {
+	// 	return await this.manager.find<T>(this.entity, {
+	// 		relations: ['firms']
+	// 	});
+	// }
 }

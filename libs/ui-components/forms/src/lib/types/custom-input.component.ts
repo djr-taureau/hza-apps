@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
-  selector: 'formly-field-custom-input',
+  selector: 'hza-field-custom-input',
   template: `
     <input class="custom-text-field" [type]="type" [formControl]="formControl" [formlyAttributes]="field">
   `,

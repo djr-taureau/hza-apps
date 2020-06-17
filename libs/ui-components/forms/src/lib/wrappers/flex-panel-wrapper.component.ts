@@ -1,8 +1,8 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
 import { FieldWrapper, FormlyTemplateOptions } from '@ngx-formly/core';
 
 @Component({
-	selector: 'flex-formly-wrapper-panel',
+	selector: 'hza-flex-formly-wrapper-panel',
 	template: `
     <div [fxLayout]="to.fxLayout" [fxLayoutAlign]="to.fxLayoutAlign">
       <div class="form-label" [fxLayout]="to.fxLayoutLabel" [fxFlex]="to.fxFlexLabel">{{ to.label }}</div>
@@ -13,7 +13,7 @@ import { FieldWrapper, FormlyTemplateOptions } from '@ngx-formly/core';
     </div>
   `
 })
-export class FlexPanelWrapperComponent extends FieldWrapper {
+export class FlexPanelWrapperComponent extends FieldWrapper implements OnInit {
 	@ViewChild('fieldComponent', { read: ViewContainerRef })
 	fieldComponent: ViewContainerRef;
 	to: FormlyTemplateOptions & {

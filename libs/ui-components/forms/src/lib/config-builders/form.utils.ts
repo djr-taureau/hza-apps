@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
-import { FormConfigBuilder } from './form-config-builder.class';
+import { FormConfigBuilder } from '../config-builders/form-config-builder.class';
+import { FormBuilderModel } from '../config-builders/form-builder.model';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export const formFields = (fields) => {
@@ -12,15 +13,15 @@ export const formFieldDefaults = (fields, props: string[]) => {
 	return _.keys(defaultFields);
 };
 
-export const formFieldConfig = (formFields) => {
+export const formFieldConfig = (formFields: FormBuilderModel[]) => {
 
-	let formConfigs: FormlyFieldConfig[] = [];
+	const formConfigs: FormlyFieldConfig[] = [];
 	formFields.map((v) => {
 		const formConfig = new FormConfigBuilder()
 			.cssSelector(v.cssSelector)
 			.key(v.fieldName)
 			.type(v.fieldType)
-			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexField, v.fxFlexSpacer, v.flexAlignLabel)
+			.templateOptions(v.displayName, v.templateCssSelector, v.fxFlexAlignField, v.fxFlexSpacer, v.fxLayoutAlignLabel)
 			.build();
 		formConfigs.push(formConfig);
 	});

@@ -54,7 +54,7 @@ export class UITreeDataSource<T> extends MatTreeFlatDataSource<FlatDataNode<T>, 
 // Build tree Nodes from a source Object
 
 export function buildDataNodeTree<T, N extends FlatDataNode<T>, S>(
-  treeNode: { new (): N },
+  treeNode: new () => N,
   mapDataFn = (key: string, level: number, value: S): T => value as any,
   mapDepth: number = Infinity,
 ) {
