@@ -64,13 +64,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "40mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "160kb"
                 }
               ]
             }
@@ -101,7 +101,10 @@
               "apps/hza/tsconfig.app.json",
               "apps/hza/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/hza/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/hza/**"
+            ]
           }
         },
         "test": {
@@ -111,6 +114,17 @@
             "tsConfig": "apps/hza/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/hza/src/test-setup.ts"
+          }
+        },
+        "azureLogout": {
+          "builder": "@azure/ng-deploy:logout"
+        },
+        "deploy": {
+          "builder": "@azure/ng-deploy:deploy",
+          "options": {
+            "host": "Azure",
+            "type": "static",
+            "config": "azure.json"
           }
         }
       }
@@ -136,8 +150,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/hza-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/hza-e2e/**"]
+            "tsConfig": [
+              "apps/hza-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/hza-e2e/**"
+            ]
           }
         }
       }
@@ -179,7 +198,10 @@
               "libs/shared/utils/tsconfig.lib.json",
               "libs/shared/utils/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/utils/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/utils/**"
+            ]
           }
         },
         "test": {
@@ -211,7 +233,10 @@
               "libs/shared/environments/tsconfig.lib.json",
               "libs/shared/environments/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/environments/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/environments/**"
+            ]
           }
         },
         "test": {
@@ -243,7 +268,10 @@
               "libs/core/tsconfig.lib.json",
               "libs/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/core/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/core/**"
+            ]
           }
         },
         "test": {
@@ -275,7 +303,10 @@
               "libs/shared/data-access/tsconfig.lib.json",
               "libs/shared/data-access/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/data-access/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/data-access/**"
+            ]
           }
         },
         "test": {
@@ -307,7 +338,10 @@
               "libs/documents/tsconfig.lib.json",
               "libs/documents/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/documents/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/documents/**"
+            ]
           }
         },
         "test": {
@@ -339,7 +373,10 @@
               "libs/tasks/tsconfig.lib.json",
               "libs/tasks/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/tasks/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/tasks/**"
+            ]
           }
         },
         "test": {
@@ -371,7 +408,10 @@
               "libs/ui-components/buttons/tsconfig.lib.json",
               "libs/ui-components/buttons/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/buttons/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/buttons/**"
+            ]
           }
         },
         "test": {
@@ -438,7 +478,10 @@
               "libs/ui-components/overlay/tsconfig.lib.json",
               "libs/ui-components/overlay/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/overlay/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/overlay/**"
+            ]
           }
         },
         "test": {
@@ -470,7 +513,10 @@
               "libs/ui-components/icons/tsconfig.lib.json",
               "libs/ui-components/icons/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/icons/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/icons/**"
+            ]
           }
         },
         "test": {
@@ -502,7 +548,10 @@
               "libs/ui-components/forms/tsconfig.lib.json",
               "libs/ui-components/forms/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/forms/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/forms/**"
+            ]
           }
         },
         "test": {
@@ -534,7 +583,10 @@
               "libs/ui-components/layouts/tsconfig.lib.json",
               "libs/ui-components/layouts/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/layouts/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/layouts/**"
+            ]
           }
         },
         "test": {
@@ -566,7 +618,10 @@
               "libs/ui-components/core/tsconfig.lib.json",
               "libs/ui-components/core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/core/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/core/**"
+            ]
           }
         },
         "test": {
@@ -598,7 +653,10 @@
               "libs/ui-components/widget/tsconfig.lib.json",
               "libs/ui-components/widget/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-components/widget/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-components/widget/**"
+            ]
           }
         },
         "test": {
@@ -787,7 +845,10 @@
               "apps/doc-repo/tsconfig.app.json",
               "apps/doc-repo/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/doc-repo/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/doc-repo/**"
+            ]
           }
         },
         "test": {
@@ -822,8 +883,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/doc-repo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/doc-repo-e2e/**"]
+            "tsConfig": [
+              "apps/doc-repo-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/doc-repo-e2e/**"
+            ]
           }
         }
       }
@@ -946,7 +1012,10 @@
               "libs/shared/loans/models/tsconfig.lib.json",
               "libs/shared/loans/models/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/loans/models/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/loans/models/**"
+            ]
           }
         },
         "test": {
@@ -978,7 +1047,10 @@
               "libs/shared/loans/shell/tsconfig.lib.json",
               "libs/shared/loans/shell/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/loans/shell/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/loans/shell/**"
+            ]
           }
         },
         "test": {
@@ -1010,7 +1082,10 @@
               "libs/shared/loans/search/tsconfig.lib.json",
               "libs/shared/loans/search/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/loans/search/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/loans/search/**"
+            ]
           }
         },
         "test": {
@@ -1042,7 +1117,10 @@
               "libs/shared/loans/ui/tsconfig.lib.json",
               "libs/shared/loans/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/loans/ui/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/loans/ui/**"
+            ]
           }
         },
         "test": {
@@ -1108,7 +1186,9 @@
               "apps/tasks-app/src/favicon.ico",
               "apps/tasks-app/src/assets"
             ],
-            "styles": ["apps/tasks-app/src/styles.scss"],
+            "styles": [
+              "apps/tasks-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -1166,7 +1246,10 @@
               "apps/tasks-app/tsconfig.app.json",
               "apps/tasks-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/tasks-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tasks-app/**"
+            ]
           }
         },
         "test": {
@@ -1201,8 +1284,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/tasks-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/tasks-app-e2e/**"]
+            "tsConfig": [
+              "apps/tasks-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tasks-app-e2e/**"
+            ]
           }
         }
       }
@@ -1231,7 +1319,9 @@
               "apps/tasks-admin-app/src/favicon.ico",
               "apps/tasks-admin-app/src/assets"
             ],
-            "styles": ["apps/tasks-admin-app/src/styles.scss"],
+            "styles": [
+              "apps/tasks-admin-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -1289,7 +1379,10 @@
               "apps/tasks-admin-app/tsconfig.app.json",
               "apps/tasks-admin-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/tasks-admin-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tasks-admin-app/**"
+            ]
           }
         },
         "test": {
@@ -1324,8 +1417,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/tasks-admin-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/tasks-admin-app-e2e/**"]
+            "tsConfig": [
+              "apps/tasks-admin-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tasks-admin-app-e2e/**"
+            ]
           }
         }
       }
@@ -1354,7 +1452,9 @@
               "apps/cars-app/src/favicon.ico",
               "apps/cars-app/src/assets"
             ],
-            "styles": ["apps/cars-app/src/styles.scss"],
+            "styles": [
+              "apps/cars-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -1412,7 +1512,10 @@
               "apps/cars-app/tsconfig.app.json",
               "apps/cars-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/cars-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cars-app/**"
+            ]
           }
         },
         "test": {
@@ -1447,8 +1550,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/cars-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/cars-app-e2e/**"]
+            "tsConfig": [
+              "apps/cars-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cars-app-e2e/**"
+            ]
           }
         }
       }
@@ -1466,7 +1574,10 @@
               "libs/shared/services/tsconfig.lib.json",
               "libs/shared/services/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/services/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/services/**"
+            ]
           }
         },
         "test": {

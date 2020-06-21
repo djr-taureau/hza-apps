@@ -70,6 +70,7 @@
     "@angular/router": "9.1.4",
     "@azure/functions": "^1.2.2",
     "@azure/msal-angular": "^1.0.0",
+    "@azure/ng-deploy": "^0.2.3",
     "@cloudinary/angular-5.x": "^1.2.2",
     "@clr/angular": "^3.1.2",
     "@clr/core": "^3.1.2",
