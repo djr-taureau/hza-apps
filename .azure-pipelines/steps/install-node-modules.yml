@@ -25,17 +25,17 @@ steps:
     displayName: 'npm install'
     env: { NX_CLOUD_AUTH_TOKEN: Mjk4MjdiYjEtNjgwNi00YTUwLWE5NDAtYWM4MWNkOTVkNGJmfHJlYWQ= }
 
-  - task: Cache@2
-    inputs:
-      key: 'yarn | "$(Agent.OS)" | yarn.lock'
-      restoreKeys: |
-        yarn | "$(Agent.OS)"
-        yarn
-      path: $(Pipeline.Workspace)/.yarn
-      cacheHitVar: CACHE_RESTORED
-    displayName: Cache Yarn packages
-  - script: yarn --frozen-lockfile
-    condition: ne(variables.CACHE_RESTORED, 'true')
+  # - task: Cache@2
+  #   inputs:
+  #     key: 'yarn | "$(Agent.OS)" | yarn.lock'
+  #     restoreKeys: |
+  #       yarn | "$(Agent.OS)"
+  #       yarn
+  #     path: $(Pipeline.Workspace)/.yarn
+  #     cacheHitVar: CACHE_RESTORED
+  #   displayName: Cache Yarn packages
+  # - script: yarn --frozen-lockfile
+  #   condition: ne(variables.CACHE_RESTORED, 'true')
 
   # - task: Cache@2
   #   inputs:
