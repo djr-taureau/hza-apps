@@ -32,8 +32,10 @@ steps:
         yarn | "$(Agent.OS)"
         yarn
       path: $(Pipeline.Workspace)/.yarn
+      cacheHitVar: CACHE_RESTORED
     displayName: Cache Yarn packages
   - script: yarn --frozen-lockfile
+    condition: ne(variables.CACHE_RESTORED, 'true')
 
   # - task: Cache@2
   #   inputs:
