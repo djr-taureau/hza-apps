@@ -10,25 +10,30 @@ import { LoanSearchComponent } from './components/loan-search';
 import { LoansListComponent } from './components/loans-list/loans-list.component';
 import { LoanSearchFormComponent } from './components/loan-search-form/loan-search-form.component';
 
-const COMPONENTS = [ LoanSearchComponent, LoanSearchFormComponent, LoansContainer, LoansListComponent ];
+const COMPONENTS = [
+  LoanSearchComponent,
+  LoanSearchFormComponent,
+  LoansContainer,
+  LoansListComponent,
+];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		SharedUtilsModule,
-		SharedLoansUiModule,
-		SharedLoansDataAccessDataModule,
-		SharedLoansDataAccessStateModule,
-		RouterModule.forChild([
-			{
-				path: '',
-				component: LoansContainer
-			}
-		])
-	],
-	declarations: COMPONENTS,
-	entryComponents: [ LoanSearchFormComponent ],
-	exports: COMPONENTS,
-	schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  imports: [
+    CommonModule,
+    SharedUtilsModule,
+    SharedLoansUiModule,
+    SharedLoansDataAccessDataModule,
+    SharedLoansDataAccessStateModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: LoansContainer,
+      },
+    ]),
+  ],
+  declarations: COMPONENTS,
+  entryComponents: [LoanSearchFormComponent],
+  exports: COMPONENTS,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedLoansSearchModule {}
