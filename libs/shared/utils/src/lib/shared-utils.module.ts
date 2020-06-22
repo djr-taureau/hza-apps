@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NiceDatePipe } from './pipes/date';
 import { ReplacePipe, AddressPipe, PhonePipe } from './text';
-import { MaterialModule, PrimeNgModule } from './+modules';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { MaterialModule } from './+modules';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import {
   FocusDirective,
@@ -31,9 +30,7 @@ const COMPONENTS = [
 const MODULES = [
   CommonModule,
   MaterialModule,
-  PrimeNgModule,
   FontAwesomeIconModule,
-  OverlayPanelModule,
   ButtonsModule,
 ];
 @NgModule({
