@@ -4,7 +4,7 @@ trigger:
 jobs:
   - job: initial_setup
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       IS_PR: $[ eq(variables['Build.Reason'], 'PullRequest') ]
     steps:
@@ -25,7 +25,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -43,7 +43,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -61,7 +61,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -79,7 +79,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -97,7 +97,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -115,7 +115,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -133,7 +133,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -151,7 +151,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
@@ -169,7 +169,7 @@ jobs:
         ))
       )
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'windows-latest'
     variables:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
