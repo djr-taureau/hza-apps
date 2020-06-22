@@ -13,9 +13,6 @@
 #       yarn install --ignore-engines --frozen-lockfile
 #     displayName: Install dependencies only if there is no cache available
 #     condition: ne(variables['CacheRestored'], 'true')
-variables:
-  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.cache/yarn
-  
 steps:
   - task: NodeTool@0
     inputs:
@@ -34,18 +31,18 @@ steps:
       restoreKeys: |
         yarn | "$(Agent.OS)"
         yarn
-      path: $(Pipeline.Workspace)/.yarn
+      path: $(Pipeline.Workspace)/.cache/yarn
     displayName: Cache Yarn packages
   - script: yarn --frozen-lockfile
 
   - task: Cache@3
     inputs:
       key: $(Build.SourcesDirectory)/yarn.lock
-      path: $(Pipeline.Workspace)/.yarn
+      path: $(Pipeline.Workspace)/.cache/yarn
     displayName: Cache Yarn packages
       - script: yarn --frozen-lockfile
       condition: ne(variables.CACHE_RESTORED, 'true')
     displayName: 'Install dependencies'
       - script: |
-          echo $(YARN_CACHE_FOLDER)
+          echo $(Pipeline.Workspace)/.cache/yarn
 
