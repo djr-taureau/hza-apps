@@ -28,14 +28,13 @@ steps:
     env: { NX_CLOUD_AUTH_TOKEN: Mjk4MjdiYjEtNjgwNi00YTUwLWE5NDAtYWM4MWNkOTVkNGJmfHJlYWQ= }
 
   - task: Cache@2
-    variables:
-      YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
     inputs:
       key: 'yarn | "$(Agent.OS)" | yarn.lock'
       restoreKeys: |
         yarn | "$(Agent.OS)"
         yarn
-      path: $(YARN_CACHE_FOLDER)
+      path: $(Pipeline.Workspace)/.yarn
     displayName: Cache Yarn packages
 
   - script: yarn --frozen-lockfile
+
