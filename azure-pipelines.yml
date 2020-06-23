@@ -139,7 +139,7 @@ jobs:
       COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
     steps:
       - template: .azure-pipelines/steps/install-node-modules.yml
-      - script: node ./tools/scripts/run-many.js '$(COMMANDS)' build1 build`
+      - script: node ./tools/scripts/run-many.js '$(COMMANDS)' build1 build
 
   - job: build2
     dependsOn: initial_setup
@@ -176,3 +176,15 @@ jobs:
     steps:
       - template: .azure-pipelines/steps/install-node-modules.yml
       - script: node ./tools/scripts/run-many.js '$(COMMANDS)' build3 build
+      # - script: npx nx run hza:deploy
+      
+  # - job: deploy
+  #   dependsOn: build3
+  #   condition: succeeded()
+  #   pool:
+  #     vmImage: 'ubuntu-latest'
+  #   variables:
+  #     COMMANDS: $[ dependencies.initial_setup.outputs['setCommands.COMMANDS'] ]
+  #   steps:
+  #     - template: .azure-pipelines/steps/install-node-modules.yml
+  #     - script: node ./tools/scripts/run-many.js '$(COMMANDS)' build3 build
