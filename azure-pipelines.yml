@@ -177,7 +177,6 @@ jobs:
       - template: .azure-pipelines/steps/install-node-modules.yml
       - script: node ./tools/scripts/run-many.js '$(COMMANDS)' build3 build
       # - script: npx nx run hza:deploy
-      
   # - job: deploy
   #   dependsOn: build3
   #   condition: succeeded()
