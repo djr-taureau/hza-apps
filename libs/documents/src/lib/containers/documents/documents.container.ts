@@ -52,7 +52,7 @@ export class DocumentsContainer implements OnInit, OnDestroy, OnChanges {
     this.selectedDoc$ = this.docs.selectedDoc$;
     this.docTypes$ = this.docs.docTypes$;
     this.opened = false;
-    this.fetchingData = true;
+    this.fetchingData = false;
   }
   ngOnChanges() {
     this.selectedDoc$.subscribe((v) => console.log('selected doc', v));
