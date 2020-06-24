@@ -37,7 +37,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	ngOnInit() {
 		this.opened = false;
-		this.loanTest = false;
+		this.loanTest = true;
 		this.loansLoaded$ = this.loansFacade.loansLoaded$;
 		this.loanQuery$ = this.loansFacade.loanQuery$;
 		this.loanDetail$ = this.loansFacade.loanDetail$;
