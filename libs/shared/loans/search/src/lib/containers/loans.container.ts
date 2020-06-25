@@ -63,10 +63,7 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 		console.log('loan# from container', id);
 		this.loansFacade.selectLoan(id);
 		this.loansFacade.getLoanDetail(id);
-		const foo = this.loansFacade.selectedLoan$.pipe(tap((data) => data), filter((data) => !!data), take(1));
-		foo.subscribe(v => console.log('loan', v));
 		this.router.navigate(['docs/repo']);
-		// this.router.navigate(['../', { id: crisisId, foo: 'foo'}], { relativeTo: this.route });
 		this.selectedLoan$.subscribe((v) => console.log('selected loan', v));
 	}
 
@@ -84,7 +81,6 @@ export class LoansContainer implements OnInit, OnDestroy, OnChanges {
 
 	openModal() {
 		this.opened = !this.opened;
-		// this.open(this.loanSearch);
 	}
 
 	getLoan() {
