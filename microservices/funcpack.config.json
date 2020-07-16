@@ -1,3 +1,0 @@
-{
-  "ignoredModules": ["hiredis", "sqlite3", "react-native-sqlite-storage", "oracledb", "pg"]
-}

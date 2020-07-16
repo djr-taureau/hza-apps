@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
+    "ng": "nx",
     "nx": "nx",
     "start": "ng serve --aot",
     "server": "json-server ./db.json --watch",
@@ -53,9 +53,7 @@
     "db:gen": "./tools/scripts/migrations-run.sh",
     "db:gen:revert": "./tools/scripts/migrations-revert.sh",
     "db:config:orm": "node ./tools/scripts/orm-config.js",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && node ./decorate-angular-cli.js"
   },
   "private": true,
   "dependencies": {
@@ -92,7 +90,7 @@
     "@ngx-formly/core": "^5.6.0",
     "@ngx-formly/material": "^5.5.14",
     "@ngx-formly/schematics": "^5.5.14",
-    "@nrwl/angular": "9.2.4",
+    "@nrwl/angular": "9.5.1",
     "@nrwl/nx-cloud": "^9.0.7",
     "@types/ramda": "^0.27.5",
     "@webcomponents/custom-elements": "^1.4.1",
@@ -131,10 +129,10 @@
     "@angular/compiler-cli": "9.1.4",
     "@angular/language-service": "9.1.4",
     "@ngneat/spectator": "^5.8.0",
-    "@nrwl/cypress": "9.3.0",
-    "@nrwl/jest": "9.3.0",
-    "@nrwl/nest": "^9.3.0",
-    "@nrwl/workspace": "9.3.0",
+    "@nrwl/cypress": "9.5.1",
+    "@nrwl/jest": "9.5.1",
+    "@nrwl/nest": "9.5.1",
+    "@nrwl/workspace": "9.5.1",
     "@types/faker": "^4.1.12",
     "@types/jest": "25.1.4",
     "@types/mssql": "^6.0.1",
@@ -154,12 +152,12 @@
     "ts-jest": "25.2.1",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
+    "typescript": "~3.8.3",
+    "eslint-plugin-cypress": "^2.10.3"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run format && npm run affected:test && npm run affected:lint && npm run affected:build -- --uncommitted"
     }
-  },
-  "snyk": true
+  }
 }
