@@ -1626,10 +1626,10 @@
   resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-9.0.0.tgz#7a918601794c6adce3c9e7c471ecd7f923e50a33"
   integrity sha512-0NQ+ppwiLuXtRZ2t79qdudbJhGlmuX2Qh6ORF9hplQoQn8Nl3BUp/TrH8SaAwISbg/B4EOhLWFmLVkXN8HZL8w==
 
-"@ngrx/router-store@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-9.0.0.tgz#5bb5aaad74f4e40d4cce2bce15dfb8c8dc6768b3"
-  integrity sha512-eVgdRwK0twPgTgWnIpc2EBoz6LgWsGdlheDVKZ9MNU8ZkbPV8/ycivW5Oy5cm+ppi1QHHmkpgt+u5c2iGi68cg==
+"@ngrx/router-store@^9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-9.2.0.tgz#e84bb25b3480d06605d1006fd50983dd541c7c5d"
+  integrity sha512-thu6aU9YWM64oNEk4Srx/mNSeQ2SPJKlTji8MSzfr06qgCMyPSXZBYlfs8HqY+af3eB7XBEhb/4ew4JJ6xC9zw==
 
 "@ngrx/schematics@^9.0.0":
   version "9.0.0"
@@ -10869,8 +10869,6 @@ rxjs@6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.4.0.tgz#f3bb0fe7bda7fb69deac0c16f17b50b0b8790504"
   integrity sha512-Z9Yfa11F6B9Sg/BK9MnqnQ+aQYicPLtilXBp2yUtDt2JRCE0h26d33EnfO3ZxoNxG0T92OUucP3Ct7cpfkdFfw==
-  dependencies:
-    tslib "^1.9.0"
 
 rxjs@6.5.4, rxjs@^6.0.0, rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.2, rxjs@^6.5.3:
   version "6.5.4"
