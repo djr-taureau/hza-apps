@@ -53,7 +53,9 @@
     "db:gen": "./tools/scripts/migrations-run.sh",
     "db:gen:revert": "./tools/scripts/migrations-revert.sh",
     "db:config:orm": "node ./tools/scripts/orm-config.js",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && node ./decorate-angular-cli.js"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && node ./decorate-angular-cli.js",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "private": true,
   "dependencies": {
@@ -121,7 +123,8 @@
     "typeorm": "^0.2.25",
     "uuid": "^8.1.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.901.4",
@@ -159,5 +162,6 @@
     "hooks": {
       "pre-commit": "npm run format && npm run affected:test && npm run affected:lint && npm run affected:build -- --uncommitted"
     }
-  }
+  },
+  "snyk": true
 }
