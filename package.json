@@ -91,7 +91,7 @@
     "@ngx-formly/material": "^5.5.14",
     "@ngx-formly/schematics": "^5.5.14",
     "@nrwl/angular": "9.5.1",
-    "@nrwl/nx-cloud": "^9.0.7",
+    "@nrwl/nx-cloud": "^11.0.0",
     "@types/ramda": "^0.27.5",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/shadycss": "^1.9.6",
